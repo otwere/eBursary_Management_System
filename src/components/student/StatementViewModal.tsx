@@ -34,7 +34,7 @@ const StatementViewModal: React.FC<StatementViewModalProps> = ({
         <div className="p-6 border rounded-lg bg-white space-y-6">
           <div className="flex justify-between items-start">
             <div>
-              <h3 className="text-lg font-bold text-gray-900">eBursary Nexus</h3>
+              <h3 className="text-lg font-bold text-gray-900">eBursary  Portal</h3>
               <p className="text-sm text-gray-500">Financial Statement Record</p>
             </div>
             <div className="text-right">

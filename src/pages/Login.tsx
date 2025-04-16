@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
@@ -19,7 +18,7 @@ const Login = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    
+
     // Simple validation
     if (!email || !password) {
       toast({
@@ -33,7 +32,7 @@ const Login = () => {
 
     try {
       const success = await login(email, password);
-      
+
       if (success) {
         toast({
           title: "Success!",
@@ -68,8 +67,8 @@ const Login = () => {
   };
 
   return (
-    <AuthLayout 
-      title="Sign in to your account" 
+    <AuthLayout
+      title="Sign in to your account"
       subtitle="Enter your credentials below to access your eBursary account."
       type="login"
     >
@@ -91,24 +90,29 @@ const Login = () => {
         </div>
 
         <div>
-          <div className="flex items-center justify-between">
-            <Label htmlFor="password">Password</Label>
-            <div className="text-sm">
-              <a href="#" className="font-semibold text-primary-600 hover:text-primary-500">
-                Forgot password?
-              </a>
+          <div className="space-y-2">
+            <div className="flex justify-between items-center">
+              <Label htmlFor="password">Password</Label>
+              <Button
+                variant="link"
+                className="p-0 text-xs"
+                type="button"
+                onClick={() => navigate("/forgot-password")}
+              >
+                Forgot your password?
+              </Button>
             </div>
-          </div>
-          <div className="mt-2">
-            <Input
-              id="password"
-              name="password"
-              type="password"
-              autoComplete="current-password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className="mt-2">
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                autoComplete="current-password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
           </div>
         </div>
 
@@ -135,18 +139,18 @@ const Login = () => {
             <p>Email : aro@ebursary.co.ke</p>
           </div>
           <div className="p-2 border rounded-md">
-            <p className="font-medium">Funds Approval & Allocation Officer (FAO):</p>
+            <p className="font-medium">Financial Approval & Allocation Officer (FAO):</p>
             <p>Email : fao@ebursary.co.ke</p>
           </div>
           <div className="p-2 border rounded-md">
-            <p className="font-medium">Funds Disbursement Officer (FAO):</p>
+            <p className="font-medium">Financial Disbursement Officer (FAO):</p>
             <p>Email : fdo@ebursary.co.ke</p>
           </div>
           <div className="p-2 border rounded-md">
             <p className="font-medium">Super Admin:</p>
             <p>Email : admin@ebursary.co.ke</p>
           </div>
-          
+
           <p className="text-xs text-gray-500">All demo accounts use "Password" as password</p>
         </div>
       </form>

@@ -158,7 +158,7 @@ const StudentProfile = () => {
             <ArrowLeft className="h-4 w-4" />
             Back
           </Button>
-          <h1 className="text-3xl font-bold">Student Profile</h1>
+          <h1 className="text-2xl font-bold">Student Profile</h1>
         </div>
       </div>
       

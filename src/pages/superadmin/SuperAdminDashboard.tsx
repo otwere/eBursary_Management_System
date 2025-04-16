@@ -41,7 +41,7 @@ const SuperAdminDashboard: React.FC = () => {
         <div className="p-6 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white">
           <h2 className="text-2xl font-bold mb-2">Welcome, Super Admin</h2>
           <p>
-            You have full access to manage the eBursary Nexus platform. Below is an overview of the system.
+            You have full access to manage the eBursary  Portal platform. Below is an overview of the system.
           </p>
         </div>
         

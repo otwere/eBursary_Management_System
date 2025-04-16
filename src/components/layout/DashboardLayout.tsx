@@ -85,7 +85,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
         >
           <div className="p-4 flex justify-between items-center border-b">
             <div className="font-bold text-xl text-primary-500">
-              eBursary Nexus
+              eBursary  Portal
             </div>
             <Button 
               variant="ghost" 
@@ -144,7 +144,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
         <div className="fixed inset-y-0 left-0 w-64 bg-white border-r shadow-sm">
           <div className="p-4 border-b">
             <div className="font-bold text-xl text-primary-500">
-              eBursary Nexus
+              eBursary  Portal
             </div>
           </div>
 

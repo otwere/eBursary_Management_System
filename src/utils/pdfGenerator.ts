@@ -25,7 +25,7 @@ export const generateStatementPDF = async (
   
   // Create a text representation of the statement for demonstration
   const pdfText = `
-    eBursary Nexus - Financial Statement
+    eBursary  Portal - Financial Statement
 
     Reference: ${statement.reference}
     Date: ${formatDate(new Date(statement.date))}

@@ -1,16 +1,27 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
 interface OTPVerificationProps {
   email: string;
+  phoneNumber?: string; // Make phoneNumber optional
   onVerify: () => void;
   onBack: () => void;
 }
 
+const maskEmail = (email: string): string => {
+  const [localPart, domain] = email.split("@");
+  const maskedLocalPart = localPart.slice(0, 2) + "*".repeat(localPart.length - 2);
+  return `${maskedLocalPart}@${domain}`;
+};
+
+const maskPhoneNumber = (phoneNumber: string): string => {
+  return phoneNumber.slice(0, 2) + "*".repeat(phoneNumber.length - 4) + phoneNumber.slice(-2);
+};
+
 const OTPVerification: React.FC<OTPVerificationProps> = ({
   email,
+  phoneNumber,
   onVerify,
   onBack,
 }) => {
@@ -113,9 +124,10 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({
   return (
     <div className="space-y-6">
       <div className="text-center space-y-2">
-        <h2 className="text-2xl font-bold">Guardian Verification</h2>
+        <h2 className="text-2xl font-bold">OTP Verification</h2>
         <p className="text-gray-500">
-          We've sent a 6-digit code to {email}
+          We've sent a 6-digit code to {maskEmail(email)}
+          {phoneNumber && ` and ${maskPhoneNumber(phoneNumber)}`}. Please enter it below to verify your account.
         </p>
       </div>
 
