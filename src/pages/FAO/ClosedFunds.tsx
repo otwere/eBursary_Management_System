@@ -40,7 +40,7 @@ const ClosedFunds = () => {
       remainingAmount: 250000,
       financialPeriod: "2024-Q1",
       closedAt: "2024-04-01T10:30:00.000Z",
-      closedBy: "Jane Smith",
+      closedBy: "Kevin mwangi",
       closureReason: "End of financial period, remaining funds to be carried forward."
     },
     {
@@ -57,7 +57,7 @@ const ClosedFunds = () => {
       remainingAmount: 200000,
       financialPeriod: "2023",
       closedAt: "2023-12-20T15:45:00.000Z",
-      closedBy: "Jane Smith",
+      closedBy: "Kevin mwangi",
       closureReason: "End of academic year, all approved applications processed."
     },
     {
@@ -74,7 +74,7 @@ const ClosedFunds = () => {
       remainingAmount: 50000,
       financialPeriod: "2023-Q2",
       closedAt: "2023-07-10T09:20:00.000Z",
-      closedBy: "Jane Smith",
+      closedBy: "Kevin mwangi",
       closureReason: "Fund objectives met, remaining amount to be returned to treasury."
     },
     {

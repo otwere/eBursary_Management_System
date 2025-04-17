@@ -28,7 +28,7 @@ export const STATUS_LABELS: Record<string, string> = {
 export const mockUsers: User[] = [
   {
     id: "user1",
-    name: "John Doe",
+    name: "Pauline Mercy",
     email: "student@example.com",
     role: "student",
     institutionType: "University",
@@ -148,7 +148,7 @@ export const mockApplications: Application[] = [
     createdAt: "2023-06-05T09:15:00.000Z",
     reviewDate: "2023-06-15T09:15:00.000Z",
     approvalDate: "2023-06-20T09:15:00.000Z",
-    reviewedBy: "Jane Smith",
+    reviewedBy: "Kevin mwangi",
     approvedAmount: 30000,
     allocationAmount: 30000,
     allocationDate: "2023-06-25T09:15:00.000Z",
@@ -173,7 +173,7 @@ export const mockApplications: Application[] = [
     submittedAt: "2024-01-20T14:30:00.000Z",
     createdAt: "2024-01-15T14:30:00.000Z",
     reviewDate: "2024-01-25T11:45:00.000Z",
-    reviewedBy: "Jane Smith"
+    reviewedBy: "Kevin mwangi"
   },
   {
     id: "APP1004",
@@ -192,7 +192,7 @@ export const mockApplications: Application[] = [
     submittedAt: "2023-03-05T10:00:00.000Z",
     createdAt: "2023-03-01T10:00:00.000Z",
     reviewDate: "2023-03-15T10:00:00.000Z",
-    reviewedBy: "Jane Smith"
+    reviewedBy: "Kevin mwangi"
   }
 ];
 

@@ -161,7 +161,7 @@ const FAODashboard = () => {
         {/* Overview section */}
         <div className="flex justify-between items-center">
           <div>
-            <h1 className="text-2xl font-bold">Fund Allocation Dashboard</h1>
+            <h1 className="text-xl font-bold mt-[-1rem]">Fund Allocation Dashboard</h1>
             <p className="text-gray-600 mt-1">
               Manage Funds Approves & Allocate to Approved Bursary Applications
             </p>
@@ -173,7 +173,7 @@ const FAODashboard = () => {
             </Button>
             <Button onClick={() => navigate("/FAO/fund-management")}>
               <Plus className="h-4 w-4 mr-2" />
-              Create Fund
+              Create Funds
             </Button>
           </div>
         </div>
@@ -181,7 +181,7 @@ const FAODashboard = () => {
         {/* Budget overview */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-xl">Budget Overview</CardTitle>
+            <CardTitle className="text-xl mt-[-1rem]">Budget Overview</CardTitle>
             <CardDescription>Current Financial period Funding Status</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
@@ -265,7 +265,7 @@ const FAODashboard = () => {
           <Card className="lg:col-span-2">
             <CardHeader className="flex flex-row items-center justify-between">
               <div>
-                <CardTitle>Active Funds</CardTitle>
+                <CardTitle className="text-xl mt-[-1rem]">Active Funds</CardTitle>
                 <CardDescription>Current active funding sources</CardDescription>
               </div>
               <Button 
@@ -340,8 +340,8 @@ const FAODashboard = () => {
           {/* Applications stats */}
           <Card>
             <CardHeader>
-              <CardTitle>Application Stats</CardTitle>
-              <CardDescription>Fund allocation by education level</CardDescription>
+              <CardTitle className="text-xl mt-[-1rem]">Application Stats</CardTitle>
+              <CardDescription>Fund Allocation by Education level</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               {/* University Stats */}
@@ -434,9 +434,9 @@ const FAODashboard = () => {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
             <div>
-              <CardTitle>Applications Awaiting Allocation</CardTitle>
+              <CardTitle className="text-xl mt-[-1rem]">Applications Awaiting Allocation</CardTitle>
               <CardDescription>
-                Approved applications pending fund allocation
+                Approved Applications Pending Fund Allocation
               </CardDescription>
             </div>
             <Button onClick={() => navigate("/FAO/pending-allocations")}>
@@ -521,8 +521,8 @@ const FAODashboard = () => {
           {/* Top Institutions */}
           <Card>
             <CardHeader>
-              <CardTitle>Top Institutions</CardTitle>
-              <CardDescription>Institutions with most funded applications</CardDescription>
+              <CardTitle className="text-xl mt[-1rem]">Top Institutions</CardTitle>
+              <CardDescription>Institutions with most Funded Applications</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -545,8 +545,8 @@ const FAODashboard = () => {
           {/* Allocation Distribution */}
           <Card>
             <CardHeader>
-              <CardTitle>Allocation Distribution</CardTitle>
-              <CardDescription>Fund allocation by category</CardDescription>
+              <CardTitle className="text-xl mt-[-1rem]">Allocation Distribution</CardTitle>
+              <CardDescription>Fund Allocation by category</CardDescription>
             </CardHeader>
             <CardContent className="flex items-center justify-center h-60">
               <div className="text-center space-y-2">

@@ -30,7 +30,7 @@ const mockDisbursements: Disbursement[] = [
     notes: "Disbursement completed successfully",
     bankName: "Equity Bank",
     accountNumber: "****5678",
-    accountName: "John Doe"
+    accountName: "Pauline Mercy"
   },
   {
     id: "disb-2",
@@ -62,7 +62,7 @@ const mockDisbursements: Disbursement[] = [
     transactionDate: "2024-03-18T09:00:00.000Z",
     notes: "Waiting for M-Pesa confirmation",
     mpesaNumber: "2547********",
-    mpesaName: "Jane Smith"
+    mpesaName: "Kevin mwangi"
   },
   {
     id: "disb-4",
@@ -187,9 +187,9 @@ const DisbursementTracking = () => {
       <div className="space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-2xl font-bold">Disbursement Tracking</h1>
-          <p className="text-gray-500 mt-1">
-            Track and manage fund disbursements to institutions
+          <h1 className="text-xl font-bold mt-[-1rem]">Disbursement Tracking</h1>
+          <p className="text-gray-500 mt-0">
+            Track and Manage Fund Disbursements to Institutions
           </p>
         </div>
 
@@ -269,9 +269,9 @@ const DisbursementTracking = () => {
           <CardHeader>
             <div className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
               <div>
-                <CardTitle>Disbursements</CardTitle>
+                <CardTitle className="text-xl mt-[-0.5rem]">Disbursements</CardTitle>
                 <CardDescription>
-                  View and manage fund disbursements
+                  View and Manage Fund Disbursements
                 </CardDescription>
               </div>
               

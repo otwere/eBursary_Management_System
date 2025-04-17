@@ -251,7 +251,7 @@ const StudentProfile = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
                             <h4 className="text-sm font-medium">Full Name</h4>
-                            <p className="text-sm">Jane Doe</p>
+                            <p className="text-sm">My Name</p>
                           </div>
                           <div>
                             <h4 className="text-sm font-medium">Relationship</h4>

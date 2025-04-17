@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -17,7 +16,7 @@ const mockTransactions: TransactionRecord[] = [
     disbursementId: "disb-1",
     applicationId: "APP1001",
     studentId: "STD12345",
-    studentName: "John Doe",
+    studentName: "Pauline Mercy",
     institutionId: "INST001",
     institutionName: "University of Nairobi",
     amount: 45000,
@@ -30,7 +29,7 @@ const mockTransactions: TransactionRecord[] = [
     details: {
       bankName: "Equity Bank",
       accountNumber: "****5678",
-      accountName: "John Doe"
+      accountName: "Pauline Mercy"
     }
   },
   {
@@ -38,7 +37,7 @@ const mockTransactions: TransactionRecord[] = [
     disbursementId: "disb-2",
     applicationId: "APP1002",
     studentId: "STD12346",
-    studentName: "Jane Smith",
+    studentName: "Kevin mwangi",
     institutionId: "INST002",
     institutionName: "Kenya Technical University",
     amount: 30000,
@@ -79,7 +78,7 @@ const mockTransactions: TransactionRecord[] = [
     disbursementId: "disb-2",
     applicationId: "APP1002",
     studentId: "STD12346",
-    studentName: "Jane Smith",
+    studentName: "Kevin mwangi",
     institutionId: "INST002",
     institutionName: "Kenya Technical University",
     amount: 5000,
@@ -92,7 +91,7 @@ const mockTransactions: TransactionRecord[] = [
     details: {
       bankName: "KCB Bank",
       accountNumber: "****4321",
-      accountName: "Jane Smith",
+      accountName: "Kevin mwangi",
       notes: "Additional disbursement"
     }
   },
@@ -124,6 +123,8 @@ const TransactionHistory = () => {
   const [statusFilter, setStatusFilter] = useState("all");
   const [methodFilter, setMethodFilter] = useState("all");
   const [dateFilter, setDateFilter] = useState("all");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
 
   // Format currency
   const formatCurrency = (amount: number) => {
@@ -184,6 +185,16 @@ const TransactionHistory = () => {
     });
   };
 
+  // Get paginated transactions
+  const getPaginatedTransactions = () => {
+    const filteredTransactions = getFilteredTransactions();
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return filteredTransactions.slice(startIndex, endIndex);
+  };
+
+  const totalPages = Math.ceil(getFilteredTransactions().length / itemsPerPage);
+
   // Get status badge
   const getStatusBadge = (status: TransactionRecord['status']) => {
     switch (status) {
@@ -217,9 +228,9 @@ const TransactionHistory = () => {
       <div className="space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-2xl font-bold">Transaction History</h1>
-          <p className="text-gray-500 mt-1">
-            View and track all financial transactions
+          <h1 className="text-xl font-bold mt-[-1rem]">Transaction History</h1>
+          <p className="text-gray-500 ">
+            View and track all Financial Transactions
           </p>
         </div>
 
@@ -293,9 +304,9 @@ const TransactionHistory = () => {
           <CardHeader>
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
-                <CardTitle>Transactions</CardTitle>
+                <CardTitle className="text-xl mt-[-1rem]">Transactions</CardTitle>
                 <CardDescription>
-                  Showing {getFilteredTransactions().length} transactions
+                  Showing {getFilteredTransactions().length} Transactions
                 </CardDescription>
               </div>
               <div>
@@ -321,17 +332,17 @@ const TransactionHistory = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {getFilteredTransactions().map((transaction) => (
+                {getPaginatedTransactions().map((transaction) => (
                   <TableRow key={transaction.id}>
                     <TableCell>
                       <div className="font-medium">{formatDate(transaction.transactionDate)}</div>
-                      <div className="text-xs text-gray-500">By: {transaction.processedBy}</div>
+                      <div className="text-xs text-gray-500">By : {transaction.processedBy}</div>
                     </TableCell>
                     <TableCell>
                       <code className="px-1 py-0.5 bg-gray-100 rounded text-xs font-mono">
                         {transaction.reference}
                       </code>
-                      <div className="text-xs text-gray-500 mt-1">ID: {transaction.id}</div>
+                      <div className="text-xs text-gray-500 mt-1">ID : {transaction.id}</div>
                     </TableCell>
                     <TableCell>
                       <div className="font-medium">{transaction.studentName}</div>
@@ -376,7 +387,7 @@ const TransactionHistory = () => {
                   </TableRow>
                 ))}
                 
-                {getFilteredTransactions().length === 0 && (
+                {getPaginatedTransactions().length === 0 && (
                   <TableRow>
                     <TableCell colSpan={8} className="text-center py-8">
                       <div className="flex flex-col items-center justify-center text-gray-500">
@@ -389,6 +400,28 @@ const TransactionHistory = () => {
                 )}
               </TableBody>
             </Table>
+            {/* Pagination Controls */}
+            <div className="flex justify-between items-center mt-4">
+              <Button
+                variant="outline"
+                size="sm"
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              >
+                Previous
+              </Button>
+              <span className="text-sm">
+                Page {currentPage} of {totalPages}
+              </span>
+              <Button
+                variant="outline"
+                size="sm"
+                disabled={currentPage === totalPages}
+                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              >
+                Next
+              </Button>
+            </div>
           </CardContent>
         </Card>
       </div>

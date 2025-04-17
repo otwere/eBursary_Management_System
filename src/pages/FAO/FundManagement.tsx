@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
@@ -256,9 +256,9 @@ const FundManagement = () => {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold">Fund Management</h1>
+            <h1 className="text-xl font-bold mt-[-1rem]">Funds Management</h1>
             <p className="text-gray-500 mt-1">
-              Create, manage, and allocate funds for bursaries and scholarships
+              Create, Manage, Approve & Allocate Funds for Bursaries and Scholarships
             </p>
           </div>
           <Button onClick={() => setIsCreateFundOpen(true)}>
@@ -270,9 +270,9 @@ const FundManagement = () => {
         {/* Fund Overview */}
         <Card>
           <CardHeader>
-            <CardTitle>Fund Overview</CardTitle>
+            <CardTitle className="text-xl mt-[-1rem]">Fund Overview</CardTitle>
             <CardDescription>
-              Summary of all available fund allocations
+              Summary of all available Fund Allocations
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -617,24 +617,24 @@ const FundManagement = () => {
 
       {/* Allocate Fund Dialog */}
       <Dialog open={isAllocateOpen} onOpenChange={setIsAllocateOpen}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-2xl">
           <DialogHeader>
             <DialogTitle>Create Fund Categories</DialogTitle>
             <DialogDescription>
-              Divide the fund into bursary and scholarship categories.
+              Divide the Funds into Bursary and Scholarship Categories.
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4 py-4">
             <div className="bg-gray-50 p-4 rounded-md mb-4">
               <p className="text-sm font-medium">Fund Details</p>
-              <p className="text-lg font-bold mt-1">{selectedFund?.name}</p>
+              <p className="text-lg font-bold mt-0">{selectedFund?.name}</p>
               <div className="flex justify-between mt-2">
                 <div>
                   <p className="text-sm text-gray-500">Total Amount</p>
                   <p className="font-medium">{selectedFund ? formatCurrency(selectedFund.amount) : "-"}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Remaining</p>
+                  <p className="text-sm text-gray-500">Remaining (Available Balance)</p>
                   <p className="font-medium">{selectedFund ? formatCurrency(selectedFund.remainingAmount) : "-"}</p>
                 </div>
               </div>
