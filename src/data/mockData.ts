@@ -71,7 +71,7 @@ export const mockUsers: User[] = [
   },
   {
     id: "user4",
-    name: "Sarah Williams",
+    name: "Otwere Evans",
     email: "fdo@example.com",
     role: "FDO",
     createdAt: "2023-01-01T00:00:00.000Z",
@@ -154,7 +154,7 @@ export const mockApplications: Application[] = [
     allocationDate: "2023-06-25T09:15:00.000Z",
     allocatedBy: "Michael Johnson",
     disbursementDate: "2023-06-30T09:15:00.000Z",
-    disbursedBy: "Sarah Williams"
+    disbursedBy: "Otwere Evans"
   },
   {
     id: "APP1003",

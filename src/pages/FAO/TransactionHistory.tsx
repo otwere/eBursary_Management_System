@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -25,7 +25,7 @@ const mockTransactions: TransactionRecord[] = [
     status: "successful",
     reference: "TRF-28395728",
     transactionType: "disbursement",
-    processedBy: "Sarah Williams",
+    processedBy: "Otwere Evans",
     details: {
       bankName: "Equity Bank",
       accountNumber: "****5678",
@@ -46,7 +46,7 @@ const mockTransactions: TransactionRecord[] = [
     status: "successful",
     reference: "CHQ-12453",
     transactionType: "disbursement",
-    processedBy: "Sarah Williams",
+    processedBy: "Otwere Evans",
     details: {
       chequeNumber: "000345",
       receiptNumber: "REC-7893"
@@ -66,7 +66,7 @@ const mockTransactions: TransactionRecord[] = [
     status: "failed",
     reference: "MP-39284757",
     transactionType: "disbursement",
-    processedBy: "Sarah Williams",
+    processedBy: "Otwere Evans",
     details: {
       mpesaNumber: "2547********",
       mpesaName: "Mike Brown",
@@ -87,7 +87,7 @@ const mockTransactions: TransactionRecord[] = [
     status: "successful",
     reference: "TRF-28395730",
     transactionType: "disbursement",
-    processedBy: "Sarah Williams",
+    processedBy: "Otwere Evans",
     details: {
       bankName: "KCB Bank",
       accountNumber: "****4321",
@@ -109,14 +109,224 @@ const mockTransactions: TransactionRecord[] = [
     status: "successful",
     reference: "MP-39284758",
     transactionType: "disbursement",
-    processedBy: "Sarah Williams",
+    processedBy: "Otwere Evans",
     details: {
       mpesaNumber: "2547********",
       mpesaName: "Samuel Johnson",
       confirmationCode: "QWERTY123"
     }
-  }
-];
+  },  
+    {
+      id: "trans-6",
+      disbursementId: "disb-4",
+      applicationId: "APP1006",
+      studentId: "STD12350",
+      studentName: "Linda Achieng",
+      institutionId: "INST004",
+      institutionName: "Egerton University",
+      amount: 40000,
+      method: "Mpesa",
+      transactionDate: "2024-03-22T13:15:00.000Z",
+      status: "successful",
+      reference: "MP-38475920",
+      transactionType: "disbursement",
+      processedBy: "Otwere Evans",
+      details: {
+        mpesaNumber: "2547********",
+        mpesaName: "Linda Achieng",
+        confirmationCode: "LMNOP789"
+      }
+    },
+    {
+      id: "trans-7",
+      disbursementId: "disb-5",
+      applicationId: "APP1007",
+      studentId: "STD12351",
+      studentName: "Brian Otieno",
+      institutionId: "INST005",
+      institutionName: "Kenyatta University",
+      amount: 32000,
+      method: "BankTransfer",
+      transactionDate: "2024-03-23T10:45:00.000Z",
+      status: "successful",
+      reference: "TRF-92837465",
+      transactionType: "disbursement",
+      processedBy: "Otwere Evans",
+      details: {
+        bankName: "Absa Bank",
+        accountNumber: "****7890",
+        accountName: "Brian Otieno"
+      }
+    },
+    {
+      id: "trans-8",
+      disbursementId: "disb-6",
+      applicationId: "APP1008",
+      studentId: "STD12352",
+      studentName: "Faith Wanjiku",
+      institutionId: "INST006",
+      institutionName: "Mount Kenya University",
+      amount: 28000,
+      method: "Cheque",
+      transactionDate: "2024-03-24T09:05:00.000Z",
+      status: "successful",
+      reference: "CHQ-56789",
+      transactionType: "disbursement",
+      processedBy: "Otwere Evans",
+      details: {
+        chequeNumber: "000456",
+        receiptNumber: "REC-8910"
+      }
+    },
+    {
+      id: "trans-9",
+      disbursementId: "disb-7",
+      applicationId: "APP1009",
+      studentId: "STD12353",
+      studentName: "George Kimani",
+      institutionId: "INST007",
+      institutionName: "Maseno University",
+      amount: 27000,
+      method: "Mpesa",
+      transactionDate: "2024-03-25T11:00:00.000Z",
+      status: "failed",
+      reference: "MP-92837467",
+      transactionType: "disbursement",
+      processedBy: "Otwere Evans",
+      details: {
+        mpesaNumber: "2547********",
+        mpesaName: "George Kimani",
+        failureReason: "Insufficient funds"
+      }
+    },
+    {
+      id: "trans-10",
+      disbursementId: "disb-8",
+      applicationId: "APP1010",
+      studentId: "STD12354",
+      studentName: "Caroline Nduta",
+      institutionId: "INST008",
+      institutionName: "Jomo Kenyatta University",
+      amount: 50000,
+      method: "BankTransfer",
+      transactionDate: "2024-03-26T10:15:00.000Z",
+      status: "successful",
+      reference: "TRF-27384930",
+      transactionType: "disbursement",
+      processedBy: "Otwere Evans",
+      details: {
+        bankName: "Cooperative Bank",
+        accountNumber: "****3456",
+        accountName: "Caroline Nduta"
+      }
+    },
+    {
+      id: "trans-11",
+      disbursementId: "disb-9",
+      applicationId: "APP1011",
+      studentId: "STD12355",
+      studentName: "Daniel Kiprono",
+      institutionId: "INST009",
+      institutionName: "Technical University of Mombasa",
+      amount: 31000,
+      method: "Mpesa",
+      transactionDate: "2024-03-27T08:55:00.000Z",
+      status: "successful",
+      reference: "MP-19283746",
+      transactionType: "disbursement",
+      processedBy: "Otwere Evans",
+      details: {
+        mpesaNumber: "2547********",
+        mpesaName: "Daniel Kiprono",
+        confirmationCode: "ABC12345"
+      }
+    },
+    {
+      id: "trans-12",
+      disbursementId: "disb-10",
+      applicationId: "APP1012",
+      studentId: "STD12356",
+      studentName: "Irene Wambui",
+      institutionId: "INST010",
+      institutionName: "Strathmore University",
+      amount: 60000,
+      method: "Cheque",
+      transactionDate: "2024-03-28T13:45:00.000Z",
+      status: "successful",
+      reference: "CHQ-90876",
+      transactionType: "disbursement",
+      processedBy: "Otwere Evans",
+      details: {
+        chequeNumber: "000789",
+        receiptNumber: "REC-2345"
+      }
+    },
+    {
+      id: "trans-13",
+      disbursementId: "disb-11",
+      applicationId: "APP1013",
+      studentId: "STD12357",
+      studentName: "Martin Njoroge",
+      institutionId: "INST011",
+      institutionName: "Daystar University",
+      amount: 22000,
+      method: "Mpesa",
+      transactionDate: "2024-03-29T12:30:00.000Z",
+      status: "failed",
+      reference: "MP-37281920",
+      transactionType: "disbursement",
+      processedBy: "Otwere Evans",
+      details: {
+        mpesaNumber: "2547********",
+        mpesaName: "Martin Njoroge",
+        failureReason: "Network error"
+      }
+    },
+    {
+      id: "trans-14",
+      disbursementId: "disb-12",
+      applicationId: "APP1014",
+      studentId: "STD12358",
+      studentName: "Nancy Chebet",
+      institutionId: "INST012",
+      institutionName: "Masinde Muliro University",
+      amount: 37000,
+      method: "BankTransfer",
+      transactionDate: "2024-03-30T14:20:00.000Z",
+      status: "successful",
+      reference: "TRF-38475912",
+      transactionType: "disbursement",
+      processedBy: "Otwere Evans",
+      details: {
+        bankName: "Family Bank",
+        accountNumber: "****8910",
+        accountName: "Nancy Chebet"
+      }
+    },
+    {
+      id: "trans-15",
+      disbursementId: "disb-13",
+      applicationId: "APP1015",
+      studentId: "STD12359",
+      studentName: "Victor Kiplagat",
+      institutionId: "INST013",
+      institutionName: "Africa Nazarene University",
+      amount: 45000,
+      method: "Cheque",
+      transactionDate: "2024-04-01T10:00:00.000Z",
+      status: "successful",
+      reference: "CHQ-45678",
+      transactionType: "disbursement",
+      processedBy: "Otwere Evans",
+      details: {
+        chequeNumber: "000321",
+        receiptNumber: "REC-5678"
+      }
+    },
+    
+  ];
+  
+
 
 const TransactionHistory = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -306,7 +516,7 @@ const TransactionHistory = () => {
               <div>
                 <CardTitle className="text-xl mt-[-1rem]">Transactions</CardTitle>
                 <CardDescription>
-                  Showing {getFilteredTransactions().length} Transactions
+                  Total {getFilteredTransactions().length} Transactions
                 </CardDescription>
               </div>
               <div>

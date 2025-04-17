@@ -49,7 +49,7 @@ const FAODashboard = () => {
       amount: 3000000,
       academicYear: "2024",
       createdAt: "2024-01-10T10:30:00.000Z",
-      createdBy: "Sarah Williams",
+      createdBy: "Otwere Evans",
       status: "active",
       allocatedAmount: 1500000,
       disbursedAmount: 1000000,
