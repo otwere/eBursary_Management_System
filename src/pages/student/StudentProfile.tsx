@@ -1,68 +1,32 @@
-import React, { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
-  Award, 
   BookOpen, 
-  Calendar, 
   Edit, 
-  ExternalLink, 
   FileText, 
-  GraduationCap, 
-  Lock, 
   Mail, 
   MapPin, 
   Phone, 
   School, 
-  Shield, 
-  User,
   Download,
-  Image,
-  File,
-  FileDigit,
-  Table as TableIcon,
   Eye,
-  Share2,
-  Printer,
   Plus,
-  Trash2,
   Upload,
-  MoreHorizontal,
-  Search,
-  AlertCircle,
-  AlertTriangle,
-  CheckCircle2,
-  Clock,
-  X,
   ArrowLeft
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/components/ui/use-toast";
 import OrphanStatusCard from "@/components/student/OrphanStatusCard";
-import { formatDate } from "@/utils/format";
-import { AcademicRecord, GuardianType } from "@/types/auth";
-import { Progress } from "@/components/ui/progress";
+import { AcademicRecord } from "@/types/auth";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useNavigate } from "react-router-dom";
-import { ProfileEditForm } from "@/components/student/ProfileEditForm";
 import { AcademicRecordForm } from "@/components/student/AcademicRecordForm";
 import { DocumentUploadForm } from "@/components/student/DocumentUploadForm";
-import { Input } from "@/components/ui/input";
-import { z } from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel
-} from "@/components/ui/form";
 import AcademicRecordsCard from "@/components/student/AcademicRecordsCard";
 
 const StudentProfile = () => {
@@ -75,6 +39,7 @@ const StudentProfile = () => {
   const user = authState.user || { 
     name: "", 
     email: "", 
+    phoneNumber: "",
     studentId: "",
     institutionName: "",
     orphanStatus: {
@@ -192,7 +157,7 @@ const StudentProfile = () => {
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-4 w-4 mr-2 text-muted-foreground" />
-                  <span className="text-sm">+254 123 456 789</span>
+                  <span className="text-sm">{user.phoneNumber || "+254 733 443 224"}</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="h-4 w-4 mr-2 text-muted-foreground" />

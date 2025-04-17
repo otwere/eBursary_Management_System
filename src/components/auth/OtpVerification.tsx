@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
 interface OTPVerificationProps {
   email: string;
-  phoneNumber?: string; // Make phoneNumber optional
+  phoneNumber?: string; // Optional phone number
   onVerify: () => void;
   onBack: () => void;
 }
@@ -33,13 +33,11 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
-    
     if (isCountdownActive && countdown > 0) {
       timer = setTimeout(() => setCountdown(countdown - 1), 1000);
     } else if (countdown === 0) {
       setIsCountdownActive(false);
     }
-    
     return () => {
       if (timer) clearTimeout(timer);
     };
@@ -47,22 +45,16 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
     const value = e.target.value;
-    
     if (isNaN(Number(value))) return;
-    
     const newOtp = [...otp];
-    // Only take the last character if user inputs multiple
     newOtp[index] = value.substring(value.length - 1);
     setOtp(newOtp);
-    
-    // Move to next input if current field is filled
     if (value && index < 5) {
       inputRefs.current[index + 1]?.focus();
     }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
-    // Move to previous input on backspace if current field is empty
     if (e.key === "Backspace" && !otp[index] && index > 0) {
       inputRefs.current[index - 1]?.focus();
     }
@@ -71,48 +63,55 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({
   const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
     e.preventDefault();
     const pastedData = e.clipboardData.getData("text/plain").trim();
-    
-    // Check if pasted content is a number and has expected length
     if (/^\d+$/.test(pastedData) && pastedData.length <= 6) {
       const digits = pastedData.split("").slice(0, 6);
       const newOtp = [...otp];
-      
       digits.forEach((digit, index) => {
         newOtp[index] = digit;
         if (inputRefs.current[index]) {
           inputRefs.current[index]!.value = digit;
         }
       });
-      
       setOtp(newOtp);
-      
-      // Focus the next empty input or the last one
       const nextEmptyIndex = digits.length < 6 ? digits.length : 5;
       inputRefs.current[nextEmptyIndex]?.focus();
     }
   };
 
-  const handleResendOTP = () => {
+  const handleResendOTP = async () => {
     setIsResending(true);
-    
-    // Mock OTP resend
-    setTimeout(() => {
-      setIsResending(false);
+
+    try {
+      // Replace this with your actual API endpoint
+      const response = await fetch("/api/resend-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, phoneNumber }),
+      });
+
+      if (!response.ok) throw new Error("Failed to resend OTP");
+
       setCountdown(60);
       setIsCountdownActive(true);
-      toast.success("OTP has been resent to your email");
-    }, 1000);
+
+      let message = "OTP has been resent to your email";
+      if (phoneNumber) {
+        message += " and phone number";
+      }
+      toast.success(message);
+    } catch (error) {
+      toast.error("Failed to resend OTP. Please try again.");
+    } finally {
+      setIsResending(false);
+    }
   };
 
   const handleVerify = () => {
     const otpValue = otp.join("");
-    
     if (otpValue.length < 6) {
       toast.error("Please enter a complete 6-digit OTP");
       return;
     }
-    
-    // For demo purposes, let's verify with a hardcoded OTP (123456)
     if (otpValue === "123456") {
       toast.success("OTP verified successfully!");
       onVerify();
@@ -152,18 +151,10 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({
       </div>
 
       <div className="flex flex-col space-y-4">
-        <Button 
-          onClick={handleVerify}
-          className="w-full"
-        >
+        <Button onClick={handleVerify} className="w-full">
           Verify
         </Button>
-        
-        <Button 
-          variant="outline" 
-          onClick={onBack}
-          className="w-full"
-        >
+        <Button variant="outline" onClick={onBack} className="w-full">
           Back
         </Button>
       </div>

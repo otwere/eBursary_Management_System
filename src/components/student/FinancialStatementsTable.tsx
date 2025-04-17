@@ -181,7 +181,7 @@ const FinancialStatementsTable: React.FC<FinancialStatementsTableProps> = ({ sta
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 p-0 ">
       <Card>
         <CardHeader className="pb-3">
           <CardTitle>Financial Statements</CardTitle>

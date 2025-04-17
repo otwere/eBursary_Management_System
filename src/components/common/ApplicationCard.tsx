@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { StatusBadge } from "@/components/common/StatusBadge"; 
-import { Eye, ArrowRight, Clock, Calendar, School, DollarSign, FileText, MoreHorizontal, Download, X } from "lucide-react";
+import { Eye, ArrowRight, Clock, Calendar, School, FileText, MoreHorizontal, Download, X } from "lucide-react";
 import { Application } from "@/types/auth";
 import { formatDate, formatCurrency } from "@/utils/format";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -99,8 +99,7 @@ const ApplicationCard: React.FC<ApplicationCardProps> = ({
               <span className="font-medium">{formatDate(new Date(application.applicationDate))}</span>
             </div>
           </div>
-          <div className="flex items-center text-sm">
-            <DollarSign className="h-4 w-4 text-primary-600 mr-2" />
+          <div className="flex items-center text-sm">           
             <div>
               <span className="text-gray-500 block text-xs">Amount</span>
               <span className="font-semibold text-primary-700">{formatCurrency(application.requestedAmount)}</span>

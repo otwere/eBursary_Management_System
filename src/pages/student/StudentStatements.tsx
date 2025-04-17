@@ -45,7 +45,7 @@ const StudentStatements = () => {
 
   return (
     <DashboardLayout>
-      <div className="container mx-auto p-4 md:p-6">
+      <div className="container maz-w mx-auto p-4 md:p-6">
         <h1 className="text-2xl font-bold mb-6">Financial Statements</h1>
 
         <div className="mb-8">

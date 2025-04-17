@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -48,6 +48,10 @@ const formSchema = z
     role: z.enum(["student", "ARO", "FAO", "FDO", "superadmin"]),
     institutionType: z.string().optional(),
     institutionName: z.string().optional(),
+    phoneNumber: z
+      .string()
+      .min(10, { message: "Phone number must be at least 10 digits." })
+      .regex(/^\d+$/, { message: "Phone number must contain only digits." }),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match.",
@@ -83,6 +87,7 @@ const Register = () => {
       password: "",
       confirmPassword: "",
       role: "student",
+      phoneNumber: "",
     },
   });
 
@@ -164,6 +169,31 @@ const Register = () => {
                             <User className="h-4 w-4 text-gray-500" />
                           </span>
                           <Input placeholder="Enter your full name" className="rounded-l-none" {...field} />
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                {/* Phone Number */}
+                <FormField
+                  control={form.control}
+                  name="phoneNumber"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Phone Number</FormLabel>
+                      <FormControl>
+                        <div className="flex">
+                          <span className="inline-flex items-center px-3 bg-gray-100 border border-r-0 rounded-l-md">
+                            <User className="h-4 w-4 text-gray-500" />
+                          </span>
+                          <Input
+                            type="tel"
+                            placeholder="Enter your phone number"
+                            className="rounded-l-none"
+                            {...field}
+                          />
                         </div>
                       </FormControl>
                       <FormMessage />

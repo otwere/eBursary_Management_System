@@ -739,7 +739,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                     <TabsContent value="financial" className="mt-0">
                       <div className="bg-blue-50/50 p-6 rounded-lg border border-blue-100">
                         <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
-                          <DollarSign className="h-5 w-5 text-primary-500" />
+                         
                           Financial Information
                         </h3>
                         
