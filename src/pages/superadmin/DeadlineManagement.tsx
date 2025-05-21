@@ -108,7 +108,7 @@ const DeadlineManagement: React.FC = () => {
       toast.success("Deadline updated successfully");
     } else {
       const newDeadline: ApplicationDeadline = {
-        id: `DL-${new Date().getFullYear()}-${(deadlines.length + 1).toString().padStart(3, '0')}`,
+        id: `Deadline-${new Date().getFullYear()}-${(deadlines.length + 1).toString().padStart(3, '0')}`,
         institutionType: formattedData.institutionType,
         closingDate: formattedData.closingDate,
         isActive: formattedData.isActive,
@@ -354,7 +354,7 @@ const DeadlineManagement: React.FC = () => {
         </Card>
         
         <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
-          <DialogContent className="max-w-md">
+          <DialogContent className="max-w-3xl">
             <DialogHeader>
               <DialogTitle>
                 {editingDeadline ? "Edit Deadline" : "Create New Deadline"}

@@ -118,7 +118,7 @@ const FAODashboard = () => {
   
   // Format currency
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-KE', {
+    return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'KES',
       minimumFractionDigits: 0
@@ -127,7 +127,7 @@ const FAODashboard = () => {
   
   // Format date
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-KE', {
+    return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'

@@ -183,7 +183,7 @@ const AllocationManagement = () => {
 
   // Format currency
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-KE', {
+    return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'KES',
       minimumFractionDigits: 0
@@ -192,7 +192,7 @@ const AllocationManagement = () => {
 
   // Format date
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-KE', {
+    return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -620,7 +620,7 @@ const AllocationManagement = () => {
 
       {/* Create Allocation Dialog */}
       <Dialog open={isCreateAllocationOpen} onOpenChange={setIsCreateAllocationOpen}>
-        <DialogContent className="sm:max-w-3xl bg-gray-50">
+        <DialogContent className="lg:max-w-6xl sm:max-w-3xl bg-gray-50">
           <DialogHeader>
             <DialogTitle>Create Fund Allocation</DialogTitle>
             <DialogDescription>

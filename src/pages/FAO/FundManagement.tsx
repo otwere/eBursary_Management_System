@@ -235,7 +235,7 @@ const FundManagement = () => {
   };
 
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-KE', {
+    return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'KES',
       minimumFractionDigits: 0
@@ -243,7 +243,7 @@ const FundManagement = () => {
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-KE', {
+    return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -617,7 +617,7 @@ const FundManagement = () => {
 
       {/* Allocate Fund Dialog */}
       <Dialog open={isAllocateOpen} onOpenChange={setIsAllocateOpen}>
-        <DialogContent className="sm:max-w-2xl">
+        <DialogContent className="sm:max-w-5xl">
           <DialogHeader>
             <DialogTitle>Create Fund Categories</DialogTitle>
             <DialogDescription>

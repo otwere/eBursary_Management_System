@@ -1,4 +1,3 @@
-
 import React from "react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -104,7 +103,7 @@ const DisbursementTracking = () => {
 
   // Format currency
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-KE', {
+    return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'KES',
       minimumFractionDigits: 0
@@ -114,7 +113,7 @@ const DisbursementTracking = () => {
   // Format date
   const formatDate = (dateString?: string) => {
     if (!dateString) return "N/A";
-    return new Date(dateString).toLocaleDateString('en-KE', {
+    return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -184,7 +183,7 @@ const DisbursementTracking = () => {
 
   return (
     <DashboardLayout title="Disbursement Tracking">
-      <div className="space-y-6">
+      <div className="space-y-6 px-4 md:px-8 lg:px-12 py-6">
         {/* Header */}
         <div>
           <h1 className="text-xl font-bold mt-[-1rem]">Disbursement Tracking</h1>
@@ -196,7 +195,7 @@ const DisbursementTracking = () => {
         {/* Overview Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4 md:p-6 lg:p-8">
               <div className="flex justify-between items-start">
                 <div>
                   <p className="text-sm font-medium text-gray-500">Total Disbursements</p>
@@ -211,7 +210,7 @@ const DisbursementTracking = () => {
           </Card>
 
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4 md:p-6 lg:p-8">
               <div className="flex justify-between items-start">
                 <div>
                   <p className="text-sm font-medium text-gray-500">Completed</p>
@@ -228,7 +227,7 @@ const DisbursementTracking = () => {
           </Card>
 
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4 md:p-6 lg:p-8">
               <div className="flex justify-between items-start">
                 <div>
                   <p className="text-sm font-medium text-gray-500">In Progress</p>
@@ -247,7 +246,7 @@ const DisbursementTracking = () => {
           </Card>
 
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4 md:p-6 lg:p-8">
               <div className="flex justify-between items-start">
                 <div>
                   <p className="text-sm font-medium text-gray-500">Failed</p>
@@ -266,7 +265,7 @@ const DisbursementTracking = () => {
 
         {/* Disbursements Table */}
         <Card>
-          <CardHeader>
+          <CardHeader className="p-4 md:p-6 lg:p-8">
             <div className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
               <div>
                 <CardTitle className="text-xl mt-[-0.5rem]">Disbursements</CardTitle>
@@ -304,7 +303,7 @@ const DisbursementTracking = () => {
             </div>
           </CardHeader>
           
-          <CardContent>
+          <CardContent className="p-4 md:p-6 lg:p-8">
             <Tabs defaultValue="all" onValueChange={setFilter}>
               <TabsList className="mb-4">
                 <TabsTrigger value="all">All</TabsTrigger>
