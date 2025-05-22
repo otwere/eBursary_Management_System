@@ -174,12 +174,12 @@ const StudentApplications = () => {
         />
       }
     >
-      <div className="space-y-6">
+      <div className="space-y-6 -mx-[70px]">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           <div>
             <h1 className="text-2xl font-bold">My Applications</h1>
             <p className="text-muted-foreground">
-              Manage and track your bursary applications
+              Manage and track your Bursary Applications
             </p>
           </div>
           <Button 
@@ -659,14 +659,14 @@ const StudentApplications = () => {
       </div>
 
       <Dialog open={showDetailsDialog} onOpenChange={setShowDetailsDialog}>
-        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
           
           {selectedApplication && (
             <>
               <DialogHeader>
                 <DialogTitle className="text-2xl">Application Details</DialogTitle>
                 <DialogDescription>
-                  Reference: {selectedApplication.id}
+                  Reference : {selectedApplication.id}
                 </DialogDescription>
               </DialogHeader>
 
@@ -719,7 +719,7 @@ const StudentApplications = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Card>
                     <CardHeader className="pb-2">
                       <CardTitle className="text-base">Institution & Course</CardTitle>

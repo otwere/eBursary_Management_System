@@ -186,7 +186,7 @@ const FinancialReports = () => {
         
         {/* Report Controls */}
         <Card>
-          <CardContent className="p-6">
+          <CardContent className="p-4">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               <div className="space-y-2">
                 <label className="text-sm font-medium">Report Type</label>
@@ -277,7 +277,7 @@ const FinancialReports = () => {
               
               {/* Overview Tab */}
               <TabsContent value="overview" className="mt-0">
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <Card>
                     <CardHeader className="pb-2">
                       <CardTitle className="text-lg">Fund Utilization Summary</CardTitle>
@@ -375,7 +375,7 @@ const FinancialReports = () => {
               
               {/* Category Breakdown Tab */}
               <TabsContent value="category-breakdown" className="mt-0">
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                   <div className="md:col-span-1">
                     <Card>
                       <CardHeader>
@@ -493,7 +493,7 @@ const FinancialReports = () => {
                   </CardContent>
                 </Card>
                 
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 mt-6">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 mt-6">
                   <Card>
                     <CardHeader>
                       <CardTitle className="text-lg">Institution Type Distribution</CardTitle>
@@ -542,7 +542,7 @@ const FinancialReports = () => {
               
               {/* Disbursement Method Tab */}
               <TabsContent value="disbursement-method" className="mt-0">
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                   <div className="md:col-span-1">
                     <Card>
                       <CardHeader>

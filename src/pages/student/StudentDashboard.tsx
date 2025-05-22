@@ -245,14 +245,14 @@ const StudentDashboard = () => {
 
   return (
     <DashboardLayout title="Student Dashboard">
-      <div className="space-y-6">
+      <div className="space-y-4 -mx-[70px]">
         {/* Welcome Banner */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-100">
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-2 rounded-lg border border-blue-100">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
             <div>
-              <h1 className="text-2xl font-semibold text-blue-800">Welcome, {authState.user?.name}</h1>
-              <p className="text-blue-600 mt-1">
-                {authState.user?.studentId && `Student ID: ${authState.user.studentId} | `}{authState.user?.institutionName}
+              <h1 className="text-lg font-semibold text-blue-800">Welcome, {authState.user?.name}</h1>
+              <p className="text-blue-600 mt-1 text-sm">
+                {authState.user?.studentId && `Student ID : ${authState.user.studentId} | `}{authState.user?.institutionName}
               </p>
             </div>
             <div className="mt-4 md:mt-0">
@@ -269,19 +269,22 @@ const StudentDashboard = () => {
             title="Applications" 
             value={totalApplications.toString()}
             icon={<Book className="h-5 w-5" />}
-            description={`${submittedApplications} pending review`}
+            description={`${submittedApplications} Pending Review`}
+            className="h-28 bg-red-50 hover:bg-red-100"
           />
           <StatCard 
             title="Total Requested" 
             value={formatCurrency(totalRequestedAmount)}
             icon={<Book className="h-5 w-5" />}
-            description="Across all applications"
+            description="Across all Applications"
+            className="h-28 bg-blue-50 hover:bg-blue-100"
           />
           <StatCard 
             title="Total Disbursed" 
             value={formatCurrency(totalDisbursedAmount)}
             icon={<GraduationCap className="h-5 w-5" />}
-            description={`${disbursedApplications} funded applications`}
+            description={`${disbursedApplications} Funded Applications`}
+            className="h-28 bg-green-50 hover:bg-green-100"
           />
           <StatCard 
             title="Academic Status" 
@@ -289,6 +292,7 @@ const StudentDashboard = () => {
             icon={<Book className="h-5 w-5" />}
             description={authState.user?.institutionType || "University"}
             trend={{ value: 100, isPositive: true }}
+            className="h-28"
           />
         </div>
 
@@ -306,7 +310,7 @@ const StudentDashboard = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Quick Actions & Profile */}
           <div className="space-y-6 col-span-1 lg:col-span-3">
             {/* Quick Links */}
@@ -357,7 +361,7 @@ const StudentDashboard = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Student Profile */}
           <Card className="col-span-1">
             <CardHeader>
@@ -388,7 +392,7 @@ const StudentDashboard = () => {
                   </div>
                   {authState.user?.studentId && (
                     <div>
-                      <span className="text-gray-500">Student ID:</span>
+                      <span className="text-gray-500">Student ID :</span>
                       <p className="font-medium">{authState.user.studentId}</p>
                     </div>
                   )}

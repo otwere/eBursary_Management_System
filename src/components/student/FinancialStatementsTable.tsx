@@ -21,7 +21,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Download, FileText, Filter, Eye, Printer, Search } from "lucide-react";
+import { Download, FileText,  Eye, Printer, Search } from "lucide-react";
 import { formatCurrency, formatDate } from "@/utils/format";
 import { FinancialStatement } from "@/types/auth";
 import StatementViewModal from "./StatementViewModal";
@@ -129,8 +129,8 @@ const FinancialStatementsTable: React.FC<FinancialStatementsTableProps> = ({ sta
     );
 
     // Calculate start and end of pagination links
-    let startPage = Math.max(2, currentPage - Math.floor(maxPagesToShow / 2));
-    let endPage = Math.min(totalPages - 1, startPage + maxPagesToShow - 3);
+    const startPage = Math.max(2, currentPage - Math.floor(maxPagesToShow / 2));
+    const endPage = Math.min(totalPages - 1, startPage + maxPagesToShow - 3);
     
     if (startPage > 2) {
       items.push(
@@ -181,10 +181,10 @@ const FinancialStatementsTable: React.FC<FinancialStatementsTableProps> = ({ sta
   };
 
   return (
-    <div className="space-y-4 p-0 ">
+    <div className="space-y-4 p-0  ">
       <Card>
         <CardHeader className="pb-3">
-          <CardTitle>Financial Statements</CardTitle>
+          <CardTitle className="text-lg">Financial Statements</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
@@ -196,13 +196,7 @@ const FinancialStatementsTable: React.FC<FinancialStatementsTableProps> = ({ sta
                 className="pl-9"
               />
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-            </div>
-            <div className="flex items-center gap-2">
-              <Button variant="outline" size="sm">
-                <Filter className="h-4 w-4 mr-1" />
-                Filter
-              </Button>
-            </div>
+            </div>          
           </div>
           
           {filteredStatements.length > 0 ? (

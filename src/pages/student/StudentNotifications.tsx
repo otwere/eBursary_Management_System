@@ -162,7 +162,7 @@ const StudentNotifications = () => {
   
   return (
     <DashboardLayout title="Notifications">
-      <div className="space-y-2">
+      <div className="space-y-2 -mx-[70px]">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
             <h1 className="text-2xl font-semibold mb-1">Notifications</h1>

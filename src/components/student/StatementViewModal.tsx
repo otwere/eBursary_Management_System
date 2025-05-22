@@ -23,7 +23,7 @@ const StatementViewModal: React.FC<StatementViewModalProps> = ({
 }) => {
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-3xl">
+      <DialogContent className="max-w-5xl">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <FileText className="h-5 w-5" />
@@ -31,7 +31,7 @@ const StatementViewModal: React.FC<StatementViewModalProps> = ({
           </DialogTitle>
         </DialogHeader>
         
-        <div className="p-6 border rounded-lg bg-white space-y-6">
+        <div className="p-4 border rounded-lg bg-white space-y-6">
           <div className="flex justify-between items-start">
             <div>
               <h3 className="text-lg font-bold text-gray-900">eBursary  Portal</h3>

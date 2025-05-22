@@ -63,7 +63,7 @@ const DeadlineDetailsModal: React.FC<DeadlineDetailsModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-xl flex items-center gap-2">
             <School className="h-5 w-5 text-primary" />

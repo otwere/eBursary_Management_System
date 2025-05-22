@@ -354,7 +354,7 @@ const DeadlineManagement: React.FC = () => {
         </Card>
         
         <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
-          <DialogContent className="max-w-3xl">
+          <DialogContent className="max-w-5xl">
             <DialogHeader>
               <DialogTitle>
                 {editingDeadline ? "Edit Deadline" : "Create New Deadline"}

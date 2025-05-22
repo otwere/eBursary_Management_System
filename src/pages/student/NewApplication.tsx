@@ -520,7 +520,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                 <form onSubmit={form.handleSubmit((values) => onSubmit(values, "submitted"))}>
                   <Tabs value={activeStep} onValueChange={handleStepChange} className="w-full">
                     <TabsContent value="academic" className="mt-0">
-                      <div className="bg-blue-50/50 p-6 rounded-lg border border-blue-100">
+                      <div className="bg-blue-50/50 p-4 rounded-lg border border-blue-100">
                         <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
                           <GraduationCap className="h-5 w-5 text-primary-500" />
                           Academic Information
@@ -737,7 +737,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                     </TabsContent>
 
                     <TabsContent value="financial" className="mt-0">
-                      <div className="bg-blue-50/50 p-6 rounded-lg border border-blue-100">
+                      <div className="bg-blue-50/50 p-4 rounded-lg border border-blue-100">
                         <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
                          
                           Financial Information
@@ -832,13 +832,13 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                     </TabsContent>
 
                     <TabsContent value="family" className="mt-0">
-                      <div className="bg-blue-50/50 p-6 rounded-lg border border-blue-100">
+                      <div className="bg-blue-50/50 p-4 rounded-lg border border-blue-100">
                         <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
                           <Users className="h-5 w-5 text-primary-500" />
                           Family Information
                         </h3>
 
-                        <div className="grid gap-6">
+                        <div className="grid gap-4">
                           <div className="bg-white p-4 rounded-md border border-gray-200">
                             <FormField
                               control={form.control}
@@ -1283,7 +1283,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                     </TabsContent>
 
                     <TabsContent value="documents" className="mt-0">
-                      <div className="bg-blue-50/50 p-6 rounded-lg border border-blue-100">
+                      <div className="bg-blue-50/50 p-4 rounded-lg border border-blue-100">
                         <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
                           <FileText className="h-5 w-5 text-primary-500" />
                           Required Documents
@@ -1311,7 +1311,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                           <div className="bg-white p-4 rounded-md border border-gray-200">
                             <h4 className="text-sm font-medium text-gray-600 mb-4">Personal Documents</h4>
                             
-                            <div className="grid gap-6 md:grid-cols-2">
+                            <div className="grid gap-4 md:grid-cols-2">
                               <div>                                
                                 <FileUpload
                                   label="ID/Birth Certificate*"
@@ -1340,7 +1340,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                           <div className="bg-white p-4 rounded-md border border-gray-200">
                             <h4 className="text-sm font-medium text-gray-600 mb-4">Financial Documents</h4>
                             
-                            <div className="grid gap-6 md:grid-cols-2">
+                            <div className="grid gap-4 md:grid-cols-2">
                               <div>                               
                                 <FileUpload
                                   label="Fee Structure*"
@@ -1397,7 +1397,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                             <div className="bg-white p-4 rounded-md border border-gray-200">
                               <h4 className="text-sm font-medium text-gray-600 mb-4"> Partial | Total Orphan Status Documents</h4>
                               
-                              <div className="grid gap-6 md:grid-cols-2">
+                              <div className="grid gap-4 md:grid-cols-2">
                                 <div>                                 
                                   <FileUpload
                                     label="Death Certificate(s) *"
@@ -1416,7 +1416,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                             <div className="bg-white p-4 rounded-md border border-gray-200">
                               <h4 className="text-sm font-medium text-gray-600 mb-4">Guardian Documents</h4>
                               
-                              <div className="grid gap-6 md:grid-cols-2">
+                              <div className="grid gap-4 md:grid-cols-2">
                                 <div>
                                   <FormLabel className="block mb-2">Guardian Proof *</FormLabel>
                                   <FileUpload
@@ -1462,7 +1462,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                     </TabsContent>
                     
                     <TabsContent value="review" className="mt-0">
-                      <div className="bg-blue-50/50 p-6 rounded-lg border border-blue-100">
+                      <div className="bg-blue-50/50 p-4 rounded-lg border border-blue-100">
                         <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
                           <CheckCircle className="h-5 w-5 text-primary-500" />
                           Review & Submit

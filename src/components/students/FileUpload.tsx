@@ -153,7 +153,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
           <Button
             type="button"
             variant="outline"
-            className="w-full border-dashed border-2 p-6 flex flex-col items-center justify-center gap-2 hover:bg-primary-50 transition-colors"
+            className="w-full border-dashed border-2 p-4 flex flex-col items-center justify-center gap-2 hover:bg-primary-50 transition-colors"
             onClick={() => inputRef.current?.click()}
           >
             <Upload className="h-6 w-6 text-primary-400" />

@@ -38,7 +38,7 @@ const SuperAdminDashboard: React.FC = () => {
     <DashboardLayout title="Admin Dashboard">
       <div className="space-y-6">
         {/* Welcome message */}
-        <div className="p-6 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+        <div className="p-4 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white">
           <h2 className="text-2xl font-bold mb-2">Welcome, Super Admin</h2>
           <p>
             You have full access to manage the eBursary  Portal platform. Below is an overview of the system.
@@ -137,7 +137,7 @@ const SuperAdminDashboard: React.FC = () => {
         </div>
         
         {/* Application Deadlines Summary */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           <Card className="lg:col-span-2">
             <CardHeader className="pb-2">
               <div className="flex items-center justify-between">
@@ -250,25 +250,25 @@ const SuperAdminDashboard: React.FC = () => {
         
         {/* Quick access cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <Button variant="outline" className="h-auto flex-col p-6 bg-blue-50 hover:bg-blue-100 border-blue-200">
+          <Button variant="outline" className="h-auto flex-col p-4 bg-blue-50 hover:bg-blue-100 border-blue-200">
             <UserPlus className="h-8 w-8 text-blue-500 mb-2" />
             <span className="text-base font-medium">Add User</span>
             <span className="text-xs text-gray-500 mt-1">Create new user accounts</span>
           </Button>
           
-          <Button variant="outline" className="h-auto flex-col p-6 bg-green-50 hover:bg-green-100 border-green-200">
+          <Button variant="outline" className="h-auto flex-col p-4 bg-green-50 hover:bg-green-100 border-green-200">
             <School className="h-8 w-8 text-green-500 mb-2" />
             <span className="text-base font-medium">Institutions</span>
             <span className="text-xs text-gray-500 mt-1">Manage registered institutions</span>
           </Button>
           
-          <Button variant="outline" className="h-auto flex-col p-6 bg-purple-50 hover:bg-purple-100 border-purple-200">
+          <Button variant="outline" className="h-auto flex-col p-4 bg-purple-50 hover:bg-purple-100 border-purple-200">
             <Settings className="h-8 w-8 text-purple-500 mb-2" />
             <span className="text-base font-medium">System Settings</span>
             <span className="text-xs text-gray-500 mt-1">Configure platform settings</span>
           </Button>
           
-          <Button variant="outline" className="h-auto flex-col p-6 bg-amber-50 hover:bg-amber-100 border-amber-200">
+          <Button variant="outline" className="h-auto flex-col p-4 bg-amber-50 hover:bg-amber-100 border-amber-200">
             <BarChart3 className="h-8 w-8 text-amber-500 mb-2" />
             <span className="text-base font-medium">Analytics</span>
             <span className="text-xs text-gray-500 mt-1">View detailed statistics</span>

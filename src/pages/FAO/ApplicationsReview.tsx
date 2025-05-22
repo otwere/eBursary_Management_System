@@ -75,7 +75,7 @@ const ApplicationsReview = () => {
 
   return (
     <DashboardLayout>
-      <div className="p-6">
+      <div className="p-4">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6 gap-4">
           <div>
             <h1 className="text-2xl font-bold">Applications Awaiting Allocation</h1>
@@ -235,7 +235,7 @@ const ApplicationsReview = () => {
             </Button>
           </Card>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredApplications.map((application) => (
               <ApplicationCard
                 key={application.id}

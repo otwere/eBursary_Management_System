@@ -204,7 +204,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
 
       {/* Main content */}
       <div className="lg:pl-64 pt-[60px] lg:pt-16 min-h-screen">
-        <main className="p-4 md:p-6 max-w-7xl mx-auto">
+        <main className="p-4 md:p-4 max-w-7xl mx-auto">
           {children}
         </main>
       </div>

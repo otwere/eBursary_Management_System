@@ -195,7 +195,7 @@ const DisbursementTracking = () => {
         {/* Overview Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <Card>
-            <CardContent className="p-4 md:p-6 lg:p-8">
+            <CardContent className="p-4 md:p-4 lg:p-8">
               <div className="flex justify-between items-start">
                 <div>
                   <p className="text-sm font-medium text-gray-500">Total Disbursements</p>
@@ -210,7 +210,7 @@ const DisbursementTracking = () => {
           </Card>
 
           <Card>
-            <CardContent className="p-4 md:p-6 lg:p-8">
+            <CardContent className="p-4 md:p-4 lg:p-8">
               <div className="flex justify-between items-start">
                 <div>
                   <p className="text-sm font-medium text-gray-500">Completed</p>
@@ -227,7 +227,7 @@ const DisbursementTracking = () => {
           </Card>
 
           <Card>
-            <CardContent className="p-4 md:p-6 lg:p-8">
+            <CardContent className="p-4 md:p-4 lg:p-8">
               <div className="flex justify-between items-start">
                 <div>
                   <p className="text-sm font-medium text-gray-500">In Progress</p>
@@ -246,7 +246,7 @@ const DisbursementTracking = () => {
           </Card>
 
           <Card>
-            <CardContent className="p-4 md:p-6 lg:p-8">
+            <CardContent className="p-4 md:p-4 lg:p-8">
               <div className="flex justify-between items-start">
                 <div>
                   <p className="text-sm font-medium text-gray-500">Failed</p>
@@ -265,7 +265,7 @@ const DisbursementTracking = () => {
 
         {/* Disbursements Table */}
         <Card>
-          <CardHeader className="p-4 md:p-6 lg:p-8">
+          <CardHeader className="p-4 md:p-4 lg:p-8">
             <div className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
               <div>
                 <CardTitle className="text-xl mt-[-0.5rem]">Disbursements</CardTitle>
@@ -303,7 +303,7 @@ const DisbursementTracking = () => {
             </div>
           </CardHeader>
           
-          <CardContent className="p-4 md:p-6 lg:p-8">
+          <CardContent className="p-4 md:p-4 lg:p-8">
             <Tabs defaultValue="all" onValueChange={setFilter}>
               <TabsList className="mb-4">
                 <TabsTrigger value="all">All</TabsTrigger>

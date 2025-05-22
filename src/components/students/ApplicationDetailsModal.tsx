@@ -81,7 +81,7 @@ const ApplicationDetailsModal: React.FC<ApplicationDetailsModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-xl flex items-center gap-2">
             <div className="p-2 rounded-full bg-primary-50">
@@ -90,7 +90,7 @@ const ApplicationDetailsModal: React.FC<ApplicationDetailsModalProps> = ({
             Application Details
           </DialogTitle>
           <DialogDescription className="flex items-center gap-1.5">
-            <span className="text-gray-500">Reference ID:</span>
+            <span className="text-gray-500">Reference ID :</span>
             <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-700 text-xs font-mono">
               {application.id}
             </code>

@@ -60,7 +60,7 @@ const ApplicationDetail = () => {
   if (!application) {
     return (
       <DashboardLayout title="Application Not Found">
-        <div className="bg-white p-6 rounded-lg border text-center">
+        <div className="bg-white p-4 rounded-lg border text-center">
           <h2 className="text-xl font-medium mb-4">Application Not Found</h2>
           <p className="text-gray-600 mb-4">
             The application you're looking for doesn't exist or you don't have permission to view it.
@@ -76,7 +76,7 @@ const ApplicationDetail = () => {
   if (authState.user && application.studentId !== authState.user.id) {
     return (
       <DashboardLayout title="Unauthorized">
-        <div className="bg-white p-6 rounded-lg border text-center">
+        <div className="bg-white p-4 rounded-lg border text-center">
           <h2 className="text-xl font-medium mb-4">Unauthorized Access</h2>
           <p className="text-gray-600 mb-4">
             You don't have permission to view this application.
@@ -156,7 +156,7 @@ const ApplicationDetail = () => {
           Back to Applications
         </Button>
         
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-white p-6 rounded-lg border shadow-sm">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-white p-4 rounded-lg border shadow-sm">
           <div className="flex items-center">
             <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mr-4">
               <School className="h-6 w-6" />
@@ -174,7 +174,7 @@ const ApplicationDetail = () => {
         </div>
       </div>
       
-      <div className="bg-white rounded-lg border p-6 mb-6 shadow-sm">
+      <div className="bg-white rounded-lg border p-4 mb-6 shadow-sm">
         <h3 className="font-medium text-lg mb-4">Application Progress</h3>
         <StepsIndicator steps={steps} />
       </div>
@@ -208,7 +208,7 @@ const ApplicationDetail = () => {
         </Card>
       )}
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="md:col-span-2 space-y-6">
           <Card className="shadow-sm">
             <CardHeader className="bg-gray-50 border-b">

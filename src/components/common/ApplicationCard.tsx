@@ -109,7 +109,7 @@ const ApplicationCard: React.FC<ApplicationCardProps> = ({
 
         <div className="space-y-2 text-sm border-t border-gray-100 pt-3">
           <div className="flex justify-between">
-            <span className="text-gray-500">Reference:</span>
+            <span className="text-gray-500">Reference :</span>
             <span className="font-medium text-gray-700">{application.id}</span>
           </div>
           

@@ -394,7 +394,7 @@ const ApplicationsReview = () => {
           ) : (
             <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
               <div className="bg-white rounded-lg shadow-xl overflow-hidden w-full max-w-5xl max-h-[90vh]">
-                <div className="flex items-center justify-between p-6 border-b">
+                <div className="flex items-center justify-between p-4 border-b">
                   <h2 className="text-xl font-semibold flex items-center gap-2">
                     <CheckSquare className="h-5 w-5 text-blue-500" />
                     Document Verification
@@ -404,7 +404,7 @@ const ApplicationsReview = () => {
                   </Button>
                 </div>
                 
-                <div className="p-6 overflow-y-auto max-h-[calc(90vh-100px)]">
+                <div className="p-4 overflow-y-auto max-h-[calc(90vh-100px)]">
                   <div className="mb-6">
                     <h3 className="text-base font-medium mb-1">
                       Application: {selectedApplication.id}

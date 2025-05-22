@@ -228,7 +228,7 @@ const StudentApplications = () => {
     <DashboardLayout title="Student Applications">
       <div className="space-y-6">
         {/* Header section */}
-        <div className="bg-white p-6 rounded-lg border">
+        <div className="bg-white p-4 rounded-lg border">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h1 className="text-xl font-semibold mt-[-1rem]">Student Applications</h1>

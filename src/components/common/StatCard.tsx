@@ -25,7 +25,7 @@ const StatCard: React.FC<StatCardProps> = ({
 }) => {
   return (
     <Card className={cn("overflow-hidden", className)}>
-      <CardContent className="p-6">
+      <CardContent className="p-4">
         <div className="flex justify-between items-start">
           <div>
             <p className="text-sm font-medium text-gray-500">{title}</p>

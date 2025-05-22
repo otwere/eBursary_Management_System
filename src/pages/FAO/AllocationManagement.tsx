@@ -396,7 +396,7 @@ const AllocationManagement = () => {
             {/* Allocation Distribution by Education Level */}
             <div>
               <h3 className="text-lg font-medium mb-4">Allocation by Education Level</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Bursary Distribution */}
                 <Card>
                   <CardHeader className="pb-2">
@@ -620,7 +620,7 @@ const AllocationManagement = () => {
 
       {/* Create Allocation Dialog */}
       <Dialog open={isCreateAllocationOpen} onOpenChange={setIsCreateAllocationOpen}>
-        <DialogContent className="lg:max-w-6xl sm:max-w-3xl bg-gray-50">
+        <DialogContent className="lg:max-w-6xl sm:max-w-5xl bg-gray-50">
           <DialogHeader>
             <DialogTitle>Create Fund Allocation</DialogTitle>
             <DialogDescription>

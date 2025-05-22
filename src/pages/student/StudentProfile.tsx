@@ -111,7 +111,7 @@ const StudentProfile = () => {
   ];
 
   return (
-    <div className="container mx-auto py-8 px-4">
+    <div className="  py-8 px-10">
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center gap-2">
           <Button 
@@ -123,17 +123,17 @@ const StudentProfile = () => {
             <ArrowLeft className="h-4 w-4" />
             Back
           </Button>
-          <h1 className="text-2xl font-bold">Student Profile</h1>
+          <h1 className="text-xl font-bold">Student Profile</h1>
         </div>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Left column - Profile info */}
         <div className="md:col-span-1">
           <Card className="mb-6">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <div className="space-y-1">
-                <CardTitle>Personal Information</CardTitle>
+                <CardTitle className="text-xl">Personal Information</CardTitle>
                 <CardDescription>Your account details</CardDescription>
               </div>
               <Button variant="ghost" size="icon" onClick={handleEditProfile}>
@@ -147,7 +147,7 @@ const StudentProfile = () => {
                   <AvatarFallback>{user.name?.charAt(0) || "S"}</AvatarFallback>
                 </Avatar>
                 <h2 className="text-xl font-semibold">{user.name || "Student Name"}</h2>
-                <p className="text-sm text-muted-foreground">Student ID: {user.studentId || "N/A"}</p>
+                <p className="text-sm text-muted-foreground">Student ID : {user.studentId || "N/A"}</p>
               </div>
               
               <div className="space-y-3">

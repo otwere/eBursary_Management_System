@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import FinancialStatementsTable from "@/components/student/FinancialStatementsTable";
 import { Card, CardContent } from "@/components/ui/card";
@@ -45,15 +45,15 @@ const StudentStatements = () => {
 
   return (
     <DashboardLayout>
-      <div className="container maz-w mx-auto p-4 md:p-6">
-        <h1 className="text-2xl font-bold mb-6">Financial Statements</h1>
+      <div className=" -mx-[80px] p-0 md:p-0">
+        <h1 className="text-xl font-semibold mb-2">Financial Statements</h1>
 
-        <div className="mb-8">
+        <div className="mb-4">
           <Card>
-            <CardContent className="p-0">
+            <CardContent className="space-y-6 p-0 ">
               <Tabs value={activeTab} onValueChange={setActiveTab}>
-                <div className="border-b px-4">
-                  <TabsList className="h-12">
+                <div className="border-b px-2">
+                  <TabsList className="h-12 space-x-52">
                     <TabsTrigger value="all">
                       All <span className="ml-1 text-xs rounded-full bg-gray-100 px-2 py-1">{tabCounts.all}</span>
                     </TabsTrigger>
@@ -76,7 +76,7 @@ const StudentStatements = () => {
                   {filteredStatements.length > 0 ? (
                     <FinancialStatementsTable statements={filteredStatements} />
                   ) : (
-                    <div className="p-6">
+                    <div className="p-4">
                       <EmptyState 
                         icon={<FileText className="h-10 w-10" />}
                         title="No statements found"

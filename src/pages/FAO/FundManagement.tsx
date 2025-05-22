@@ -381,7 +381,7 @@ const FundManagement = () => {
               fundFloats.filter(fund => fund.status === "active").map(fund => (
                 <Card key={fund.id} className="overflow-hidden">
                   <CardContent className="p-0">
-                    <div className="p-6">
+                    <div className="p-4">
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                         <div>
                           <h3 className="text-lg font-bold">{fund.name}</h3>
@@ -418,7 +418,7 @@ const FundManagement = () => {
                         </div>
                       </div>
 
-                      <div className="mt-6 grid grid-cols-1 md:grid-cols-4 gap-6">
+                      <div className="mt-6 grid grid-cols-1 md:grid-cols-4 gap-4">
                         <div>
                           <p className="text-sm text-gray-500">Total Amount</p>
                           <p className="text-xl font-bold">{formatCurrency(fund.amount)}</p>
@@ -456,7 +456,7 @@ const FundManagement = () => {
 
                     {/* Fund Categories */}
                     {getFundCategoriesByFloatId(fund.id).length > 0 && (
-                      <div className="border-t bg-gray-50 p-6">
+                      <div className="border-t bg-gray-50 p-4">
                         <h4 className="text-sm font-medium mb-4">Fund Categories</h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           {getFundCategoriesByFloatId(fund.id).map(category => (
@@ -523,7 +523,7 @@ const FundManagement = () => {
             ) : (
               fundFloats.filter(fund => fund.status === "closed").map(fund => (
                 <Card key={fund.id}>
-                  <CardContent className="p-6">
+                  <CardContent className="p-4">
                     <h3 className="text-lg font-bold">{fund.name}</h3>
                     <p className="text-gray-500 text-sm">{fund.description}</p>
                     {/* Additional details for closed funds */}

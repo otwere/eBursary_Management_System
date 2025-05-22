@@ -34,7 +34,7 @@ const ARODashboard = () => {
     <DashboardLayout title="ARO Dashboard">
       <div className="space-y-6">
         {/* Overview section */}
-        <div className="bg-white p-6 rounded-lg border">
+        <div className="bg-white p-4 rounded-lg border">
           <h1 className="text-2xl font-semibold">Application Review Dashboard</h1>
           <p className="text-gray-600 mt-1">
             Review and manage bursary applications.

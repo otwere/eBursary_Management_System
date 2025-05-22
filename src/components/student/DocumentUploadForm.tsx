@@ -213,7 +213,7 @@ export function DocumentUploadForm({ onUpload, onCancel }: DocumentUploadFormPro
         
         <div className="space-y-2">
           <FormLabel>File Upload</FormLabel>
-          <div className="border border-dashed rounded-md p-6 bg-muted/30">
+          <div className="border border-dashed rounded-md p-4 bg-muted/30">
             <div className="flex flex-col items-center justify-center gap-2">
               <Upload className="h-8 w-8 text-muted-foreground" />
               <p className="text-sm font-medium">Drag and drop your file here or click to browse</p>

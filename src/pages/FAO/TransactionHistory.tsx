@@ -446,7 +446,7 @@ const TransactionHistory = () => {
 
         {/* Filters */}
         <Card>
-          <CardContent className="p-6">
+          <CardContent className="p-4">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div>
                 <label className="text-sm font-medium mb-2 block">Search</label>
