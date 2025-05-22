@@ -104,11 +104,11 @@ const AcademicRecordsCard: React.FC<AcademicRecordsCardProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div className="space-y-2">
             <div className="flex justify-between">
-              <span className="text-sm text-gray-500">Student ID:</span>
+              <span className="text-sm text-gray-500">Student ID :</span>
               <span className="text-sm font-medium">{studentId}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-sm text-gray-500">Institution:</span>
+              <span className="text-sm text-gray-500">Institution :</span>
               <div className="flex items-center">
                 <School className="h-3 w-3 mr-1 text-gray-500" />
                 <span className="text-sm font-medium">{institutionName}</span>

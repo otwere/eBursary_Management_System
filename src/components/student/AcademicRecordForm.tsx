@@ -113,11 +113,12 @@ export function AcademicRecordForm({ record, onSave, onCancel }: AcademicRecordF
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="1st semester">Fall</SelectItem>
-                    <SelectItem value=" semester">Fall</SelectItem>
-                    <SelectItem value="1st semester">Fall</SelectItem>
-                    <SelectItem value="1st semester">Fall</SelectItem>
-                    <SelectItem value="1st semester">Fall</SelectItem>                                      
+                    <SelectItem value="1st semester">1st semester</SelectItem>
+                    <SelectItem value="2nd semester">2nd semester</SelectItem>
+                    <SelectItem value="3rd semester">3rd semester</SelectItem>
+                    <SelectItem value="4th semester">4th semester</SelectItem>
+                    <SelectItem value="5th semester">5th semester</SelectItem>                                      
+                    <SelectItem value="6th semester">6th semester</SelectItem>                                      
                   </SelectContent>
                 </Select>
                 <FormMessage />

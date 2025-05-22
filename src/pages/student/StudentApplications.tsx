@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -175,18 +175,18 @@ const StudentApplications = () => {
       }
     >
       <div className="space-y-6 -mx-[70px]">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-indigo-50 h-20 rounded-lg px-2 border border-l-4 border-green-500">
           <div>
-            <h1 className="text-2xl font-bold">My Applications</h1>
-            <p className="text-muted-foreground">
+            <h1 className="text-lg  text-blue-800 p-0 -mt-2 font-semibold">My Applications</h1>
+            <p className="text-muted-foreground text-sm mt-1">
               Manage and track your Bursary Applications
             </p>
           </div>
           <Button 
             onClick={() => navigate("/student/applications/new")}
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto bg-blue-500"
           >
-            <FilePlus className="mr-2 h-4 w-4" />
+            <FilePlus className="mr-0 h-4 w-4" />
             New Application
           </Button>
         </div>
@@ -659,12 +659,12 @@ const StudentApplications = () => {
       </div>
 
       <Dialog open={showDetailsDialog} onOpenChange={setShowDetailsDialog}>
-        <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
           
           {selectedApplication && (
             <>
               <DialogHeader>
-                <DialogTitle className="text-2xl">Application Details</DialogTitle>
+                <DialogTitle className="text-xl">Application Details</DialogTitle>
                 <DialogDescription>
                   Reference : {selectedApplication.id}
                 </DialogDescription>

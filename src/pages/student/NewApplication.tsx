@@ -441,7 +441,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
 
     <DashboardLayout title="New Application">
   
-      <Card className="max-w-7xl mx-auto my-0 shadow-none border-primary/10 overflow-hidden">
+      <Card className=" -mx-[70px] shadow-none border-primary/10 overflow-hidden">
         <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b relative">
           <div className="absolute top-4 right-4 flex items-center space-x-2">
             <Button 
@@ -477,12 +477,12 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
             </Button>
           </div>
           
-          <CardTitle className="text-primary-600 flex items-center gap-2">
+          <CardTitle className="text-primary-600 flex items-center gap-2 text-xl">
             <School className="h-5 w-5" />
-            Bursary Application Form
+            eBursary Application Form
           </CardTitle>
-          <CardDescription className="text-gray-600">
-            Complete all required fields for your bursary application. Your progress is automatically saved.
+          <CardDescription className="text-muted-foreground">
+            Complete all required fields for your Bursary Application.
           </CardDescription>
 
           {/* Progress bar */}
@@ -813,7 +813,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                           <div className="text-sm text-yellow-800">
                             <p className="font-medium mb-1">Important Financial Guidelines</p>
                             <ul className="list-disc ml-4 space-y-1">
-                              <li>The maximum bursary amount per student is KES 70,000 per academic year</li>
+                              <li>The maximum bursary amount per student is KES 70,000 per Academic Year</li>
                               <li>All financial information provided must be verifiable through documentation</li>
                               <li>False declarations will result in immediate disqualification</li>
                             </ul>

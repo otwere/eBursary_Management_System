@@ -184,7 +184,7 @@ const FinancialStatementsTable: React.FC<FinancialStatementsTableProps> = ({ sta
     <div className="space-y-4 p-0  ">
       <Card>
         <CardHeader className="pb-3">
-          <CardTitle className="text-lg">Financial Statements</CardTitle>
+          {/* <CardTitle className="text-lg">Financial Statements</CardTitle> */}
         </CardHeader>
         <CardContent>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">

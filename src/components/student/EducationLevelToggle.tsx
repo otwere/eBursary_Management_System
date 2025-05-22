@@ -22,7 +22,7 @@ const EducationLevelToggle: React.FC<EducationLevelToggleProps> = ({
 
   return (
     <div className="mb-4">
-      <label className="text-sm font-medium mb-2 block">Education Level</label>
+      <label className="text-sm font-medium mb-2 block ml-80">Education Level</label>
       <ToggleGroup
         type="single"
         value={selectedLevel}

@@ -124,7 +124,7 @@ const ApplicationDeadlineCard: React.FC<ApplicationDeadlineCardProps> = ({ deadl
           </Badge>
         </div>
         <CardDescription className="text-gray-600">
-          {deadline.description || `${deadline.institutionType} bursary applications for ${deadline.academicYear}`}
+          {deadline.description || `${deadline.institutionType} Bursary Applications for ${deadline.academicYear}`}
         </CardDescription>
       </CardHeader>
       

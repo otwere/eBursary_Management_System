@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -24,7 +24,7 @@ const mockDeadlines: ApplicationDeadline[] = [
     academicYear: "2023/2024",
     openingDate: "2023-05-01T00:00:00Z",
     closingDate: "2023-11-30T23:59:59Z",
-    description: "University bursary applications for the 2023/2024 academic year",
+    description: "University Bursary Applications for the 2023/2024 Academic Year",
     isActive: true
   },
   {
@@ -33,7 +33,7 @@ const mockDeadlines: ApplicationDeadline[] = [
     academicYear: "2023/2024",
     openingDate: "2023-05-15T00:00:00Z",
     closingDate: "2023-12-15T23:59:59Z",
-    description: "College bursary applications for the 2023/2024 academic year",
+    description: "College Bursary Applications for the 2023/2024 Academic Year",
     isActive: true
   },
   {
@@ -42,7 +42,7 @@ const mockDeadlines: ApplicationDeadline[] = [
     academicYear: "2023/2024",
     openingDate: "2023-06-01T00:00:00Z",
     closingDate: "2023-12-31T23:59:59Z",
-    description: "TVET bursary applications for the 2023/2024 academic year",
+    description: "TVET Bursary Applications for the 2023/2024 Academic Year",
     isActive: true
   },
   {
@@ -51,7 +51,7 @@ const mockDeadlines: ApplicationDeadline[] = [
     academicYear: "2024",
     openingDate: "2023-11-01T00:00:00Z",
     closingDate: "2024-01-31T23:59:59Z",
-    description: "Secondary school bursary applications for the 2024 academic year",
+    description: "Secondary school Bursary Applications for the 2024 Academic Year",
     isActive: false
   }
 ];
@@ -59,14 +59,14 @@ const mockDeadlines: ApplicationDeadline[] = [
 // Mock notifications for student
 const mockNotifications = [
   {
-    id: "notif-1",
+    id: "notify-1",
     title: "Application Update",
     message: "Your application #APP-2023-001 has been reviewed and is pending approval.",
     date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
     isRead: false
   },
   {
-    id: "notif-2",
+    id: "notify-2",
     title: "Document Request",
     message: "Please upload your latest academic transcript for application #APP-2023-003.",
     date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000),
@@ -247,17 +247,17 @@ const StudentDashboard = () => {
     <DashboardLayout title="Student Dashboard">
       <div className="space-y-4 -mx-[70px]">
         {/* Welcome Banner */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-2 rounded-lg border border-blue-100">
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-2 rounded-lg border border-l-4 border-blue-300">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
             <div>
               <h1 className="text-lg font-semibold text-blue-800">Welcome, {authState.user?.name}</h1>
-              <p className="text-blue-600 mt-1 text-sm">
+              <p className="text-muted-foreground mt-1 text-sm">
                 {authState.user?.studentId && `Student ID : ${authState.user.studentId} | `}{authState.user?.institutionName}
               </p>
             </div>
             <div className="mt-4 md:mt-0">
               <Badge variant="outline" className="bg-blue-100 text-blue-800 border-blue-200 font-medium px-3 py-1">
-                Academic Year 2025/2026
+                Academic Year :  2025/2026
               </Badge>
             </div>
           </div>
@@ -283,7 +283,7 @@ const StudentDashboard = () => {
             title="Total Disbursed" 
             value={formatCurrency(totalDisbursedAmount)}
             icon={<GraduationCap className="h-5 w-5" />}
-            description={`${disbursedApplications} Funded Applications`}
+            description={`${disbursedApplications} Funded Application(s)`}
             className="h-28 bg-green-50 hover:bg-green-100"
           />
           <StatCard 
@@ -292,7 +292,7 @@ const StudentDashboard = () => {
             icon={<Book className="h-5 w-5" />}
             description={authState.user?.institutionType || "University"}
             trend={{ value: 100, isPositive: true }}
-            className="h-28"
+            className="h-28 hover:bg-gray-50"
           />
         </div>
 
@@ -312,11 +312,11 @@ const StudentDashboard = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Quick Actions & Profile */}
-          <div className="space-y-6 col-span-1 lg:col-span-3">
+          <div className="space-y-6 col-span-1 lg:col-span-3 ">
             {/* Quick Links */}
-            <Card>
+            <Card className="bg-blue-100">
               <CardHeader>
-                <CardTitle>Quick Actions</CardTitle>
+                <CardTitle className="text-xl">Quick Actions</CardTitle>
               </CardHeader>
               <CardContent className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <Button 
@@ -363,9 +363,9 @@ const StudentDashboard = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Student Profile */}
-          <Card className="col-span-1">
+          <Card className="col-span-1 bg-slate-50">
             <CardHeader>
-              <CardTitle>My Profile</CardTitle>
+              <CardTitle className="text-xl font-medium">My Profile</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex items-center space-x-4">
@@ -405,14 +405,14 @@ const StudentDashboard = () => {
           </Card>
             
           {/* Academic Calendar */}
-          <Card className="col-span-1 lg:col-span-2">
+          <Card className="col-span-1 lg:col-span-2 bg-slate-50">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center text-lg">
                 <CalendarDays className="h-5 w-5 mr-2" />
                 Academic Calendar
               </CardTitle>
             </CardHeader>
-            <CardContent className="pt-2">
+            <CardContent className="pt-2 ">
               <div className="space-y-3">
                 <div className="flex justify-between items-center border-l-4 border-blue-400 pl-3 py-1">
                   <div>
@@ -442,8 +442,8 @@ const StudentDashboard = () => {
         
         {/* Education Level Toggle and Academic Records Section */}
         <div>
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-semibold">Academic Records</h2>
+          <div className="flex justify-between items-center mb-4 bg-blue-50 border-l-4 border-blue-500 border rounded-md p-1">
+            <h2 className="text-xl mx-2 font-medium">Academic Records</h2>
             <EducationLevelToggle 
               selectedLevel={educationLevel}
               onSelectLevel={handleSelectEducationLevel}

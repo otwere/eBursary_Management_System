@@ -192,7 +192,7 @@ export const mockApplications: Application[] = [
     submittedAt: "2023-03-05T10:00:00.000Z",
     createdAt: "2023-03-01T10:00:00.000Z",
     reviewDate: "2023-03-15T10:00:00.000Z",
-    reviewedBy: "Kevin mwangi"
+    reviewedBy: "Kevin Mwangi"
   }
 ];
 
@@ -353,7 +353,7 @@ export const mockDeadlines = [
     institutionType: "University",
     openingDate: new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000).toISOString(), // 30 days ago
     closingDate: new Date(new Date().getTime() + 15 * 24 * 60 * 60 * 1000).toISOString(), // 15 days from now
-    description: "University bursary applications for the 2023/2024 academic year",
+    description: "University Bursary Applications for the 2023/2024 Academic Year",
     isActive: true
   },
   {
@@ -362,7 +362,7 @@ export const mockDeadlines = [
     institutionType: "College",
     openingDate: new Date(new Date().getTime() - 20 * 24 * 60 * 60 * 1000).toISOString(), // 20 days ago
     closingDate: new Date(new Date().getTime() + 5 * 24 * 60 * 60 * 1000).toISOString(), // 5 days from now
-    description: "College bursary applications for the 2023/2024 academic year",
+    description: "College Bursary Applications for the 2023/2024 Academic Year",
     isActive: true
   },
   {
@@ -371,7 +371,7 @@ export const mockDeadlines = [
     institutionType: "Secondary",
     openingDate: new Date(new Date().getTime() - 45 * 24 * 60 * 60 * 1000).toISOString(), // 45 days ago
     closingDate: new Date(new Date().getTime() - 10 * 24 * 60 * 60 * 1000).toISOString(), // 10 days ago
-    description: "Secondary school bursary applications for the 2023/2024 academic year",
+    description: "Secondary school Bursary Applications for the 2023/2024 Academic Year",
     isActive: false
   },
   {
@@ -380,7 +380,7 @@ export const mockDeadlines = [
     institutionType: "TVET",
     openingDate: new Date(new Date().getTime() - 15 * 24 * 60 * 60 * 1000).toISOString(), // 15 days ago
     closingDate: new Date(new Date().getTime() + 2 * 24 * 60 * 60 * 1000).toISOString(), // 2 days from now
-    description: "TVET bursary applications for the 2023/2024 academic year",
+    description: "TVET Bursary Applications for the 2023/2024 Academic Year",
     isActive: true
   }
 ];
@@ -512,7 +512,7 @@ export const getApplicationsByStudentId = (studentId: string): Application[] => 
   return mockApplications.filter(app => app.studentId === studentId);
 };
 
-// Get applications for the current academic year
+// Get applications for the current Academic Year
 export const getCurrentYearApplications = (studentId: string): Application[] => {
   const currentYear = new Date().getFullYear();
   return getApplicationsByStudentId(studentId).filter(app => {

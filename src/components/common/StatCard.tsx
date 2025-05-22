@@ -29,7 +29,7 @@ const StatCard: React.FC<StatCardProps> = ({
         <div className="flex justify-between items-start">
           <div>
             <p className="text-sm font-medium text-gray-500">{title}</p>
-            <h4 className="text-2xl font-bold mt-1">{value}</h4>
+            <h4 className="text-xl font-bold mt-1 text-gray-700">{value}</h4>
             
             {trend && (
               <div className="flex items-center mt-1">
@@ -50,7 +50,7 @@ const StatCard: React.FC<StatCardProps> = ({
                   )}
                   {trend.value}%
                 </span>
-                <span className="text-xs text-gray-400 ml-1">vs last period</span>
+                <span className="text-xs text-gray-400 ml-1"> vs last period</span>  
               </div>
             )}
             

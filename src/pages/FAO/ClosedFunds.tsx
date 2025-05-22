@@ -58,7 +58,7 @@ const ClosedFunds = () => {
       financialPeriod: "2023",
       closedAt: "2023-12-20T15:45:00.000Z",
       closedBy: "Kevin mwangi",
-      closureReason: "End of academic year, all approved applications processed."
+      closureReason: "End of Academic Year, all approved applications processed."
     },
     {
       id: "fund-3",

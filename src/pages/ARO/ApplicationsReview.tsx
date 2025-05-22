@@ -230,7 +230,7 @@ const ApplicationsReview = () => {
               <div>
                 <CardTitle className="text-xl">Review Applications</CardTitle>
                 <CardDescription>
-                  Manage and review student bursary applications
+                  Manage and review student Bursary Applications
                 </CardDescription>
               </div>
               {pendingFAOCount > 0 && (

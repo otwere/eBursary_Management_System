@@ -37,7 +37,7 @@ const ARODashboard = () => {
         <div className="bg-white p-4 rounded-lg border">
           <h1 className="text-2xl font-semibold">Application Review Dashboard</h1>
           <p className="text-gray-600 mt-1">
-            Review and manage bursary applications.
+            Review and manage Bursary Applications.
           </p>
         </div>
 

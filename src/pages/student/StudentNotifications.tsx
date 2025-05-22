@@ -62,7 +62,7 @@ const mockNotifications: Notification[] = [
   {
     id: "n4",
     title: "Application Reminder",
-    message: "The deadline for bursary applications for the next semester is approaching on January 31, 2024.",
+    message: "The deadline for Bursary Applications for the next semester is approaching on January 31, 2024.",
     date: new Date(2023, 10, 15),
     type: "system",
     isRead: true,
@@ -163,10 +163,10 @@ const StudentNotifications = () => {
   return (
     <DashboardLayout title="Notifications">
       <div className="space-y-2 -mx-[70px]">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-blue-50 h-20 px-4 rounded-lg border-l-4 border-purple-400 border ">
           <div>
-            <h1 className="text-2xl font-semibold mb-1">Notifications</h1>
-            <p className="text-gray-600">Stay updated with your application status and system alerts</p>
+            <h1 className="text-xl text-blue-800 font-semibold -mt-4">Notifications</h1>
+            <p className="text-gray-600 text-sm mt-1">Stay updated with your Application status and System Alerts</p>
           </div>
           
           {unreadNotifications.length > 0 && (

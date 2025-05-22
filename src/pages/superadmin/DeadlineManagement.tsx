@@ -61,7 +61,7 @@ const deadlineFormSchema = z.object({
     required_error: "Closing date is required",
   }),
   academicYear: z.string().min(4, {
-    message: "Academic year must be at least 4 characters.",
+    message: "Academic Year must be at least 4 characters.",
   }),
   description: z.string().optional(),
   isActive: z.boolean().default(true),
@@ -205,7 +205,7 @@ const DeadlineManagement: React.FC = () => {
           <div>
             <h1 className="text-2xl font-bold">Application Deadlines</h1>
             <p className="text-gray-500">
-              Manage opening and closing dates for bursary applications
+              Manage opening and closing dates for Bursary Applications
             </p>
           </div>
           <Button 

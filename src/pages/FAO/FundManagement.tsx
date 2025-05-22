@@ -20,7 +20,7 @@ const mockFundFloats: FundFloat[] = [
   {
     id: "float-1",
     name: "Annual Education Fund 2025",
-    description: "Main budget allocation for education support in the 2025 academic year",
+    description: "Main budget allocation for education support in the 2025 Academic Year",
     amount: 5000000,
     academicYear: "2025",
     createdAt: "2024-03-10T08:00:00.000Z",
