@@ -123,7 +123,7 @@ const StudentProfile = () => {
             <ArrowLeft className="h-4 w-4" />
             Back
           </Button>
-          <h1 className="text-xl font-bold">Student Profile</h1>
+          <h1 className="text-xl font-medium text-blue-800">Student Profile</h1>
         </div>
       </div>
       
@@ -206,7 +206,7 @@ const StudentProfile = () => {
                             <p className="text-sm">Kenyan</p>
                           </div>
                           <div>
-                            <h4 className="text-sm font-medium">National ID / Passport</h4>
+                            <h4 className="text-sm font-medium">National ID / Birth Certificate No.</h4>
                             <p className="text-sm">********123</p>
                           </div>
                           <div>
@@ -281,10 +281,10 @@ const StudentProfile = () => {
                               Add Record
                             </Button>
                           </DialogTrigger>
-                          <DialogContent>
-                            <DialogHeader>
-                              <DialogTitle>Add Academic Record</DialogTitle>
-                              <DialogDescription>
+                          <DialogContent className="max-w-2xl bg-slate-50 ">
+                            <DialogHeader className="bg-blue-100 h-16 border-l-8 border-green-500 rounded-lg">
+                              <DialogTitle className="mx-2 p-2 text-blue-800 -mb-3 text-base">Add Academic Record</DialogTitle>
+                              <DialogDescription className="mx-4 text-muted-foreground">
                                 Add details of your academic performance for the term.
                               </DialogDescription>
                             </DialogHeader>
@@ -369,10 +369,10 @@ const StudentProfile = () => {
                               Upload Document
                             </Button>
                           </DialogTrigger>
-                          <DialogContent>
-                            <DialogHeader>
-                              <DialogTitle>Upload Document</DialogTitle>
-                              <DialogDescription>
+                          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                            <DialogHeader className="bg-slate-100 p-2 border-l-8 border-blue-400 rounded-lg">
+                              <DialogTitle className="text-base text-gray-800">Upload Document</DialogTitle>
+                              <DialogDescription className="text-muted-foreground text-sm">
                                 Upload important documents related to your application or personal records.
                               </DialogDescription>
                             </DialogHeader>

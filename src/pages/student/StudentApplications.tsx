@@ -179,7 +179,7 @@ const StudentApplications = () => {
           <div>
             <h1 className="text-lg  text-blue-800 p-0 -mt-2 font-semibold">My Applications</h1>
             <p className="text-muted-foreground text-sm mt-1">
-              Manage and track your Bursary Applications
+              Manage and track your Bursary Applications Status
             </p>
           </div>
           <Button 
@@ -663,9 +663,10 @@ const StudentApplications = () => {
           
           {selectedApplication && (
             <>
-              <DialogHeader>
-                <DialogTitle className="text-xl">Application Details</DialogTitle>
-                <DialogDescription>
+              <DialogHeader className="bg-blue-50 h-20 rounded-lg border-l-4 border-blue-500
+              ">
+                <DialogTitle className="text-xl mx-2 mt-1 text-blue-500">Application Details</DialogTitle>
+                <DialogDescription className="mx-2 text-muted-foreground">
                   Reference : {selectedApplication.id}
                 </DialogDescription>
               </DialogHeader>
@@ -719,58 +720,58 @@ const StudentApplications = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <Card>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-1">
+                  <Card className=" bg-slate-50 border-l-8 border  border-blue-400">
                     <CardHeader className="pb-2">
                       <CardTitle className="text-base">Institution & Course</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-2">
                       <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">Institution:</span>
+                        <span className="text-sm text-muted-foreground">Institution :</span>
                         <span className="text-sm font-medium">{selectedApplication.institutionName}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">Course:</span>
+                        <span className="text-sm text-muted-foreground">Course :</span>
                         <span className="text-sm font-medium">{selectedApplication.courseOfStudy}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">Academic Year:</span>
+                        <span className="text-sm text-muted-foreground">Academic Year :</span>
                         <span className="text-sm font-medium">
                           {new Date(selectedApplication.applicationDate).getFullYear()}
                         </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">Year of Study:</span>
+                        <span className="text-sm text-muted-foreground">Year of Study :</span>
                         <span className="text-sm font-medium">{selectedApplication.yearOfStudy || "Not specified"}</span>
                       </div>
                     </CardContent>
                   </Card>
 
-                  <Card>
+                  <Card className=" bg-green-50 border-l-8 border  border-green-400">
                     <CardHeader className="pb-2">
                       <CardTitle className="text-base">Financial Information</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-2">
                       <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">Requested Amount:</span>
+                        <span className="text-sm text-muted-foreground">Requested Amount :</span>
                         <span className="text-sm font-medium text-primary-600">
                           {formatCurrency(selectedApplication.requestedAmount)}
                         </span>
                       </div>
                       {selectedApplication.disbursedAmount && (
                         <div className="flex justify-between">
-                          <span className="text-sm text-muted-foreground">Disbursed Amount:</span>
+                          <span className="text-sm text-muted-foreground">Disbursed Amount :</span>
                           <span className="text-sm font-medium text-green-600">
                             {formatCurrency(selectedApplication.disbursedAmount)}
                           </span>
                         </div>
                       )}
                       <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">Category:</span>
+                        <span className="text-sm text-muted-foreground">Category :</span>
                         <span className="text-sm font-medium">{selectedApplication.fundCategory || "General"}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">Application Type:</span>
+                        <span className="text-sm text-muted-foreground">Application Type :</span>
                         <Badge variant="outline">
                           {selectedApplication.applicationType || "Standard"}
                         </Badge>

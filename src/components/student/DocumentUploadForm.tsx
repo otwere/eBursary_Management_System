@@ -106,7 +106,7 @@ export function DocumentUploadForm({ onUpload, onCancel }: DocumentUploadFormPro
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 max-w-5xl">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 max-w-4xl mx-4">
         <FormField
           control={form.control}
           name="name"

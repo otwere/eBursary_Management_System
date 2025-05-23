@@ -270,21 +270,21 @@ const StudentDashboard = () => {
             value={totalApplications.toString()}
             icon={<Book className="h-5 w-5" />}
             description={`${submittedApplications} Pending Review`}
-            className="h-28 bg-red-50 hover:bg-red-100"
+            className="h-28 bg-orange-50 hover:bg-orange-100 border-l-4 border-orange-300"
           />
           <StatCard 
             title="Total Requested" 
             value={formatCurrency(totalRequestedAmount)}
             icon={<Book className="h-5 w-5" />}
             description="Across all Applications"
-            className="h-28 bg-blue-50 hover:bg-blue-100"
+            className="h-28 bg-blue-50 hover:bg-blue-100 border-l-4 border-blue-300"
           />
           <StatCard 
             title="Total Disbursed" 
             value={formatCurrency(totalDisbursedAmount)}
             icon={<GraduationCap className="h-5 w-5" />}
             description={`${disbursedApplications} Funded Application(s)`}
-            className="h-28 bg-green-50 hover:bg-green-100"
+            className="h-28 bg-green-50 hover:bg-green-100 border-l-4 border-green-300"
           />
           <StatCard 
             title="Academic Status" 
@@ -292,7 +292,7 @@ const StudentDashboard = () => {
             icon={<Book className="h-5 w-5" />}
             description={authState.user?.institutionType || "University"}
             trend={{ value: 100, isPositive: true }}
-            className="h-28 hover:bg-gray-50"
+            className="h-28 hover:bg-gray-50 border-l-4 border-gray-300"
           />
         </div>
 
@@ -314,7 +314,7 @@ const StudentDashboard = () => {
           {/* Quick Actions & Profile */}
           <div className="space-y-6 col-span-1 lg:col-span-3 ">
             {/* Quick Links */}
-            <Card className="bg-blue-100">
+            <Card className="bg-blue-100 border-l-4 border-slate-400">
               <CardHeader>
                 <CardTitle className="text-xl">Quick Actions</CardTitle>
               </CardHeader>
@@ -341,7 +341,7 @@ const StudentDashboard = () => {
                   onClick={() => navigate("/student/profile")}
                 >
                   <GraduationCap className="mr-2 h-4 w-4" />
-                  Academic Records
+                  My Personal Profile
                 </Button>
                 <Button 
                   variant="outline"
@@ -363,7 +363,7 @@ const StudentDashboard = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Student Profile */}
-          <Card className="col-span-1 bg-slate-50">
+          <Card className="col-span-1 bg-slate-50 border-l-4 border-gray-400 ">
             <CardHeader>
               <CardTitle className="text-xl font-medium">My Profile</CardTitle>
             </CardHeader>
@@ -405,7 +405,7 @@ const StudentDashboard = () => {
           </Card>
             
           {/* Academic Calendar */}
-          <Card className="col-span-1 lg:col-span-2 bg-slate-50">
+          <Card className="col-span-1 lg:col-span-2 bg-slate-50 border-l-4 border-gray-400">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center text-lg">
                 <CalendarDays className="h-5 w-5 mr-2" />
@@ -417,23 +417,23 @@ const StudentDashboard = () => {
                 <div className="flex justify-between items-center border-l-4 border-blue-400 pl-3 py-1">
                   <div>
                     <p className="font-medium">Start of Semester</p>
-                    <p className="text-sm text-gray-500">September 1, 2025</p>
+                    <p className="text-sm text-gray-500">April 1, 2025</p>
                   </div>
-                  <Badge variant="outline">Upcoming</Badge>
+                  <Badge variant="outline" className="bg-amber-500 text-white">Past</Badge>
                 </div>
                 <div className="flex justify-between items-center border-l-4 border-green-400 pl-3 py-1">
                   <div>
                     <p className="font-medium">Midterm Exams</p>
                     <p className="text-sm text-gray-500">October 15-22, 2025</p>
                   </div>
-                  <Badge variant="outline">Upcoming</Badge>
+                  <Badge variant="outline" className="bg-green-500 text-white">Ongoing</Badge>
                 </div>
                 <div className="flex justify-between items-center border-l-4 border-purple-400 pl-3 py-1">
                   <div>
                     <p className="font-medium">End of Semester</p>
                     <p className="text-sm text-gray-500">December 15, 2025</p>
                   </div>
-                  <Badge variant="outline">Upcoming</Badge>
+                  <Badge variant="outline" className="bg-purple-500 text-white">Upcoming</Badge>
                 </div>
               </div>
             </CardContent>

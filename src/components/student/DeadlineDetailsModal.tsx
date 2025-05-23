@@ -64,13 +64,13 @@ const DeadlineDetailsModal: React.FC<DeadlineDetailsModalProps> = ({
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
+        <DialogHeader className="bg-blue-100 -mx-2 h-16 border-l-8 border-green-500 rounded-lg">
           <DialogTitle className="text-xl flex items-center gap-2">
-            <School className="h-5 w-5 text-primary" />
+            <School className="h-5 w-5 text-primary mx-2 " />
             {deadline.institutionType} Application Details
           </DialogTitle>
-          <DialogDescription>
-            Academic Year: {deadline.academicYear}
+          <DialogDescription className="mx-3">
+            Academic Year : {deadline.academicYear}
           </DialogDescription>
         </DialogHeader>
 
@@ -132,19 +132,19 @@ const DeadlineDetailsModal: React.FC<DeadlineDetailsModalProps> = ({
               </h3>
               <div className="space-y-3">
                 <div className="flex justify-between items-center border-b pb-2">
-                  <span className="text-sm text-gray-500">Description:</span>
+                  <span className="text-sm text-gray-500">Description :</span>
                   <span className="text-sm font-medium">{deadline.description}</span>
                 </div>
                 <div className="flex justify-between items-center border-b pb-2">
-                  <span className="text-sm text-gray-500">Application Opens:</span>
+                  <span className="text-sm text-gray-500">Application Opens :</span>
                   <span className="text-sm font-medium">{formattedOpeningDate}</span>
                 </div>
                 <div className="flex justify-between items-center border-b pb-2">
-                  <span className="text-sm text-gray-500">Application Closes:</span>
+                  <span className="text-sm text-gray-500">Application Closes :</span>
                   <span className="text-sm font-medium">{formattedDeadline}</span>
                 </div>
                 <div className="flex justify-between items-center border-b pb-2">
-                  <span className="text-sm text-gray-500">Academic Year:</span>
+                  <span className="text-sm text-gray-500">Academic Year :</span>
                   <span className="text-sm font-medium">{deadline.academicYear}</span>
                 </div>
                 <div className="flex justify-between items-center border-b pb-2">
@@ -185,7 +185,7 @@ const DeadlineDetailsModal: React.FC<DeadlineDetailsModalProps> = ({
                 </div>
                 <div className="flex items-center gap-2">
                   <FileText className="h-4 w-4 text-gray-500" />
-                  <span className="text-sm">All required documents must be submitted with application</span>
+                  <span className="text-sm">All required documents must be submitted with Application</span>
                 </div>
               </div>
             </CardContent>

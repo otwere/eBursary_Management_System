@@ -33,7 +33,7 @@ const StatCard: React.FC<StatCardProps> = ({
             
             {trend && (
               <div className="flex items-center mt-1">
-                <span
+                {/* <span
                   className={cn(
                     "text-xs font-medium flex items-center",
                     trend.isPositive ? "text-green-500" : "text-red-500"
@@ -50,7 +50,7 @@ const StatCard: React.FC<StatCardProps> = ({
                   )}
                   {trend.value}%
                 </span>
-                <span className="text-xs text-gray-400 ml-1"> vs last period</span>  
+                <span className="text-xs text-gray-400 ml-1"> vs last period</span>   */}
               </div>
             )}
             
