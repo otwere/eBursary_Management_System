@@ -282,7 +282,7 @@ const StudentProfile = () => {
                             </Button>
                           </DialogTrigger>
                           <DialogContent className="max-w-2xl bg-slate-50 ">
-                            <DialogHeader className="bg-blue-100 h-16 border-l-8 border-green-500 rounded-lg">
+                            <DialogHeader className="bg-blue-100 h-16 border-l-8 border-green-500 rounded-lg -mx-2">
                               <DialogTitle className="mx-2 p-2 text-blue-800 -mb-3 text-base">Add Academic Record</DialogTitle>
                               <DialogDescription className="mx-4 text-muted-foreground">
                                 Add details of your academic performance for the term.
@@ -311,7 +311,9 @@ const StudentProfile = () => {
                     </div>
                     
                     <div>
-                      <h3 className="text-lg font-medium mb-4">Current Program</h3>
+                      <div  className="bg-cyan-50 h-16 mb-3 border-l-8 border-green-500 rounded-lg">
+                      <h3 className="text-lg font-medium mb-4 mx-2 p-2 text-gray-800">Current Program</h3>
+                      </div>
                       <div className="bg-muted p-4 rounded-lg">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
@@ -335,7 +337,9 @@ const StudentProfile = () => {
                     </div>
                     
                     <div>
-                      <h3 className="text-lg font-medium mb-4">Previous Education</h3>
+                     <div className="bg-cyan-50 h-16 mb-3 border-l-8 border-blue-500 rounded-lg">
+                     <h3 className="text-lg font-medium mb-4 mx-2 p-2 text-gray-800">Previous Education</h3>
+                     </div>
                       <div className="bg-muted p-4 rounded-lg mb-4">
                         <div className="flex justify-between mb-2">
                           <h4 className="text-sm font-medium">Secondary School</h4>
@@ -370,7 +374,7 @@ const StudentProfile = () => {
                             </Button>
                           </DialogTrigger>
                           <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-                            <DialogHeader className="bg-slate-100 p-2 border-l-8 border-blue-400 rounded-lg">
+                            <DialogHeader className="bg-slate-100 p-2 border-l-8 border-blue-400 rounded-lg -mx-1">
                               <DialogTitle className="text-base text-gray-800">Upload Document</DialogTitle>
                               <DialogDescription className="text-muted-foreground text-sm">
                                 Upload important documents related to your application or personal records.

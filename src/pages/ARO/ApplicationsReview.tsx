@@ -222,15 +222,15 @@ const ApplicationsReview = () => {
   const pendingFAOCount = applications.filter(app => app.status === "pending-allocation").length;
 
   return (
-    <DashboardLayout title="Application Review">
-      <div className="space-y-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <DashboardLayout title="Applications Review">
+      <div className="space-y-6 -mx-[110px] px-4 sm:px-6 lg:px-8">
         <Card>
           <CardHeader>
             <div className="flex items-center justify-between mx-1 ">
-              <div>
-                <CardTitle className="text-xl">Review Applications</CardTitle>
-                <CardDescription>
-                  Manage and review student Bursary Applications
+              <div className="border-l-8 border-purple-500 rounded-md ml-0">
+                <CardTitle className="text-xl ml-2 text-purple-600">Review Applications</CardTitle>
+                <CardDescription className="ml-2 text-muted-foreground">
+                  Manage , Verify Documents & Review Student Bursary Applications.
                 </CardDescription>
               </div>
               {pendingFAOCount > 0 && (

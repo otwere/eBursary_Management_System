@@ -556,7 +556,7 @@ const ApplicationDetail = () => {
                           {formatDate(new Date(application.lastUpdated || application.applicationDate))}
                         </time>
                         <p className="mt-2 text-sm">
-                          Application submitted to Financial Allocations Officer for fund allocation
+                          Application Submitted to Financial Allocations Officer for Fund Allocation
                         </p>
                       </div>
                     </div>

@@ -23,7 +23,7 @@ const StatementViewModal: React.FC<StatementViewModalProps> = ({
 }) => {
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-5xl">
+      <DialogContent className="max-w-5xl bg-blue-50">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <FileText className="h-5 w-5" />
@@ -39,7 +39,7 @@ const StatementViewModal: React.FC<StatementViewModalProps> = ({
             </div>
             <div className="text-right">
               <p className="text-lg font-bold">{statement.reference}</p>
-              <p className="text-sm text-gray-500">Date: {formatDate(new Date(statement.date))}</p>
+              <p className="text-sm text-gray-500">Date : {formatDate(new Date(statement.date))}</p>
             </div>
           </div>
           
@@ -113,7 +113,7 @@ const StatementViewModal: React.FC<StatementViewModalProps> = ({
                   ? "Paid" 
                   : statement.status === "pending" 
                   ? "Pending" 
-                  : "Processing"}
+                  : "Processed"}
               </span>
             </div>
             {statement.notes && (

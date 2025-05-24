@@ -184,18 +184,18 @@ const ApplicationDetail = () => {
 
   return (
     <DashboardLayout title="Application Details">
-      <div className="space-y-6">
+      <div className="space-y-6 lg:-mx-[80px]">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Button
               variant="outline"
               size="icon"
-              className="h-8 w-8 rounded-full"
+              className="h-8 w-8 rounded-md px-10"
               onClick={() => navigate("/ARO/applications")}
             >
-              <ArrowLeft className="h-4 w-4" />
+              <ArrowLeft className="h-4 w-4" /> Back
             </Button>
-            <h2 className="text-2xl font-bold">Application Details</h2>
+            <h2 className="text-xl font-semibold">Application Details</h2>
           </div>
           <div className="flex items-center gap-2">
             <StatusBadge status={application.status} />
@@ -213,7 +213,7 @@ const ApplicationDetail = () => {
             <Send className="h-4 w-4 text-blue-700" />
             <AlertTitle className="text-blue-700">Pending FAO Review</AlertTitle>
             <AlertDescription className="text-blue-600">
-              This application has been approved and submitted to the Financial Allocations Officer for fund allocation.
+              This Application has been Approved and submitted to the Financial Allocations Officer for fund Allocation.
             </AlertDescription>
           </Alert>
         )}
@@ -223,7 +223,7 @@ const ApplicationDetail = () => {
             <AlertCircle className="h-4 w-4 text-amber-700" />
             <AlertTitle className="text-amber-700">Approved But Not Submitted</AlertTitle>
             <AlertDescription className="text-amber-600 flex justify-between items-center">
-              <span>This application is approved but not yet submitted to the FAO for fund allocation.</span>
+              <span>This Application is Approved but not yet Submitted to the FAO for Fund Allocation.</span>
               <Button 
                 size="sm" 
                 className="bg-amber-600 hover:bg-amber-700 text-white"
@@ -240,7 +240,7 @@ const ApplicationDetail = () => {
             <Lock className="h-4 w-4 text-gray-700" />
             <AlertTitle className="text-gray-700">Permission Required</AlertTitle>
             <AlertDescription className="text-gray-600">
-              You do not have permission to submit applications to FAO. Only AROs with submission rights can perform this action.
+              You do not have permission to submit Applications to FAO. Only AROs with submission rights can perform this action.
             </AlertDescription>
           </Alert>
         )}
@@ -249,7 +249,7 @@ const ApplicationDetail = () => {
           <CardHeader>
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
-                <CardTitle className="text-2xl">Application #{application.id}</CardTitle>
+                <CardTitle className="text-xl">Application #{application.id}</CardTitle>
                 <CardDescription>
                   Submitted on {formatDate(new Date(application.applicationDate))}
                 </CardDescription>
@@ -557,7 +557,7 @@ const ApplicationDetail = () => {
                           {formatDate(new Date(application.lastUpdated || application.applicationDate))}
                         </time>
                         <p className="mt-2 text-sm">
-                          Application submitted to Financial Allocations Officer for fund allocation
+                          Application Submitted to Financial Allocations Officer for Fund Allocation
                         </p>
                       </div>
                     </div>
