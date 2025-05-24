@@ -251,12 +251,12 @@ const FundManagement = () => {
   };
 
   return (
-    <DashboardLayout title="Fund Management">
+    <DashboardLayout title="Funds Management Dashboard">
       <div className="space-y-6 lg:-mx-[65px]">
         {/* Header */}
-        <div className="flex items-center justify-between border-l-8 border-l-blue-500 rounded-lg">
+        <div className="flex items-center justify-between border-l-8 border-l-blue-500 rounded-md">
           <div className="pl-4">
-            <h1 className="text-xl font-bold">Funds Management</h1>
+            <h1 className="text-xl font-bold text-blue-800">Funds Management</h1>
             <p className="text-muted-foreground text-sm -mt-1">
               Create, Manage, Approve & Allocate Funds for Bursaries and Scholarships
             </p>
@@ -269,20 +269,20 @@ const FundManagement = () => {
 
         {/* Fund Overview */}
         <Card>
-          <CardHeader>
-            <CardTitle className="text-xl mt-[-1rem]">Fund Overview</CardTitle>
-            <CardDescription>
-              Summary of all available Fund Allocations
+          <CardHeader className="border-l-0 border-l-lime-500 rounded-lg border-b-0 mx-0 ">
+            <CardTitle className="text-xl font-bold -my-2 text-green-800">Funds Overview</CardTitle>
+            <CardDescription className="text-muted-foreground">
+              Summary of all Available Fund Allocations
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Card className="bg-primary-50 border-primary-100">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-2">
+              <Card className="bg-primary-50 border-primary-100 border-l-8 border-l-blue-500">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-gray-500">Total Funds</p>
-                      <p className="text-2xl font-bold text-primary-700">
+                      <p className="text-xl font-bold text-primary-700">
                         {formatCurrency(fundFloats.reduce((sum, fund) => sum + fund.amount, 0))}
                       </p>
                     </div>
@@ -293,12 +293,12 @@ const FundManagement = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-green-50 border-green-100">
+              <Card className="bg-green-50 border-green-100 border-l-8 border-l-green-500">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-medium text-gray-500">Allocated</p>
-                      <p className="text-2xl font-bold text-green-700">
+                      <p className="text-sm font-medium text-gray-500">Total Allocated</p>
+                      <p className="text-xl font-bold text-green-700">
                         {formatCurrency(fundFloats.reduce((sum, fund) => sum + fund.allocatedAmount, 0))}
                       </p>
                     </div>
@@ -309,12 +309,12 @@ const FundManagement = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-blue-50 border-blue-100">
+              <Card className="bg-blue-50 border-blue-100 border-l-8 border-l-cyan-500">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-medium text-gray-500">Disbursed</p>
-                      <p className="text-2xl font-bold text-blue-700">
+                      <p className="text-sm font-medium text-gray-500">Total Disbursed</p>
+                      <p className="text-xl font-bold text-blue-700">
                         {formatCurrency(fundFloats.reduce((sum, fund) => sum + fund.disbursedAmount, 0))}
                       </p>
                     </div>
@@ -325,12 +325,12 @@ const FundManagement = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-yellow-50 border-yellow-100">
+              <Card className="bg-yellow-50 border-yellow-100 border-l-8 border-l-yellow-500">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-medium text-gray-500">Remaining</p>
-                      <p className="text-2xl font-bold text-yellow-700">
+                      <p className="text-sm font-medium text-gray-500">Total Remaining (Balance)</p>
+                      <p className="text-xl font-bold text-yellow-700">
                         {formatCurrency(fundFloats.reduce((sum, fund) => sum + fund.remainingAmount, 0))}
                       </p>
                     </div>
@@ -537,11 +537,11 @@ const FundManagement = () => {
 
       {/* Create Fund Dialog */}
       <Dialog open={isCreateFundOpen} onOpenChange={setIsCreateFundOpen}>
-        <DialogContent className="sm:max-w-2xl bg-gray-50">
-          <DialogHeader>
-            <DialogTitle>Load New Fund</DialogTitle>
-            <DialogDescription>
-              Create a new fund allocation that can be distributed to bursaries and scholarships.
+        <DialogContent className="sm:max-w-2xl md:max-w-3xl lg:max-w-5xl bg-gray-50 border-b-2">
+          <DialogHeader className="border-l-8 border-l-lime-500 pl-2 rounded-md">
+            <DialogTitle className="text-lg font-bold text-blue-800 -mb-2">Load New Fund</DialogTitle>
+            <DialogDescription className="text-muted-foreground">
+              Create a new Fund Allocation that can be Distributed to Bursaries and Scholarships.
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4 py-4">
@@ -617,10 +617,10 @@ const FundManagement = () => {
 
       {/* Allocate Fund Dialog */}
       <Dialog open={isAllocateOpen} onOpenChange={setIsAllocateOpen}>
-        <DialogContent className="sm:max-w-5xl">
-          <DialogHeader>
-            <DialogTitle>Create Fund Categories</DialogTitle>
-            <DialogDescription>
+        <DialogContent className=" lg:max-w-5xl md:max-w-3xl sm:max-w-2xl">
+          <DialogHeader className="border-l-8 border-l-cyan-500 rounded-md pl-2">
+            <DialogTitle className="font-bold text-blue-800 -mb-1">Create Fund Categories</DialogTitle>
+            <DialogDescription className="text-muted-foreground">
               Divide the Funds into Bursary and Scholarship Categories.
             </DialogDescription>
           </DialogHeader>

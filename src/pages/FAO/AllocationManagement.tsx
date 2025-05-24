@@ -278,7 +278,7 @@ const AllocationManagement = () => {
     setFundCategories(updatedCategories);
     setIsCreateAllocationOpen(false);
     resetAllocationForm();
-    toast.success(`New allocation for ${newAllocationLevel} ${category.name} created successfully`);
+    toast.success(`New Allocation for ${newAllocationLevel} ${category.name} created successfully`);
   };
 
   // Reset allocation form
@@ -291,12 +291,12 @@ const AllocationManagement = () => {
 
   return (
     <DashboardLayout title="Allocation Management">
-      <div className="space-y-6">
+      <div className="space-y-6 lg:-mx-[70px]">
         {/* Header */}
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold">Fund Allocation Management</h1>
-            <p className="text-gray-500 mt-0">
+        <div className="flex items-center justify-between border-l-8 border-l-green-500 pl-2 rounded-md">
+          <div className="">
+            <h1 className="text-xl font-bold text-blue-800">Funds Allocation Management</h1>
+            <p className="text-muted-foreground  text-sm -mt-1">
               Manage and track Fund Allocations by Education level
             </p>
           </div>
@@ -309,7 +309,7 @@ const AllocationManagement = () => {
         {/* Overview */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-xl">Allocation Overview</CardTitle>
+            <CardTitle className="text-lg font-bold">Allocation Overview</CardTitle>
             <CardDescription>
               Summary of Fund Allocations by Category & Education level
             </CardDescription>
@@ -321,7 +321,7 @@ const AllocationManagement = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-gray-500">Total Allocated</p>
-                      <p className="text-2xl font-bold text-blue-700">
+                      <p className="text-xl font-bold text-blue-700">
                         {formatCurrency(fundAllocations.reduce((sum, allocation) => sum + allocation.amount, 0))}
                       </p>
                     </div>
@@ -337,7 +337,7 @@ const AllocationManagement = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-gray-500">Total Disbursed</p>
-                      <p className="text-2xl font-bold text-green-700">
+                      <p className="text-xl font-bold text-green-700">
                         {formatCurrency(fundAllocations.reduce((sum, allocation) => sum + allocation.disbursedAmount, 0))}
                       </p>
                     </div>
@@ -353,7 +353,7 @@ const AllocationManagement = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-gray-500">Bursary Allocated</p>
-                      <p className="text-2xl font-bold text-purple-700">
+                      <p className="text-xl font-bold text-purple-700">
                         {formatCurrency(fundAllocations
                           .filter(allocation => {
                             const category = getCategoryById(allocation.categoryId);
@@ -375,7 +375,7 @@ const AllocationManagement = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-gray-500">Scholarship Allocated</p>
-                      <p className="text-2xl font-bold text-amber-700">
+                      <p className="text-xl font-bold text-amber-700">
                         {formatCurrency(fundAllocations
                           .filter(allocation => {
                             const category = getCategoryById(allocation.categoryId);
