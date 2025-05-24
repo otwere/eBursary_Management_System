@@ -156,13 +156,13 @@ const FAODashboard = () => {
   };
 
   return (
-    <DashboardLayout title="Fund Allocation Dashboard">
-      <div className="space-y-6">
+    <DashboardLayout title="Funds Approval & Allocation Officer">
+      <div className="space-y-6 lg:-mx-[65px] mt-0">
         {/* Overview section */}
-        <div className="flex justify-between items-center">
-          <div>
-            <h1 className="text-xl font-bold mt-[-1rem]">Fund Allocation Dashboard</h1>
-            <p className="text-gray-600 mt-1">
+        <div className="flex justify-between items-center border-l-8  border-l-green-500 rounded-md">
+          <div className="pl-2">
+            <h1 className="text-xl font-bold text-blue-800">Funds Allocation Dashboard</h1>
+            <p className="text-muted-foreground text-sm -mt-1">
               Manage Funds Approves & Allocate to Approved Bursary Applications
             </p>
           </div>
@@ -181,46 +181,46 @@ const FAODashboard = () => {
         {/* Budget overview */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-xl mt-[-1rem]">Budget Overview</CardTitle>
-            <CardDescription>Current Financial period Funding Status</CardDescription>
+            <CardTitle className="text-xl -mb-2 text-blue-800 font-bold">Budget Overview</CardTitle>
+            <CardDescription className="text-muted-foreground">Current Financial Period Funding Status</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
+              <div className="bg-blue-50 hover:bg-blue-100 border-l-8 border-l-blue-500 rounded-lg p-4 border border-blue-100">
                 <p className="text-sm font-medium text-blue-700">Total Budget</p>
-                <p className="text-2xl font-bold">{formatCurrency(totalBudget)}</p>
+                <p className="text-xl font-bold">{formatCurrency(totalBudget)}</p>
                 <div className="mt-1 text-xs text-blue-600">
                   Academic Year 2024
                 </div>
               </div>
-              <div className="bg-green-50 rounded-lg p-4 border border-green-100">
+              <div className="bg-green-50 hover:bg-green-100 border-l-8 border-l-green-500 rounded-lg p-4 border border-green-100">
                 <p className="text-sm font-medium text-green-700">Allocated Funds</p>
-                <p className="text-2xl font-bold">{formatCurrency(totalAllocatedFunds)}</p>
+                <p className="text-xl font-bold">{formatCurrency(totalAllocatedFunds)}</p>
                 <div className="mt-1 text-xs text-green-600">
                   {pendingAllocationApplications.length > 0 && (
                     <span className="flex items-center">
                       <Clock className="h-3 w-3 mr-1" />
-                      {pendingAllocationApplications.length} pending applications
+                      {pendingAllocationApplications.length} Pending Applications
                     </span>
                   )}
                 </div>
               </div>
-              <div className="bg-amber-50 rounded-lg p-4 border border-amber-100">
+              <div className="bg-amber-50 hover:bg-amber-100 border-l-8 border-l-amber-500 rounded-lg p-4 border border-amber-100">
                 <p className="text-sm font-medium text-amber-700">Disbursed Funds</p>
-                <p className="text-2xl font-bold">{formatCurrency(totalDisbursedFunds)}</p>
+                <p className="text-xl font-bold">{formatCurrency(totalDisbursedFunds)}</p>
                 <div className="mt-1 text-xs text-amber-600">
                   <span className="flex items-center">
                     <CheckCircle className="h-3 w-3 mr-1" />
-                    {disbursedApplications.length} applications funded
+                    {disbursedApplications.length} Applications Funded
                   </span>
                 </div>
               </div>
-              <div className="bg-purple-50 rounded-lg p-4 border border-purple-100">
+              <div className="bg-purple-50 hover:bg-purple-100 border-l-8 border-l-purple-500 rounded-lg p-4 border border-purple-100">
                 <p className="text-sm font-medium text-purple-700">Remaining Budget</p>
-                <p className="text-2xl font-bold">{formatCurrency(remainingBudget)}</p>
+                <p className="text-xl font-bold">{formatCurrency(remainingBudget)}</p>
                 <div className="mt-1 text-xs text-purple-600 flex items-center">
                   <Calendar className="h-3 w-3 mr-1" />
-                  <span>Current Financial Year</span>
+                  <span>Current Financial Year  (2024 - 2025)</span>
                 </div>
               </div>
             </div>
@@ -241,21 +241,24 @@ const FAODashboard = () => {
             title="Pending Allocations" 
             value={pendingAllocationApplications.length}
             icon={<FileCheck className="h-6 w-6" />}
-            description="Applications awaiting fund allocation"
+            description="Applications awaiting Fund Allocation"
             trend={pendingAllocationApplications.length > 5 ? { value: pendingAllocationApplications.length - 5, isPositive: false } : undefined}
+            className="bg-red-50 hover:bg-red-100 border-l-8 border-l-red-500"
           />
           <StatCard 
             title="Allocated" 
             value={allocatedApplications.length}
             icon={<Banknote className="h-6 w-6" />}
-            description="Applications with funds allocated"
+            description="Applications with Funds Allocated"
             trend={{ value: 15, isPositive: true }}
+            className="bg-green-50 hover:bg-green-100 border-l-8 border-l-green-500"
           />
           <StatCard 
             title="Average Allocation" 
             value={formatCurrency(totalAllocatedFunds / (allocatedApplications.length + disbursedApplications.length) || 0)}
             icon={<LineChart className="h-6 w-6" />}
-            description="Average funds per application"
+            description="Average Funds per Application"
+            className="bg-gray-50 hover:bg-gray-100 border-l-8 border-l-gray-500"
           />
         </div>
 
@@ -264,9 +267,9 @@ const FAODashboard = () => {
           {/* Active Funds Section */}
           <Card className="lg:col-span-2">
             <CardHeader className="flex flex-row items-center justify-between">
-              <div>
-                <CardTitle className="text-xl mt-[-1rem]">Active Funds</CardTitle>
-                <CardDescription>Current active funding sources</CardDescription>
+              <div className="border-l-8 border-l-green-500 rounded-sm pl-2">
+                <CardTitle className="text-lg font-bold text-blue-800">Active Funds</CardTitle>
+                <CardDescription className="text-muted-foreground">Current active funding sources</CardDescription>
               </div>
               <Button 
                 variant="outline" 
@@ -339,9 +342,10 @@ const FAODashboard = () => {
           
           {/* Applications stats */}
           <Card>
-            <CardHeader>
-              <CardTitle className="text-xl mt-[-1rem]">Application Stats</CardTitle>
-              <CardDescription>Fund Allocation by Education level</CardDescription>
+            <CardHeader className="border-l-8 border-l-cyan-500 rounded-sm border-b-2 mb-2">
+              <CardTitle className="text-lg -my-2 font-bold text-blue-800 ">Application Stats</CardTitle>
+              <CardDescription className="text-muted-foreground">Fund Allocation by Education level  </CardDescription>
+              <p className="text-sm font-bold text-green-500 ml-auto">FY : 2024 - 2025</p>
             </CardHeader>
             <CardContent className="space-y-6">
               {/* University Stats */}
@@ -352,12 +356,12 @@ const FAODashboard = () => {
                     <span className="font-medium">University</span>
                   </div>
                   <span className="text-sm text-gray-500">
-                    {educationLevelStats.university.applications} applications
+                    {educationLevelStats.university.applications} Applications
                   </span>
                 </div>
                 <Progress value={educationLevelStats.university.allocated / totalAllocatedFunds * 100} className="h-2" />
                 <div className="flex justify-between text-xs text-gray-500">
-                  <span>{(educationLevelStats.university.allocated / totalAllocatedFunds * 100).toFixed(1)}% of total</span>
+                  <span>{(educationLevelStats.university.allocated / totalAllocatedFunds * 100).toFixed(1)}% of Total</span>
                   <span>{formatCurrency(educationLevelStats.university.allocated)}</span>
                 </div>
               </div>
@@ -370,12 +374,12 @@ const FAODashboard = () => {
                     <span className="font-medium">College</span>
                   </div>
                   <span className="text-sm text-gray-500">
-                    {educationLevelStats.college.applications} applications
+                    {educationLevelStats.college.applications} Applications
                   </span>
                 </div>
                 <Progress value={educationLevelStats.college.allocated / totalAllocatedFunds * 100} className="h-2" />
                 <div className="flex justify-between text-xs text-gray-500">
-                  <span>{(educationLevelStats.college.allocated / totalAllocatedFunds * 100).toFixed(1)}% of total</span>
+                  <span>{(educationLevelStats.college.allocated / totalAllocatedFunds * 100).toFixed(1)}% of Total</span>
                   <span>{formatCurrency(educationLevelStats.college.allocated)}</span>
                 </div>
               </div>
@@ -388,12 +392,12 @@ const FAODashboard = () => {
                     <span className="font-medium">TVET</span>
                   </div>
                   <span className="text-sm text-gray-500">
-                    {educationLevelStats.tvet.applications} applications
+                    {educationLevelStats.tvet.applications} Applications
                   </span>
                 </div>
                 <Progress value={educationLevelStats.tvet.allocated / totalAllocatedFunds * 100} className="h-2" />
                 <div className="flex justify-between text-xs text-gray-500">
-                  <span>{(educationLevelStats.tvet.allocated / totalAllocatedFunds * 100).toFixed(1)}% of total</span>
+                  <span>{(educationLevelStats.tvet.allocated / totalAllocatedFunds * 100).toFixed(1)}% of Total</span>
                   <span>{formatCurrency(educationLevelStats.tvet.allocated)}</span>
                 </div>
               </div>
@@ -406,12 +410,12 @@ const FAODashboard = () => {
                     <span className="font-medium">Secondary</span>
                   </div>
                   <span className="text-sm text-gray-500">
-                    {educationLevelStats.secondary.applications} applications
+                    {educationLevelStats.secondary.applications} Applications
                   </span>
                 </div>
                 <Progress value={educationLevelStats.secondary.allocated / totalAllocatedFunds * 100} className="h-2" />
                 <div className="flex justify-between text-xs text-gray-500">
-                  <span>{(educationLevelStats.secondary.allocated / totalAllocatedFunds * 100).toFixed(1)}% of total</span>
+                  <span>{(educationLevelStats.secondary.allocated / totalAllocatedFunds * 100).toFixed(1)}% of Total</span>
                   <span>{formatCurrency(educationLevelStats.secondary.allocated)}</span>
                 </div>
               </div>
@@ -433,9 +437,9 @@ const FAODashboard = () => {
         {/* Applications awaiting allocation */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
-            <div>
-              <CardTitle className="text-xl mt-[-1rem]">Applications Awaiting Allocation</CardTitle>
-              <CardDescription>
+            <div className="border-l-8 border-l-orange-500 rounded-md pl-3 ">
+              <CardTitle className="text-lg font-bold text-blue-800 -mb-1">Applications Awaiting Allocation</CardTitle>
+              <CardDescription className="text-muted-foreground">
                 Approved Applications Pending Fund Allocation
               </CardDescription>
             </div>
@@ -520,9 +524,9 @@ const FAODashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Top Institutions */}
           <Card>
-            <CardHeader>
-              <CardTitle className="text-xl mt[-1rem]">Top Institutions</CardTitle>
-              <CardDescription>Institutions with most Funded Applications</CardDescription>
+            <CardHeader className="border-l-8 border-l-yellow-500 border-b-2 rounded-lg">
+              <CardTitle className="text-lg -mb-2 font-bold text-blue-800">Top Institutions</CardTitle>
+              <CardDescription className="text-muted-foreground">Institutions with most Funded Applications</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -544,9 +548,9 @@ const FAODashboard = () => {
           
           {/* Allocation Distribution */}
           <Card>
-            <CardHeader>
-              <CardTitle className="text-xl mt-[-1rem]">Allocation Distribution</CardTitle>
-              <CardDescription>Fund Allocation by category</CardDescription>
+            <CardHeader className="border-l-8 border-l-green-500 border-b-2 rounded-lg ">
+              <CardTitle className="text-lg font-bold text-blue-800 -mb-2">Allocation Distribution</CardTitle>
+              <CardDescription className="text-muted-foreground">Fund Allocation by Category</CardDescription>
             </CardHeader>
             <CardContent className="flex items-center justify-center h-60">
               <div className="text-center space-y-2">

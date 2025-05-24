@@ -252,12 +252,12 @@ const FundManagement = () => {
 
   return (
     <DashboardLayout title="Fund Management">
-      <div className="space-y-6">
+      <div className="space-y-6 lg:-mx-[65px]">
         {/* Header */}
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-xl font-bold mt-[-1rem]">Funds Management</h1>
-            <p className="text-gray-500 mt-1">
+        <div className="flex items-center justify-between border-l-8 border-l-blue-500 rounded-lg">
+          <div className="pl-4">
+            <h1 className="text-xl font-bold">Funds Management</h1>
+            <p className="text-muted-foreground text-sm -mt-1">
               Create, Manage, Approve & Allocate Funds for Bursaries and Scholarships
             </p>
           </div>
