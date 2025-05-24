@@ -247,7 +247,7 @@ const StudentDashboard = () => {
     <DashboardLayout title="Student Dashboard">
       <div className="space-y-4 -mx-[70px]">
         {/* Welcome Banner */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-2 rounded-lg border border-l-4 border-blue-300">
+        <div className="c p-2 rounded-lg border border-l-4 border-blue-300">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
             <div>
               <h1 className="text-lg font-semibold text-blue-800">Welcome, {authState.user?.name}</h1>

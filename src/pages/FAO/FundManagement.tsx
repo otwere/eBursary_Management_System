@@ -277,7 +277,7 @@ const FundManagement = () => {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-2">
-              <Card className="bg-primary-50 border-primary-100 border-l-8 border-l-blue-500">
+              <Card className="bg-primary-50 border-primary-100 border-l-8 border-l-blue-500 h-24 ">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
@@ -363,7 +363,7 @@ const FundManagement = () => {
 
         {/* Fund Floats */}
         <Tabs defaultValue="active">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-4 ">
             <TabsList>
               <TabsTrigger value="active">Active Funds</TabsTrigger>
               <TabsTrigger value="closed">Closed Funds</TabsTrigger>
@@ -381,10 +381,10 @@ const FundManagement = () => {
               fundFloats.filter(fund => fund.status === "active").map(fund => (
                 <Card key={fund.id} className="overflow-hidden">
                   <CardContent className="p-0">
-                    <div className="p-4">
+                    <div className="p-4 bg-gradient-to-r from-blue-50 to-green-50">
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                         <div>
-                          <h3 className="text-lg font-bold">{fund.name}</h3>
+                          <h3 className="text-lg text-blue-800 font-bold">{fund.name}</h3>
                           <p className="text-gray-500 text-sm">{fund.description}</p>
                           <div className="flex items-center mt-1">
                             <span className="text-xs bg-primary-100 text-primary-800 rounded-full px-2 py-0.5 mr-2">
@@ -419,27 +419,27 @@ const FundManagement = () => {
                       </div>
 
                       <div className="mt-6 grid grid-cols-1 md:grid-cols-4 gap-4">
-                        <div>
+                        <div className="border-l-4 pl-2 border-l-yellow-500 rounded">
                           <p className="text-sm text-gray-500">Total Amount</p>
-                          <p className="text-xl font-bold">{formatCurrency(fund.amount)}</p>
+                          <p className="text-xl text-yellow-600 font-bold">{formatCurrency(fund.amount)}</p>
                         </div>
-                        <div>
-                          <p className="text-sm text-gray-500">Allocated</p>
+                        <div className="border-l-4 border-l-blue-500 pl-2 rounded">
+                          <p className="text-sm text-gray-500">Total Allocated</p>
                           <div className="flex items-center">
-                            <p className="text-xl font-bold">{formatCurrency(fund.allocatedAmount)}</p>
+                            <p className="text-xl text-blue-500 font-bold">{formatCurrency(fund.allocatedAmount)}</p>
                             <ArrowUpRight className="h-4 w-4 text-green-500 ml-1" />
                           </div>
                         </div>
-                        <div>
-                          <p className="text-sm text-gray-500">Disbursed</p>
+                        <div className="border-l-4 border-l-green-500 pl-2 rounded">
+                          <p className="text-sm text-gray-500">Total Disbursed</p>
                           <div className="flex items-center">
-                            <p className="text-xl font-bold">{formatCurrency(fund.disbursedAmount)}</p>
+                            <p className="text-xl text-green-500 font-bold">{formatCurrency(fund.disbursedAmount)}</p>
                             <ArrowDownRight className="h-4 w-4 text-blue-500 ml-1" />
                           </div>
                         </div>
-                        <div>
-                          <p className="text-sm text-gray-500">Remaining</p>
-                          <p className="text-xl font-bold">{formatCurrency(fund.remainingAmount)}</p>
+                        <div className="border-l-4 border-l-amber-500 pl-2 rounded">
+                          <p className="text-sm text-gray-500">Total Remaining (Balance)</p>
+                          <p className="text-xl text-amber-500 font-bold">{formatCurrency(fund.remainingAmount)}</p>
                         </div>
                       </div>
 
