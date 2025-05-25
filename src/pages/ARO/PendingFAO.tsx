@@ -48,7 +48,7 @@ const PendingFAO = () => {
       <div className="space-y-6 lg:-mx-[85px]">
         <Card>
           <CardHeader>
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-l-8 border-l-blue-500 rounded-md">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-l-4 border-l-blue-500 rounded-md">
               <div className="pl-3">
                 <CardTitle className="text-xl text-blue-800">Applications Pending FAO Review</CardTitle>
                 <CardDescription className="text-muted-foreground">

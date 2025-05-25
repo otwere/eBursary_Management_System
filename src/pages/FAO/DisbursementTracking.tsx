@@ -59,7 +59,7 @@ const mockDisbursements: Disbursement[] = [
     status: "in-progress",
     reference: "MP-39284756",
     transactionDate: "2024-03-18T09:00:00.000Z",
-    notes: "Waiting for M-Pesa confirmation",
+    notes: "Waiting for M-pesa confirmation",
     mpesaNumber: "2547********",
     mpesaName: "Kevin mwangi"
   },
@@ -106,7 +106,7 @@ const DisbursementTracking = () => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'KES',
-      minimumFractionDigits: 0
+      minimumFractionDigits: 2
     }).format(amount);
   };
 
@@ -183,24 +183,24 @@ const DisbursementTracking = () => {
 
   return (
     <DashboardLayout title="Disbursement Tracking">
-      <div className="space-y-6 px-4 md:px-8 lg:px-12 py-6">
+      <div className="space-y-6 lg:-mx-[120px] px-4 md:px-8 lg:px-12 py-6">
         {/* Header */}
-        <div>
-          <h1 className="text-xl font-bold mt-[-1rem]">Disbursement Tracking</h1>
-          <p className="text-gray-500 mt-0">
+        <div className="-mt-8 border-l-4 border-l-purple-500 pl-2 rounded-sm border-b-2 h-16">
+          <h1 className="text-xl font-bold text-blue-800">Disbursement Tracking</h1>
+          <p className="text-muted-foreground -mt-1 text-sm">
             Track and Manage Fund Disbursements to Institutions
           </p>
         </div>
 
         {/* Overview Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <Card>
-            <CardContent className="p-4 md:p-4 lg:p-8">
+          <Card className="h-28 border-l-4 border-l-cyan-500 bg-cyan-50 hover:bg-cyan-100">
+            <CardContent className="p-4 md:p-4 lg:p-8 -mx-4 -mt-4">
               <div className="flex justify-between items-start">
                 <div>
                   <p className="text-sm font-medium text-gray-500">Total Disbursements</p>
-                  <p className="text-2xl font-bold mt-1">{formatCurrency(getTotalAmount("all"))}</p>
-                  <p className="text-xs text-gray-500 mt-1">{mockDisbursements.length} transactions</p>
+                  <p className="text-[20px] font-bold mt-0">{formatCurrency(getTotalAmount("all"))}</p>
+                  <p className="text-xs text-gray-500 mt-0">{mockDisbursements.length} transactions</p>
                 </div>
                 <div className="p-3 bg-primary-50 rounded-full">
                   <DollarSign className="h-5 w-5 text-primary-500" />
@@ -209,13 +209,13 @@ const DisbursementTracking = () => {
             </CardContent>
           </Card>
 
-          <Card>
-            <CardContent className="p-4 md:p-4 lg:p-8">
+          <Card className="h-28 border-l-4 border-l-green-500 bg-green-50 hover:bg-green-100">
+            <CardContent className="p-4 md:p-4 lg:p-8 -mx-4 -mt-4">
               <div className="flex justify-between items-start">
                 <div>
                   <p className="text-sm font-medium text-gray-500">Completed</p>
-                  <p className="text-2xl font-bold mt-1 text-green-600">{formatCurrency(getTotalAmount("completed"))}</p>
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-[20px] font-bold mt-0 text-green-600 ">{formatCurrency(getTotalAmount("completed"))}</p>
+                  <p className="text-xs text-gray-500 mt-0">
                     {mockDisbursements.filter(d => d.status === "completed").length} transactions
                   </p>
                 </div>
@@ -226,15 +226,15 @@ const DisbursementTracking = () => {
             </CardContent>
           </Card>
 
-          <Card>
-            <CardContent className="p-4 md:p-4 lg:p-8">
+          <Card className="h-28 border-l-4 border-l-blue-500 bg-blue-50 hover:bg-blue-100">
+            <CardContent className="p-4 md:p-4 lg:p-8 -mx-4 -mt-4">
               <div className="flex justify-between items-start">
                 <div>
                   <p className="text-sm font-medium text-gray-500">In Progress</p>
-                  <p className="text-2xl font-bold mt-1 text-blue-600">
+                  <p className="text-xl font-bold mt-0 text-blue-600">
                     {formatCurrency(getTotalAmount("in-progress") + getTotalAmount("pending"))}
                   </p>
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-xs text-gray-500 mt-0">
                     {mockDisbursements.filter(d => d.status === "in-progress" || d.status === "pending").length} transactions
                   </p>
                 </div>
@@ -245,13 +245,13 @@ const DisbursementTracking = () => {
             </CardContent>
           </Card>
 
-          <Card>
-            <CardContent className="p-4 md:p-4 lg:p-8">
+          <Card className="h-28 border-l-4 border-l-red-500 bg-red-50 hover:bg-red-100">
+            <CardContent className="p-4 md:p-4 lg:p-8 -mx-4 -mt-4">
               <div className="flex justify-between items-start">
                 <div>
                   <p className="text-sm font-medium text-gray-500">Failed</p>
-                  <p className="text-2xl font-bold mt-1 text-red-600">{formatCurrency(getTotalAmount("failed"))}</p>
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-xl font-bold mt-0 text-red-600">{formatCurrency(getTotalAmount("failed"))}</p>
+                  <p className="text-xs text-gray-500 mt-0">
                     {mockDisbursements.filter(d => d.status === "failed").length} transactions
                   </p>
                 </div>
@@ -265,20 +265,20 @@ const DisbursementTracking = () => {
 
         {/* Disbursements Table */}
         <Card>
-          <CardHeader className="p-4 md:p-4 lg:p-8">
+          <CardHeader className="p-4 md:p-4 lg:p-8 border-b-2">
             <div className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
-              <div>
-                <CardTitle className="text-xl mt-[-0.5rem]">Disbursements</CardTitle>
-                <CardDescription>
+              <div className="border-l-4 border-l-purple-500 pl-2 -mx-8 -mt-8 h-16  -mb-4 rounded  ">
+                <CardTitle className="text-xl font-bold mt-[0.5rem] text-blue-800">Disbursements</CardTitle>
+                <CardDescription className="text-muted- -mt-1">
                   View and Manage Fund Disbursements
                 </CardDescription>
               </div>
               
               <div className="flex flex-col gap-4 sm:flex-row">
-                <div className="relative">
+                <div className="relative mt-[-0.5rem]">
                   <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
                   <Input
-                    placeholder="Search disbursements..."
+                    placeholder="Search Disbursement"
                     className="pl-8 w-full sm:w-[250px]"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -286,7 +286,7 @@ const DisbursementTracking = () => {
                 </div>
                 
                 <Select value={methodFilter} onValueChange={(v) => setMethodFilter(v as DisbursementMethodType | "all")}>
-                  <SelectTrigger className="w-full sm:w-[180px]">
+                  <SelectTrigger className="w-full sm:w-[180px] -mt-2">
                     <div className="flex items-center">
                       <Filter className="h-4 w-4 mr-2" />
                       <span>{methodFilter === "all" ? "All Methods" : methodFilter}</span>
@@ -305,15 +305,15 @@ const DisbursementTracking = () => {
           
           <CardContent className="p-4 md:p-4 lg:p-8">
             <Tabs defaultValue="all" onValueChange={setFilter}>
-              <TabsList className="mb-4">
-                <TabsTrigger value="all">All</TabsTrigger>
+              <TabsList className="-my-5 mb-4 space-x-56 -mx-4">
+                <TabsTrigger value="all">All Disbursements</TabsTrigger>
                 <TabsTrigger value="completed">Completed</TabsTrigger>
                 <TabsTrigger value="in-progress">In Progress</TabsTrigger>
                 <TabsTrigger value="pending">Pending</TabsTrigger>
                 <TabsTrigger value="failed">Failed</TabsTrigger>
               </TabsList>
               
-              <TabsContent value={filter} className="mt-0">
+              <TabsContent value={filter} className="mt-0 -mx-5 border-t-2">
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -332,7 +332,7 @@ const DisbursementTracking = () => {
                       <TableRow key={disbursement.id}>
                         <TableCell>
                           <div className="font-medium">{disbursement.institutionName}</div>
-                          <div className="text-xs text-gray-500">App ID: {disbursement.applicationId}</div>
+                          <div className="text-xs text-gray-500">App ID : {disbursement.applicationId}</div>
                         </TableCell>
                         <TableCell>{disbursement.studentId}</TableCell>
                         <TableCell className="font-medium">{formatCurrency(disbursement.amount)}</TableCell>
@@ -362,7 +362,7 @@ const DisbursementTracking = () => {
                           <div>{formatDate(disbursement.transactionDate)}</div>
                           {disbursement.processedBy && (
                             <div className="text-xs text-gray-500">
-                              By: {disbursement.processedBy}
+                             Processed  By : {disbursement.processedBy} - FDO
                             </div>
                           )}
                         </TableCell>

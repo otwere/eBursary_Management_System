@@ -721,7 +721,7 @@ const StudentApplications = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-1">
-                  <Card className=" bg-slate-50 border-l-8 border  border-blue-400">
+                  <Card className=" bg-slate-50 border-l-4 border  border-blue-400">
                     <CardHeader className="pb-2">
                       <CardTitle className="text-base">Institution & Course</CardTitle>
                     </CardHeader>
@@ -747,7 +747,7 @@ const StudentApplications = () => {
                     </CardContent>
                   </Card>
 
-                  <Card className=" bg-green-50 border-l-8 border  border-green-400">
+                  <Card className=" bg-green-50 border-l-4 border  border-green-400">
                     <CardHeader className="pb-2">
                       <CardTitle className="text-base">Financial Information</CardTitle>
                     </CardHeader>

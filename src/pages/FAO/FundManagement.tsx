@@ -254,7 +254,7 @@ const FundManagement = () => {
     <DashboardLayout title="Funds Management Dashboard">
       <div className="space-y-6 lg:-mx-[65px]">
         {/* Header */}
-        <div className="flex items-center justify-between border-l-8 border-l-blue-500 rounded-md">
+        <div className="flex items-center justify-between border-l-4 border-l-blue-500 rounded-md">
           <div className="pl-4">
             <h1 className="text-xl font-bold text-blue-800">Funds Management</h1>
             <p className="text-muted-foreground text-sm -mt-1">
@@ -270,14 +270,14 @@ const FundManagement = () => {
         {/* Fund Overview */}
         <Card>
           <CardHeader className="border-l-0 border-l-lime-500 rounded-lg border-b-0 mx-0 ">
-            <CardTitle className="text-xl font-bold -my-2 text-green-800">Funds Overview</CardTitle>
+            <CardTitle className="text-xl font-bold -my-2 text-blue-800">Funds Overview</CardTitle>
             <CardDescription className="text-muted-foreground">
               Summary of all Available Fund Allocations
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-2">
-              <Card className="bg-primary-50 border-primary-100 border-l-8 border-l-blue-500 h-24 ">
+              <Card className="bg-primary-50 border-primary-100 border-l-4 border-l-blue-500 h-28 ">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
@@ -293,7 +293,7 @@ const FundManagement = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-green-50 border-green-100 border-l-8 border-l-green-500">
+              <Card className="bg-green-50 border-green-100 border-l-4 border-l-green-500">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
@@ -309,7 +309,7 @@ const FundManagement = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-blue-50 border-blue-100 border-l-8 border-l-cyan-500">
+              <Card className="bg-blue-50 border-blue-100 border-l-4 border-l-cyan-500">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
@@ -325,7 +325,7 @@ const FundManagement = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-yellow-50 border-yellow-100 border-l-8 border-l-yellow-500">
+              <Card className="bg-yellow-50 border-yellow-100 border-l-4 border-l-yellow-500">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
@@ -457,15 +457,15 @@ const FundManagement = () => {
                     {/* Fund Categories */}
                     {getFundCategoriesByFloatId(fund.id).length > 0 && (
                       <div className="border-t bg-gray-50 p-4">
-                        <h4 className="text-sm font-medium mb-4">Fund Categories</h4>
+                        <h4 className="text-lg font-medium text-gray-700 mb-4">Fund Categories</h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           {getFundCategoriesByFloatId(fund.id).map(category => (
                             <Card key={category.id} className="border bg-white">
                               <CardContent className="p-4">
                                 <div className="flex justify-between items-start">
                                   <div>
-                                    <h5 className="font-medium">{category.name}</h5>
-                                    <p className="text-sm text-gray-500">{category.description}</p>
+                                    <h5 className="font-medium text-orange-500">{category.name}</h5>
+                                    <p className="text-sm text-muted-foreground">{category.description}</p>
                                   </div>
                                   <div className={`px-2 py-1 rounded-full text-xs font-medium ${
                                     category.name === "Bursary" 
@@ -538,7 +538,7 @@ const FundManagement = () => {
       {/* Create Fund Dialog */}
       <Dialog open={isCreateFundOpen} onOpenChange={setIsCreateFundOpen}>
         <DialogContent className="sm:max-w-2xl md:max-w-3xl lg:max-w-5xl bg-gray-50 border-b-2">
-          <DialogHeader className="border-l-8 border-l-lime-500 pl-2 rounded-md">
+          <DialogHeader className="border-l-4 border-l-lime-500 pl-2 rounded-md">
             <DialogTitle className="text-lg font-bold text-blue-800 -mb-2">Load New Fund</DialogTitle>
             <DialogDescription className="text-muted-foreground">
               Create a new Fund Allocation that can be Distributed to Bursaries and Scholarships.
@@ -618,7 +618,7 @@ const FundManagement = () => {
       {/* Allocate Fund Dialog */}
       <Dialog open={isAllocateOpen} onOpenChange={setIsAllocateOpen}>
         <DialogContent className=" lg:max-w-5xl md:max-w-3xl sm:max-w-2xl">
-          <DialogHeader className="border-l-8 border-l-cyan-500 rounded-md pl-2">
+          <DialogHeader className="border-l-4 border-l-cyan-500 rounded-md pl-2">
             <DialogTitle className="font-bold text-blue-800 -mb-1">Create Fund Categories</DialogTitle>
             <DialogDescription className="text-muted-foreground">
               Divide the Funds into Bursary and Scholarship Categories.

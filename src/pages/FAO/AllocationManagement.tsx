@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import  { useState } from "react";
 import { useLocation } from "react-router-dom";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
@@ -23,12 +23,12 @@ const mockFundAllocations: FundAllocation[] = [
     id: "alloc-1",
     categoryId: "cat-1", // Bursary
     educationLevel: "University",
-    description: "University bursary allocation for 2025",
+    description: "University Bursary Allocation for 2024",
     amount: 1500000,
     allocatedAmount: 700000,
     disbursedAmount: 500000,
     remainingAmount: 800000,
-    academicYear: "2025",
+    academicYear: "2024",
     createdAt: "2024-03-20T09:00:00.000Z",
     createdBy: "Michael Johnson",
     status: "active"
@@ -37,12 +37,12 @@ const mockFundAllocations: FundAllocation[] = [
     id: "alloc-2",
     categoryId: "cat-1", // Bursary
     educationLevel: "College",
-    description: "College bursary allocation for 2025",
+    description: "College Bursary Allocation for 2024",
     amount: 800000,
     allocatedAmount: 300000,
     disbursedAmount: 200000,
     remainingAmount: 500000,
-    academicYear: "2025",
+    academicYear: "2024",
     createdAt: "2024-03-20T09:15:00.000Z",
     createdBy: "Michael Johnson",
     status: "active"
@@ -51,12 +51,12 @@ const mockFundAllocations: FundAllocation[] = [
     id: "alloc-3",
     categoryId: "cat-1", // Bursary
     educationLevel: "TVET",
-    description: "TVET bursary allocation for 2025",
+    description: "TVET Bursary Allocation for 2024",
     amount: 500000,
     allocatedAmount: 150000,
     disbursedAmount: 100000,
     remainingAmount: 350000,
-    academicYear: "2025",
+    academicYear: "2024",
     createdAt: "2024-03-20T09:30:00.000Z",
     createdBy: "Michael Johnson",
     status: "active"
@@ -65,12 +65,12 @@ const mockFundAllocations: FundAllocation[] = [
     id: "alloc-4",
     categoryId: "cat-1", // Bursary
     educationLevel: "Secondary",
-    description: "Secondary bursary allocation for 2025",
+    description: "Secondary Bursary Allocation for 2024",
     amount: 200000,
     allocatedAmount: 50000,
     disbursedAmount: 30000,
     remainingAmount: 150000,
-    academicYear: "2025",
+    academicYear: "2024",
     createdAt: "2024-03-20T09:45:00.000Z",
     createdBy: "Michael Johnson",
     status: "active"
@@ -79,12 +79,12 @@ const mockFundAllocations: FundAllocation[] = [
     id: "alloc-5",
     categoryId: "cat-2", // Scholarship
     educationLevel: "University",
-    description: "University scholarship allocation for 2025",
+    description: "University Scholarship Allocation for 2024",
     amount: 1000000,
     allocatedAmount: 500000,
     disbursedAmount: 400000,
     remainingAmount: 500000,
-    academicYear: "2025",
+    academicYear: "2024",
     createdAt: "2024-03-21T10:00:00.000Z",
     createdBy: "Michael Johnson",
     status: "active"
@@ -93,12 +93,12 @@ const mockFundAllocations: FundAllocation[] = [
     id: "alloc-6",
     categoryId: "cat-2", // Scholarship
     educationLevel: "College",
-    description: "College scholarship allocation for 2025",
+    description: "College Scholarship Allocation for 2024",
     amount: 500000,
     allocatedAmount: 200000,
     disbursedAmount: 150000,
     remainingAmount: 300000,
-    academicYear: "2025",
+    academicYear: "2024",
     createdAt: "2024-03-21T10:15:00.000Z",
     createdBy: "Michael Johnson",
     status: "active"
@@ -107,12 +107,12 @@ const mockFundAllocations: FundAllocation[] = [
     id: "alloc-7",
     categoryId: "cat-2", // Scholarship
     educationLevel: "TVET",
-    description: "TVET scholarship allocation for 2025",
+    description: "TVET Scholarship Allocation for 2024",
     amount: 300000,
     allocatedAmount: 100000,
     disbursedAmount: 50000,
     remainingAmount: 200000,
-    academicYear: "2025",
+    academicYear: "2024",
     createdAt: "2024-03-21T10:30:00.000Z",
     createdBy: "Michael Johnson",
     status: "active"
@@ -121,12 +121,12 @@ const mockFundAllocations: FundAllocation[] = [
     id: "alloc-8",
     categoryId: "cat-2", // Scholarship
     educationLevel: "Secondary",
-    description: "Secondary scholarship allocation for 2025",
+    description: "Secondary Scholarship Allocation for 2024",
     amount: 200000,
     allocatedAmount: 0,
     disbursedAmount: 0,
     remainingAmount: 200000,
-    academicYear: "2025",
+    academicYear: "2024",
     createdAt: "2024-03-21T10:45:00.000Z",
     createdBy: "Michael Johnson",
     status: "active"
@@ -293,7 +293,7 @@ const AllocationManagement = () => {
     <DashboardLayout title="Allocation Management">
       <div className="space-y-6 lg:-mx-[70px]">
         {/* Header */}
-        <div className="flex items-center justify-between border-l-8 border-l-green-500 pl-2 rounded-md">
+        <div className="flex items-center justify-between border-l-4 border-l-green-500 pl-2 rounded-md">
           <div className="">
             <h1 className="text-xl font-bold text-blue-800">Funds Allocation Management</h1>
             <p className="text-muted-foreground  text-sm -mt-1">
@@ -309,14 +309,14 @@ const AllocationManagement = () => {
         {/* Overview */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-lg font-bold">Allocation Overview</CardTitle>
+            <CardTitle className="text-xl text-blue-800 font-bold -mb-2">Allocation Overview</CardTitle>
             <CardDescription>
               Summary of Fund Allocations by Category & Education level
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Card className="bg-blue-50 border-blue-100">
+              <Card className="bg-blue-50 border-blue-100 border-l-4 border-l-blue-500 hover:bg-blue-100 h-28">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
@@ -332,7 +332,7 @@ const AllocationManagement = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-green-50 border-green-100">
+              <Card className="bg-green-50 border-green-100 border-l-4 border-l-green-500 hover:bg-green-100">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
@@ -348,7 +348,7 @@ const AllocationManagement = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-purple-50 border-purple-100">
+              <Card className="bg-purple-50 border-purple-100 border-l-4 border-l-purple-500 hover:bg-purple-100">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
@@ -370,7 +370,7 @@ const AllocationManagement = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-amber-50 border-amber-100">
+              <Card className="bg-amber-50 border-amber-100 border-l-4 border-l-amber-500 hover:bg-amber-100">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
@@ -395,12 +395,12 @@ const AllocationManagement = () => {
 
             {/* Allocation Distribution by Education Level */}
             <div>
-              <h3 className="text-lg font-medium mb-4">Allocation by Education Level</h3>
+              <h3 className="text-xl font-bold mb-2 text-blue-800">Allocation by Education Level</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Bursary Distribution */}
-                <Card>
+                <Card className="bg-gray-50">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-base">Bursary Distribution</CardTitle>
+                    <CardTitle className="text-lg text-blue-700 border-l-4 border-l-blue-500 pl-2 rounded-none border-b-2 mb-4">Bursary Distribution</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
@@ -444,9 +444,9 @@ const AllocationManagement = () => {
                 </Card>
 
                 {/* Scholarship Distribution */}
-                <Card>
+                <Card className="bg-gray-50">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-base">Scholarship Distribution</CardTitle>
+                    <CardTitle className="text-lg text-green-600 border-l-4 border-l-green-500 pl-2 border-b-2 mb-4">Scholarship Distribution</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
@@ -497,10 +497,10 @@ const AllocationManagement = () => {
         <Card>
           <CardHeader>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <CardTitle className="text-xl">Fund Allocations</CardTitle>
+              <div className="border-l-4 border-lime-500 pl-2 rounded-s-sm">
+                <CardTitle className="text-xl font-bold text-blue-800 -mb-1">Fund Allocations | FY-2024-2025-ALLOC-0011</CardTitle>
                 <CardDescription>
-                  View and manage all fund allocations
+                  View and manage all Funds Allocations
                 </CardDescription>
               </div>
               <div className="flex flex-col sm:flex-row gap-2">
@@ -571,7 +571,7 @@ const AllocationManagement = () => {
                       </TableCell>
                       <TableCell>
                         <Badge variant="outline" className={
-                          category?.name === "Bursary" ? "border-blue-200 text-blue-800 bg-blue-50" : "border-green-200 text-green-800 bg-green-50"
+                          category?.name === "Bursary" ? "border-blue-200 text-blue-800 bg-blue-100" : "border-green-200 text-green-800 bg-green-100"
                         }>
                           {category?.name || "Unknown"}
                         </Badge>
@@ -581,7 +581,7 @@ const AllocationManagement = () => {
                         <div className="flex items-center">
                           <span className="mr-2">{formatCurrency(allocation.allocatedAmount)}</span>
                           {allocation.allocatedAmount > 0 && (
-                            <Badge className="text-xs" variant="outline">
+                            <Badge className="text-xs bg-green-200 text-green-700" variant="outline">
                               {Math.round((allocation.allocatedAmount / allocation.amount) * 100)}%
                             </Badge>
                           )}
@@ -620,11 +620,11 @@ const AllocationManagement = () => {
 
       {/* Create Allocation Dialog */}
       <Dialog open={isCreateAllocationOpen} onOpenChange={setIsCreateAllocationOpen}>
-        <DialogContent className="lg:max-w-6xl sm:max-w-5xl bg-gray-50">
-          <DialogHeader>
-            <DialogTitle>Create Fund Allocation</DialogTitle>
-            <DialogDescription>
-              Allocate Funds to Specific Education levels.
+        <DialogContent className="lg:max-w-6xl sm:max-w-3xl bg-gray-50">
+          <DialogHeader className="border-l-4 border-l-red-500 pl-2 rounded-sm">
+            <DialogTitle className="text-blue-800 font-bold -mb-1">Create Fund Allocation</DialogTitle>
+            <DialogDescription className="text-muted-foreground">
+              Allocate Funds to Specific Education Levels.
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4 py-4">
@@ -653,15 +653,15 @@ const AllocationManagement = () => {
 
             {selectedCategory && (
               <div className="bg-blue-50 p-3 rounded-md">
-                <p className="text-sm font-medium text-blue-800">Category Details</p>
+                <p className="text-lg font-medium text-blue-800 mb-4">Category Details</p>
                 <div className="mt-2 grid grid-cols-2 gap-2">
-                  <div>
+                  <div className="border-l-4 border-l-blue-500 pl-2">
                     <p className="text-xs text-gray-500">Total Amount</p>
-                    <p className="font-medium">{formatCurrency(selectedCategory.amount)}</p>
+                    <p className="font-medium text-blue-500">{formatCurrency(selectedCategory.amount)}</p>
                   </div>
-                  <div>
+                  <div className="border-l-4 border-l-orange-500 pl-2">
                     <p className="text-xs text-gray-500">Remaining</p>
-                    <p className="font-medium">{formatCurrency(selectedCategory.remainingAmount)}</p>
+                    <p className="font-medium text-orange-500">{formatCurrency(selectedCategory.remainingAmount)}</p>
                   </div>
                 </div>
               </div>

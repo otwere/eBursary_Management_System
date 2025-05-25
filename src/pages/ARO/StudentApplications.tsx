@@ -228,7 +228,7 @@ const StudentApplications = () => {
     <DashboardLayout title="Student Applications">
       <div className="space-y-6  lg:-mx-[85px]">
         {/* Header section */}
-        <div className="bg-blue-50 border-l-8 border-l-blue-500 p-4 rounded-lg border">
+        <div className="bg-blue-50 border-l-4 border-l-blue-500 p-4 rounded-lg border">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h1 className="text-xl font-semibold -mt-2">Student Applications</h1>
@@ -295,7 +295,7 @@ const StudentApplications = () => {
         {/* Summary Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           <Card>
-            <CardContent className="pt-6 bg-yellow-50 hover:bg-yellow-100 border-l-8 border-l-yellow-500 rounded-lg">
+            <CardContent className="pt-6 bg-yellow-50 hover:bg-yellow-100 border-l-4 border-l-yellow-500 rounded-lg">
               <div className="flex items-center gap-3">
                 <div className="p-2 rounded-full bg-blue-100">
                   <Clock className="h-5 w-5 text-blue-600" />
@@ -309,7 +309,7 @@ const StudentApplications = () => {
           </Card>
           
           <Card>
-            <CardContent className="pt-6 bg-red-50 hover:bg-amber-100 border-l-8 border-l-orange-500 rounded-lg">
+            <CardContent className="pt-6 bg-red-50 hover:bg-amber-100 border-l-4 border-l-orange-500 rounded-lg">
               <div className="flex items-center gap-3">
                 <div className="p-2 rounded-full bg-amber-100">
                   <MessageSquare className="h-5 w-5 text-amber-600" />
@@ -323,7 +323,7 @@ const StudentApplications = () => {
           </Card>
           
           <Card>
-            <CardContent className="pt-6 bg-green-50 hover:bg-green-100 border-l-8 border-l-green-500 rounded-lg">
+            <CardContent className="pt-6 bg-green-50 hover:bg-green-100 border-l-4 border-l-green-500 rounded-lg">
               <div className="flex items-center gap-3">
                 <div className="p-2 rounded-full bg-green-100">
                   <CheckCircle className="h-5 w-5 text-green-600" />
@@ -337,7 +337,7 @@ const StudentApplications = () => {
           </Card>
           
           <Card>
-            <CardContent className="pt-6 bg-red-50 hover:bg-red-100 border-l-8 border-l-red-500 rounded-lg">
+            <CardContent className="pt-6 bg-red-50 hover:bg-red-100 border-l-4 border-l-red-500 rounded-lg">
               <div className="flex items-center gap-3">
                 <div className="p-2 rounded-full bg-red-100">
                   <X className="h-5 w-5 text-red-600" />

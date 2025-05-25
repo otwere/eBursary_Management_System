@@ -34,7 +34,7 @@ const ARODashboard = () => {
     <DashboardLayout title="Application & Documents Review Officer (ADRO) Dashboard">
       <div className="space-y-6 -mx-[70px]">
         {/* Overview section */}
-        <div className="bg-amber-50 p-4 rounded-lg border border-l-8 border-green-500">
+        <div className="bg-amber-50 p-4 rounded-lg border border-l-4 border-green-500">
           <h1 className="text-xl text-blue-800 font-semibold">Application Review Dashboard</h1>
           <p className="text-muted-foreground text-sm mt-1">
             Review and manage Bursary Applications.
@@ -44,7 +44,7 @@ const ARODashboard = () => {
         {/* Quick action buttons */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Button 
-            className="h-auto py-6 flex flex-col gap-2 border border-primary/20 bg-cyan-50 border-l-8 rounded-xl hover:bg-cyan-100"
+            className="h-auto py-6 flex flex-col gap-2 border border-primary/20 bg-cyan-50 border-l-4 rounded-xl hover:bg-cyan-100"
             onClick={() => navigate("/ARO/applications")}
           >
             <FileCheck className="h-8 w-8 text-blue-800" />
@@ -54,7 +54,7 @@ const ARODashboard = () => {
           
           <Button 
             variant="outline"
-            className="h-auto py-6 flex flex-col gap-2 bg-green-50 border-l-8 border-green-500 hover:bg-green-100 rounded-xl"
+            className="h-auto py-6 flex flex-col gap-2 bg-green-50 border-l-4 border-green-500 hover:bg-green-100 rounded-xl"
             onClick={() => navigate("/ARO/student-applications")}
           >
             <Users className="h-8 w-8 text-primary" />
@@ -64,7 +64,7 @@ const ARODashboard = () => {
           
           <Button 
             variant="outline"
-            className="h-auto py-6 flex flex-col gap-2 bg-blue-50 border-l-8 border-blue-500 hover:bg-blue-100 rounded-xl"
+            className="h-auto py-6 flex flex-col gap-2 bg-blue-50 border-l-4 border-blue-500 hover:bg-blue-100 rounded-xl"
             onClick={() => navigate("/ARO/reports")}
           >
             <BarChart className="h-8 w-8 text-primary" />
@@ -81,14 +81,14 @@ const ARODashboard = () => {
             icon={<FileClock className="h-6 w-6" />}
             description="Applications awaiting initial review"
             trend={{ value: 12, isPositive: false }}
-            className="bg-gray-50 hover:bg-gray-100 border-l-8 border-red-500"
+            className="bg-gray-50 hover:bg-gray-100 border-l-4 border-red-500"
           />
           <StatCard 
             title="Under Review" 
             value={underReviewApplications.length}
             icon={<Clock className="h-6 w-6" />}
             description="Applications in Progress"
-            className="bg-orange-50 hover:bg-orange-100 border-l-8 border-orange-500"
+            className="bg-orange-50 hover:bg-orange-100 border-l-4 border-orange-500"
           />
           <StatCard 
             title="Reviewed This Month" 
@@ -96,7 +96,7 @@ const ARODashboard = () => {
             icon={<FileCheck className="h-6 w-6" />}
             description="Successfully Processed Applications"
             trend={{ value: 8, isPositive: true }}
-            className="bg-cyan-50 hover:bg-cyan-100 border-l-8 border-cyan-500"
+            className="bg-cyan-50 hover:bg-cyan-100 border-l-4 border-cyan-500"
           />
         </div>
 
@@ -108,7 +108,7 @@ const ARODashboard = () => {
           <CardContent className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <Button 
               variant="outline" 
-              className="h-auto flex flex-col items-center justify-center py-4 px-2 bg-yellow-50 hover:bg-yellow-100 border-l-8 border-yellow-500 rounded-xl"
+              className="h-auto flex flex-col items-center justify-center py-4 px-2 bg-yellow-50 hover:bg-yellow-100 border-l-4 border-yellow-500 rounded-xl"
               onClick={() => navigate("/ARO/applications?status=submitted")}
             >
               <Clock className="h-6 w-6 mb-2 text-yellow-500" />
@@ -117,7 +117,7 @@ const ARODashboard = () => {
             </Button>
             <Button 
               variant="outline" 
-              className="h-auto flex flex-col items-center justify-center py-4 px-2 bg-blue-50 hover:bg-blue-100 border-l-8 border-blue-500 rounded-xl"
+              className="h-auto flex flex-col items-center justify-center py-4 px-2 bg-blue-50 hover:bg-blue-100 border-l-4 border-blue-500 rounded-xl"
               onClick={() => navigate("/ARO/applications?status=under-review")}
             >
               <RefreshCcw className="h-6 w-6 mb-2 text-blue-500" />
@@ -126,7 +126,7 @@ const ARODashboard = () => {
             </Button>
             <Button 
               variant="outline" 
-              className="h-auto flex flex-col items-center justify-center py-4 px-2 bg-green-50 hover:bg-green-100 border-l-8 border-green-500 rounded-xl"
+              className="h-auto flex flex-col items-center justify-center py-4 px-2 bg-green-50 hover:bg-green-100 border-l-4 border-green-500 rounded-xl"
               onClick={() => navigate("/ARO/applications?status=approved")}
             >
               <CheckCircle className="h-6 w-6 mb-2 text-green-500" />
@@ -135,7 +135,7 @@ const ARODashboard = () => {
             </Button>
             <Button 
               variant="outline" 
-              className="h-auto flex flex-col items-center justify-center py-4 px-2 bg-orange-50 hover:bg-orange-100 border-l-8 border-orange-500 rounded-xl"
+              className="h-auto flex flex-col items-center justify-center py-4 px-2 bg-orange-50 hover:bg-orange-100 border-l-4 border-orange-500 rounded-xl"
               onClick={() => navigate("/ARO/applications?status=corrections-needed")}
             >
               <FileX className="h-6 w-6 mb-2 text-orange-500" />

@@ -175,12 +175,12 @@ const FinancialReports = () => {
 
   return (
     <DashboardLayout title="Financial Reports">
-      <div className="space-y-6">
+      <div className="space-y-6 lg:-mx-[70px]">
         {/* Header */}
-        <div>
-          <h1 className="text-2xl font-bold">Financial Reports</h1>
-          <p className="text-gray-500 mt-1">
-            Generate and analyze financial reports for fund allocation and disbursement
+        <div className="border-l-4 border-l-red-500 pl-2 rounded-none bg-blue-50 h-20">
+          <h1 className="text-xl font-bold text-blue-800">Financial Reports</h1>
+          <p className="text-muted-foreground text-sm -mt-0">
+            Generate and Analyze Financial Reports for Funds Approval & Allocation and Disbursement
           </p>
         </div>
         
@@ -260,7 +260,7 @@ const FinancialReports = () => {
           <div className="space-y-6">
             <Tabs defaultValue="overview" onValueChange={setActiveTab}>
               <div className="flex justify-between items-center mb-4">
-                <TabsList>
+                <TabsList className="lg:space-x-56 sm:space-x-0">
                   <TabsTrigger value="overview">Overview</TabsTrigger>
                   <TabsTrigger value="category-breakdown">Category Breakdown</TabsTrigger>
                   <TabsTrigger value="education-level">Education Level</TabsTrigger>
@@ -279,36 +279,37 @@ const FinancialReports = () => {
               <TabsContent value="overview" className="mt-0">
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <Card>
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">Fund Utilization Summary</CardTitle>
-                      <CardDescription>Academic Year {mockUtilizationSummary.academicYear}</CardDescription>
+                    <CardHeader className="pb-2 border-l-4 border-l-red-500 border-b-2 mb-4 rounded-none">
+                      <CardTitle className="text-lg text-blue-800 font-bold -mb-2">Fund Utilization Summary</CardTitle>
+                      <CardDescription className="text-muted-foreground">Academic Year : {mockUtilizationSummary.academicYear}</CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <div className="space-y-4">
+                      <div className="space-y-4 -mx-0">
                         <div className="grid grid-cols-2 gap-4">
-                          <div>
+                          <div className="border-l-4 border-l-gray-500 pl-2 rounded-none">
                             <p className="text-sm text-gray-500">Total Budget</p>
-                            <p className="text-2xl font-bold">{formatCurrency(mockUtilizationSummary.totalBudget)}</p>
+                            <p className="text-xl font-bold">{formatCurrency(mockUtilizationSummary.totalBudget)}</p>
+                            <p className="text-xs text-gray-500">FY - (2024 - 2025) | Academic Year : {mockUtilizationSummary.academicYear}</p>
                           </div>
-                          <div>
+                          <div className="border-l-4 border-l-blue-500 pl-2 rounded-none">
                             <p className="text-sm text-gray-500">Allocated Amount</p>
-                            <p className="text-2xl font-bold text-blue-600">{formatCurrency(mockUtilizationSummary.allocatedAmount)}</p>
+                            <p className="text-xl font-bold text-blue-600">{formatCurrency(mockUtilizationSummary.allocatedAmount)}</p>
                             <p className="text-xs text-gray-500">
-                              {formatPercentage(Math.round((mockUtilizationSummary.allocatedAmount / mockUtilizationSummary.totalBudget) * 100))} of budget
+                              {formatPercentage(Math.round((mockUtilizationSummary.allocatedAmount / mockUtilizationSummary.totalBudget) * 100))} of Budget
                             </p>
                           </div>
-                          <div>
+                          <div className="border-l-4 border-l-green-500 pl-2 rounded-none">
                             <p className="text-sm text-gray-500">Disbursed Amount</p>
-                            <p className="text-2xl font-bold text-green-600">{formatCurrency(mockUtilizationSummary.disbursedAmount)}</p>
+                            <p className="text-xl font-bold text-green-600">{formatCurrency(mockUtilizationSummary.disbursedAmount)}</p>
                             <p className="text-xs text-gray-500">
-                              {formatPercentage(Math.round((mockUtilizationSummary.disbursedAmount / mockUtilizationSummary.allocatedAmount) * 100))} of allocated
+                              {formatPercentage(Math.round((mockUtilizationSummary.disbursedAmount / mockUtilizationSummary.allocatedAmount) * 100))} of Allocated
                             </p>
                           </div>
-                          <div>
+                          <div className="border-l-4 border-l-amber-500 pl-2 rounded-none">
                             <p className="text-sm text-gray-500">Remaining Amount</p>
-                            <p className="text-2xl font-bold text-amber-600">{formatCurrency(mockUtilizationSummary.remainingAmount)}</p>
+                            <p className="text-xl font-bold text-amber-600">{formatCurrency(mockUtilizationSummary.remainingAmount)}</p>
                             <p className="text-xs text-gray-500">
-                              {formatPercentage(Math.round((mockUtilizationSummary.remainingAmount / mockUtilizationSummary.totalBudget) * 100))} of budget
+                              {formatPercentage(Math.round((mockUtilizationSummary.remainingAmount / mockUtilizationSummary.totalBudget) * 100))} of Budget
                             </p>
                           </div>
                         </div>
@@ -334,8 +335,8 @@ const FinancialReports = () => {
                   </Card>
                   
                   <Card>
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">Monthly Disbursement Trend</CardTitle>
+                    <CardHeader className="pb-2 border-l-4 border-l-gray-500 rounded-none border-b-2">
+                      <CardTitle className="text-lg text-blue-800 font-bold -mb-2">Monthly Disbursement Trend</CardTitle>
                       <CardDescription>Bursary vs Scholarship Disbursements</CardDescription>
                     </CardHeader>
                     <CardContent className="flex items-center justify-center h-[300px]">
@@ -347,10 +348,10 @@ const FinancialReports = () => {
                     </CardContent>
                   </Card>
                   
-                  <Card className="md:col-span-2">
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">Education Level Distribution</CardTitle>
-                      <CardDescription>Allocation by education level</CardDescription>
+                  <Card className="md:col-span-2 border-l-8 border-l-red-500">
+                    <CardHeader className="pb-2 ">
+                      <CardTitle className="text-lg font-bold text-blue-800">Education Level Distribution</CardTitle>
+                      <CardDescription>Allocation by Education Level</CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -443,7 +444,7 @@ const FinancialReports = () => {
                         <div className="text-center space-y-2">
                           <BarChart className="h-12 w-12 mx-auto text-gray-400" />
                           <p className="text-gray-500 text-lg">Monthly breakdown chart would be here</p>
-                          <p className="text-sm text-gray-400">Showing monthly distribution of bursary and scholarship funds</p>
+                          <p className="text-sm text-gray-400">Showing monthly Distribution of Bursary and Scholarship Funds</p>
                         </div>
                       </CardContent>
                     </Card>

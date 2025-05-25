@@ -159,7 +159,7 @@ const FAODashboard = () => {
     <DashboardLayout title="Funds Approval & Allocation Officer">
       <div className="space-y-6 lg:-mx-[65px] mt-0">
         {/* Overview section */}
-        <div className="flex justify-between items-center border-l-8  border-l-green-500 rounded-md">
+        <div className="flex justify-between items-center border-l-4  border-l-green-500 rounded-md">
           <div className="pl-2">
             <h1 className="text-xl font-bold text-blue-800">Funds Allocation Dashboard</h1>
             <p className="text-muted-foreground text-sm -mt-1">
@@ -186,14 +186,14 @@ const FAODashboard = () => {
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="bg-blue-50 hover:bg-blue-100 border-l-8 border-l-blue-500 rounded-lg p-4 border border-blue-100">
+              <div className="bg-blue-50 hover:bg-blue-100 border-l-4 border-l-blue-500 rounded-lg p-4 border border-blue-100 h-28">
                 <p className="text-sm font-medium text-blue-700">Total Budget</p>
                 <p className="text-xl font-bold">{formatCurrency(totalBudget)}</p>
                 <div className="mt-1 text-xs text-blue-600">
                   Academic Year 2024
                 </div>
               </div>
-              <div className="bg-green-50 hover:bg-green-100 border-l-8 border-l-green-500 rounded-lg p-4 border border-green-100">
+              <div className="bg-green-50 hover:bg-green-100 border-l-4 border-l-green-500 rounded-lg p-4 border border-green-100">
                 <p className="text-sm font-medium text-green-700">Allocated Funds</p>
                 <p className="text-xl font-bold">{formatCurrency(totalAllocatedFunds)}</p>
                 <div className="mt-1 text-xs text-green-600">
@@ -205,7 +205,7 @@ const FAODashboard = () => {
                   )}
                 </div>
               </div>
-              <div className="bg-amber-50 hover:bg-amber-100 border-l-8 border-l-amber-500 rounded-lg p-4 border border-amber-100">
+              <div className="bg-amber-50 hover:bg-amber-100 border-l-4 border-l-amber-500 rounded-lg p-4 border border-amber-100">
                 <p className="text-sm font-medium text-amber-700">Disbursed Funds</p>
                 <p className="text-xl font-bold">{formatCurrency(totalDisbursedFunds)}</p>
                 <div className="mt-1 text-xs text-amber-600">
@@ -215,7 +215,7 @@ const FAODashboard = () => {
                   </span>
                 </div>
               </div>
-              <div className="bg-purple-50 hover:bg-purple-100 border-l-8 border-l-purple-500 rounded-lg p-4 border border-purple-100">
+              <div className="bg-purple-50 hover:bg-purple-100 border-l-4 border-l-purple-500 rounded-lg p-4 border border-purple-100">
                 <p className="text-sm font-medium text-purple-700">Remaining Budget</p>
                 <p className="text-xl font-bold">{formatCurrency(remainingBudget)}</p>
                 <div className="mt-1 text-xs text-purple-600 flex items-center">
@@ -243,7 +243,7 @@ const FAODashboard = () => {
             icon={<FileCheck className="h-6 w-6" />}
             description="Applications awaiting Fund Allocation"
             trend={pendingAllocationApplications.length > 5 ? { value: pendingAllocationApplications.length - 5, isPositive: false } : undefined}
-            className="bg-red-50 hover:bg-red-100 border-l-8 border-l-red-500"
+            className="bg-red-50 hover:bg-red-100 border-l-4 border-l-red-500"
           />
           <StatCard 
             title="Allocated" 
@@ -251,14 +251,14 @@ const FAODashboard = () => {
             icon={<Banknote className="h-6 w-6" />}
             description="Applications with Funds Allocated"
             trend={{ value: 15, isPositive: true }}
-            className="bg-green-50 hover:bg-green-100 border-l-8 border-l-green-500"
+            className="bg-green-50 hover:bg-green-100 border-l-4 border-l-green-500"
           />
           <StatCard 
             title="Average Allocation" 
             value={formatCurrency(totalAllocatedFunds / (allocatedApplications.length + disbursedApplications.length) || 0)}
             icon={<LineChart className="h-6 w-6" />}
             description="Average Funds per Application"
-            className="bg-gray-50 hover:bg-gray-100 border-l-8 border-l-gray-500"
+            className="bg-gray-50 hover:bg-gray-100 border-l-4 border-l-gray-500"
           />
         </div>
 
@@ -267,7 +267,7 @@ const FAODashboard = () => {
           {/* Active Funds Section */}
           <Card className="lg:col-span-2">
             <CardHeader className="flex flex-row items-center justify-between">
-              <div className="border-l-8 border-l-green-500 rounded-sm pl-2">
+              <div className="border-l-4 border-l-green-500 rounded-sm pl-2">
                 <CardTitle className="text-lg font-bold text-blue-800">Active Funds</CardTitle>
                 <CardDescription className="text-muted-foreground">Current active funding sources</CardDescription>
               </div>
@@ -342,7 +342,7 @@ const FAODashboard = () => {
           
           {/* Applications stats */}
           <Card>
-            <CardHeader className="border-l-8 border-l-cyan-500 rounded-sm border-b-2 mb-2">
+            <CardHeader className="border-l-4 border-l-cyan-500 rounded-sm border-b-2 mb-2">
               <CardTitle className="text-lg -my-2 font-bold text-blue-800 ">Application Stats</CardTitle>
               <CardDescription className="text-muted-foreground">Fund Allocation by Education level  </CardDescription>
               <p className="text-sm font-bold text-green-500 ml-auto">FY : 2024 - 2025</p>
@@ -437,7 +437,7 @@ const FAODashboard = () => {
         {/* Applications awaiting allocation */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
-            <div className="border-l-8 border-l-orange-500 rounded-md pl-3 ">
+            <div className="border-l-4 border-l-orange-500 rounded-md pl-3 ">
               <CardTitle className="text-lg font-bold text-blue-800 -mb-1">Applications Awaiting Allocation</CardTitle>
               <CardDescription className="text-muted-foreground">
                 Approved Applications Pending Fund Allocation
@@ -524,7 +524,7 @@ const FAODashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Top Institutions */}
           <Card>
-            <CardHeader className="border-l-8 border-l-yellow-500 border-b-2 rounded-lg">
+            <CardHeader className="border-l-4 border-l-yellow-500 border-b-2 rounded-md mb-2">
               <CardTitle className="text-lg -mb-2 font-bold text-blue-800">Top Institutions</CardTitle>
               <CardDescription className="text-muted-foreground">Institutions with most Funded Applications</CardDescription>
             </CardHeader>
@@ -548,7 +548,7 @@ const FAODashboard = () => {
           
           {/* Allocation Distribution */}
           <Card>
-            <CardHeader className="border-l-8 border-l-green-500 border-b-2 rounded-lg ">
+            <CardHeader className="border-l-4 border-l-green-500 border-b-2 rounded-md ">
               <CardTitle className="text-lg font-bold text-blue-800 -mb-2">Allocation Distribution</CardTitle>
               <CardDescription className="text-muted-foreground">Fund Allocation by Category</CardDescription>
             </CardHeader>

@@ -227,7 +227,7 @@ const ApplicationsReview = () => {
         <Card>
           <CardHeader>
             <div className="flex items-center justify-between mx-1 ">
-              <div className="border-l-8 border-purple-500 rounded-md ml-0">
+              <div className="border-l-4 border-purple-500 rounded-md ml-0">
                 <CardTitle className="text-xl ml-2 text-purple-600">Review Applications</CardTitle>
                 <CardDescription className="ml-2 text-muted-foreground">
                   Manage , Verify Documents & Review Student Bursary Applications.
