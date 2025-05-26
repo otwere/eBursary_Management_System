@@ -370,12 +370,12 @@ const PendingAllocations = () => {
   
   return (
     <DashboardLayout title="Pending Allocations">
-      <div className="space-y-6 p-4">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight">Pending Fund Allocations</h1>
-            <p className="text-muted-foreground">
-              Review and allocate funds to applications approved by ARO
+      <div className="space-y-4 lg:-mx-[80px]">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 bg-blue-50">
+          <div className="border-l-4 border-l-red-500 pl-2 rounded h-16">
+            <h1 className="text-xl font-bold text-blue-800">Pending Fund Allocations</h1>
+            <p className="text-muted-foreground text-sm -mt-1">
+              Review , Approve and Allocate Funds to Applications Submitted by ARO
             </p>
           </div>
           
@@ -403,64 +403,64 @@ const PendingAllocations = () => {
 
         {/* Statistics Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <Card>
+          <Card className="border-l-4 border-l-blue-500 bg-blue-50">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">Total Applications</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex justify-between items-center">
-                <div className="text-2xl font-bold">{stats.totalApplications}</div>
+                <div className="text-xl font-bold">{stats.totalApplications}</div>
                 <div className="p-2 bg-blue-100 rounded-full">
                   <FileCheck className="h-5 w-5 text-blue-700" />
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground mt-1">Pending fund allocation</p>
+              <p className="text-xs text-muted-foreground mt-1">Pending Fund Approval & Allocation</p>
             </CardContent>
           </Card>
           
-          <Card>
+          <Card className="border-l-4 border-l-purple-500 bg-purple-50">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">Total Requested</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex justify-between items-center">
-                <div className="text-2xl font-bold">{formatCurrency(stats.totalAmount)}</div>
+                <div className="text-xl font-bold">{formatCurrency(stats.totalAmount)}</div>
                 <div className="p-2 bg-purple-100 rounded-full">
                   <Banknote className="h-5 w-5 text-purple-700" />
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground mt-1">{formatCurrency(stats.averageAmount)} avg. per application</p>
+              <p className="text-xs text-muted-foreground mt-1">{formatCurrency(stats.averageAmount)} avg. Per Application</p>
             </CardContent>
           </Card>
           
-          <Card>
+          <Card className="border-l-4 border-l-amber-500 bg-amber-50">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">Institutions</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex justify-between items-center">
-                <div className="text-2xl font-bold">{institutions.length}</div>
+                <div className="text-xl font-bold">{institutions.length}</div>
                 <div className="p-2 bg-amber-100 rounded-full">
                   <Users className="h-5 w-5 text-amber-700" />
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground mt-1">From {educationLevels.length} education levels</p>
+              <p className="text-xs text-muted-foreground mt-1">From {educationLevels.length} Education Levels</p>
             </CardContent>
           </Card>
           
-          <Card>
+          <Card className="border-l-4 border-l-red-500 bg-red-50">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">High Priority</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex justify-between items-center">
-                <div className="text-2xl font-bold">{stats.highPriority}</div>
+                <div className="text-xl font-bold">{stats.highPriority}</div>
                 <div className="p-2 bg-red-100 rounded-full">
                   <AlertCircle className="h-5 w-5 text-red-700" />
                 </div>
               </div>
               <p className="text-xs text-muted-foreground mt-1">
-                {(stats.highPriority / stats.totalApplications * 100).toFixed(1)}% of total applications
+                {(stats.highPriority / stats.totalApplications * 100).toFixed(1)}% of Total Applications
               </p>
             </CardContent>
           </Card>
@@ -469,10 +469,10 @@ const PendingAllocations = () => {
         <Card>
           <CardHeader>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-              <div>
-                <CardTitle>Pending Fund Allocations</CardTitle>
-                <CardDescription>
-                  Applications submitted by ARO ready for fund allocation
+              <div className="border-l-4 border-l-red-500 pl-2 rounded">
+                <CardTitle className="text-lg font-bold text-blue-800">Pending Fund Allocations</CardTitle>
+                <CardDescription className="text-muted-foreground -mt-1">
+                  Applications Submitted by ARO ready for Funds Approval & Allocation
                 </CardDescription>
               </div>
             </div>

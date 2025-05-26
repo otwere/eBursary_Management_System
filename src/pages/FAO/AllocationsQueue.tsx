@@ -52,12 +52,12 @@ const AllocationsQueue = () => {
   } = useAllocationsQueue();
 
   return (
-    <DashboardLayout>
-      <div className="p-1">
+    <DashboardLayout title="Funds Approval & Allocation - Dashboard">
+      <div className="p-1 lg:-mx-[85px]">
         <div className="flex justify-between items-center mb-2">
-          <div>
-            <h1 className="text-2xl font-bold">Allocations Queue</h1>
-            <p className="text-gray-500">Manage and allocate funds for approved applications</p>
+          <div className="border-l-4 border-l-green-500 pl-2 rounded mb-4 h-16 w-full border-b-2">
+            <h1 className="text-xl font-bold text-blue-800 mt-1 -mb-1">Allocations Queue</h1>
+            <p className="text-muted-foreground text-sm">Manage Approve & Allocate Funds for Applicants</p>
           </div>
           {selectedApplications.length > 0 && (
             <Button onClick={() => setIsBulkAllocateDialogOpen(true)}>
@@ -88,10 +88,10 @@ const AllocationsQueue = () => {
         />
 
         <Card>
-          <CardHeader>
-            <CardTitle className="text-xl">Applications Pending Allocation</CardTitle>
+          <CardHeader className="border-l-4 border-l-green-500 rounded">
+            <CardTitle className="text-xl font-bold text-blue-800 -mb-2">Applications Pending Allocation</CardTitle>
             <CardDescription>
-              {filteredApplications.length} applications found
+              {filteredApplications.length} Applications found
             </CardDescription>
           </CardHeader>
           <CardContent>

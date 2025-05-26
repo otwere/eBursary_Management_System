@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import { useState } from "react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -138,6 +138,7 @@ const mockMonthlyDisbursement = [
 // Report types
 const reportTypes = [
   { id: "fund-utilization", name: "Fund Utilization Report" },
+  { id: "fund-approval", name: "Funds Approved Report" },
   { id: "disbursement-summary", name: "Disbursement Summary Report" },
   { id: "allocation-distribution", name: "Allocation Distribution Report" },
   { id: "beneficiary-analysis", name: "Beneficiary Analysis Report" },
@@ -154,7 +155,7 @@ const FinancialReports = () => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'KES',
-      minimumFractionDigits: 0
+      minimumFractionDigits: 2
     }).format(amount);
   };
   
@@ -177,7 +178,7 @@ const FinancialReports = () => {
     <DashboardLayout title="Financial Reports">
       <div className="space-y-6 lg:-mx-[70px]">
         {/* Header */}
-        <div className="border-l-4 border-l-red-500 pl-2 rounded-none bg-blue-50 h-20">
+        <div className="border-l-4 border-l-red-500 pl-2 rounded-sm bg-blue-50 h-20">
           <h1 className="text-xl font-bold text-blue-800">Financial Reports</h1>
           <p className="text-muted-foreground text-sm -mt-0">
             Generate and Analyze Financial Reports for Funds Approval & Allocation and Disbursement
@@ -350,21 +351,21 @@ const FinancialReports = () => {
                   
                   <Card className="md:col-span-2 border-l-8 border-l-red-500">
                     <CardHeader className="pb-2 ">
-                      <CardTitle className="text-lg font-bold text-blue-800">Education Level Distribution</CardTitle>
-                      <CardDescription>Allocation by Education Level</CardDescription>
+                      <CardTitle className="text-lg font-bold text-blue-800 -mb-3">Education Level Distribution</CardTitle>
+                      <CardDescription className="text-muted-foreground">Allocation by Education Level</CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                         {mockUtilizationSummary.educationLevelBreakdown.map((level) => (
                           <div key={level.educationLevel} className="space-y-2">
                             <div className="flex justify-between items-center">
-                              <span className="font-medium">{level.educationLevel}</span>
-                              <Badge variant="outline">{formatPercentage(level.percentage)}</Badge>
+                              <span className="font-medium text-gray-700">{level.educationLevel}</span>
+                              <Badge variant="outline" className="bg-blue-500 text-gray-50">{formatPercentage(level.percentage)}</Badge>
                             </div>
                             <Progress value={level.percentage} className="h-2" />
                             <div className="flex justify-between text-sm text-gray-500">
-                              <span>Allocated: {formatCurrency(level.allocatedAmount)}</span>
-                              <span>Disbursed: {formatCurrency(level.disbursedAmount)}</span>
+                              <span>Allocated : {formatCurrency(level.allocatedAmount)}</span>
+                              <span>Disbursed : {formatCurrency(level.disbursedAmount)}</span>
                             </div>
                           </div>
                         ))}
@@ -379,9 +380,9 @@ const FinancialReports = () => {
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                   <div className="md:col-span-1">
                     <Card>
-                      <CardHeader>
-                        <CardTitle className="text-lg">Fund Categories</CardTitle>
-                        <CardDescription>Bursary vs Scholarship distribution</CardDescription>
+                      <CardHeader className="border-l-4 border-l-purple-500 border-b-2 rounded">
+                        <CardTitle className="text-lg font-bold text-blue-800 -mb-3">Fund Categories</CardTitle>
+                        <CardDescription className="text-muted-foreground">Bursary vs Scholarship Distribution</CardDescription>
                       </CardHeader>
                       <CardContent className="flex flex-col items-center justify-center h-[300px]">
                         <div className="text-center space-y-2">
@@ -394,9 +395,9 @@ const FinancialReports = () => {
                   
                   <div className="md:col-span-2">
                     <Card>
-                      <CardHeader>
-                        <CardTitle className="text-lg">Category Details</CardTitle>
-                        <CardDescription>Detailed breakdown of fund categories</CardDescription>
+                      <CardHeader className="border-l-4 border-l-purple-500 border-b-2 rounded">
+                        <CardTitle className="text-lg text-blue-800 font-bold -mb-2">Category Details</CardTitle>
+                        <CardDescription>Detailed breakdown of Fund Categories</CardDescription>
                       </CardHeader>
                       <CardContent>
                         <Table>
@@ -436,9 +437,9 @@ const FinancialReports = () => {
                   
                   <div className="md:col-span-3">
                     <Card>
-                      <CardHeader>
-                        <CardTitle className="text-lg">Monthly Breakdown by Category</CardTitle>
-                        <CardDescription>Monthly distribution of disbursements by category</CardDescription>
+                      <CardHeader className="border-l-4 border-l-purple-500 rounded border-b-2 mb-4">
+                        <CardTitle className="text-lg font-bold text-blue-800 -mb-2">Monthly Breakdown by Category</CardTitle>
+                        <CardDescription className="text-muted-foreground">Monthly Distribution of Disbursements by Category</CardDescription>
                       </CardHeader>
                       <CardContent className="h-[400px] flex items-center justify-center">
                         <div className="text-center space-y-2">
@@ -455,9 +456,9 @@ const FinancialReports = () => {
               {/* Education Level Tab */}
               <TabsContent value="education-level" className="mt-0">
                 <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Education Level Distribution</CardTitle>
-                    <CardDescription>Fund distribution across different education levels</CardDescription>
+                  <CardHeader className="border-l-4 border-l-purple-500 rounded border-b-2">
+                    <CardTitle className="text-lg font-bold text-blue-800 -mb-2">Education Level Distribution</CardTitle>
+                    <CardDescription className="text-muted-foreground">Funds Distribution across different Education Levels</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <Table>
@@ -496,9 +497,9 @@ const FinancialReports = () => {
                 
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 mt-6">
                   <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">Institution Type Distribution</CardTitle>
-                      <CardDescription>Fund distribution by institution type</CardDescription>
+                    <CardHeader className="border-l-4 border-l-purple-500 rounded border-b-2">
+                      <CardTitle className="text-lg font-bold text-blue-800 -mb-2">Institution Type Distribution</CardTitle>
+                      <CardDescription className="text-muted-foreground">Fund Distribution by Institution type</CardDescription>
                     </CardHeader>
                     <CardContent>
                       <Table>
@@ -507,7 +508,7 @@ const FinancialReports = () => {
                             <TableHead>Institution Type</TableHead>
                             <TableHead>Allocated</TableHead>
                             <TableHead>Disbursed</TableHead>
-                            <TableHead>Beneficiaries</TableHead>
+                            <TableHead className="text-right">Beneficiaries</TableHead>
                           </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -518,7 +519,7 @@ const FinancialReports = () => {
                               </TableCell>
                               <TableCell>{formatCurrency(inst.allocatedAmount)}</TableCell>
                               <TableCell>{formatCurrency(inst.disbursedAmount)}</TableCell>
-                              <TableCell>{inst.count}</TableCell>
+                              <TableCell className="text-right">{inst.count}</TableCell>
                             </TableRow>
                           ))}
                         </TableBody>
@@ -527,9 +528,9 @@ const FinancialReports = () => {
                   </Card>
                   
                   <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">Institution Distribution</CardTitle>
-                      <CardDescription>Visual representation of institution distribution</CardDescription>
+                    <CardHeader className="border-l-4 border-l-purple-500 border-b-2 rounded">
+                      <CardTitle className="text-lg font-bold text-blue-800 -mb-2">Institution Distribution</CardTitle>
+                      <CardDescription className="text-muted-foreground">Visual Representation of Institution Distribution</CardDescription>
                     </CardHeader>
                     <CardContent className="h-[300px] flex items-center justify-center">
                       <div className="text-center space-y-2">
@@ -546,9 +547,9 @@ const FinancialReports = () => {
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                   <div className="md:col-span-1">
                     <Card>
-                      <CardHeader>
-                        <CardTitle className="text-lg">Disbursement Methods</CardTitle>
-                        <CardDescription>Distribution by payment method</CardDescription>
+                      <CardHeader className="border-l-4 border-l-lime-500 border-b-2 rounded">
+                        <CardTitle className="text-lg font-bold text-blue-800 -mb-2">Disbursement Methods</CardTitle>
+                        <CardDescription className="text-muted-foreground">Distribution by Payment Method Chart</CardDescription>
                       </CardHeader>
                       <CardContent className="h-[300px] flex items-center justify-center">
                         <div className="text-center space-y-2">
@@ -561,9 +562,9 @@ const FinancialReports = () => {
                   
                   <div className="md:col-span-2">
                     <Card>
-                      <CardHeader>
-                        <CardTitle className="text-lg">Payment Method Details</CardTitle>
-                        <CardDescription>Detailed breakdown of disbursement methods</CardDescription>
+                      <CardHeader className="border-l-4 border-l-lime-500 border-b-2 rounded">
+                        <CardTitle className="text-lg font-bold text-blue-800 -mb-2">Payment Method Details</CardTitle>
+                        <CardDescription className="text-muted-foreground">Detailed Breakdown of Disbursement Methods</CardDescription>
                       </CardHeader>
                       <CardContent>
                         <Table>
@@ -571,9 +572,9 @@ const FinancialReports = () => {
                             <TableRow>
                               <TableHead>Method</TableHead>
                               <TableHead>Amount</TableHead>
-                              <TableHead>Transactions</TableHead>
-                              <TableHead>Percentage</TableHead>
-                              <TableHead>Distribution</TableHead>
+                              <TableHead className="text-right">Transactions</TableHead>
+                              <TableHead className="text-right">Percentage</TableHead>
+                              <TableHead className="text-right">Distribution</TableHead>
                             </TableRow>
                           </TableHeader>
                           <TableBody>
@@ -583,8 +584,8 @@ const FinancialReports = () => {
                                   <div className="font-medium">{method.method}</div>
                                 </TableCell>
                                 <TableCell>{formatCurrency(method.amount)}</TableCell>
-                                <TableCell>{method.count}</TableCell>
-                                <TableCell>{formatPercentage(method.percentage)}</TableCell>
+                                <TableCell className="text-right">{method.count}</TableCell>
+                                <TableCell className="text-right">{formatPercentage(method.percentage)}</TableCell>
                                 <TableCell>
                                   <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
                                     <div 

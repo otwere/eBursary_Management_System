@@ -53,7 +53,7 @@ const ApplicationsTable: React.FC<ApplicationsTableProps> = ({
   return (
     <TooltipProvider>
       <Table>
-        <TableHeader>
+        <TableHeader className="border-t-2">
           <TableRow>
             <TableHead className="w-10">
               <Checkbox
@@ -72,7 +72,7 @@ const ApplicationsTable: React.FC<ApplicationsTableProps> = ({
             <TableHead>Course</TableHead>
             <TableHead>Amount</TableHead>
             <TableHead>Date</TableHead>
-            <TableHead>Status</TableHead>
+            <TableHead className="text-right">Status</TableHead>
             <TableHead className="text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -123,7 +123,7 @@ const ApplicationsTable: React.FC<ApplicationsTableProps> = ({
                     </TooltipContent>
                   </Tooltip>
                 </TableCell>
-                <TableCell>
+                <TableCell className="text-right">
                   <StatusBadge status={application.status} />
                 </TableCell>
                 <TableCell className="text-right">

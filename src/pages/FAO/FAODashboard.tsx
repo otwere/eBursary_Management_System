@@ -121,7 +121,7 @@ const FAODashboard = () => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'KES',
-      minimumFractionDigits: 0
+      minimumFractionDigits: 2
     }).format(amount);
   };
   
@@ -290,7 +290,7 @@ const FAODashboard = () => {
                     <div className="flex justify-between items-start">
                       <div>
                         <div className="flex items-center gap-2">
-                          <h3 className="font-medium">{fund.name}</h3>
+                          <h3 className="font-bold">{fund.name}</h3>
                           <Badge variant="outline" className={getStatusBadgeStyles(fund.status)}>
                             {fund.status}
                           </Badge>
@@ -298,8 +298,8 @@ const FAODashboard = () => {
                         <p className="text-sm text-gray-500 mt-1">{fund.description}</p>
                       </div>
                       <div className="text-right">
-                        <div className="text-sm text-gray-500">Remaining</div>
-                        <div className="font-bold">{formatCurrency(fund.remainingAmount)}</div>
+                        <div className="text-sm text-gray-500">Remaining (Balance)</div>
+                        <div className="font-bold text-orange-500">{formatCurrency(fund.remainingAmount)}</div>
                       </div>
                     </div>
                     
@@ -437,7 +437,7 @@ const FAODashboard = () => {
         {/* Applications awaiting allocation */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
-            <div className="border-l-4 border-l-orange-500 rounded-md pl-3 ">
+            <div className="border-l-4 border-l-orange-500 rounded pl-3 ">
               <CardTitle className="text-lg font-bold text-blue-800 -mb-1">Applications Awaiting Allocation</CardTitle>
               <CardDescription className="text-muted-foreground">
                 Approved Applications Pending Fund Allocation
@@ -445,7 +445,7 @@ const FAODashboard = () => {
             </div>
             <Button onClick={() => navigate("/FAO/pending-allocations")}>
               <Banknote className="h-4 w-4 mr-2" />
-              Allocate Funds
+              Approve & Allocate Funds
             </Button>
           </CardHeader>
           <CardContent>

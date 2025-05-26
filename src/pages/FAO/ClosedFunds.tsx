@@ -153,7 +153,7 @@ const ClosedFunds = () => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'KES',
-      minimumFractionDigits: 0
+      minimumFractionDigits: 2
     }).format(amount);
   };
   

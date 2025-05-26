@@ -238,7 +238,7 @@ const FundManagement = () => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'KES',
-      minimumFractionDigits: 0
+      minimumFractionDigits: 2
     }).format(amount);
   };
 
@@ -618,7 +618,7 @@ const FundManagement = () => {
       {/* Allocate Fund Dialog */}
       <Dialog open={isAllocateOpen} onOpenChange={setIsAllocateOpen}>
         <DialogContent className=" lg:max-w-5xl md:max-w-3xl sm:max-w-2xl">
-          <DialogHeader className="border-l-4 border-l-cyan-500 rounded-md pl-2">
+          <DialogHeader className="border-l-4 border-l-cyan-500 rounded pl-2 h-14">
             <DialogTitle className="font-bold text-blue-800 -mb-1">Create Fund Categories</DialogTitle>
             <DialogDescription className="text-muted-foreground">
               Divide the Funds into Bursary and Scholarship Categories.
@@ -627,15 +627,15 @@ const FundManagement = () => {
           <div className="space-y-4 py-4">
             <div className="bg-gray-50 p-4 rounded-md mb-4">
               <p className="text-sm font-medium">Fund Details</p>
-              <p className="text-lg font-bold mt-0">{selectedFund?.name}</p>
+              <p className="text-lg font-bold mt-0 text-blue-800">{selectedFund?.name}</p>
               <div className="flex justify-between mt-2">
-                <div>
+                <div className="border-l-4 border-l-blue-500 pl-2">
                   <p className="text-sm text-gray-500">Total Amount</p>
-                  <p className="font-medium">{selectedFund ? formatCurrency(selectedFund.amount) : "-"}</p>
+                  <p className="font-medium text-blue-500">{selectedFund ? formatCurrency(selectedFund.amount) : "-"}</p>
                 </div>
-                <div>
+                <div className="border-l-4 border-l-orange-500 pl-2">
                   <p className="text-sm text-gray-500">Remaining (Available Balance)</p>
-                  <p className="font-medium">{selectedFund ? formatCurrency(selectedFund.remainingAmount) : "-"}</p>
+                  <p className="font-medium text-orange-500">{selectedFund ? formatCurrency(selectedFund.remainingAmount) : "-"}</p>
                 </div>
               </div>
             </div>

@@ -341,7 +341,7 @@ const TransactionHistory = () => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'KES',
-      minimumFractionDigits: 0
+      minimumFractionDigits: 2
     }).format(amount);
   };
 
@@ -435,11 +435,11 @@ const TransactionHistory = () => {
 
   return (
     <DashboardLayout title="Transaction History">
-      <div className="space-y-6">
+      <div className="space-y-6 lg:-mx-[78px]">
         {/* Header */}
-        <div>
-          <h1 className="text-xl font-bold mt-[-1rem]">Transaction History</h1>
-          <p className="text-gray-500 ">
+        <div className="border-l-4 border-l-yellow-500 pl-2 rounded">
+          <h1 className="text-xl font-bold text-blue-800 -mb-2 ">Transaction History - Disbursement</h1>
+          <p className="text-muted-foreground text-sm mt-2">
             View and track all Financial Transactions
           </p>
         </div>
@@ -453,7 +453,7 @@ const TransactionHistory = () => {
                 <div className="relative">
                   <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
                   <Input
-                    placeholder="Search by student, reference..."
+                    placeholder="Search Student Name, Reference, Institution"
                     className="pl-8"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -513,10 +513,10 @@ const TransactionHistory = () => {
         <Card>
           <CardHeader>
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div>
-                <CardTitle className="text-xl mt-[-1rem]">Transactions</CardTitle>
-                <CardDescription>
-                  Total {getFilteredTransactions().length} Transactions
+              <div className="border-l-4 border-l-yellow-500 h-14 pl-2 rounded">
+                <CardTitle className="text-xl font-bold text-blue-800 ">Transactions</CardTitle>
+                <CardDescription className="text-muted-foreground">
+                  Total {getFilteredTransactions().length} Transactions | FY : 2024 -2025 | Academic Year : 2024
                 </CardDescription>
               </div>
               <div>
@@ -529,7 +529,7 @@ const TransactionHistory = () => {
           </CardHeader>
           <CardContent>
             <Table>
-              <TableHeader>
+              <TableHeader className="border-t-2">
                 <TableRow>
                   <TableHead>Date</TableHead>
                   <TableHead>Reference</TableHead>
@@ -546,7 +546,7 @@ const TransactionHistory = () => {
                   <TableRow key={transaction.id}>
                     <TableCell>
                       <div className="font-medium">{formatDate(transaction.transactionDate)}</div>
-                      <div className="text-xs text-gray-500">By : {transaction.processedBy}</div>
+                      <div className="text-xs text-gray-500">Approved By : {transaction.processedBy} - FAO</div>
                     </TableCell>
                     <TableCell>
                       <code className="px-1 py-0.5 bg-gray-100 rounded text-xs font-mono">
