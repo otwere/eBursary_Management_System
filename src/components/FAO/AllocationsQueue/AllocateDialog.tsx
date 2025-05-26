@@ -36,11 +36,11 @@ const AllocateDialog: React.FC<AllocateDialogProps> = ({
 }) => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-2xl">
-        <DialogHeader>
-          <DialogTitle>Allocate Funds</DialogTitle>
-          <DialogDescription>
-            Allocate funds for application {selectedApplication?.id}
+      <DialogContent className="lg:max-w-5xl sm:max-w-2xl bg-gray-50">
+        <DialogHeader className="border-l-4 border-l-lime-500 h-16 rounded pl-2 border-b-2">
+          <DialogTitle className="text-blue-800 font-bold -mb-1 mt-2">Allocate Funds</DialogTitle>
+          <DialogDescription className="text-muted-foreground">
+            Allocate Funds for Application No : {selectedApplication?.id}
           </DialogDescription>
         </DialogHeader>
         <div className="space-y-4 py-4">

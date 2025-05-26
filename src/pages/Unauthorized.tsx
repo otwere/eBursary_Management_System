@@ -20,7 +20,7 @@ const Unauthorized = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full p-8 bg-white shadow-lg rounded-lg text-center">
+      <div className="max-w-md w-full p-8 bg-white shadow-lg rounded text-center">
         <div className="rounded-full bg-red-100 h-20 w-20 flex items-center justify-center mx-auto mb-6">
           <Shield className="h-10 w-10 text-red-600" />
         </div>

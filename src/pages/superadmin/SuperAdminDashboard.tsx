@@ -38,7 +38,7 @@ const SuperAdminDashboard: React.FC = () => {
     <DashboardLayout title="Admin Dashboard">
       <div className="space-y-6">
         {/* Welcome message */}
-        <div className="p-4 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+        <div className="p-4 rounded bg-gradient-to-r from-blue-500 to-purple-600 text-white">
           <h2 className="text-2xl font-bold mb-2">Welcome, Super Admin</h2>
           <p>
             You have full access to manage the eBursary  Portal platform. Below is an overview of the system.
@@ -153,7 +153,7 @@ const SuperAdminDashboard: React.FC = () => {
               </div>
             </CardHeader>
             <CardContent>
-              <div className="rounded-md border overflow-hidden">
+              <div className="rounded border overflow-hidden">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="bg-muted/50">

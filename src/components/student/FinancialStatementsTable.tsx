@@ -201,7 +201,7 @@ const FinancialStatementsTable: React.FC<FinancialStatementsTableProps> = ({ sta
           
           {filteredStatements.length > 0 ? (
             <>
-              <div className="rounded-md border overflow-hidden">
+              <div className="rounded border overflow-hidden">
                 <Table>
                   <TableHeader>
                     <TableRow>

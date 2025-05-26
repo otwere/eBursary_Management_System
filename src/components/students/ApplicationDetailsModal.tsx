@@ -99,7 +99,7 @@ const ApplicationDetailsModal: React.FC<ApplicationDetailsModalProps> = ({
 
         <div className="mt-4 space-y-6">
           {/* Status Card */}
-          <div className={`p-4 rounded-lg ${getStatusColors()} border flex items-center justify-between`}>
+          <div className={`p-4 rounded ${getStatusColors()} border flex items-center justify-between`}>
             <div className="flex items-center gap-2">
               {getStatusIcon()}
               <span className="font-medium">Status: {application.status.charAt(0).toUpperCase() + application.status.slice(1).replace("-", " ")}</span>
@@ -258,7 +258,7 @@ const ApplicationDetailsModal: React.FC<ApplicationDetailsModalProps> = ({
                 {application.documents && application.documents.length > 0 ? (
                   <div className="space-y-2">
                     {application.documents.map((doc, index) => (
-                      <div key={index} className="flex items-center gap-2 p-2 border rounded-md hover:bg-gray-50 transition-colors">
+                      <div key={index} className="flex items-center gap-2 p-2 border rounded hover:bg-gray-50 transition-colors">
                         <FileText className="h-4 w-4 text-gray-500" />
                         <span className="text-sm flex-grow">{doc.name}</span>
                         <Button variant="ghost" size="sm" className="h-6 text-xs">
@@ -274,7 +274,7 @@ const ApplicationDetailsModal: React.FC<ApplicationDetailsModalProps> = ({
                 {application.reviewComments && (
                   <div className="mt-4">
                     <h4 className="text-sm font-medium mb-2">Review Comments:</h4>
-                    <p className="text-sm text-gray-700 p-3 bg-amber-50 border border-amber-100 rounded-md">{application.reviewComments}</p>
+                    <p className="text-sm text-gray-700 p-3 bg-amber-50 border border-amber-100 rounded">{application.reviewComments}</p>
                   </div>
                 )}
               </div>

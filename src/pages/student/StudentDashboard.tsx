@@ -247,7 +247,7 @@ const StudentDashboard = () => {
     <DashboardLayout title="Student Dashboard">
       <div className="space-y-4 -mx-[70px]">
         {/* Welcome Banner */}
-        <div className="c p-2 rounded-lg border border-l-4 border-blue-300">
+        <div className="c p-2 rounded border border-l-4 border-blue-300">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
             <div>
               <h1 className="text-lg font-semibold text-blue-800">Welcome, {authState.user?.name}</h1>
@@ -442,7 +442,7 @@ const StudentDashboard = () => {
         
         {/* Education Level Toggle and Academic Records Section */}
         <div>
-          <div className="flex justify-between items-center mb-4 bg-blue-50 border-l-4 border-blue-500 border rounded-md p-1">
+          <div className="flex justify-between items-center mb-4 bg-blue-50 border-l-4 border-blue-500 border rounded p-1">
             <h2 className="text-xl mx-2 font-medium">Academic Records</h2>
             <EducationLevelToggle 
               selectedLevel={educationLevel}

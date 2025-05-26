@@ -175,7 +175,7 @@ const StudentApplications = () => {
       }
     >
       <div className="space-y-6 -mx-[70px]">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-indigo-50 h-20 rounded-lg px-2 border border-l-4 border-green-500">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-indigo-50 h-20 rounded px-2 border border-l-4 border-green-500">
           <div>
             <h1 className="text-lg  text-blue-800 p-0 -mt-2 font-semibold">My Applications</h1>
             <p className="text-muted-foreground text-sm mt-1">
@@ -663,7 +663,7 @@ const StudentApplications = () => {
           
           {selectedApplication && (
             <>
-              <DialogHeader className="bg-blue-50 h-20 rounded-lg border-l-4 border-blue-500
+              <DialogHeader className="bg-blue-50 h-20 rounded border-l-4 border-blue-500
               ">
                 <DialogTitle className="text-xl mx-2 mt-1 text-blue-500">Application Details</DialogTitle>
                 <DialogDescription className="mx-2 text-muted-foreground">
@@ -672,7 +672,7 @@ const StudentApplications = () => {
               </DialogHeader>
 
               <div className="space-y-6 py-4">
-                <div className="bg-muted/30 p-4 rounded-lg border">
+                <div className="bg-muted/30 p-4 rounded border">
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                     <div className="flex items-center gap-2">
                       <Calendar className="h-5 w-5 text-muted-foreground" />

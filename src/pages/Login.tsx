@@ -130,23 +130,23 @@ const Login = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-3 text-sm text-center">
-          <div className="p-2 border rounded-md">
+          <div className="p-2 border rounded">
             <p className="font-medium">Student :</p>
             <p>Email : student@ebursary.co.ke</p>
           </div>
-          <div className="p-2 border rounded-md">
+          <div className="p-2 border rounded">
             <p className="font-medium">Application Review Officer (ARO):</p>
             <p>Email : aro@ebursary.co.ke</p>
           </div>
-          <div className="p-2 border rounded-md">
-            <p className="font-medium">Financial Approval & Allocation Officer (FAO):</p>
+          <div className="p-2 border rounded">
+            <p className="font-medium">Funds Approval & Allocation Officer (FAO):</p>
             <p>Email : fao@ebursary.co.ke</p>
           </div>
-          <div className="p-2 border rounded-md">
-            <p className="font-medium">Financial Disbursement Officer (FAO):</p>
+          <div className="p-2 border rounded">
+            <p className="font-medium">Funds Disbursement Officer (FAO):</p>
             <p>Email : fdo@ebursary.co.ke</p>
           </div>
-          <div className="p-2 border rounded-md">
+          <div className="p-2 border rounded">
             <p className="font-medium">Super Admin:</p>
             <p>Email : admin@ebursary.co.ke</p>
           </div>

@@ -73,7 +73,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({
             The Integrated platform for  students to Apply for Bursary & Scholarship Opportunities,
             streamlining the Application & Disbursement process.
           </p>
-          <div className="mt-12 bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+          <div className="mt-12 bg-white/10 backdrop-blur-sm p-4 rounded border border-white/20">
             <p className="text-xl font-medium mb-2">Empowering Education Through Support</p>
             <ul className="space-y-2">
               <li className="flex items-center">

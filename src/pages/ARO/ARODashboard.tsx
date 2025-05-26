@@ -34,7 +34,7 @@ const ARODashboard = () => {
     <DashboardLayout title="Application & Documents Review Officer (ADRO) Dashboard">
       <div className="space-y-6 -mx-[70px]">
         {/* Overview section */}
-        <div className="bg-amber-50 p-4 rounded-lg border border-l-4 border-green-500">
+        <div className="bg-amber-50 p-4 rounded border border-l-4 border-green-500">
           <h1 className="text-xl text-blue-800 font-semibold">Application Review Dashboard</h1>
           <p className="text-muted-foreground text-sm mt-1">
             Review and manage Bursary Applications.
@@ -179,7 +179,7 @@ const ARODashboard = () => {
           </CardHeader>
           <CardContent className="pb-2">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="bg-blue-50 rounded-md p-4 flex items-center justify-between">
+              <div className="bg-blue-50 rounded p-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="bg-blue-100 rounded-full p-2">
                     <School className="h-6 w-6 text-blue-600" />
@@ -194,7 +194,7 @@ const ARODashboard = () => {
                 </div>
               </div>
               
-              <div className="bg-green-50 rounded-md p-4 flex items-center justify-between">
+              <div className="bg-green-50 rounded p-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="bg-green-100 rounded-full p-2">
                     <School className="h-6 w-6 text-green-600" />
@@ -209,7 +209,7 @@ const ARODashboard = () => {
                 </div>
               </div>
               
-              <div className="bg-amber-50 rounded-md p-4 flex items-center justify-between">
+              <div className="bg-amber-50 rounded p-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="bg-amber-100 rounded-full p-2">
                     <School className="h-6 w-6 text-amber-600" />

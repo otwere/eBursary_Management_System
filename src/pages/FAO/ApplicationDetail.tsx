@@ -424,7 +424,7 @@ const ApplicationDetail = () => {
                 </div>
                 
                 {application.reviewComments && (
-                  <div className="mt-6 p-4 bg-amber-50 border border-amber-100 rounded-md">
+                  <div className="mt-6 p-4 bg-amber-50 border border-amber-100 rounded">
                     <h4 className="font-medium mb-2 flex items-center gap-2">
                       <AlertCircle className="h-4 w-4 text-amber-600" />
                       Review Comments
@@ -455,12 +455,12 @@ const ApplicationDetail = () => {
                     </CardHeader>
                     <CardContent>
                       <div className="grid grid-cols-3 gap-4">
-                        <div className="p-4 bg-blue-50 border border-blue-100 rounded-lg text-center">
+                        <div className="p-4 bg-blue-50 border border-blue-100 rounded text-center">
                           <p className="text-xs text-blue-600 uppercase font-medium">Requested</p>
                           <p className="text-2xl font-bold text-blue-700">{formatCurrency(application.requestedAmount)}</p>
                         </div>
                         
-                        <div className="p-4 bg-green-50 border border-green-100 rounded-lg text-center">
+                        <div className="p-4 bg-green-50 border border-green-100 rounded text-center">
                           <p className="text-xs text-green-600 uppercase font-medium">Approved</p>
                           <p className="text-2xl font-bold text-green-700">
                             {application.approvedAmount 
@@ -476,7 +476,7 @@ const ApplicationDetail = () => {
                           )}
                         </div>
                         
-                        <div className="p-4 bg-purple-50 border border-purple-100 rounded-lg text-center">
+                        <div className="p-4 bg-purple-50 border border-purple-100 rounded text-center">
                           <p className="text-xs text-purple-600 uppercase font-medium">Disbursed</p>
                           <p className="text-2xl font-bold text-purple-700">
                             {application.disbursedAmount 
@@ -500,7 +500,7 @@ const ApplicationDetail = () => {
                     <div className="absolute -left-[41px] bg-blue-500 h-6 w-6 rounded-full flex items-center justify-center">
                       <PieChart className="h-3 w-3 text-white" />
                     </div>
-                    <div className="bg-blue-50 border border-blue-100 p-4 rounded-lg">
+                    <div className="bg-blue-50 border border-blue-100 p-4 rounded">
                       <h4 className="text-sm font-medium">Application Submitted</h4>
                       <time className="text-xs text-gray-500 mt-1 block">
                         {formatDate(new Date(application.applicationDate))}
@@ -516,7 +516,7 @@ const ApplicationDetail = () => {
                       <div className="absolute -left-[41px] bg-amber-500 h-6 w-6 rounded-full flex items-center justify-center">
                         <Clock className="h-3 w-3 text-white" />
                       </div>
-                      <div className="bg-amber-50 border border-amber-100 p-4 rounded-lg">
+                      <div className="bg-amber-50 border border-amber-100 p-4 rounded">
                         <h4 className="text-sm font-medium">Review Comments Added</h4>
                         <time className="text-xs text-gray-500 mt-1 block">
                           {formatDate(new Date(application.lastUpdated))}
@@ -533,7 +533,7 @@ const ApplicationDetail = () => {
                       <div className="absolute -left-[41px] bg-green-500 h-6 w-6 rounded-full flex items-center justify-center">
                         <CheckSquare className="h-3 w-3 text-white" />
                       </div>
-                      <div className="bg-green-50 border border-green-100 p-4 rounded-lg">
+                      <div className="bg-green-50 border border-green-100 p-4 rounded">
                         <h4 className="text-sm font-medium">Application Approved</h4>
                         <time className="text-xs text-gray-500 mt-1 block">
                           {formatDate(new Date(application.lastUpdated || application.applicationDate))}
@@ -550,7 +550,7 @@ const ApplicationDetail = () => {
                       <div className="absolute -left-[41px] bg-blue-500 h-6 w-6 rounded-full flex items-center justify-center">
                         <Send className="h-3 w-3 text-white" />
                       </div>
-                      <div className="bg-blue-50 border border-blue-100 p-4 rounded-lg">
+                      <div className="bg-blue-50 border border-blue-100 p-4 rounded">
                         <h4 className="text-sm font-medium">Submitted to FAO</h4>
                         <time className="text-xs text-gray-500 mt-1 block">
                           {formatDate(new Date(application.lastUpdated || application.applicationDate))}

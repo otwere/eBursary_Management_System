@@ -45,7 +45,7 @@ const BulkAllocateDialog: React.FC<BulkAllocateDialogProps> = ({
         <div className="space-y-4 py-4">
           <div className="space-y-2">
             <Label>Selected Applications</Label>
-            <ScrollArea className="h-40 border rounded-md p-2">
+            <ScrollArea className="h-40 border rounded p-2">
               <div className="space-y-2">
                 {selectedApplications.map((appId) => {
                   const app = applications.find((a) => a.id === appId);

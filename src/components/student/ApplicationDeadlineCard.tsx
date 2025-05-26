@@ -153,19 +153,19 @@ const ApplicationDeadlineCard: React.FC<ApplicationDeadlineCardProps> = ({ deadl
           
           {/* Dynamic Countdown display */}
           <div className="grid grid-cols-4 gap-1 text-center">
-            <div className={`p-2 rounded-md ${isExpired ? 'bg-red-50' : 'bg-blue-50'}`}>
+            <div className={`p-2 rounded ${isExpired ? 'bg-red-50' : 'bg-blue-50'}`}>
               <div className="text-xl font-bold">{isExpired ? 0 : timeRemaining.days}</div>
               <div className="text-xs text-muted-foreground">Days</div>
             </div>
-            <div className={`p-2 rounded-md ${isExpired ? 'bg-red-50' : 'bg-blue-50'}`}>
+            <div className={`p-2 rounded ${isExpired ? 'bg-red-50' : 'bg-blue-50'}`}>
               <div className="text-xl font-bold">{isExpired ? 0 : timeRemaining.hours}</div>
               <div className="text-xs text-muted-foreground">Hours</div>
             </div>
-            <div className={`p-2 rounded-md ${isExpired ? 'bg-red-50' : 'bg-blue-50'}`}>
+            <div className={`p-2 rounded ${isExpired ? 'bg-red-50' : 'bg-blue-50'}`}>
               <div className="text-xl font-bold">{isExpired ? 0 : timeRemaining.minutes}</div>
               <div className="text-xs text-muted-foreground">Min</div>
             </div>
-            <div className={`p-2 rounded-md ${isExpired ? 'bg-red-50' : 'bg-blue-50'}`}>
+            <div className={`p-2 rounded ${isExpired ? 'bg-red-50' : 'bg-blue-50'}`}>
               <div className="text-xl font-bold">{isExpired ? 0 : timeRemaining.seconds}</div>
               <div className="text-xs text-muted-foreground">Sec</div>
             </div>
@@ -173,7 +173,7 @@ const ApplicationDeadlineCard: React.FC<ApplicationDeadlineCardProps> = ({ deadl
 
           {/* Institution Eligibility */}
           {!canApply && !isExpired && (
-            <div className="bg-amber-50 border border-amber-200 rounded-md p-2">
+            <div className="bg-amber-50 border border-amber-200 rounded p-2">
               <div className="flex items-center gap-2">
                 <AlertTriangle className="h-4 w-4 text-amber-500" />
                 <span className="text-xs text-amber-700">

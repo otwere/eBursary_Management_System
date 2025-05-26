@@ -76,7 +76,7 @@ const ApplicationCard: React.FC<ApplicationCardProps> = ({
       <CardContent className="p-5 flex-grow">
         <div className="flex justify-between items-start mb-4">
           <div className="flex items-center">
-            <div className="p-2 rounded-md bg-primary-50 mr-3">
+            <div className="p-2 rounded bg-primary-50 mr-3">
               <School className="h-5 w-5 text-primary-600" />
             </div>
             <div>
@@ -136,7 +136,7 @@ const ApplicationCard: React.FC<ApplicationCardProps> = ({
         </div>
         
         {application.reviewComments && (
-          <div className="mt-4 p-3 bg-amber-50 border border-amber-100 rounded-md text-sm">
+          <div className="mt-4 p-3 bg-amber-50 border border-amber-100 rounded text-sm">
             <p className="text-gray-700 font-medium text-xs mb-1">Review comments:</p>
             <p className="text-gray-700">{application.reviewComments}</p>
           </div>

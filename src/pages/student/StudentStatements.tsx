@@ -46,7 +46,7 @@ const StudentStatements = () => {
   return (
     <DashboardLayout title='eBursary Disbursement Statement'>
       <div className=" -mx-[80px] p-0 md:p-0">
-       <div className="min-h-16 bg-sky-100 mb-2 px-2 rounded-lg border-l-4 border-blue-500 border">
+       <div className="min-h-16 bg-sky-100 mb-2 px-2 rounded border-l-4 border-blue-500 border">
        <h1 className="text-lg text-blue-800 font-semibold pt-2">Financial Statements</h1>
        </div>
 

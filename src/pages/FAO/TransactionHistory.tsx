@@ -437,9 +437,9 @@ const TransactionHistory = () => {
     <DashboardLayout title="Transaction History">
       <div className="space-y-6 lg:-mx-[78px]">
         {/* Header */}
-        <div className="border-l-4 border-l-yellow-500 pl-2 rounded">
+        <div className="border-l-4 border-l-yellow-500 pl-2 rounded h-20 border-b-2 ">
           <h1 className="text-xl font-bold text-blue-800 -mb-2 ">Transaction History - Disbursement</h1>
-          <p className="text-muted-foreground text-sm mt-2">
+          <p className="text-muted-foreground text-sm mt-1">
             View and track all Financial Transactions
           </p>
         </div>

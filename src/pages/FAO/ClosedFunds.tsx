@@ -241,15 +241,15 @@ const ClosedFunds = () => {
   };
   
   return (
-    <DashboardLayout title="Fund Management">
-      <div className="space-y-6">
+    <DashboardLayout title="Closure & Reopening of Funds ">
+      <div className="space-y-6 lg:-mx-[85px]">
         <Card>
           <CardHeader>
             <div className="flex flex-col sm:flex-row justify-between gap-4">
-              <div>
-                <CardTitle className="text-xl">Fund Management</CardTitle>
-                <CardDescription>
-                  View and manage active and closed funds
+              <div className="border-l-4 border-l-red-500 pl-2 rounded border-b-2 w-full h-16">
+                <CardTitle className="text-xl font-bold text-blue-800">Funds Closure & Reopen Management</CardTitle>
+                <CardDescription className="text-muted-foreground -mt-1">
+                  View and Manage Active and Closed Funds
                 </CardDescription>
               </div>
             </div>
@@ -257,8 +257,8 @@ const ClosedFunds = () => {
           <CardContent>
             <Tabs defaultValue={activeTab} onValueChange={(value) => setActiveTab(value as FundStatusType | "all")} className="w-full">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
-                <TabsList>
-                  <TabsTrigger value="all">All Funds</TabsTrigger>
+                <TabsList className="space-x-40">
+                  <TabsTrigger value="all">All Created Funds</TabsTrigger>
                   <TabsTrigger value="active">Active</TabsTrigger>
                   <TabsTrigger value="closed">Closed</TabsTrigger>
                   <TabsTrigger value="pending">Pending</TabsTrigger>
@@ -353,25 +353,26 @@ const ClosedFunds = () => {
               </TabsContent>
             </Tabs>
           </CardContent>
-          <CardFooter className="flex flex-col sm:flex-row border-t bg-gray-50 gap-4">
+          <CardFooter className="flex flex-col sm:flex-row border-t bg-gray-50 gap-4 mt-0">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
-              <div className="space-y-1">
-                <p className="text-sm text-gray-500">Total Amount</p>
-                <p className="font-bold">{formatCurrency(totalAmount)}</p>
+              <div className="space-y-1 mt-2 border-l-4 border-l-blue-500 pl-2 rounded">
+                <p className="text-sm text-gray-500 -mb-2">Total Amount</p>
+                <p className="text-lg font-bold text-blue-800">{formatCurrency(totalAmount)}</p>
+                <p className="text-xs text-gray-500">{allocationPercentage(totalAmount, totalAmount)}</p>
               </div>
-              <div className="space-y-1">
-                <p className="text-sm text-gray-500">Total Allocated</p>
-                <p className="font-bold">{formatCurrency(totalAllocated)}</p>
+              <div className="space-y-1 mt-2 border-l-4 border-l-lime-500 pl-2 rounded">
+                <p className="text-sm text-gray-500 -mb-1">Total Allocated</p>
+                <p className=" text-lg font-bold text-lime-500">{formatCurrency(totalAllocated)}</p>
                 <p className="text-xs text-gray-500">{allocationPercentage(totalAllocated, totalAmount)}</p>
               </div>
-              <div className="space-y-1">
-                <p className="text-sm text-gray-500">Total Disbursed</p>
-                <p className="font-bold">{formatCurrency(totalDisbursed)}</p>
+              <div className="space-y-1 mt-2 border-l-4 border-l-green-500 pl-2 rounded">
+                <p className="text-sm text-gray-500 -mb-1">Total Disbursed</p>
+                <p className=" text-lg font-bold text-green-500">{formatCurrency(totalDisbursed)}</p>
                 <p className="text-xs text-gray-500">{allocationPercentage(totalDisbursed, totalAmount)}</p>
               </div>
-              <div className="space-y-1">
-                <p className="text-sm text-gray-500">Total Remaining (Balance)</p>
-                <p className="font-bold">{formatCurrency(totalRemaining)}</p>
+              <div className="space-y-1 mt-2 border-l-4 border-l-orange-500 pl-2 rounded">
+                <p className="text-sm text-gray-500 -mb-1">Total Remaining (Balance)</p>
+                <p className="text-lg font-bold text-orange-500">{formatCurrency(totalRemaining)}</p>
                 <p className="text-xs text-gray-500">{allocationPercentage(totalRemaining, totalAmount)}</p>
               </div>
             </div>
@@ -431,7 +432,7 @@ const ClosedFunds = () => {
                 )}
               </div>
               
-              <div className="rounded-md border p-4 space-y-3">
+              <div className="rounded border p-4 space-y-3">
                 <h4 className="font-medium">Fund Allocation</h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <div className="space-y-1">
@@ -465,7 +466,7 @@ const ClosedFunds = () => {
               {selectedFund.status === "closed" && selectedFund.closureReason && (
                 <div className="space-y-2">
                   <h4 className="font-medium">Closure Reason</h4>
-                  <p className="text-sm text-gray-600 bg-gray-50 p-3 rounded-md border">
+                  <p className="text-sm text-gray-600 bg-gray-50 p-3 rounded border">
                     {selectedFund.closureReason}
                   </p>
                 </div>
@@ -574,7 +575,7 @@ const FundTable: React.FC<FundTableProps> = ({
   // If no funds, show message
   if (funds.length === 0) {
     return (
-      <div className="text-center py-10 border rounded-md">
+      <div className="text-center py-10 border rounded">
         <FileBarChart className="mx-auto h-12 w-12 text-gray-400" />
         <h3 className="mt-2 text-lg font-medium">No funds found</h3>
         <p className="mt-1 text-gray-500">
@@ -586,7 +587,7 @@ const FundTable: React.FC<FundTableProps> = ({
   
   // Render table with funds
   return (
-    <div className="overflow-auto rounded-md border">
+    <div className="overflow-auto rounded border">
       <Table>
         <TableHeader>
           <TableRow>

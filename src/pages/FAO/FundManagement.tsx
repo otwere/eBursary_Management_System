@@ -20,7 +20,7 @@ const mockFundFloats: FundFloat[] = [
   {
     id: "float-1",
     name: "Annual Education Fund 2025",
-    description: "Main budget allocation for education support in the 2025 Academic Year",
+    description: "Main Budget Allocation for Education Support in the 2025 Academic Year",
     amount: 5000000,
     academicYear: "2025",
     createdAt: "2024-03-10T08:00:00.000Z",
@@ -34,7 +34,7 @@ const mockFundFloats: FundFloat[] = [
   {
     id: "float-2",
     name: "Emergency Relief Fund",
-    description: "Special allocation for students affected by economic hardship",
+    description: "Special Allocation for Students affected by Economic Hardship",
     amount: 1000000,
     academicYear: "2025",
     createdAt: "2024-04-05T10:30:00.000Z",
@@ -53,7 +53,7 @@ const mockFundCategories: FundCategory[] = [
     id: "cat-1",
     floatId: "float-1",
     name: "Bursary",
-    description: "Need-based financial assistance for tuition and related costs",
+    description: "Need-based Financial assistance for Tuition and related Costs",
     amount: 3000000,
     allocatedAmount: 1200000,
     disbursedAmount: 900000,
@@ -66,7 +66,7 @@ const mockFundCategories: FundCategory[] = [
     id: "cat-2",
     floatId: "float-1",
     name: "Scholarship",
-    description: "Merit-based financial assistance for outstanding academic performance",
+    description: "Needy Merit-based Financial assistance for outstanding Academic Performance",
     amount: 2000000,
     allocatedAmount: 800000,
     disbursedAmount: 600000,
@@ -79,7 +79,7 @@ const mockFundCategories: FundCategory[] = [
     id: "cat-3",
     floatId: "float-2",
     name: "Bursary",
-    description: "Emergency relief bursary fund",
+    description: "Emergency Relief Bursary Fund",
     amount: 600000,
     allocatedAmount: 200000,
     disbursedAmount: 70000,
@@ -92,7 +92,7 @@ const mockFundCategories: FundCategory[] = [
     id: "cat-4",
     floatId: "float-2",
     name: "Scholarship",
-    description: "Emergency relief scholarship fund",
+    description: "Emergency Relief Scholarship Fund",
     amount: 400000,
     allocatedAmount: 100000,
     disbursedAmount: 30000,
@@ -254,7 +254,7 @@ const FundManagement = () => {
     <DashboardLayout title="Funds Management Dashboard">
       <div className="space-y-6 lg:-mx-[65px]">
         {/* Header */}
-        <div className="flex items-center justify-between border-l-4 border-l-blue-500 rounded-md">
+        <div className="flex items-center justify-between border-l-4 border-l-blue-500 h-16 rounded">
           <div className="pl-4">
             <h1 className="text-xl font-bold text-blue-800">Funds Management</h1>
             <p className="text-muted-foreground text-sm -mt-1">
@@ -269,7 +269,7 @@ const FundManagement = () => {
 
         {/* Fund Overview */}
         <Card>
-          <CardHeader className="border-l-0 border-l-lime-500 rounded-lg border-b-0 mx-0 ">
+          <CardHeader className="border-l-0 border-l-lime-500 rounded border-b-0 mx-0 ">
             <CardTitle className="text-xl font-bold -my-2 text-blue-800">Funds Overview</CardTitle>
             <CardDescription className="text-muted-foreground">
               Summary of all Available Fund Allocations
@@ -537,8 +537,8 @@ const FundManagement = () => {
 
       {/* Create Fund Dialog */}
       <Dialog open={isCreateFundOpen} onOpenChange={setIsCreateFundOpen}>
-        <DialogContent className="sm:max-w-2xl md:max-w-3xl lg:max-w-5xl bg-gray-50 border-b-2">
-          <DialogHeader className="border-l-4 border-l-lime-500 pl-2 rounded-md">
+        <DialogContent className="sm:max-w-2xl md:max-w-3xl lg:max-w-5xl bg-gray-50">
+          <DialogHeader className="border-l-4 border-l-lime-500 pl-2 rounded h-16 border-b-2">
             <DialogTitle className="text-lg font-bold text-blue-800 -mb-2">Load New Fund</DialogTitle>
             <DialogDescription className="text-muted-foreground">
               Create a new Fund Allocation that can be Distributed to Bursaries and Scholarships.
@@ -625,7 +625,7 @@ const FundManagement = () => {
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4 py-4">
-            <div className="bg-gray-50 p-4 rounded-md mb-4">
+            <div className="bg-gray-50 p-4 rounded mb-4">
               <p className="text-sm font-medium">Fund Details</p>
               <p className="text-lg font-bold mt-0 text-blue-800">{selectedFund?.name}</p>
               <div className="flex justify-between mt-2">
@@ -662,7 +662,7 @@ const FundManagement = () => {
             </div>
             
             {(bursaryAmount || scholarshipAmount) && (
-              <div className="bg-blue-50 p-4 rounded-md">
+              <div className="bg-blue-50 p-4 rounded">
                 <p className="text-sm font-medium text-blue-800">Allocation Summary</p>
                 <div className="grid grid-cols-2 gap-4 mt-2">
                   <div>

@@ -577,7 +577,7 @@ const PendingAllocations = () => {
               
               <TabsContent value="individual" className="mt-0">
                 {sortedApplications.length > 0 ? (
-                  <div className="overflow-auto rounded-md border">
+                  <div className="overflow-auto rounded border">
                     <Table>
                       <TableHeader>
                         <TableRow className="bg-muted/50">
@@ -891,7 +891,7 @@ const PendingAllocations = () => {
           
           {selectedApplication && (
             <div className="space-y-4 py-4">
-              <div className="space-y-2 rounded-md border p-3 bg-muted/20">
+              <div className="space-y-2 rounded border p-3 bg-muted/20">
                 <h3 className="font-medium">Student Details</h3>
                 <p className="text-sm">{selectedApplication.studentName}</p>
                 <p className="text-sm text-muted-foreground">{selectedApplication.institutionName} - {selectedApplication.educationLevel}</p>
@@ -1006,7 +1006,7 @@ const PendingAllocations = () => {
               />
             </div>
             
-            <div className="rounded-md border p-4 bg-muted/20">
+            <div className="rounded border p-4 bg-muted/20">
               <h3 className="font-medium mb-2">Summary</h3>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
@@ -1075,7 +1075,7 @@ const PendingAllocations = () => {
               <div className="space-y-6 py-4">
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Student Information</h3>
-                  <div className="rounded-md border p-4 space-y-2">
+                  <div className="rounded border p-4 space-y-2">
                     <div className="flex justify-between">
                       <span className="text-sm text-muted-foreground">Name:</span>
                       <span className="text-sm font-medium">{selectedApplication.studentName}</span>
@@ -1097,7 +1097,7 @@ const PendingAllocations = () => {
                 
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Institution Information</h3>
-                  <div className="rounded-md border p-4 space-y-2">
+                  <div className="rounded border p-4 space-y-2">
                     <div className="flex justify-between">
                       <span className="text-sm text-muted-foreground">Name:</span>
                       <span className="text-sm font-medium">{selectedApplication.institutionName}</span>
@@ -1123,7 +1123,7 @@ const PendingAllocations = () => {
                 
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Financial Information</h3>
-                  <div className="rounded-md border p-4 space-y-2">
+                  <div className="rounded border p-4 space-y-2">
                     <div className="flex justify-between">
                       <span className="text-sm text-muted-foreground">Requested Amount:</span>
                       <span className="text-sm font-medium">{formatCurrency(selectedApplication.requestedAmount)}</span>
@@ -1149,7 +1149,7 @@ const PendingAllocations = () => {
                 
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Application Timeline</h3>
-                  <div className="rounded-md border p-4 space-y-2">
+                  <div className="rounded border p-4 space-y-2">
                     <div className="flex justify-between">
                       <span className="text-sm text-muted-foreground">Application Date:</span>
                       <span className="text-sm font-medium">{formatDate(selectedApplication.applicationDate)}</span>
@@ -1182,7 +1182,7 @@ const PendingAllocations = () => {
                 {selectedApplication.reviewComments && (
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Review Comments</h3>
-                    <div className="rounded-md border p-4">
+                    <div className="rounded border p-4">
                       <p className="text-sm">{selectedApplication.reviewComments}</p>
                     </div>
                   </div>
@@ -1191,7 +1191,7 @@ const PendingAllocations = () => {
                 {selectedApplication.documents && selectedApplication.documents.length > 0 && (
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Documents</h3>
-                    <div className="rounded-md border p-4">
+                    <div className="rounded border p-4">
                       <ul className="space-y-2">
                         {selectedApplication.documents.map((doc, index) => (
                           <li key={index} className="flex justify-between items-center">

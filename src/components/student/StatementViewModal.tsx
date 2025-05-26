@@ -31,7 +31,7 @@ const StatementViewModal: React.FC<StatementViewModalProps> = ({
           </DialogTitle>
         </DialogHeader>
         
-        <div className="p-4 border rounded-lg bg-white space-y-6">
+        <div className="p-4 border rounded bg-white space-y-6">
           <div className="flex justify-between items-start">
             <div>
               <h3 className="text-lg font-bold text-gray-900">eBursary  Portal</h3>
@@ -58,7 +58,7 @@ const StatementViewModal: React.FC<StatementViewModalProps> = ({
           
           <div>
             <h4 className="text-sm font-medium text-gray-500 mb-2">Financial Details</h4>
-            <div className="border rounded-md overflow-hidden">
+            <div className="border rounded overflow-hidden">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">
                   <tr>
@@ -98,7 +98,7 @@ const StatementViewModal: React.FC<StatementViewModalProps> = ({
             </div>
           </div>
           
-          <div className="mt-4 p-4 bg-gray-50 border rounded-md">
+          <div className="mt-4 p-4 bg-gray-50 border rounded">
             <h4 className="text-sm font-medium text-gray-500 mb-2">Status</h4>
             <div className="flex items-center gap-2">
               <span className={`inline-flex rounded-full h-3 w-3 ${

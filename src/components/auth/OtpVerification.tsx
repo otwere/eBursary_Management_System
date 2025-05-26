@@ -142,7 +142,7 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({
               onChange={(e) => handleChange(e, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
               onPaste={index === 0 ? handlePaste : undefined}
-              className="w-10 h-12 sm:w-12 sm:h-14 text-center text-xl font-bold border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="w-10 h-12 sm:w-12 sm:h-14 text-center text-xl font-bold border rounded focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               maxLength={1}
               inputMode="numeric"
               autoFocus={index === 0}

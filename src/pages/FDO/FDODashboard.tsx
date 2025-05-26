@@ -38,7 +38,7 @@ const FDODashboard = () => {
     <DashboardLayout title="Fund Disbursement Dashboard">
       <div className="space-y-6">
         {/* Overview section */}
-        <div className="bg-white p-4 rounded-lg border">
+        <div className="bg-white p-4 rounded border">
           <h1 className="text-2xl font-semibold">Fund Disbursement Dashboard</h1>
           <p className="text-gray-600 mt-1">
             Process and track disbursement of allocated funds to students.
@@ -75,7 +75,7 @@ const FDODashboard = () => {
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-green-50 rounded-lg p-4 border border-green-100">
+              <div className="bg-green-50 rounded p-4 border border-green-100">
                 <p className="text-sm font-medium text-green-700">Total Disbursed</p>
                 <p className="text-2xl font-bold">${totalDisbursed.toLocaleString()}</p>
                 <div className="mt-2">
@@ -85,7 +85,7 @@ const FDODashboard = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
+              <div className="bg-blue-50 rounded p-4 border border-blue-100">
                 <p className="text-sm font-medium text-blue-700">Pending Disbursement</p>
                 <p className="text-2xl font-bold">${pendingDisbursement.toLocaleString()}</p>
                 <div className="mt-2">

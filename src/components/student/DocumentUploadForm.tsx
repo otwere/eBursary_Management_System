@@ -213,7 +213,7 @@ export function DocumentUploadForm({ onUpload, onCancel }: DocumentUploadFormPro
         
         <div className="space-y-2">
           <FormLabel>File Upload</FormLabel>
-          <div className="border border-dashed rounded-md p-4 bg-muted/30">
+          <div className="border border-dashed rounded p-4 bg-muted/30">
             <div className="flex flex-col items-center justify-center gap-2">
               <Upload className="h-8 w-8 text-muted-foreground" />
               <p className="text-sm font-medium">Drag and drop your file here or click to browse</p>
@@ -237,7 +237,7 @@ export function DocumentUploadForm({ onUpload, onCancel }: DocumentUploadFormPro
             </div>
             
             {selectedFile && (
-              <div className="mt-4 p-3 border rounded-md bg-blue-50">
+              <div className="mt-4 p-3 border rounded bg-blue-50">
                 <div className="flex items-center gap-2">
                   {selectedFile.type.includes("pdf") ? (
                     <File className="h-5 w-5 text-blue-500" />
@@ -266,7 +266,7 @@ export function DocumentUploadForm({ onUpload, onCancel }: DocumentUploadFormPro
             
             {fileError && (
               <div className={cn(
-                "mt-2 p-2 rounded-md flex items-start gap-2",
+                "mt-2 p-2 rounded flex items-start gap-2",
                 "bg-destructive/10 text-sm text-destructive"
               )}>
                 <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0" />

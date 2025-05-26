@@ -83,7 +83,7 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
         </DialogHeader>
 
         <div className="space-y-4 py-4">
-          <div className="grid grid-cols-2 gap-4 bg-gray-50 p-4 rounded-lg">
+          <div className="grid grid-cols-2 gap-4 bg-gray-50 p-4 rounded">
             <div>
               <p className="text-sm text-gray-500">Student Name</p>
               <p className="font-medium">{application.studentName || "Unknown"}</p>
@@ -130,7 +130,7 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
               onValueChange={setStatus}
               className="grid grid-cols-1 gap-3"
             >
-              <div className="flex items-center space-x-2 border p-3 rounded-md hover:bg-gray-50">
+              <div className="flex items-center space-x-2 border p-3 rounded hover:bg-gray-50">
                 <RadioGroupItem id="under-review" value="under-review" />
                 <Label htmlFor="under-review" className="flex items-center cursor-pointer">
                   <RotateCw className="h-4 w-4 mr-2 text-blue-500" />
@@ -138,7 +138,7 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
                 </Label>
               </div>
               
-              <div className={`flex items-center space-x-2 border p-3 rounded-md ${canApprove ? "hover:bg-gray-50" : "opacity-60"}`}>
+              <div className={`flex items-center space-x-2 border p-3 rounded ${canApprove ? "hover:bg-gray-50" : "opacity-60"}`}>
                 <RadioGroupItem id="approved" value="approved" disabled={!canApprove} />
                 <Label htmlFor="approved" className="flex items-center cursor-pointer">
                   <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
@@ -146,7 +146,7 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
                 </Label>
               </div>
               
-              <div className="flex items-center space-x-2 border p-3 rounded-md hover:bg-gray-50">
+              <div className="flex items-center space-x-2 border p-3 rounded hover:bg-gray-50">
                 <RadioGroupItem id="corrections-needed" value="corrections-needed" />
                 <Label htmlFor="corrections-needed" className="flex items-center cursor-pointer">
                   <AlertTriangle className="h-4 w-4 mr-2 text-amber-500" />
@@ -154,7 +154,7 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
                 </Label>
               </div>
               
-              <div className={`flex items-center space-x-2 border p-3 rounded-md ${canApprove ? "hover:bg-gray-50" : "opacity-60"}`}>
+              <div className={`flex items-center space-x-2 border p-3 rounded ${canApprove ? "hover:bg-gray-50" : "opacity-60"}`}>
                 <RadioGroupItem id="rejected" value="rejected" disabled={!canApprove} />
                 <Label htmlFor="rejected" className="flex items-center cursor-pointer">
                   <X className="h-4 w-4 mr-2 text-red-500" />
@@ -166,7 +166,7 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
           
           {status === "approved" && (
             <>
-              <div className={`space-y-2 p-4 border rounded-md ${canEditAmount ? "bg-green-50" : "bg-gray-50"}`}>
+              <div className={`space-y-2 p-4 border rounded ${canEditAmount ? "bg-green-50" : "bg-gray-50"}`}>
                 <div className="flex justify-between items-center">
                   <Label htmlFor="approvedAmount" className="text-base">Approved Amount</Label>
                   {!canEditAmount && (

@@ -126,7 +126,7 @@ const DocumentVerificationChecklist: React.FC<DocumentVerificationChecklistProps
     <div className="space-y-6">
       {/* Missing Documents Alert */}
       {missingDocuments.length > 0 && (
-        <div className="p-4 bg-amber-50 border border-amber-200 rounded-md">
+        <div className="p-4 bg-amber-50 border border-amber-200 rounded">
           <div className="flex items-start justify-between">
             <div className="flex items-start space-x-3">
               <AlertCircle className="h-5 w-5 text-amber-500 mt-0.5" />
@@ -155,7 +155,7 @@ const DocumentVerificationChecklist: React.FC<DocumentVerificationChecklistProps
       )}
 
       {/* Document Verification Table */}
-      <div className="overflow-x-auto rounded-md border">
+      <div className="overflow-x-auto rounded border">
         <table className="w-full">
           <thead className="bg-muted/50">
             <tr>

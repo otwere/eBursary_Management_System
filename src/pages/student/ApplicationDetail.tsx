@@ -32,7 +32,7 @@ import { format } from "date-fns";
 const DocumentList = ({ documents }: { documents: any[] }) => (
   <div className="space-y-3">
     {documents.map((doc, index) => (
-      <div key={index} className="flex items-center justify-between border rounded-md p-3 bg-gray-50 hover:bg-gray-100 transition-colors">
+      <div key={index} className="flex items-center justify-between border rounded p-3 bg-gray-50 hover:bg-gray-100 transition-colors">
         <div className="flex items-center">
           <FileText className="h-5 w-5 text-primary-500 mr-3" />
           <div>
@@ -60,7 +60,7 @@ const ApplicationDetail = () => {
   if (!application) {
     return (
       <DashboardLayout title="Application Not Found">
-        <div className="bg-white p-4 rounded-lg border text-center">
+        <div className="bg-white p-4 rounded border text-center">
           <h2 className="text-xl font-medium mb-4">Application Not Found</h2>
           <p className="text-gray-600 mb-4">
             The application you're looking for doesn't exist or you don't have permission to view it.
@@ -76,7 +76,7 @@ const ApplicationDetail = () => {
   if (authState.user && application.studentId !== authState.user.id) {
     return (
       <DashboardLayout title="Unauthorized">
-        <div className="bg-white p-4 rounded-lg border text-center">
+        <div className="bg-white p-4 rounded border text-center">
           <h2 className="text-xl font-medium mb-4">Unauthorized Access</h2>
           <p className="text-gray-600 mb-4">
             You don't have permission to view this application.
@@ -156,7 +156,7 @@ const ApplicationDetail = () => {
           Back to Applications
         </Button>
         
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-white p-4 rounded-lg border shadow-sm">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-white p-4 rounded border shadow-sm">
           <div className="flex items-center">
             <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mr-4">
               <School className="h-6 w-6" />
@@ -174,7 +174,7 @@ const ApplicationDetail = () => {
         </div>
       </div>
       
-      <div className="bg-white rounded-lg border p-4 mb-6 shadow-sm">
+      <div className="bg-white rounded border p-4 mb-6 shadow-sm">
         <h3 className="font-medium text-lg mb-4">Application Progress</h3>
         <StepsIndicator steps={steps} />
       </div>
@@ -192,7 +192,7 @@ const ApplicationDetail = () => {
           <CardContent>
             <p className="text-orange-700">{application.reviewComments}</p>
             {application.status === "corrections-needed" && (
-              <div className="mt-4 p-4 bg-orange-100 rounded-md border border-orange-200">
+              <div className="mt-4 p-4 bg-orange-100 rounded border border-orange-200">
                 <div className="flex items-start gap-3">
                   <Edit className="h-5 w-5 text-orange-800 mt-0.5" />
                   <div>
@@ -223,7 +223,7 @@ const ApplicationDetail = () => {
                   <BookOpen className="h-4 w-4 text-primary-500 mr-2" />
                   Academic Information
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-md">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded">
                   <div>
                     <p className="text-sm text-gray-500">Institution Type</p>
                     <p className="font-medium">{application.institutionType}</p>
@@ -255,7 +255,7 @@ const ApplicationDetail = () => {
                     <Users className="h-4 w-4 text-primary-500 mr-2" />
                     Family Information
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-md">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded">
                     <div>
                       <p className="text-sm text-gray-500">Guardian Name</p>
                       <p className="font-medium">{application.familyInfo.guardianName || "N/A"}</p>
@@ -288,7 +288,7 @@ const ApplicationDetail = () => {
                       <DollarSign className="h-4 w-4 text-primary-500 mr-2" />
                       Financial Information
                     </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-md">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded">
                       <div>
                         <p className="text-sm text-gray-500">Total Fees (KES)</p>
                         <p className="font-medium">{application.financialInfo.totalFees?.toLocaleString()}</p>
@@ -339,7 +339,7 @@ const ApplicationDetail = () => {
             </CardHeader>
             <CardContent className="pt-6">
               <div className="space-y-4">
-                <div className="bg-gray-50 p-3 rounded-md">
+                <div className="bg-gray-50 p-3 rounded">
                   <p className="text-sm text-gray-500">Current Status</p>
                   <StatusBadge status={application.status} className="mt-1" />
                 </div>
@@ -373,7 +373,7 @@ const ApplicationDetail = () => {
                 )}
                 
                 {application.disbursedBy && application.disbursementDate && (
-                  <div className="flex items-center gap-3 bg-green-50 p-3 rounded-md border border-green-200">
+                  <div className="flex items-center gap-3 bg-green-50 p-3 rounded border border-green-200">
                     <Calendar className="h-4 w-4 text-green-500" />
                     <div>
                       <p className="text-sm text-gray-500">Disbursement Date</p>

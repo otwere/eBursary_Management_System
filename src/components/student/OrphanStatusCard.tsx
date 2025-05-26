@@ -82,7 +82,7 @@ const OrphanStatusCard: React.FC<OrphanStatusCardProps> = ({ orphanStatus }) => 
         </div>
 
         {(statusData.guardianType === "total-orphan" || statusData.guardianType === "single-parent") && (
-          <div className="bg-gray-50 p-4 rounded-lg border space-y-3">
+          <div className="bg-gray-50 p-4 rounded border space-y-3">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <h4 className="text-sm font-medium flex items-center gap-1">

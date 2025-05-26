@@ -174,7 +174,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
           <Progress value={progress} className="h-2" />
         </div>
       ) : (
-        <div className="rounded-md border overflow-hidden">
+        <div className="rounded border overflow-hidden">
           <div className="flex items-center p-3 bg-primary-50 gap-3 border-b">
             <FileText className="h-5 w-5 text-primary-500" />
             <span className="text-sm font-medium flex-1 truncate">{file.name}</span>

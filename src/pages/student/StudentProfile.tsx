@@ -199,7 +199,7 @@ const StudentProfile = () => {
                         This information will be displayed publicly so be careful what you share.
                       </p>
                       
-                      <div className="bg-muted p-4 rounded-lg">
+                      <div className="bg-muted p-4 rounded">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
                             <h4 className="text-sm font-medium">Nationality</h4>
@@ -223,7 +223,7 @@ const StudentProfile = () => {
                     
                     <div>
                       <h3 className="text-lg font-medium mb-2">Contact Information</h3>
-                      <div className="bg-muted p-4 rounded-lg">
+                      <div className="bg-muted p-4 rounded">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
                             <h4 className="text-sm font-medium">Primary Phone</h4>
@@ -247,7 +247,7 @@ const StudentProfile = () => {
                     
                     <div>
                       <h3 className="text-lg font-medium mb-2">Next of Kin</h3>
-                      <div className="bg-muted p-4 rounded-lg">
+                      <div className="bg-muted p-4 rounded">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
                             <h4 className="text-sm font-medium">Full Name</h4>
@@ -282,7 +282,7 @@ const StudentProfile = () => {
                             </Button>
                           </DialogTrigger>
                           <DialogContent className="max-w-2xl bg-slate-50 ">
-                            <DialogHeader className="bg-blue-100 h-16 border-l-4 border-green-500 rounded-lg -mx-2">
+                            <DialogHeader className="bg-blue-100 h-16 border-l-4 border-green-500 rounded -mx-2">
                               <DialogTitle className="mx-2 p-2 text-blue-800 -mb-3 text-base">Add Academic Record</DialogTitle>
                               <DialogDescription className="mx-4 text-muted-foreground">
                                 Add details of your academic performance for the term.
@@ -311,10 +311,10 @@ const StudentProfile = () => {
                     </div>
                     
                     <div>
-                      <div  className="bg-cyan-50 h-16 mb-3 border-l-4 border-green-500 rounded-lg">
+                      <div  className="bg-cyan-50 h-16 mb-3 border-l-4 border-green-500 rounded">
                       <h3 className="text-lg font-medium mb-4 mx-2 p-2 text-gray-800">Current Program</h3>
                       </div>
-                      <div className="bg-muted p-4 rounded-lg">
+                      <div className="bg-muted p-4 rounded">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
                             <h4 className="text-sm font-medium">Institution</h4>
@@ -337,10 +337,10 @@ const StudentProfile = () => {
                     </div>
                     
                     <div>
-                     <div className="bg-cyan-50 h-16 mb-3 border-l-4 border-blue-500 rounded-lg">
+                     <div className="bg-cyan-50 h-16 mb-3 border-l-4 border-blue-500 rounded">
                      <h3 className="text-lg font-medium mb-4 mx-2 p-2 text-gray-800">Previous Education</h3>
                      </div>
-                      <div className="bg-muted p-4 rounded-lg mb-4">
+                      <div className="bg-muted p-4 rounded mb-4">
                         <div className="flex justify-between mb-2">
                           <h4 className="text-sm font-medium">Secondary School</h4>
                           <Badge>2016 - 2019</Badge>
@@ -350,7 +350,7 @@ const StudentProfile = () => {
                         <p className="text-sm font-medium mt-1">Grade: A (81.2 points)</p>
                       </div>
                       
-                      <div className="bg-muted p-4 rounded-lg">
+                      <div className="bg-muted p-4 rounded">
                         <div className="flex justify-between mb-2">
                           <h4 className="text-sm font-medium">Primary School</h4>
                           <Badge>2008 - 2015</Badge>
@@ -374,7 +374,7 @@ const StudentProfile = () => {
                             </Button>
                           </DialogTrigger>
                           <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-                            <DialogHeader className="bg-slate-100 p-2 border-l-4 border-blue-400 rounded-lg -mx-1">
+                            <DialogHeader className="bg-slate-100 p-2 border-l-4 border-blue-400 rounded -mx-1">
                               <DialogTitle className="text-base text-gray-800">Upload Document</DialogTitle>
                               <DialogDescription className="text-muted-foreground text-sm">
                                 Upload important documents related to your application or personal records.
@@ -388,7 +388,7 @@ const StudentProfile = () => {
                         </Dialog>
                       </div>
                       
-                      <div className="bg-muted/50 rounded-lg overflow-hidden">
+                      <div className="bg-muted/50 rounded overflow-hidden">
                         <div className="overflow-x-auto">
                           <Table>
                             <TableHeader>
@@ -492,7 +492,7 @@ const StudentProfile = () => {
                       <h3 className="text-lg font-medium mb-4">Security Settings</h3>
                       
                       <div className="space-y-4">
-                        <div className="bg-muted p-4 rounded-lg">
+                        <div className="bg-muted p-4 rounded">
                           <div className="flex justify-between items-center">
                             <div>
                               <h4 className="text-sm font-medium">Change Password</h4>
@@ -502,7 +502,7 @@ const StudentProfile = () => {
                           </div>
                         </div>
                         
-                        <div className="bg-muted p-4 rounded-lg">
+                        <div className="bg-muted p-4 rounded">
                           <div className="flex justify-between items-center">
                             <div>
                               <h4 className="text-sm font-medium">Two-Factor Authentication</h4>
@@ -512,7 +512,7 @@ const StudentProfile = () => {
                           </div>
                         </div>
                         
-                        <div className="bg-muted p-4 rounded-lg">
+                        <div className="bg-muted p-4 rounded">
                           <div className="flex justify-between items-center">
                             <div>
                               <h4 className="text-sm font-medium">Account Recovery</h4>
@@ -522,7 +522,7 @@ const StudentProfile = () => {
                           </div>
                         </div>
                         
-                        <div className="bg-muted p-4 rounded-lg">
+                        <div className="bg-muted p-4 rounded">
                           <div className="flex justify-between items-center">
                             <div>
                               <h4 className="text-sm font-medium">Login History</h4>

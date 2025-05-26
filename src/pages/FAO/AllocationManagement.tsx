@@ -293,11 +293,11 @@ const AllocationManagement = () => {
     <DashboardLayout title="Allocation Management">
       <div className="space-y-6 lg:-mx-[70px]">
         {/* Header */}
-        <div className="flex items-center justify-between border-l-4 border-l-green-500 pl-2 rounded-md">
+        <div className="flex items-center justify-between border-l-4 border-l-green-500 pl-2 rounded h-16">
           <div className="">
             <h1 className="text-xl font-bold text-blue-800">Funds Allocation Management</h1>
             <p className="text-muted-foreground  text-sm -mt-1">
-              Manage and track Fund Allocations by Education level
+              Manage and track Fund Allocations by Education Level
             </p>
           </div>
           <Button onClick={() => setIsCreateAllocationOpen(true)}>
@@ -308,10 +308,10 @@ const AllocationManagement = () => {
 
         {/* Overview */}
         <Card>
-          <CardHeader>
+          <CardHeader className="border-l-4 border-l-lime-500 rounded border-b-2 mb-6 ">
             <CardTitle className="text-xl text-blue-800 font-bold -mb-2">Allocation Overview</CardTitle>
             <CardDescription>
-              Summary of Fund Allocations by Category & Education level
+              Summary of Fund Allocations by Category & Education Level
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
@@ -621,8 +621,8 @@ const AllocationManagement = () => {
       {/* Create Allocation Dialog */}
       <Dialog open={isCreateAllocationOpen} onOpenChange={setIsCreateAllocationOpen}>
         <DialogContent className="lg:max-w-6xl sm:max-w-3xl bg-gray-50">
-          <DialogHeader className="border-l-4 border-l-red-500 pl-2 rounded-sm">
-            <DialogTitle className="text-blue-800 font-bold -mb-1">Create Fund Allocation</DialogTitle>
+          <DialogHeader className="border-l-4 border-l-red-500 pl-2 rounded h-16 border-b-2">
+            <DialogTitle className="text-blue-800 font-bold -mb-1 mt-2">Create Fund Allocation</DialogTitle>
             <DialogDescription className="text-muted-foreground">
               Allocate Funds to Specific Education Levels.
             </DialogDescription>
@@ -652,7 +652,7 @@ const AllocationManagement = () => {
             </div>
 
             {selectedCategory && (
-              <div className="bg-blue-50 p-3 rounded-md">
+              <div className="bg-blue-50 p-3 rounded">
                 <p className="text-lg font-medium text-blue-800 mb-4">Category Details</p>
                 <div className="mt-2 grid grid-cols-2 gap-2">
                   <div className="border-l-4 border-l-blue-500 pl-2">

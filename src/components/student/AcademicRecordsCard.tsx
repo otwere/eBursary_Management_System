@@ -164,7 +164,7 @@ const AcademicRecordsCard: React.FC<AcademicRecordsCardProps> = ({
         {records.length > 0 && (
           <div className="mt-4">
             <h4 className="text-sm font-medium mb-2">{educationLevel.charAt(0).toUpperCase() + educationLevel.slice(1)} Term Records:</h4>
-            <div className="border rounded-md overflow-hidden">
+            <div className="border rounded overflow-hidden">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">
                   <tr>

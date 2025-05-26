@@ -493,7 +493,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
 
         {showOtpVerification ? (
           <CardContent className="pt-6">
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
+            <div className="bg-blue-50 p-4 rounded border border-blue-100">
               <OTPVerification 
                 email={guardianEmail}
                 onVerify={handleOtpVerified}
@@ -516,13 +516,13 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                 <form onSubmit={form.handleSubmit((values) => onSubmit(values, "submitted"))}>
                   <Tabs value={activeStep} onValueChange={handleStepChange} className="w-full">
                     <TabsContent value="academic" className="mt-0">
-                      <div className="bg-blue-50/50 p-4 rounded-lg border border-blue-100">
+                      <div className="bg-blue-50/50 p-4 rounded border border-blue-100">
                         <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
                           <GraduationCap className="h-5 w-5 text-primary-500" />
                           Academic Information
                         </h3>
                         
-                        <div className="bg-white p-4 rounded-md border border-gray-200 mb-6">
+                        <div className="bg-white p-4 rounded border border-gray-200 mb-6">
                           <h4 className="text-sm font-medium text-gray-600 mb-2 flex items-center gap-2">
                             <Landmark className="h-4 w-4 text-gray-500" />
                             Institution Details
@@ -588,7 +588,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                           </div>
                         </div>
                         
-                        <div className="bg-white p-4 rounded-md border border-gray-200 mb-6">
+                        <div className="bg-white p-4 rounded border border-gray-200 mb-6">
                           <h4 className="text-sm font-medium text-gray-600 mb-2 flex items-center gap-2">
                             <BookOpen className="h-4 w-4 text-gray-500" />
                             Course Details
@@ -666,7 +666,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                         <Collapsible 
                           open={isOpenCollapsible} 
                           onOpenChange={setIsOpenCollapsible}
-                          className="bg-white p-4 rounded-md border border-gray-200"
+                          className="bg-white p-4 rounded border border-gray-200"
                         >
                           <div className="flex items-center justify-between">
                             <h4 className="text-sm font-medium text-gray-600 flex items-center gap-2">
@@ -733,13 +733,13 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                     </TabsContent>
 
                     <TabsContent value="financial" className="mt-0">
-                      <div className="bg-blue-50/50 p-4 rounded-lg border border-blue-100">
+                      <div className="bg-blue-50/50 p-4 rounded border border-blue-100">
                         <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
                           <DollarSign className="h-5 w-5 text-primary-500" />
                           Financial Information
                         </h3>
                         
-                        <div className="bg-white p-4 rounded-md border border-gray-200 mb-6">
+                        <div className="bg-white p-4 rounded border border-gray-200 mb-6">
                           <h4 className="text-sm font-medium text-gray-600 mb-3 flex items-center gap-2">
                             <FileText className="h-4 w-4 text-gray-500" />
                             Education Costs
@@ -804,7 +804,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                           </div>
                         </div>
                         
-                        <div className="bg-yellow-50 p-4 rounded-md border border-yellow-200 flex items-start gap-3 mb-6">
+                        <div className="bg-yellow-50 p-4 rounded border border-yellow-200 flex items-start gap-3 mb-6">
                           <Info className="h-5 w-5 text-yellow-600 mt-0.5 flex-shrink-0" />
                           <div className="text-sm text-yellow-800">
                             <p className="font-medium mb-1">Important Financial Guidelines</p>
@@ -828,19 +828,19 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                     </TabsContent>
 
                     <TabsContent value="family" className="mt-0">
-                      <div className="bg-blue-50/50 p-4 rounded-lg border border-blue-100">
+                      <div className="bg-blue-50/50 p-4 rounded border border-blue-100">
                         <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
                           <Users className="h-5 w-5 text-primary-500" />
                           Family Information
                         </h3>
 
                         <div className="grid gap-4">
-                          <div className="bg-white p-4 rounded-md border border-gray-200">
+                          <div className="bg-white p-4 rounded border border-gray-200">
                             <FormField
                               control={form.control}
                               name="isUnder18"
                               render={({ field }) => (
-                                <FormItem className="flex flex-row items-center justify-between rounded-lg">
+                                <FormItem className="flex flex-row items-center justify-between rounded">
                                   <div className="space-y-0.5">
                                     <FormLabel className="text-base">
                                       I am under 18 years old
@@ -860,7 +860,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                             />
                           </div>
 
-                          <div className="bg-white p-4 rounded-md border border-gray-200">
+                          <div className="bg-white p-4 rounded border border-gray-200">
                             <FormField
                               control={form.control}
                               name="familyType"
@@ -873,7 +873,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                                       defaultValue={field.value}
                                       className="grid grid-cols-1 md:grid-cols-2 gap-4"
                                     >
-                                      <FormItem className="flex items-center space-x-3 space-y-0 border p-3 rounded-md hover:bg-gray-50">
+                                      <FormItem className="flex items-center space-x-3 space-y-0 border p-3 rounded hover:bg-gray-50">
                                         <FormControl>
                                           <RadioGroupItem value="bothParents" />
                                         </FormControl>
@@ -881,7 +881,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                                           Both parents alive
                                         </FormLabel>
                                       </FormItem>
-                                      <FormItem className="flex items-center space-x-3 space-y-0 border p-3 rounded-md hover:bg-gray-50">
+                                      <FormItem className="flex items-center space-x-3 space-y-0 border p-3 rounded hover:bg-gray-50">
                                         <FormControl>
                                           <RadioGroupItem value="partialOrphan" />
                                         </FormControl>
@@ -889,7 +889,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                                           Partial orphan (one parent)
                                         </FormLabel>
                                       </FormItem>
-                                      <FormItem className="flex items-center space-x-3 space-y-0 border p-3 rounded-md hover:bg-gray-50">
+                                      <FormItem className="flex items-center space-x-3 space-y-0 border p-3 rounded hover:bg-gray-50">
                                         <FormControl>
                                           <RadioGroupItem value="totalOrphan" />
                                         </FormControl>
@@ -897,7 +897,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                                           Total orphan (no parents)
                                         </FormLabel>
                                       </FormItem>
-                                      <FormItem className="flex items-center space-x-3 space-y-0 border p-3 rounded-md hover:bg-gray-50">
+                                      <FormItem className="flex items-center space-x-3 space-y-0 border p-3 rounded hover:bg-gray-50">
                                         <FormControl>
                                           <RadioGroupItem value="guardian" />
                                         </FormControl>
@@ -915,7 +915,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
 
                           {/* Parent Information */}
                           {watchFamilyType !== "totalOrphan" && (
-                            <div className="bg-white p-4 rounded-md border border-gray-200">
+                            <div className="bg-white p-4 rounded border border-gray-200">
                               <h4 className="text-sm font-medium text-gray-600 mb-4 flex items-center gap-2">
                                 <UserCircle className="h-4 w-4 text-gray-500" />
                                 Parent Information
@@ -1018,7 +1018,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                           
                           {/* Second Parent Information */}
                           {watchFamilyType === "bothParents" && (
-                            <div className="bg-white p-4 rounded-md border border-gray-200">
+                            <div className="bg-white p-4 rounded border border-gray-200">
                               <h4 className="text-sm font-medium text-gray-600 mb-4 flex items-center gap-2">
                                 <UserCircle className="h-4 w-4 text-gray-500" />
                                 Mother's Information
@@ -1075,7 +1075,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                             (watchFamilyType === "totalOrphan" || 
                              watchFamilyType === "guardian" || 
                              watchFamilyType === "partialOrphan")) && (
-                            <div className="bg-white p-4 rounded-md border border-gray-200">
+                            <div className="bg-white p-4 rounded border border-gray-200">
                               <div className="flex justify-between items-start mb-4">
                                 <h4 className="text-sm font-medium text-gray-600 flex items-center gap-2">
                                   <Shield className="h-4 w-4 text-gray-500" />
@@ -1176,7 +1176,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                               </div>
                               
                               {!form.watch("guardianContactVerified") && (
-                                <div className="mt-4 bg-yellow-50 p-3 rounded-md border border-yellow-200 text-sm text-yellow-800">
+                                <div className="mt-4 bg-yellow-50 p-3 rounded border border-yellow-200 text-sm text-yellow-800">
                                   <AlertCircle className="inline-block mr-2 h-4 w-4 text-yellow-600" />
                                   Guardian contact verification is required for students under 18. Please fill in guardian details and click "Verify Guardian".
                                 </div>
@@ -1185,7 +1185,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                           )}
                           
                           {/* Family Address and Dependents */}
-                          <div className="bg-white p-4 rounded-md border border-gray-200">
+                          <div className="bg-white p-4 rounded border border-gray-200">
                             <h4 className="text-sm font-medium text-gray-600 mb-4 flex items-center gap-2">
                               <Home className="h-4 w-4 text-gray-500" />
                               Family Address & Dependents
@@ -1279,13 +1279,13 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                     </TabsContent>
 
                     <TabsContent value="documents" className="mt-0">
-                      <div className="bg-blue-50/50 p-4 rounded-lg border border-blue-100">
+                      <div className="bg-blue-50/50 p-4 rounded border border-blue-100">
                         <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
                           <FileText className="h-5 w-5 text-primary-500" />
                           Required Documents
                         </h3>
                         
-                        <div className="bg-white p-4 rounded-md border border-gray-200 mb-6">
+                        <div className="bg-white p-4 rounded border border-gray-200 mb-6">
                           <h4 className="text-sm font-medium text-gray-600 mb-4 flex items-center gap-2">
                             <Upload className="h-4 w-4 text-gray-500" />
                             Document Upload Guidelines
@@ -1304,7 +1304,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                         
                         <div className="space-y-6">
                           {/* Personal Documents */}
-                          <div className="bg-white p-4 rounded-md border border-gray-200">
+                          <div className="bg-white p-4 rounded border border-gray-200">
                             <h4 className="text-sm font-medium text-gray-600 mb-4">Personal Documents</h4>
                             
                             <div className="grid gap-4 md:grid-cols-2">
@@ -1335,7 +1335,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                           </div>
                           
                           {/* Financial Documents */}
-                          <div className="bg-white p-4 rounded-md border border-gray-200">
+                          <div className="bg-white p-4 rounded border border-gray-200">
                             <h4 className="text-sm font-medium text-gray-600 mb-4">Financial Documents</h4>
                             
                             <div className="grid gap-4 md:grid-cols-2">
@@ -1395,7 +1395,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                           
                           {/* Conditional Documents */}
                           {(watchFamilyType === "partialOrphan" || watchFamilyType === "totalOrphan") && (
-                            <div className="bg-white p-4 rounded-md border border-gray-200">
+                            <div className="bg-white p-4 rounded border border-gray-200">
                               <h4 className="text-sm font-medium text-gray-600 mb-4">Orphan Status Documents</h4>
                               
                               <div className="grid gap-4 md:grid-cols-2">
@@ -1415,7 +1415,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                           )}
                           
                           {(watchIsUnder18 && (watchFamilyType === "totalOrphan" || watchFamilyType === "guardian")) && (
-                            <div className="bg-white p-4 rounded-md border border-gray-200">
+                            <div className="bg-white p-4 rounded border border-gray-200">
                               <h4 className="text-sm font-medium text-gray-600 mb-4">Guardian Documents</h4>
                               
                               <div className="grid gap-4 md:grid-cols-2">
@@ -1435,7 +1435,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                           )}
                           
                           {/* Additional Documents */}
-                          <div className="bg-white p-4 rounded-md border border-gray-200">
+                          <div className="bg-white p-4 rounded border border-gray-200">
                             <h4 className="text-sm font-medium text-gray-600 mb-4">Additional Documents</h4>
                             
                             <div>
@@ -1465,13 +1465,13 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                     </TabsContent>
                     
                     <TabsContent value="review" className="mt-0">
-                      <div className="bg-blue-50/50 p-4 rounded-lg border border-blue-100">
+                      <div className="bg-blue-50/50 p-4 rounded border border-blue-100">
                         <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
                           <CheckCircle className="h-5 w-5 text-primary-500" />
                           Review & Submit
                         </h3>
                         
-                        <div className="bg-white p-4 rounded-md border border-gray-200 mb-6">
+                        <div className="bg-white p-4 rounded border border-gray-200 mb-6">
                           <h4 className="text-sm font-medium text-gray-600 mb-4 flex items-center gap-2">
                             <FileText className="h-4 w-4 text-gray-500" />
                             Application Summary
@@ -1603,7 +1603,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                           </div>
                         </div>
                         
-                        <div className="bg-white p-4 rounded-md border border-gray-200 mb-6">
+                        <div className="bg-white p-4 rounded border border-gray-200 mb-6">
                           <h4 className="text-sm font-medium text-gray-600 mb-4 flex items-center gap-2">
                             <FileQuestion className="h-4 w-4 text-gray-500" />
                             Personal Statement
@@ -1630,7 +1630,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                           />
                         </div>
                         
-                        <div className="bg-white p-4 rounded-md border border-gray-200 mb-6">
+                        <div className="bg-white p-4 rounded border border-gray-200 mb-6">
                           <h4 className="text-sm font-medium text-gray-600 mb-4 flex items-center gap-2">
                             <ShieldCheck className="h-4 w-4 text-gray-500" />
                             Terms & Declaration

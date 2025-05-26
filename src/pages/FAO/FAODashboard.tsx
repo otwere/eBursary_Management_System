@@ -159,7 +159,7 @@ const FAODashboard = () => {
     <DashboardLayout title="Funds Approval & Allocation Officer">
       <div className="space-y-6 lg:-mx-[65px] mt-0">
         {/* Overview section */}
-        <div className="flex justify-between items-center border-l-4  border-l-green-500 rounded-md">
+        <div className="flex justify-between items-center border-l-4  border-l-green-500 rounded h-16">
           <div className="pl-2">
             <h1 className="text-xl font-bold text-blue-800">Funds Allocation Dashboard</h1>
             <p className="text-muted-foreground text-sm -mt-1">
@@ -186,14 +186,14 @@ const FAODashboard = () => {
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="bg-blue-50 hover:bg-blue-100 border-l-4 border-l-blue-500 rounded-lg p-4 border border-blue-100 h-28">
+              <div className="bg-blue-50 hover:bg-blue-100 border-l-4 border-l-blue-500 rounded p-4 border border-blue-100 h-28">
                 <p className="text-sm font-medium text-blue-700">Total Budget</p>
                 <p className="text-xl font-bold">{formatCurrency(totalBudget)}</p>
                 <div className="mt-1 text-xs text-blue-600">
                   Academic Year 2024
                 </div>
               </div>
-              <div className="bg-green-50 hover:bg-green-100 border-l-4 border-l-green-500 rounded-lg p-4 border border-green-100">
+              <div className="bg-green-50 hover:bg-green-100 border-l-4 border-l-green-500 rounded p-4 border border-green-100">
                 <p className="text-sm font-medium text-green-700">Allocated Funds</p>
                 <p className="text-xl font-bold">{formatCurrency(totalAllocatedFunds)}</p>
                 <div className="mt-1 text-xs text-green-600">
@@ -205,7 +205,7 @@ const FAODashboard = () => {
                   )}
                 </div>
               </div>
-              <div className="bg-amber-50 hover:bg-amber-100 border-l-4 border-l-amber-500 rounded-lg p-4 border border-amber-100">
+              <div className="bg-amber-50 hover:bg-amber-100 border-l-4 border-l-amber-500 rounded p-4 border border-amber-100">
                 <p className="text-sm font-medium text-amber-700">Disbursed Funds</p>
                 <p className="text-xl font-bold">{formatCurrency(totalDisbursedFunds)}</p>
                 <div className="mt-1 text-xs text-amber-600">
@@ -215,7 +215,7 @@ const FAODashboard = () => {
                   </span>
                 </div>
               </div>
-              <div className="bg-purple-50 hover:bg-purple-100 border-l-4 border-l-purple-500 rounded-lg p-4 border border-purple-100">
+              <div className="bg-purple-50 hover:bg-purple-100 border-l-4 border-l-purple-500 rounded p-4 border border-purple-100">
                 <p className="text-sm font-medium text-purple-700">Remaining Budget</p>
                 <p className="text-xl font-bold">{formatCurrency(remainingBudget)}</p>
                 <div className="mt-1 text-xs text-purple-600 flex items-center">
@@ -269,7 +269,7 @@ const FAODashboard = () => {
             <CardHeader className="flex flex-row items-center justify-between">
               <div className="border-l-4 border-l-green-500 rounded-sm pl-2">
                 <CardTitle className="text-lg font-bold text-blue-800">Active Funds</CardTitle>
-                <CardDescription className="text-muted-foreground">Current active funding sources</CardDescription>
+                <CardDescription className="text-muted-foreground">Current Active Funding Sources</CardDescription>
               </div>
               <Button 
                 variant="outline" 
@@ -284,7 +284,7 @@ const FAODashboard = () => {
                 {activeFunds.map(fund => (
                   <div 
                     key={fund.id} 
-                    className="border rounded-lg p-4 hover:bg-gray-50 transition-colors cursor-pointer"
+                    className="border rounded p-4 hover:bg-gray-50 transition-colors cursor-pointer"
                     onClick={() => navigate("/FAO/fund-management")}
                   >
                     <div className="flex justify-between items-start">
@@ -335,7 +335,7 @@ const FAODashboard = () => {
                 className="ml-auto"
                 onClick={() => navigate("/FAO/fund-management")}
               >
-                Manage all funds
+                Manage all Funds
               </Button>
             </CardFooter>
           </Card>
@@ -437,7 +437,7 @@ const FAODashboard = () => {
         {/* Applications awaiting allocation */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
-            <div className="border-l-4 border-l-orange-500 rounded pl-3 ">
+            <div className="border-l-4 border-l-orange-500 rounded pl-3 h-16 ">
               <CardTitle className="text-lg font-bold text-blue-800 -mb-1">Applications Awaiting Allocation</CardTitle>
               <CardDescription className="text-muted-foreground">
                 Approved Applications Pending Fund Allocation
@@ -446,6 +446,7 @@ const FAODashboard = () => {
             <Button onClick={() => navigate("/FAO/pending-allocations")}>
               <Banknote className="h-4 w-4 mr-2" />
               Approve & Allocate Funds
+              
             </Button>
           </CardHeader>
           <CardContent>
@@ -486,7 +487,7 @@ const FAODashboard = () => {
               <TabsContent value="recent">
                 <div className="space-y-4">
                   {recentAllocations.map(allocation => (
-                    <div key={allocation.id} className="flex items-center gap-4 p-3 border rounded-md hover:bg-gray-50 transition-colors">
+                    <div key={allocation.id} className="flex items-center gap-4 p-3 border rounded hover:bg-gray-50 transition-colors">
                       <Avatar className="h-10 w-10">
                         <AvatarImage src="" alt={allocation.studentName} />
                         <AvatarFallback>{allocation.studentName.split(' ').map(n => n[0]).join('')}</AvatarFallback>
@@ -524,7 +525,7 @@ const FAODashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Top Institutions */}
           <Card>
-            <CardHeader className="border-l-4 border-l-yellow-500 border-b-2 rounded-md mb-2">
+            <CardHeader className="border-l-4 border-l-yellow-500 border-b-2 rounded mb-2">
               <CardTitle className="text-lg -mb-2 font-bold text-blue-800">Top Institutions</CardTitle>
               <CardDescription className="text-muted-foreground">Institutions with most Funded Applications</CardDescription>
             </CardHeader>
@@ -548,7 +549,7 @@ const FAODashboard = () => {
           
           {/* Allocation Distribution */}
           <Card>
-            <CardHeader className="border-l-4 border-l-green-500 border-b-2 rounded-md ">
+            <CardHeader className="border-l-4 border-l-green-500 border-b-2 rounded ">
               <CardTitle className="text-lg font-bold text-blue-800 -mb-2">Allocation Distribution</CardTitle>
               <CardDescription className="text-muted-foreground">Fund Allocation by Category</CardDescription>
             </CardHeader>

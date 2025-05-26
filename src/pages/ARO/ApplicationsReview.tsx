@@ -227,7 +227,7 @@ const ApplicationsReview = () => {
         <Card>
           <CardHeader>
             <div className="flex items-center justify-between mx-1 ">
-              <div className="border-l-4 border-purple-500 rounded-md ml-0">
+              <div className="border-l-4 border-purple-500 rounded ml-0">
                 <CardTitle className="text-xl ml-2 text-purple-600">Review Applications</CardTitle>
                 <CardDescription className="ml-2 text-muted-foreground">
                   Manage , Verify Documents & Review Student Bursary Applications.
@@ -393,7 +393,7 @@ const ApplicationsReview = () => {
             />
           ) : (
             <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-              <div className="bg-white rounded-lg shadow-xl overflow-hidden w-full max-w-5xl max-h-[90vh]">
+              <div className="bg-white rounded shadow-xl overflow-hidden w-full max-w-5xl max-h-[90vh]">
                 <div className="flex items-center justify-between p-4 border-b">
                   <h2 className="text-xl font-semibold flex items-center gap-2">
                     <CheckSquare className="h-5 w-5 text-blue-500" />
