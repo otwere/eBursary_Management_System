@@ -135,7 +135,7 @@ export const useAllocationsQueue = () => {
     setAllocationNotes("");
     setIsAllocateDialogOpen(false);
 
-    toast.success("Funds allocated successfully");
+    toast.success("Funds Allocated Successfully");
   };
 
   const handleBulkAllocate = () => {

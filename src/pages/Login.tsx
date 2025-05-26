@@ -139,7 +139,7 @@ const Login = () => {
             <p>Email : aro@ebursary.co.ke</p>
           </div>
           <div className="p-2 border rounded">
-            <p className="font-medium">Funds Approval & Allocation Officer (FAO):</p>
+            <p className="font-medium">Funds Manager (FAO):</p>
             <p>Email : fao@ebursary.co.ke</p>
           </div>
           <div className="p-2 border rounded">

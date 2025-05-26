@@ -156,14 +156,14 @@ const FAODashboard = () => {
   };
 
   return (
-    <DashboardLayout title="Funds Approval & Allocation Officer">
+    <DashboardLayout title="Funds Manager - Dashboard">
       <div className="space-y-6 lg:-mx-[65px] mt-0">
         {/* Overview section */}
         <div className="flex justify-between items-center border-l-4  border-l-green-500 rounded h-16">
           <div className="pl-2">
-            <h1 className="text-xl font-bold text-blue-800">Funds Allocation Dashboard</h1>
+            <h1 className="text-xl font-bold text-blue-800">Funds Manager Allocation Dashboard</h1>
             <p className="text-muted-foreground text-sm -mt-1">
-              Manage Funds Approves & Allocate to Approved Bursary Applications
+              Manage Funds Approves & Allocate  Bursary & Scholarship Applications
             </p>
           </div>
           <div className="flex gap-2">
@@ -180,7 +180,7 @@ const FAODashboard = () => {
 
         {/* Budget overview */}
         <Card>
-          <CardHeader>
+          <CardHeader className="border-l-4 border-l-blue-500 mb-4 border-b-2 rounded">
             <CardTitle className="text-xl -mb-2 text-blue-800 font-bold">Budget Overview</CardTitle>
             <CardDescription className="text-muted-foreground">Current Financial Period Funding Status</CardDescription>
           </CardHeader>

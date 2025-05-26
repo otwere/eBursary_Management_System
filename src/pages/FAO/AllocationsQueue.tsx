@@ -89,7 +89,7 @@ const AllocationsQueue = () => {
 
         <Card>
           <CardHeader className="border-l-4 border-l-green-500 rounded mb-2">
-            <CardTitle className="text-xl font-bold text-blue-800 -mb-2">Applications Pending Allocation</CardTitle>
+            <CardTitle className="text-xl font-bold text-blue-800 -mb-2">Applications for Approval & Allocation</CardTitle>
             <CardDescription>
               {filteredApplications.length} Applications found
             </CardDescription>

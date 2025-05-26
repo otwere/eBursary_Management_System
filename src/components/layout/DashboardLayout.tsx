@@ -80,7 +80,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
       <div className={`fixed inset-0 bg-black/50 z-40 lg:hidden transition-opacity duration-200 ${sidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} 
            onClick={() => setSidebarOpen(false)}>
         <div 
-          className={`fixed inset-y-0 left-0 w-64 bg-white shadow-lg transform transition-transform duration-200 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
+          className={`fixed inset-y-0 left-0 w-64 bg-white shadow-none transform transition-transform duration-200 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="p-4 flex justify-between items-center border-b">
@@ -141,7 +141,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
 
       {/* Desktop sidebar */}
       <div className="hidden lg:flex">
-        <div className="fixed inset-y-0 left-0 w-64 bg-white border-r shadow-sm">
+        <div className="fixed inset-y-0 left-0 w-64 bg-white border-r shadow-none">
           <div className="p-4 border-b">
             <div className="font-bold text-xl text-primary-500">
               eBursary  Portal

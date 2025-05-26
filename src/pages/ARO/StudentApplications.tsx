@@ -353,7 +353,7 @@ const StudentApplications = () => {
         
         {/* Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <TabsList className="bg-transparent border-b w-full justify-start rounded-none p-0 h-auto mb-6">
+          <TabsList className="bg-transparent border-b w-full justify-start rounded-none p-0 h-auto mb-6 space-x-40">
             <TabsTrigger 
               value="all" 
               className="rounded-b-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent py-2 text-base"

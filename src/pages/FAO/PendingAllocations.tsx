@@ -288,7 +288,7 @@ const PendingAllocations = () => {
       notes: allocationNotes
     });
     
-    toast.success(`Funds allocated successfully to ${selectedApplication.studentName}`);
+    toast.success(`Funds Allocated Successfully to ${selectedApplication.studentName}`);
     setIsAllocateModalOpen(false);
     
     // Reset form

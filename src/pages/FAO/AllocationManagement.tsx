@@ -395,12 +395,12 @@ const AllocationManagement = () => {
 
             {/* Allocation Distribution by Education Level */}
             <div>
-              <h3 className="text-xl font-bold mb-2 text-blue-800">Allocation by Education Level</h3>
+              <h3 className="text-xl font-bold mb-2 text-black">Allocation by Education Level</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Bursary Distribution */}
                 <Card className="bg-gray-50">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-lg text-blue-700 border-l-4 border-l-blue-500 pl-2 rounded-none border-b-2 mb-4">Bursary Distribution</CardTitle>
+                  <CardHeader className=" border-l-4 border-l-blue-500 pl-2 border-b-2 mb-4 rounded">
+                    <CardTitle className="text-lg text-blue-800  font-bold">Bursary Distribution</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
@@ -445,8 +445,8 @@ const AllocationManagement = () => {
 
                 {/* Scholarship Distribution */}
                 <Card className="bg-gray-50">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-lg text-green-600 border-l-4 border-l-green-500 pl-2 border-b-2 mb-4">Scholarship Distribution</CardTitle>
+                  <CardHeader className=" text-green-600 border-l-4 border-l-green-500 pl-2 border-b-2 mb-4 rounded">
+                    <CardTitle className="text-lg font-bold">Scholarship Distribution</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
@@ -497,7 +497,7 @@ const AllocationManagement = () => {
         <Card>
           <CardHeader>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="border-l-4 border-lime-500 pl-2 rounded-s-sm">
+              <div className="border-l-4 border-lime-500 pl-2 rounded h-16 ">
                 <CardTitle className="text-xl font-bold text-blue-800 -mb-1">Fund Allocations | FY-2024-2025-ALLOC-0011</CardTitle>
                 <CardDescription>
                   View and manage all Funds Allocations
@@ -547,7 +547,7 @@ const AllocationManagement = () => {
           </CardHeader>
           <CardContent>
             <Table>
-              <TableHeader>
+              <TableHeader className="border-t-2">
                 <TableRow>
                   <TableHead>Education Level</TableHead>
                   <TableHead>Category</TableHead>
@@ -594,7 +594,7 @@ const AllocationManagement = () => {
                           {allocation.status}
                         </Badge>
                       </TableCell>
-                      <TableCell className="text-sm">{formatDate(allocation.createdAt)}</TableCell>
+                      <TableCell className="text-sm text-nowrap">{formatDate(allocation.createdAt)}</TableCell>
                       <TableCell className="text-right">
                         <Button variant="ghost" size="sm">
                           <Search className="h-4 w-4 mr-1" />

@@ -156,7 +156,7 @@ const ApplicationDetail = () => {
           Back to Applications
         </Button>
         
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-white p-4 rounded border shadow-sm">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-white p-4 rounded border shadow-none">
           <div className="flex items-center">
             <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mr-4">
               <School className="h-6 w-6" />
@@ -174,7 +174,7 @@ const ApplicationDetail = () => {
         </div>
       </div>
       
-      <div className="bg-white rounded border p-4 mb-6 shadow-sm">
+      <div className="bg-white rounded border p-4 mb-6 shadow-none">
         <h3 className="font-medium text-lg mb-4">Application Progress</h3>
         <StepsIndicator steps={steps} />
       </div>
@@ -210,7 +210,7 @@ const ApplicationDetail = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="md:col-span-2 space-y-6">
-          <Card className="shadow-sm">
+          <Card className="shadow-none">
             <CardHeader className="bg-gray-50 border-b">
               <CardTitle className="flex items-center gap-2">
                 <GraduationCap className="h-5 w-5 text-primary-500" />
@@ -315,7 +315,7 @@ const ApplicationDetail = () => {
           </Card>
           
           {application.documents && application.documents.length > 0 && (
-            <Card className="shadow-sm">
+            <Card className="shadow-none">
               <CardHeader className="bg-gray-50 border-b">
                 <CardTitle className="flex items-center gap-2">
                   <FileText className="h-5 w-5 text-primary-500" />
@@ -330,7 +330,7 @@ const ApplicationDetail = () => {
         </div>
         
         <div className="space-y-6">
-          <Card className="shadow-sm">
+          <Card className="shadow-none">
             <CardHeader className="bg-gray-50 border-b">
               <CardTitle className="flex items-center gap-2">
                 <CheckCircle2 className="h-5 w-5 text-primary-500" />
@@ -385,7 +385,7 @@ const ApplicationDetail = () => {
             </CardContent>
           </Card>
           
-          <Card className="shadow-sm">
+          <Card className="shadow-none">
             <CardHeader className="bg-gray-50 border-b">
               <CardTitle>Actions</CardTitle>
             </CardHeader>

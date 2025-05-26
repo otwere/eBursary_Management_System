@@ -66,7 +66,7 @@ const OrphanStatusCard: React.FC<OrphanStatusCardProps> = ({ orphanStatus }) => 
   };
 
   return (
-    <Card className="shadow-sm">
+    <Card className="shadow-none">
       <CardHeader className="pb-2 bg-gradient-to-r from-blue-50 to-indigo-50">
         <CardTitle className="text-lg flex items-center gap-2">
           <Heart className="h-5 w-5 text-rose-500" />

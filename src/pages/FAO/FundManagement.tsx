@@ -258,7 +258,7 @@ const FundManagement = () => {
           <div className="pl-4">
             <h1 className="text-xl font-bold text-blue-800">Funds Management</h1>
             <p className="text-muted-foreground text-sm -mt-1">
-              Create, Manage, Approve & Allocate Funds for Bursaries and Scholarships
+              Create | Manage | Approve & Allocate Funds for Bursaries and Scholarships
             </p>
           </div>
           <Button onClick={() => setIsCreateFundOpen(true)}>
@@ -269,10 +269,10 @@ const FundManagement = () => {
 
         {/* Fund Overview */}
         <Card>
-          <CardHeader className="border-l-0 border-l-lime-500 rounded border-b-0 mx-0 ">
+          <CardHeader className="border-l-4 border-l-lime-500 rounded border-b-2 mx-0 mb-4 ">
             <CardTitle className="text-xl font-bold -my-2 text-blue-800">Funds Overview</CardTitle>
             <CardDescription className="text-muted-foreground">
-              Summary of all Available Fund Allocations
+              Summary of all Available Funds Allocations
             </CardDescription>
           </CardHeader>
           <CardContent>
