@@ -34,9 +34,9 @@ const ARODashboard = () => {
     <DashboardLayout title="Application & Documents Review Officer (ADRO) Dashboard">
       <div className="space-y-6 -mx-[70px]">
         {/* Overview section */}
-        <div className="bg-amber-50 p-4 rounded border border-l-4 border-green-500">
-          <h1 className="text-xl text-blue-800 font-semibold">Application Review Dashboard</h1>
-          <p className="text-muted-foreground text-sm mt-1">
+        <div className="bg-amber-50 p-4 rounded border-b-2 border-l-4 border-l-green-500 h-20">
+          <h1 className="text-xl text-blue-800 font-bold -mt-2">Application Review Dashboard</h1>
+          <p className="text-muted-foreground text-sm mt-[-0.25rem]">
             Review and manage Bursary Applications.
           </p>
         </div>
@@ -102,8 +102,8 @@ const ARODashboard = () => {
 
         {/* Quick filters */}
         <Card>
-          <CardHeader>
-            <CardTitle className="text-xl">Applications Overview</CardTitle>
+          <CardHeader className="border-l-4 border-blue-500 border-b-2 mb-4 ">
+            <CardTitle className="text-xl font-bold text-primary-800">Applications Overview</CardTitle>
           </CardHeader>
           <CardContent className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <Button 
@@ -147,8 +147,8 @@ const ARODashboard = () => {
 
         {/* Applications section */}
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle className="text-xl">Recent Applications</CardTitle>
+          <CardHeader className="flex flex-row items-center justify-between border-l-4 border-l-red-500 border-b-2 mb-4">
+            <CardTitle className="text-xl text-primary-800 font-bold">Recent Applications</CardTitle>
             <Button variant="outline" size="sm" onClick={() => navigate("/ARO/applications")}>
               View All
             </Button>

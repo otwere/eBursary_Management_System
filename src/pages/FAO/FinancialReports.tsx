@@ -359,7 +359,7 @@ const FinancialReports = () => {
                         {mockUtilizationSummary.educationLevelBreakdown.map((level) => (
                           <div key={level.educationLevel} className="space-y-2">
                             <div className="flex justify-between items-center">
-                              <span className="font-medium text-gray-700">{level.educationLevel}</span>
+                              <span className="font-medium text-primary-800">{level.educationLevel}</span>
                               <Badge variant="outline" className="bg-blue-500 text-gray-50">{formatPercentage(level.percentage)}</Badge>
                             </div>
                             <Progress value={level.percentage} className="h-2" />

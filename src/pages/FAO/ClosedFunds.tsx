@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -29,7 +29,7 @@ const ClosedFunds = () => {
     {
       id: "fund-1",
       name: "2024 Q1 Bursary Fund",
-      description: "First quarter bursary allocation for 2024",
+      description: "First Quarter Bursary Allocation for 2024 | 042-0345 NGCDF/BS/2024-001",
       amount: 5000000,
       academicYear: "2024",
       createdAt: "2023-12-15T09:00:00.000Z",
@@ -41,12 +41,12 @@ const ClosedFunds = () => {
       financialPeriod: "2024-Q1",
       closedAt: "2024-04-01T10:30:00.000Z",
       closedBy: "Kevin mwangi",
-      closureReason: "End of financial period, remaining funds to be carried forward."
+      closureReason: "End of Financial Period, remaining Funds to be carried forward."
     },
     {
       id: "fund-2",
       name: "2023 Scholarship Fund",
-      description: "Annual scholarship fund for 2023",
+      description: "Annual Scholarship Fund for 2023",
       amount: 8000000,
       academicYear: "2023",
       createdAt: "2023-01-10T11:30:00.000Z",
@@ -75,7 +75,7 @@ const ClosedFunds = () => {
       financialPeriod: "2023-Q2",
       closedAt: "2023-07-10T09:20:00.000Z",
       closedBy: "Kevin mwangi",
-      closureReason: "Fund objectives met, remaining amount to be returned to treasury."
+      closureReason: "Funds Objectives met, remaining Amount to be carried forward to the next Quatre."
     },
     {
       id: "fund-4",
@@ -224,7 +224,7 @@ const ClosedFunds = () => {
       case "active":
         return "bg-green-100 text-green-800 border-green-200";
       case "closed":
-        return "bg-gray-100 text-gray-800 border-gray-200";
+        return "bg-red-100 text-red-500 border-gray-200";
       case "pending":
         return "bg-yellow-100 text-yellow-800 border-yellow-200";
       case "depleted":
@@ -245,8 +245,8 @@ const ClosedFunds = () => {
       <div className="space-y-6 lg:-mx-[85px]">
         <Card>
           <CardHeader>
-            <div className="flex flex-col sm:flex-row justify-between gap-4">
-              <div className="border-l-4 border-l-red-500 pl-2 rounded border-b-2 w-full h-16">
+            <div className="flex flex-col sm:flex-row justify-between gap-4 border-b-2">
+              <div className="border-l-4 border-l-red-500 pl-2 rounded  w-full h-16">
                 <CardTitle className="text-xl font-bold text-blue-800">Funds Closure & Reopen Management</CardTitle>
                 <CardDescription className="text-muted-foreground -mt-1">
                   View and Manage Active and Closed Funds
@@ -382,80 +382,83 @@ const ClosedFunds = () => {
       
       {/* View Fund Details Modal */}
       <Dialog open={isViewDetailsModalOpen} onOpenChange={setIsViewDetailsModalOpen}>
-        <DialogContent className="sm:max-w-5xl bg-gray-50">
-          <DialogHeader>
-            <DialogTitle>Fund Details</DialogTitle>
-            <DialogDescription>
-              Detailed information about this fund
+        <DialogContent className="lg:max-w-6xl sm:max-w-3xl bg-gray-50">
+          <DialogHeader className="border-l-4 border-l-blue-500 pl-2 h-16 border-b-2 rounded">
+            <DialogTitle className="text-lg font-bold text-blue-800 mb-[-0.5rem]">Fund Details</DialogTitle>
+            <DialogDescription className="text-muted-foreground overflow-y-auto">
+              Detailed Information about this Funds
             </DialogDescription>
           </DialogHeader>
           
           {selectedFund && (
             <div className="space-y-4 py-4">
-              <div className="flex justify-between items-center">
-                <h3 className="text-lg font-medium">{selectedFund.name}</h3>
+              <div className="flex justify-between items-center mt-[-0.5rem] mb-[-1.2rem]">
+                <h3 className="text-lg font-bold text-blue-800 ">{selectedFund.name}</h3>
                 <Badge variant="outline" className={getStatusBadgeColor(selectedFund.status)}>
                   {selectedFund.status.charAt(0).toUpperCase() + selectedFund.status.slice(1)}
                 </Badge>
               </div>
               
-              <p className="text-gray-500">{selectedFund.description}</p>
+              <p className="text-muted-foreground text-sm w-fit">{selectedFund.description}</p>
               
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-1">
-                  <p className="text-sm text-gray-500">Academic Year</p>
-                  <p className="font-medium">{selectedFund.academicYear}</p>
+              <div className="grid grid-cols-2 gap-4 border rounded bg-blue-50">
+                <div className="space-y-1 mx-4">
+                  <p className="text-sm text-gray-500 mb-[-0.4rem] mt-4">Academic Year</p>
+                  <p className="font-bold text-blue-800">{selectedFund.academicYear}</p>
                 </div>
-                <div className="space-y-1">
-                  <p className="text-sm text-gray-500">Financial Period</p>
-                  <p className="font-medium">{selectedFund.financialPeriod || "N/A"}</p>
+                <div className="space-y-1 mx-32">
+                  <p className="text-sm text-gray-500 mb-[-0.4rem] mt-4 ">Financial Period</p>
+                  <p className="font-bold text-blue-800">{selectedFund.financialPeriod || "N/A"}</p>
                 </div>
-                <div className="space-y-1">
-                  <p className="text-sm text-gray-500">Created On</p>
-                  <p className="font-medium">{formatDate(selectedFund.createdAt)}</p>
+                <div className="space-y-1 mx-4">
+                  <p className="text-sm text-gray-500 mb-[-0.4rem] ">Created On</p>
+                  <p className="font-bold text-blue-800">{formatDate(selectedFund.createdAt)}</p>
                 </div>
-                <div className="space-y-1">
-                  <p className="text-sm text-gray-500">Created By</p>
-                  <p className="font-medium">{selectedFund.createdBy}</p>
+                <div className="space-y-1 mx-32">
+                  <p className="text-sm text-gray-500 mb-[-0.4rem]">Created By</p>
+                  <p className="font-bold text-blue-800">{selectedFund.createdBy}</p>
                 </div>
                 {selectedFund.status === "closed" && (
                   <>
-                    <div className="space-y-1">
-                      <p className="text-sm text-gray-500">Closed On</p>
-                      <p className="font-medium">{formatDate(selectedFund.closedAt)}</p>
+                    <div className="space-y-1 mx-4 mb-4">
+                      <p className="text-sm text-gray-500 mb-[-0.4rem]">Closed On</p>
+                      <p className="font-bold text-blue-800">{formatDate(selectedFund.closedAt)}</p>
                     </div>
-                    <div className="space-y-1">
-                      <p className="text-sm text-gray-500">Closed By</p>
-                      <p className="font-medium">{selectedFund.closedBy}</p>
+                    <div className="space-y-1 mx-32">
+                      <p className="text-sm text-gray-500 mb-[-0.4rem]">Closed By</p>
+                      <p className="font-bold text-blue-800">{selectedFund.closedBy}</p>
                     </div>
                   </>
                 )}
               </div>
               
-              <div className="rounded border p-4 space-y-3">
-                <h4 className="font-medium">Fund Allocation</h4>
+              <div className="rounded border p-4 space-y-3 bg-gray-100">
+                <h4 className="font-bold text-blue-800">Funds Allocation</h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="space-y-1">
+                  <div className="space-y-1 border-l-4 border-l-blue-500 pl-2 rounded">
                     <p className="text-sm text-gray-500">Total Amount</p>
-                    <p className="font-bold">{formatCurrency(selectedFund.amount)}</p>
+                    <p className="font-bold text-blue-800">{formatCurrency(selectedFund.amount)}</p>
+                    <p className="text-xs text-gray-500">
+                      {allocationPercentage(selectedFund.amount, selectedFund.amount)}
+                    </p>
                   </div>
-                  <div className="space-y-1">
+                  <div className="space-y-1 border-l-4 border-l-lime-500 pl-2 rounded">
                     <p className="text-sm text-gray-500">Allocated</p>
-                    <p className="font-medium">{formatCurrency(selectedFund.allocatedAmount)}</p>
+                    <p className="font-bold text-lime-500">{formatCurrency(selectedFund.allocatedAmount)}</p>
                     <p className="text-xs text-gray-500">
                       {allocationPercentage(selectedFund.allocatedAmount, selectedFund.amount)}
                     </p>
                   </div>
-                  <div className="space-y-1">
+                  <div className="space-y-1 border-l-4 border-l-green-500 pl-2 rounded">
                     <p className="text-sm text-gray-500">Disbursed</p>
-                    <p className="font-medium">{formatCurrency(selectedFund.disbursedAmount)}</p>
+                    <p className="font-bold text-green-500">{formatCurrency(selectedFund.disbursedAmount)}</p>
                     <p className="text-xs text-gray-500">
                       {allocationPercentage(selectedFund.disbursedAmount, selectedFund.amount)}
                     </p>
                   </div>
-                  <div className="space-y-1">
+                  <div className="space-y-1 border-l-4 border-l-orange-500 pl-2 rounded">
                     <p className="text-sm text-gray-500">Remaining</p>
-                    <p className="font-medium">{formatCurrency(selectedFund.remainingAmount)}</p>
+                    <p className="font-bold text-orange-500">{formatCurrency(selectedFund.remainingAmount)}</p>
                     <p className="text-xs text-gray-500">
                       {allocationPercentage(selectedFund.remainingAmount, selectedFund.amount)}
                     </p>
@@ -464,9 +467,9 @@ const ClosedFunds = () => {
               </div>
               
               {selectedFund.status === "closed" && selectedFund.closureReason && (
-                <div className="space-y-2">
-                  <h4 className="font-medium">Closure Reason</h4>
-                  <p className="text-sm text-gray-600 bg-gray-50 p-3 rounded border">
+                <div className="space-y-2 rounded">
+                  <h4 className="font-bold text-blue-800">Closure Reason</h4>
+                  <p className="text-sm text-gray-600 p-3 rounded border bg-red-50">
                     {selectedFund.closureReason}
                   </p>
                 </div>
@@ -504,10 +507,10 @@ const ClosedFunds = () => {
       
       {/* Reopen Fund Modal */}
       <Dialog open={isReopenFundModalOpen} onOpenChange={setIsReopenFundModalOpen}>
-        <DialogContent className="sm:max-w-xl bg-gray-50">
-          <DialogHeader>
-            <DialogTitle>Reopen Fund</DialogTitle>
-            <DialogDescription>
+        <DialogContent className="lg:max-w-5xl sm:max-w-xl bg-gray-50">
+          <DialogHeader className="border-l-4 border-l-blue-500 pl-2 rounded h-12 border-b-2">
+            <DialogTitle className="font-bold text-blue-800 mb-[-0.4rem]">Reopen Fund</DialogTitle>
+            <DialogDescription className="text-muted-foreground">
               Are you sure you want to reopen this fund?
             </DialogDescription>
           </DialogHeader>
@@ -515,7 +518,7 @@ const ClosedFunds = () => {
           {selectedFund && (
             <div className="space-y-4 py-4">
               <div className="space-y-1">
-                <h3 className="font-medium">{selectedFund.name}</h3>
+                <h3 className="font-bold text-blue-800">{selectedFund.name}</h3>
                 <p className="text-sm text-gray-500">{selectedFund.description}</p>
               </div>
               
@@ -577,7 +580,7 @@ const FundTable: React.FC<FundTableProps> = ({
     return (
       <div className="text-center py-10 border rounded">
         <FileBarChart className="mx-auto h-12 w-12 text-gray-400" />
-        <h3 className="mt-2 text-lg font-medium">No funds found</h3>
+        <h3 className="mt-2 text-lg font-bold text-gray-800">No funds found</h3>
         <p className="mt-1 text-gray-500">
           There are no funds matching your current filters.
         </p>
@@ -675,7 +678,7 @@ const FundTable: React.FC<FundTableProps> = ({
           {funds.map(fund => (
             <TableRow key={fund.id}>
               <TableCell>
-                <div className="font-medium">{fund.name}</div>
+                <div className="font-bold text-blue-800">{fund.name}</div>
                 <div className="text-sm text-gray-500 truncate max-w-xs">
                   {fund.description}
                 </div>

@@ -223,14 +223,14 @@ const ApplicationsReview = () => {
 
   return (
     <DashboardLayout title="Applications Review">
-      <div className="space-y-6 -mx-[110px] px-4 sm:px-6 lg:px-8">
+      <div className="space-y-6 lg:-mx-[110px] px-4 sm:px-6 lg:px-8">
         <Card>
           <CardHeader>
-            <div className="flex items-center justify-between mx-1 ">
-              <div className="border-l-4 border-purple-500 rounded ml-0">
-                <CardTitle className="text-xl ml-2 text-purple-600">Review Applications</CardTitle>
+            <div className="flex items-center justify-between bg-gray-50">
+              <div className="border-l-4 border-l-purple-500 rounded ml-0  border-b-2 w-full h-20">
+                <CardTitle className="text-xl font-bold ml-2 text-purple-600">Review Applications</CardTitle>
                 <CardDescription className="ml-2 text-muted-foreground">
-                  Manage , Verify Documents & Review Student Bursary Applications.
+                Manage , Verify Documents & Review Student Bursary Applications .
                 </CardDescription>
               </div>
               {pendingFAOCount > 0 && (
@@ -304,21 +304,21 @@ const ApplicationsReview = () => {
 
             {filteredApplications.length > 0 ? (
               <div className="overflow-auto">
-                <table className="w-full border-collapse">
+                <table className="w-full border-collapse border-t-2">
                   <thead>
-                    <tr className="border-b text-left">
-                      <th className="p-3 font-medium">Student</th>
-                      <th className="p-3 font-medium">Reference</th>
-                      <th className="p-3 font-medium">Institution</th>
-                      <th className="p-3 font-medium">Status</th>
-                      <th className="p-3 font-medium text-right">Actions</th>
+                    <tr className="border-b text-left text-muted-foreground">
+                      <th className="p-3 font-semibold">Student</th>
+                      <th className="p-3 font-semibold">Reference</th>
+                      <th className="p-3 font-semibold">Institution</th>
+                      <th className="p-3 font-semibold">Status</th>
+                      <th className="p-3 font-semibold text-right">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y">
                     {filteredApplications.map((application) => (
                       <tr key={application.id} className="hover:bg-gray-50">
                         <td className="p-3">{application.studentName || "Unknown"}</td>
-                        <td className="p-3 font-mono text-xs">{application.id}</td>
+                        <td className="p-3">{application.id}</td>
                         <td className="p-3">{application.institutionName}</td>
                         <td className="p-3">
                           <StatusBadge status={application.status} />
@@ -393,9 +393,9 @@ const ApplicationsReview = () => {
             />
           ) : (
             <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-              <div className="bg-white rounded shadow-xl overflow-hidden w-full max-w-5xl max-h-[90vh]">
-                <div className="flex items-center justify-between p-4 border-b">
-                  <h2 className="text-xl font-semibold flex items-center gap-2">
+              <div className="bg-white rounded shadow-xl overflow-hidden w-full max-w-6xl max-h-[90vh]">
+                <div className="flex items-center justify-between p-4 border-b border-l-4  border-l-orange-500 bg-gray-50 rounded">
+                  <h2 className="text-xl text-blue-800 font-bold flex items-center gap-2">
                     <CheckSquare className="h-5 w-5 text-blue-500" />
                     Document Verification
                   </h2>
@@ -405,7 +405,7 @@ const ApplicationsReview = () => {
                 </div>
                 
                 <div className="p-4 overflow-y-auto max-h-[calc(90vh-100px)]">
-                  <div className="mb-6">
+                  <div className="mb-6 border-l-4 h-16 border-l-blue-500  pl-2 -mx-4 rounded">
                     <h3 className="text-base font-medium mb-1">
                       Application: {selectedApplication.id}
                     </h3>
@@ -415,9 +415,9 @@ const ApplicationsReview = () => {
                   </div>
                   
                   <Tabs defaultValue="verification" className="w-full">
-                    <TabsList>
+                    <TabsList className="space-x-2">
                       <TabsTrigger value="verification">Document Verification</TabsTrigger>
-                      <TabsTrigger value="history">Verification History</TabsTrigger>
+                      <TabsTrigger value="history">Verification History</TabsTrigger>                     
                     </TabsList>
                     
                     <TabsContent value="verification" className="mt-4">

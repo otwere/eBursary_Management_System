@@ -64,17 +64,19 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
+        <DialogHeader className="border-l-4 h-20  border-l-blue-500 pl-4 rounded border-b-2 ">
           <DialogTitle className="text-xl flex items-center gap-2">
             <div className="p-2 rounded-full bg-primary-50">
               <FileText className="h-5 w-5 text-primary-600" />
             </div>
-            Review Application
+           <div className="font-bold text-blue-800">
+           Review Application
+           </div>
           </DialogTitle>
           <DialogDescription className="flex items-center justify-between">
-            <div className="flex items-center gap-1.5">
-              <span className="text-gray-500">ID:</span>
-              <code className="bg-gray-100 px-2 py-0.5 rounded text-gray-700 text-xs font-mono">
+            <div className="flex items-center gap-1.5 pl-2">
+              <span className="text-gray-500">ID :</span>
+              <code className="bg-gray-100 px-3 py-1 mx-2 rounded text-gray-700 text-xs font-mono">
                 {application.id}
               </code>
             </div>
@@ -83,26 +85,26 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
         </DialogHeader>
 
         <div className="space-y-4 py-4">
-          <div className="grid grid-cols-2 gap-4 bg-gray-50 p-4 rounded">
+          <div className="grid grid-cols-2 gap-4 bg-blue-50 p-4 rounded">
             <div>
-              <p className="text-sm text-gray-500">Student Name</p>
-              <p className="font-medium">{application.studentName || "Unknown"}</p>
+              <p className="text-sm text-gray-500 -mb-1">Student Name</p>
+              <p className="font-medium text-blue-800">{application.studentName || "Unknown"}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-500">Institution</p>
-              <p className="font-medium">{application.institutionName}</p>
+              <p className="text-sm text-gray-500 -mb-1">Institution</p>
+              <p className="font-medium text-blue-800">{application.institutionName}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-500">Course/Program</p>
-              <p className="font-medium">{application.courseOfStudy || "Not specified"}</p>
+              <p className="text-sm text-gray-500 -mb-1">Course/Program</p>
+              <p className="font-medium text-blue-800">{application.courseOfStudy || "Not specified"}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-500">Requested Amount</p>
-              <p className="font-medium">{formatCurrency(application.requestedAmount)}</p>
+              <p className="text-sm text-gray-500 -mb-1">Requested Amount</p>
+              <p className="font-medium text-orange-500">{formatCurrency(application.requestedAmount)}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-500">Application Date</p>
-              <p className="font-medium">{formatDate(new Date(application.applicationDate))}</p>
+              <p className="text-sm text-gray-500 -mb-1">Application Date</p>
+              <p className="font-medium text-blue-800">{formatDate(new Date(application.applicationDate))}</p>
             </div>
           </div>
           
@@ -218,7 +220,7 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
                   <Send className="h-4 w-4 text-blue-700" />
                   <AlertTitle>Automatic Submission</AlertTitle>
                   <AlertDescription>
-                    This application will be automatically submitted to the Financial Allocations Officer (FAO) for fund allocation when approved.
+                    This Application will be automatically submitted to the Funds Manager for Fund Allocation when Approved.
                   </AlertDescription>
                 </Alert>
               )}

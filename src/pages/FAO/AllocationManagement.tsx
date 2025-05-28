@@ -653,7 +653,7 @@ const AllocationManagement = () => {
 
             {selectedCategory && (
               <div className="bg-blue-50 p-3 rounded">
-                <p className="text-lg font-medium text-blue-800 mb-4">Category Details</p>
+                <p className="text-lg font-bold text-blue-800 mb-4">Category Details</p>
                 <div className="mt-2 grid grid-cols-2 gap-2">
                   <div className="border-l-4 border-l-blue-500 pl-2">
                     <p className="text-xs text-gray-500">Total Amount</p>

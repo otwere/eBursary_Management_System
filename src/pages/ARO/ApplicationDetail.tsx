@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Button } from "@/components/ui/button";
@@ -107,9 +107,10 @@ const ApplicationDetail = () => {
       // Show appropriate toast message based on the action
       if (reviewData.status === 'approved') {
         if (reviewData.submitToFAO) {
-          toast.success("Application approved and submitted to FAO for allocation");
+          toast.success("Application Approved and Submitted to FAO for Allocation");
         } else {
-          toast.success("Application approved successfully");
+          toast.success("Application Approved Successfully");
+          return{}
         }
       } else {
         toast.success("Application review submitted successfully");
@@ -185,19 +186,19 @@ const ApplicationDetail = () => {
   return (
     <DashboardLayout title="Application Details">
       <div className="space-y-6 lg:-mx-[80px]">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Button
+        <div className="flex items-center justify-between bg-gray-100 h-20 border-l-4   border-l-blue-500 rounded ">
+          <div className="flex items-center space-x-4  rounded h-12 pl-2 ">
+            {/* <Button
               variant="outline"
               size="icon"
               className="h-8 w-8 rounded px-10"
               onClick={() => navigate("/ARO/applications")}
             >
               <ArrowLeft className="h-4 w-4" /> Back
-            </Button>
-            <h2 className="text-xl font-semibold">Application Details</h2>
+            </Button> */}
+            <h2 className="text-xl font-bold text-blue-800 mt-[-3rem]">Application Details</h2>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mx-2">
             <StatusBadge status={application.status} />
             
             {isPendingFAO && (
@@ -211,7 +212,7 @@ const ApplicationDetail = () => {
         {isPendingFAO && (
           <Alert className="bg-blue-50 border-blue-200">
             <Send className="h-4 w-4 text-blue-700" />
-            <AlertTitle className="text-blue-700">Pending FAO Review</AlertTitle>
+            <AlertTitle className="text-blue-700 font-bold">Pending FAO Review</AlertTitle>
             <AlertDescription className="text-blue-600">
               This Application has been Approved and submitted to the Financial Allocations Officer for fund Allocation.
             </AlertDescription>
@@ -248,9 +249,9 @@ const ApplicationDetail = () => {
         <Card>
           <CardHeader>
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <div>
-                <CardTitle className="text-xl">Application #{application.id}</CardTitle>
-                <CardDescription>
+              <div className="border-l-4 border-l-amber-500 pl-2 -mx-4 h-16">
+                <CardTitle className="text-xl font-bold text-blue-800">Application #{application.id}</CardTitle>
+                <CardDescription className="text-muted-foreground">
                   Submitted on {formatDate(new Date(application.applicationDate))}
                 </CardDescription>
               </div>
@@ -278,8 +279,8 @@ const ApplicationDetail = () => {
           </CardHeader>
           
           <Tabs defaultValue="details">
-            <div className="px-6 border-b">
-              <TabsList className="w-full justify-start">
+            <div className="px-6">
+              <TabsList className="w-full justify-start lg:space-x-64">
                 <TabsTrigger value="details" className="flex items-center gap-2">
                   <User className="h-4 w-4" />
                   Applicant Details
@@ -301,10 +302,10 @@ const ApplicationDetail = () => {
             
             <CardContent className="pt-6">
               <TabsContent value="details">
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="space-y-6">
-                    <div>
-                      <h3 className="text-lg font-medium flex items-center gap-2">
+                <div className="grid md:grid-cols-2 gap-8 border-t-2">
+                  <div className="space-y-6  mt-4">
+                    <div className="border-l-4  border-l-blue-500  pl-4 rounded">
+                      <h3 className="text-lg  text-primary-800 font-bold flex items-center gap-2">
                         <User className="h-5 w-5 text-primary-500" />
                         Student Information
                       </h3>
@@ -329,8 +330,8 @@ const ApplicationDetail = () => {
                       </dl>
                     </div>
                     
-                    <div>
-                      <h3 className="text-lg font-medium flex items-center gap-2">
+                    <div className="border-l-4 border-amber-500 pl-4 rounded"> 
+                      <h3 className="text-lg text-primary-800 font-bold flex items-center gap-2">
                         <School className="h-5 w-5 text-primary-500" />
                         Institution Information
                       </h3>
@@ -348,9 +349,9 @@ const ApplicationDetail = () => {
                     </div>
                   </div>
                   
-                  <div className="space-y-6">
-                    <div>
-                      <h3 className="text-lg font-medium flex items-center gap-2">
+                  <div className="space-y-6 mt-4">
+                    <div className="border-l-4 border-l-lime-500 pl-4 rounded">
+                      <h3 className="text-lg text-primary-800 font-bold flex items-center gap-2">
                         <DollarSign className="h-5 w-5 text-primary-500" />
                         Funding Information
                       </h3>
@@ -391,8 +392,8 @@ const ApplicationDetail = () => {
                       </dl>
                     </div>
                     
-                    <div>
-                      <h3 className="text-lg font-medium flex items-center gap-2">
+                    <div className="border-l-4 border-l-purple-500 pl-4 rounded">
+                      <h3 className="text-lg text-primary-800 font-bold flex items-center gap-2">
                         <Calendar className="h-5 w-5 text-primary-500" />
                         Application Timeline
                       </h3>
@@ -448,22 +449,22 @@ const ApplicationDetail = () => {
               <TabsContent value="financial">
                 <div className="space-y-6">
                   <Card>
-                    <CardHeader className="pb-3">
-                      <CardTitle>Financial Summary</CardTitle>
-                      <CardDescription>
-                        Overview of the financial details for this application
+                    <CardHeader className="pb-3 border-l-4 border-l-blue-500 mb-4 border-b-2 rounded">
+                      <CardTitle className="text-lg font-bold text-blue-800 mb-[-0.5rem]">Financial Summary</CardTitle>
+                      <CardDescription className="text-muted-foreground">
+                        Overview of the Financial Details for this Application | <span className="font-bold"> #{application.id}</span>
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <div className="grid grid-cols-3 gap-4">
-                        <div className="p-4 bg-blue-50 border border-blue-100 rounded text-center">
+                      <div className="grid grid-cols-3 gap-4 ">
+                        <div className="p-4 bg-blue-50 border border-blue-100 hover:bg-blue-100 text-center border-l-4 border-l-blue-700 rounded">
                           <p className="text-xs text-blue-600 uppercase font-medium">Requested</p>
-                          <p className="text-2xl font-bold text-blue-700">{formatCurrency(application.requestedAmount)}</p>
+                          <p className="text-xl font-bold text-blue-700">{formatCurrency(application.requestedAmount)}</p>
                         </div>
                         
-                        <div className="p-4 bg-green-50 border border-green-100 rounded text-center">
+                        <div className="p-4 bg-green-50 hover:bg-green-100 border border-green-100 border-l-4 border-l-green-500 rounded text-center">
                           <p className="text-xs text-green-600 uppercase font-medium">Approved</p>
-                          <p className="text-2xl font-bold text-green-700">
+                          <p className="text-xl font-bold text-green-700">
                             {application.approvedAmount 
                               ? formatCurrency(application.approvedAmount) 
                               : "Pending"}
@@ -477,9 +478,9 @@ const ApplicationDetail = () => {
                           )}
                         </div>
                         
-                        <div className="p-4 bg-purple-50 border border-purple-100 rounded text-center">
+                        <div className="p-4 bg-purple-50 hover:bg-purple-100 border-l-4 border-l-purple-500 border border-purple-100 rounded text-center">
                           <p className="text-xs text-purple-600 uppercase font-medium">Disbursed</p>
-                          <p className="text-2xl font-bold text-purple-700">
+                          <p className="text-xl font-bold text-purple-700">
                             {application.disbursedAmount 
                               ? formatCurrency(application.disbursedAmount) 
                               : "Pending"}
@@ -488,7 +489,7 @@ const ApplicationDetail = () => {
                       </div>
                       
                       <div className="mt-8 text-center">
-                        <p className="text-gray-500">More detailed financial information will be available once the application is approved.</p>
+                        <p className="text-gray-500 text-sm">More detailed Financial Information will be available once the Application is Approved.</p>
                       </div>
                     </CardContent>
                   </Card>

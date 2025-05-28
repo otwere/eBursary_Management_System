@@ -228,12 +228,12 @@ const StudentApplications = () => {
     <DashboardLayout title="Student Applications">
       <div className="space-y-6  lg:-mx-[85px]">
         {/* Header section */}
-        <div className="bg-blue-50 border-l-4 border-l-blue-500 p-4 rounded border">
+        <div className="bg-blue-50 border-l-4 border-l-blue-500 p-4 rounded border-b-2 h-20">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-xl font-semibold -mt-2">Student Applications</h1>
-              <p className="text-muted-foreground text-sm">
-                View and manage all Student Applications in one Place.
+              <h1 className="text-xl font-bold text-blue-800 -mt-2">Student Applications</h1>
+              <p className="text-muted-foreground text-sm mt-[-0.25rem]">
+                View and manage all Students' Applications in one Place.
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -367,7 +367,7 @@ const StudentApplications = () => {
               value="pending" 
               className="rounded-b-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent py-2 text-base"
             >
-              Pending
+              Pending Review
               <Badge className="ml-2" variant="secondary">
                 {pendingCount}
               </Badge>
@@ -665,7 +665,7 @@ const StudentApplications = () => {
                         <TableCell className="font-medium whitespace-nowrap">
                           {formatDate(new Date(application.applicationDate))}
                         </TableCell>
-                        <TableCell className="font-mono text-xs">
+                        <TableCell className="font-mono text-xs ">
                           {application.id}
                         </TableCell>
                         <TableCell>

@@ -487,7 +487,7 @@ const ApplicationDetail = () => {
                       </div>
                       
                       <div className="mt-8 text-center">
-                        <p className="text-gray-500">More detailed financial information will be available once the application is approved.</p>
+                        <p className="text-gray-500 text-sm">More detailed financial information will be available once the application is approved.</p>
                       </div>
                     </CardContent>
                   </Card>
