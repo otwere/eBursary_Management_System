@@ -162,11 +162,11 @@ const StudentNotifications = () => {
   
   return (
     <DashboardLayout title="Notifications">
-      <div className="space-y-2 -mx-[70px]">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-blue-50 h-20 px-4 rounded border-l-4 border-purple-400 border ">
+      <div className="space-y-2 lg:-mx-[80px]">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-blue-50 h-20 px-4 rounded border-l-4 border-l-purple-500 border-b-2 ">
           <div>
-            <h1 className="text-xl text-blue-800 font-semibold -mt-4">Notifications</h1>
-            <p className="text-gray-600 text-sm mt-1">Stay updated with your Application status and System Alerts</p>
+            <h1 className="text-xl text-blue-800 font-bold -mt-4">Notifications</h1>
+            <p className="text-muted-foreground text-sm mt-0">Stay updated with your Application status and System Alerts</p>
           </div>
           
           {unreadNotifications.length > 0 && (

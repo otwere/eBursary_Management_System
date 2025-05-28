@@ -70,8 +70,8 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-12 z-10">
           <h2 className="text-3xl font-bold mb-4">Welcome to eBursary Portal </h2>
           <p className="text-lg text-center max-w-md">
-            The Integrated platform for  students to Apply for Bursary & Scholarship Opportunities,
-            streamlining the Application & Disbursement process.
+            The Integrated Platform for  students to Apply for Bursary & Scholarship Opportunities,
+            streamlining the Application , Approval & Disbursement Process.
           </p>
           <div className="mt-12 bg-white/10 backdrop-blur-sm p-4 rounded border border-white/20">
             <p className="text-xl font-medium mb-2">Empowering Education Through Support</p>
@@ -80,25 +80,25 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                 </svg>
-                Easy application process
+                Easy Application Process
               </li>
               <li className="flex items-center">
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                 </svg>
-                Track application status
+                Track Application Status
               </li>
               <li className="flex items-center">
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                 </svg>
-                Transparent Fund Allocation
+                Transparent Fund Approval and Allocation
               </li>
               <li className="flex items-center">
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                 </svg>
-                Secure and reliable platform
+                Secure and Reliable Platform
               </li>
             </ul>
           </div>

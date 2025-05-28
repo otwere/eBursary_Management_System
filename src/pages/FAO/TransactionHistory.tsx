@@ -546,7 +546,7 @@ const TransactionHistory = () => {
                   <TableRow key={transaction.id}>
                     <TableCell>
                       <div className="font-medium">{formatDate(transaction.transactionDate)}</div>
-                      <div className="text-xs text-gray-500">Approved By : {transaction.processedBy} - FAO</div>
+                      <div className="text-xs text-gray-500">Disbursed By : {transaction.processedBy}</div>
                     </TableCell>
                     <TableCell>
                       <code className="px-1 py-0.5 bg-gray-100 rounded text-xs font-mono">

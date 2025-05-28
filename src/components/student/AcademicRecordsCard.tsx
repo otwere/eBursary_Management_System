@@ -92,9 +92,9 @@ const AcademicRecordsCard: React.FC<AcademicRecordsCardProps> = ({
   };
 
   return (
-    <Card>
+    <Card className=" border-l-4 border-l-yellow-500 rounded">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
+        <CardTitle className="flex items-center gap-2 text-xl font-bold text-blue-800">
           {getLevelIcon()}
           {getLevelTitle()}
         </CardTitle>

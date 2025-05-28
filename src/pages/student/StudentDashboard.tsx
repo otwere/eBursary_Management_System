@@ -245,13 +245,13 @@ const StudentDashboard = () => {
 
   return (
     <DashboardLayout title="Student Dashboard">
-      <div className="space-y-4 -mx-[70px]">
+      <div className="space-y-4 lg:-mx-[70px]">
         {/* Welcome Banner */}
-        <div className="c p-2 rounded border border-l-4 border-blue-300">
+        <div className=" p-2 rounded border-b-2 border-l-4 border-l-blue-500 h-20">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
             <div>
-              <h1 className="text-lg font-semibold text-blue-800">Welcome, {authState.user?.name}</h1>
-              <p className="text-muted-foreground mt-1 text-sm">
+              <h1 className="text-xl font-bold text-blue-800">Welcome, {authState.user?.name}</h1>
+              <p className="text-muted-foreground mt-0 text-sm">
                 {authState.user?.studentId && `Student ID : ${authState.user.studentId} | `}{authState.user?.institutionName}
               </p>
             </div>
@@ -298,7 +298,7 @@ const StudentDashboard = () => {
 
         {/* Upcoming Deadlines */}
         <div className="mt-8">
-          <h2 className="text-xl font-semibold mb-4">Upcoming Deadlines</h2>
+          <h2 className="text-xl text-blue-800 font-bold mb-4">Upcoming Deadlines</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {mockDeadlines.map((deadline) => (
               <ApplicationDeadlineCard 
@@ -314,9 +314,9 @@ const StudentDashboard = () => {
           {/* Quick Actions & Profile */}
           <div className="space-y-6 col-span-1 lg:col-span-3 ">
             {/* Quick Links */}
-            <Card className="bg-blue-100 border-l-4 border-slate-400">
+            <Card className="bg-blue-100 border-l-4 border-l-slate-500">
               <CardHeader>
-                <CardTitle className="text-xl">Quick Actions</CardTitle>
+                <CardTitle className="text-xl font-bold text-blue-800">Quick Actions</CardTitle>
               </CardHeader>
               <CardContent className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <Button 
@@ -363,9 +363,9 @@ const StudentDashboard = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Student Profile */}
-          <Card className="col-span-1 bg-slate-50 border-l-4 border-gray-400 ">
-            <CardHeader>
-              <CardTitle className="text-xl font-medium">My Profile</CardTitle>
+          <Card className="col-span-1 bg-slate-50 border-l-4 border-l-gray-500 ">
+            <CardHeader className="border-b-2 mb-2">
+              <CardTitle className="text-xl font-bold text-blue-800">My Profile</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex items-center space-x-4">
@@ -405,9 +405,9 @@ const StudentDashboard = () => {
           </Card>
             
           {/* Academic Calendar */}
-          <Card className="col-span-1 lg:col-span-2 bg-slate-50 border-l-4 border-gray-400">
-            <CardHeader className="pb-3">
-              <CardTitle className="flex items-center text-lg">
+          <Card className="col-span-1 lg:col-span-2 bg-slate-50 border-l-4 border-l-gray-500">
+            <CardHeader className="pb-3 border-b-2 mb-2">
+              <CardTitle className="flex items-center text-xl text-blue-800 font-bold">
                 <CalendarDays className="h-5 w-5 mr-2" />
                 Academic Calendar
               </CardTitle>
@@ -442,8 +442,8 @@ const StudentDashboard = () => {
         
         {/* Education Level Toggle and Academic Records Section */}
         <div>
-          <div className="flex justify-between items-center mb-4 bg-blue-50 border-l-4 border-blue-500 border rounded p-1">
-            <h2 className="text-xl mx-2 font-medium">Academic Records</h2>
+          <div className="flex justify-between items-center mb-4 bg-blue-50 border-l-4 border-l-blue-500 border-b-2 rounded pl-2">
+            <h2 className="text-xl mx-2 font-bold text-blue-800">Academic Records</h2>
             <EducationLevelToggle 
               selectedLevel={educationLevel}
               onSelectLevel={handleSelectEducationLevel}

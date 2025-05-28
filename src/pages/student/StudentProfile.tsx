@@ -112,29 +112,29 @@ const StudentProfile = () => {
 
   return (
     <div className="  py-8 px-10">
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-6 border-l-4 border-l-yellow-500 h-16 border-b-2 rounded pl-2">
         <div className="flex items-center gap-2">
           <Button 
             variant="outline" 
             size="sm" 
-            className="gap-1" 
+            className="gap-1 border-none h-6" 
             onClick={handleGoBack}
           >
             <ArrowLeft className="h-4 w-4" />
             Back
           </Button>
-          <h1 className="text-xl font-medium text-blue-800">Student Profile</h1>
+          <h1 className="text-xl font-bold text-blue-800">Student Profile</h1>
         </div>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Left column - Profile info */}
         <div className="md:col-span-1">
-          <Card className="mb-6">
+          <Card className="mb-6 border-l-4 border-l-purple-500">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <div className="space-y-1">
-                <CardTitle className="text-xl">Personal Information</CardTitle>
-                <CardDescription>Your account details</CardDescription>
+                <CardTitle className="text-xl font-bold text-primary-800">Personal Information</CardTitle>
+                <CardDescription>Your Account Details</CardDescription>
               </div>
               <Button variant="ghost" size="icon" onClick={handleEditProfile}>
                 <Edit className="h-4 w-4" />
@@ -181,7 +181,7 @@ const StudentProfile = () => {
         
         {/* Right column - Tabs for different sections */}
         <div className="md:col-span-2">
-          <Card>
+          <Card className="border-l-4 border-l-lime-500">
             <CardHeader>
               <Tabs defaultValue="profile" value={activeTab} onValueChange={setActiveTab}>
                 <TabsList className="grid grid-cols-4">
@@ -194,12 +194,12 @@ const StudentProfile = () => {
                 <CardContent>
                   <TabsContent value="profile" className="space-y-4">
                     <div>
-                      <h3 className="text-lg font-medium mb-2">Profile Summary</h3>
+                      <h3 className="text-xl font-bold text-blue-800 mb-0">Profile Summary</h3>
                       <p className="text-sm text-muted-foreground mb-4">
-                        This information will be displayed publicly so be careful what you share.
+                        This information will be displayed Privately.
                       </p>
                       
-                      <div className="bg-muted p-4 rounded">
+                      <div className="bg-muted p-4 rounded border-l-4 border-l-orange-500">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
                             <h4 className="text-sm font-medium">Nationality</h4>
@@ -222,8 +222,8 @@ const StudentProfile = () => {
                     </div>
                     
                     <div>
-                      <h3 className="text-lg font-medium mb-2">Contact Information</h3>
-                      <div className="bg-muted p-4 rounded">
+                      <h3 className="text-xl text-blue-800 font-bold mb-2">Contact Information</h3>
+                      <div className="bg-muted p-4 rounded border-l-4 border-l-blue-500">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
                             <h4 className="text-sm font-medium">Primary Phone</h4>
@@ -246,8 +246,8 @@ const StudentProfile = () => {
                     </div>
                     
                     <div>
-                      <h3 className="text-lg font-medium mb-2">Next of Kin</h3>
-                      <div className="bg-muted p-4 rounded">
+                      <h3 className="text-xl text-blue-800 font-bold mb-2">Next of Kin</h3>
+                      <div className="bg-muted p-4 rounded border-l-4 border-l-amber-500">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
                             <h4 className="text-sm font-medium">Full Name</h4>
@@ -273,7 +273,7 @@ const StudentProfile = () => {
                   <TabsContent value="academic" className="space-y-6">
                     <div>
                       <div className="flex justify-between items-center mb-4">
-                        <h3 className="text-lg font-medium">Academic Records</h3>
+                        <h3 className="text-xl  font-bold text-primary-800">Academic Records</h3>
                         <Dialog>
                           <DialogTrigger asChild>
                             <Button size="sm">
@@ -282,10 +282,10 @@ const StudentProfile = () => {
                             </Button>
                           </DialogTrigger>
                           <DialogContent className="max-w-2xl bg-slate-50 ">
-                            <DialogHeader className="bg-blue-100 h-16 border-l-4 border-green-500 rounded -mx-2">
-                              <DialogTitle className="mx-2 p-2 text-blue-800 -mb-3 text-base">Add Academic Record</DialogTitle>
+                            <DialogHeader className="h-16 border-l-4 border-l-green-500 rounded -mx-2 border-b-2">
+                              <DialogTitle className="mx-2 p-2 text-blue-800 -mb-4 text-base">Add Academic Record</DialogTitle>
                               <DialogDescription className="mx-4 text-muted-foreground">
-                                Add details of your academic performance for the term.
+                                Add Details of your Academic Performance for the Term / Semester.
                               </DialogDescription>
                             </DialogHeader>
                             <AcademicRecordForm 
@@ -312,9 +312,9 @@ const StudentProfile = () => {
                     
                     <div>
                       <div  className="bg-cyan-50 h-16 mb-3 border-l-4 border-green-500 rounded">
-                      <h3 className="text-lg font-medium mb-4 mx-2 p-2 text-gray-800">Current Program</h3>
+                      <h3 className="text-lg font-bold mb-4 mx-2 p-2 text-gray-800">Current Program</h3>
                       </div>
-                      <div className="bg-muted p-4 rounded">
+                      <div className="bg-muted p-4 rounded border-l-4 border-l-purple-500">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
                             <h4 className="text-sm font-medium">Institution</h4>
@@ -338,9 +338,9 @@ const StudentProfile = () => {
                     
                     <div>
                      <div className="bg-cyan-50 h-16 mb-3 border-l-4 border-blue-500 rounded">
-                     <h3 className="text-lg font-medium mb-4 mx-2 p-2 text-gray-800">Previous Education</h3>
+                     <h3 className="text-lg font-bold mb-4 mx-2 p-2 text-gray-800">Previous Education</h3>
                      </div>
-                      <div className="bg-muted p-4 rounded mb-4">
+                      <div className="bg-muted p-4 rounded mb-4 border-l-4 border-l-cyan-500">
                         <div className="flex justify-between mb-2">
                           <h4 className="text-sm font-medium">Secondary School</h4>
                           <Badge>2016 - 2019</Badge>
@@ -350,7 +350,7 @@ const StudentProfile = () => {
                         <p className="text-sm font-medium mt-1">Grade: A (81.2 points)</p>
                       </div>
                       
-                      <div className="bg-muted p-4 rounded">
+                      <div className="bg-muted p-4 rounded border-l-4 border-l-orange-500">
                         <div className="flex justify-between mb-2">
                           <h4 className="text-sm font-medium">Primary School</h4>
                           <Badge>2008 - 2015</Badge>
@@ -365,7 +365,7 @@ const StudentProfile = () => {
                   <TabsContent value="documents" className="space-y-6">
                     <div>
                       <div className="flex justify-between items-center mb-4">
-                        <h3 className="text-lg font-medium">My Documents</h3>
+                        <h3 className="text-xl text-blue-800 font-bold">My Documents</h3>
                         <Dialog>
                           <DialogTrigger asChild>
                             <Button size="sm">
@@ -373,11 +373,11 @@ const StudentProfile = () => {
                               Upload Document
                             </Button>
                           </DialogTrigger>
-                          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-                            <DialogHeader className="bg-slate-100 p-2 border-l-4 border-blue-400 rounded -mx-1">
-                              <DialogTitle className="text-base text-gray-800">Upload Document</DialogTitle>
+                          <DialogContent className="lg:max-w-4xl sm:max-w-2xl max-h-[90vh] overflow-y-auto">
+                            <DialogHeader className="p-2 border-l-4 border-l-blue-500 rounded -mx-1 border-b-2 h-16">
+                              <DialogTitle className="text-base text-gray-800  my-[-0.5rem]">Upload Document</DialogTitle>
                               <DialogDescription className="text-muted-foreground text-sm">
-                                Upload important documents related to your application or personal records.
+                                Upload important Documents related to your Application or Personal Records.
                               </DialogDescription>
                             </DialogHeader>
                             <DocumentUploadForm 
@@ -489,7 +489,7 @@ const StudentProfile = () => {
                   
                   <TabsContent value="security" className="space-y-6">
                     <div>
-                      <h3 className="text-lg font-medium mb-4">Security Settings</h3>
+                      <h3 className="text-xl text-blue-800 font-bold mb-4">Security Settings</h3>
                       
                       <div className="space-y-4">
                         <div className="bg-muted p-4 rounded">
