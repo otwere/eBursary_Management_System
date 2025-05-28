@@ -48,9 +48,9 @@ const PendingFAO = () => {
       <div className="space-y-6 lg:-mx-[85px]">
         <Card>
           <CardHeader>
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-l-4 border-l-blue-500 rounded">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-l-4 border-l-blue-500 rounded h-16 border-b-2">
               <div className="pl-3">
-                <CardTitle className="text-xl text-blue-800">Applications Pending FAO Review</CardTitle>
+                <CardTitle className="text-xl text-blue-800 font-bold mt-[-1rem]">Applications Pending FAO Review</CardTitle>
                 <CardDescription className="text-muted-foreground">
                   Track applications that have been submitted to Financial Allocation Officers
                 </CardDescription>
@@ -124,7 +124,7 @@ const PendingFAO = () => {
             ) : (
               <EmptyState
                 title="No pending applications"
-                description="There are no applications waiting for FAO review at the moment."
+                description="There are no Applications waiting for FAO review at the moment."
                 icon={<Info className="h-12 w-12 text-gray-400" />}
               />
             )}

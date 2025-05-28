@@ -174,10 +174,10 @@ const StudentApplications = () => {
         />
       }
     >
-      <div className="space-y-6 -mx-[70px]">
+      <div className="space-y-6 lg:-mx-[80px]">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-indigo-50 h-20 rounded px-2 border-b-2 border-l-4 border-l-green-500">
           <div>
-            <h1 className="text-lg  text-blue-800 p-0 -mt-2 font-bold">My Applications</h1>
+            <h1 className="text-xl  text-blue-800 p-0 -mt-2 font-bold">My Applications</h1>
             <p className="text-muted-foreground text-sm mt-0">
               Manage and track all your Applications Status
             </p>
@@ -659,13 +659,12 @@ const StudentApplications = () => {
       </div>
 
       <Dialog open={showDetailsDialog} onOpenChange={setShowDetailsDialog}>
-        <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="lg:max-w-6xl max-h-[90vh] overflow-y-auto">
           
           {selectedApplication && (
             <>
-              <DialogHeader className="bg-blue-50 h-20 rounded border-l-4 border-blue-500
-              ">
-                <DialogTitle className="text-xl mx-2 mt-1 text-blue-500">Application Details</DialogTitle>
+              <DialogHeader className="h-20 rounded border-l-4 border-l-blue-500 border-b-2">
+                <DialogTitle className="text-xl mx-2 mt-1 text-blue-800 font-bold mb-[-0.5rem]">Application Details</DialogTitle>
                 <DialogDescription className="mx-2 text-muted-foreground">
                   Reference : {selectedApplication.id}
                 </DialogDescription>
@@ -721,9 +720,9 @@ const StudentApplications = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-1">
-                  <Card className=" bg-slate-50 border-l-4 border  border-blue-400">
+                  <Card className=" bg-slate-50 border-l-4  border-l-blue-500">
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-base">Institution & Course</CardTitle>
+                      <CardTitle className="text-base text-blue-800">Institution & Course</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-2">
                       <div className="flex justify-between">
@@ -747,9 +746,9 @@ const StudentApplications = () => {
                     </CardContent>
                   </Card>
 
-                  <Card className=" bg-green-50 border-l-4 border  border-green-400">
+                  <Card className=" bg-green-50 border-l-4   border-l-green-500">
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-base">Financial Information</CardTitle>
+                      <CardTitle className="text-base text-blue-800">Financial Information</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-2">
                       <div className="flex justify-between">
@@ -782,7 +781,7 @@ const StudentApplications = () => {
 
                 <Card>
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-base">Supporting Documents</CardTitle>
+                    <CardTitle className="text-base text-blue-800">Supporting Documents</CardTitle>
                   </CardHeader>
                   <CardContent>
                     {selectedApplication.documents && selectedApplication.documents.length > 0 ? (

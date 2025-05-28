@@ -477,7 +477,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
             </Button>
           </div>
           
-          <CardTitle className="text-primary-600 flex items-center gap-2 text-xl">
+          <CardTitle className="text-blue-800 font-bold flex items-center gap-2 text-xl">
             <School className="h-5 w-5" />
             eBursary Application Form
           </CardTitle>
@@ -1600,7 +1600,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                           </div>
                         </div>
                         
-                        <div className="bg-white p-4 rounded border border-gray-200 mb-6">
+                        {/* <div className="bg-white p-4 rounded border border-gray-200 mb-6">
                           <h4 className="text-sm font-medium text-gray-600 mb-4 flex items-center gap-2">
                             <FileQuestion className="h-4 w-4 text-gray-500" />
                             Personal Statement
@@ -1625,7 +1625,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                               </FormItem>
                             )}
                           />
-                        </div>
+                        </div> */}
                         
                         <div className="bg-white p-4 rounded border border-gray-200 mb-6">
                           <h4 className="text-sm font-medium text-gray-600 mb-4 flex items-center gap-2">

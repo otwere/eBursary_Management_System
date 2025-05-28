@@ -63,13 +63,13 @@ const DeadlineDetailsModal: React.FC<DeadlineDetailsModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader className="bg-blue-100 -mx-2 h-16 border-l-4 border-green-500 rounded">
-          <DialogTitle className="text-xl flex items-center gap-2">
+      <DialogContent className="lg:max-w-6xl max-h-[90vh] overflow-y-auto">
+        <DialogHeader className="-mx-2 border-l-4 border-l-green-500 rounded h-20 border-b-2">
+          <DialogTitle className="text-xl font-bold text-blue-800 flex items-center gap-2">
             <School className="h-5 w-5 text-primary mx-2 " />
             {deadline.institutionType} Application Details
           </DialogTitle>
-          <DialogDescription className="mx-3">
+          <DialogDescription className="mx-3 text-muted-foreground">
             Academic Year : {deadline.academicYear}
           </DialogDescription>
         </DialogHeader>

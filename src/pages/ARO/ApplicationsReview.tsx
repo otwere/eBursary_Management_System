@@ -228,7 +228,7 @@ const ApplicationsReview = () => {
           <CardHeader>
             <div className="flex items-center justify-between bg-gray-50">
               <div className="border-l-4 border-l-purple-500 rounded ml-0  border-b-2 w-full h-20">
-                <CardTitle className="text-xl font-bold ml-2 text-purple-600">Review Applications</CardTitle>
+                <CardTitle className="text-xl font-bold ml-2 text-blue-800">Review Applications</CardTitle>
                 <CardDescription className="ml-2 text-muted-foreground">
                 Manage , Verify Documents & Review Student Bursary Applications .
                 </CardDescription>
@@ -253,7 +253,7 @@ const ApplicationsReview = () => {
                   <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-400" />
                   <Input 
                     type="search" 
-                    placeholder="Search applications..." 
+                    placeholder="Search Applications , Student name , Reference" 
                     className="pl-9"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -266,7 +266,7 @@ const ApplicationsReview = () => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">
-                      All Applications 
+                      All 
                       <Badge variant="secondary" className="ml-2">{getCountByStatus("all")}</Badge>
                     </SelectItem>
                     <SelectItem value="submitted">
@@ -307,11 +307,11 @@ const ApplicationsReview = () => {
                 <table className="w-full border-collapse border-t-2">
                   <thead>
                     <tr className="border-b text-left text-muted-foreground">
-                      <th className="p-3 font-semibold">Student</th>
-                      <th className="p-3 font-semibold">Reference</th>
-                      <th className="p-3 font-semibold">Institution</th>
-                      <th className="p-3 font-semibold">Status</th>
-                      <th className="p-3 font-semibold text-right">Actions</th>
+                      <th className="p-3 font-medium">Student</th>
+                      <th className="p-3 font-medium">Reference</th>
+                      <th className="p-3 font-medium">Institution</th>
+                      <th className="p-3 font-medium">Status</th>
+                      <th className="p-3 font-medium text-right">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y">
