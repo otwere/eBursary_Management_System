@@ -200,12 +200,12 @@ const DeadlineManagement: React.FC = () => {
 
   return (
     <DashboardLayout title="Application Deadline Management">
-      <div className="space-y-6">
-        <div className="flex justify-between items-center">
-          <div>
-            <h1 className="text-2xl font-bold">Application Deadlines</h1>
-            <p className="text-gray-500">
-              Manage opening and closing dates for Bursary Applications
+      <div className="space-y-6 lg:-mx-[80px]">
+        <div className="flex justify-between items-center border-l-4 border-l-amber-500 pl-2 h-16 border-b-2">
+          <div className="-mt-4">
+            <h1 className="text-xl text-blue-800 font-bold">Application Deadlines</h1>
+            <p className="text-muted-foreground text-sm">
+              Manage Opening and Closing Dates for Bursary Applications
             </p>
           </div>
           <Button 
@@ -228,11 +228,11 @@ const DeadlineManagement: React.FC = () => {
         </div>
 
         <Card>
-          <CardHeader className="flex flex-col md:flex-row md:items-center justify-between space-y-2 md:space-y-0 pb-4">
-            <CardTitle>All Deadlines</CardTitle>
+          <CardHeader className="flex flex-col md:flex-row md:items-center justify-between space-y-2 md:space-y-0 pb-2 border-l-4 border-l-red-400 rounded-s-sm">
+            <CardTitle className="text-xl font-bold text-primary-800">All Deadlines</CardTitle>
             <div className="relative w-full md:w-64">
               <Input
-                placeholder="Search deadlines..."
+                placeholder="Search deadlines"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -308,7 +308,7 @@ const DeadlineManagement: React.FC = () => {
                                   </PopoverTrigger>
                                   <PopoverContent className="w-auto p-2">
                                     <div className="space-y-2">
-                                      <h4 className="font-medium text-sm">Extend deadline</h4>
+                                      <h4 className=" text-xs">Extend Deadline</h4>
                                       <div className="flex gap-2 flex-wrap">
                                         {extensionOptions.map((days) => (
                                           <Button
@@ -354,15 +354,15 @@ const DeadlineManagement: React.FC = () => {
         </Card>
         
         <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
-          <DialogContent className="max-w-5xl">
-            <DialogHeader>
-              <DialogTitle>
+          <DialogContent className="lg:max-w-5xl sm:max-w-3xl bg-gray-50">
+            <DialogHeader className="border-l-4 border-l-amber-500 pl-2 h-14 border-b-2">
+              <DialogTitle className="mb-[-0.6rem] text-blue-800 text-lg font-bold">
                 {editingDeadline ? "Edit Deadline" : "Create New Deadline"}
               </DialogTitle>
-              <DialogDescription>
+              <DialogDescription className="text-muted-foreground">
                 {editingDeadline 
-                  ? "Update the application deadline details" 
-                  : "Set up a new application deadline for students"}
+                  ? "Update the Application Deadline Details" 
+                  : "Set up a new Application Deadline for Students"}
               </DialogDescription>
             </DialogHeader>
             

@@ -36,22 +36,22 @@ const SuperAdminDashboard: React.FC = () => {
 
   return (
     <DashboardLayout title="Admin Dashboard">
-      <div className="space-y-6">
+      <div className="space-y-6 lg:-mx-[80px]">
         {/* Welcome message */}
         <div className="p-4 rounded bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-          <h2 className="text-2xl font-bold mb-2">Welcome, Super Admin</h2>
-          <p>
-            You have full access to manage the eBursary  Portal platform. Below is an overview of the system.
+          <h2 className="text-xl font-bold mb-0">Welcome, Super Admin</h2>
+          <p className="text-muted text-sm">
+            You have full access to Manage the eBursary  Portal Platform. Below is an overview of the System.
           </p>
         </div>
         
         {/* Quick actions */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Card>
+          <Card className="border-l-4 border-l-orange-500 bg-amber-50 hover:bg-amber-100 ">
             <CardHeader className="pb-2">
-              <CardTitle className="text-lg">Application Deadlines</CardTitle>
+              <CardTitle className="text-xl font-bold text-blue-800">Application Deadlines</CardTitle>
               <CardDescription>
-                Manage application opening and closing dates
+                Manage Application opening and closing dates
               </CardDescription>
             </CardHeader>
             <CardFooter className="pt-2">
@@ -65,9 +65,9 @@ const SuperAdminDashboard: React.FC = () => {
             </CardFooter>
           </Card>
           
-          <Card>
+          <Card className="border-l-4 border-l-purple-500 bg-purple-50 hover:bg-purple-100"> 
             <CardHeader className="pb-2">
-              <CardTitle className="text-lg">User Management</CardTitle>
+              <CardTitle className="text-xl text-blue-800 font-bold">User Management</CardTitle>
               <CardDescription>
                 Add, edit, or deactivate system users
               </CardDescription>
@@ -80,7 +80,7 @@ const SuperAdminDashboard: React.FC = () => {
             </CardFooter>
           </Card>
           
-          <Card>
+          <Card className="border-l-4 border-l-blue-500 bg-blue-50 hover:bg-blue-100">
             <CardHeader className="pb-2">
               <CardTitle className="text-lg">System Reports</CardTitle>
               <CardDescription>
@@ -102,6 +102,7 @@ const SuperAdminDashboard: React.FC = () => {
             title="Total Applications"
             value={totalApplications.toString()}
             icon={<FileText className="h-5 w-5" />}
+            className="border-l-4 border-l-blue-500 bg-blue-50 hover:bg-blue-100"
             trend={{
               value: 12,
               isPositive: true
@@ -111,6 +112,7 @@ const SuperAdminDashboard: React.FC = () => {
             title="Pending Review"
             value={pendingReview.toString()}
             icon={<Clock className="h-5 w-5" />}
+            className="border-l-4 border-l-orange-500 bg-orange-50 hover:bg-orange-100"
             trend={{
               value: 5,
               isPositive: false
@@ -120,6 +122,7 @@ const SuperAdminDashboard: React.FC = () => {
             title="Approved"
             value={approvedApplications.toString()}
             icon={<UserCheck className="h-5 w-5" />}
+            className="border-l-4 border-l-green-500 bg-green-50 hover:bg-green-100"
             trend={{
               value: 8,
               isPositive: true
@@ -127,8 +130,9 @@ const SuperAdminDashboard: React.FC = () => {
           />
           <StatCard
             title="Total Disbursed"
-            value="KES 5.2M"
+            value="KES 5,250,000.00"
             icon={<DollarSign className="h-5 w-5" />}
+            className="border-l-4 border-l-lime-500 bg-lime-50 hover:bg-lime-100"
             trend={{
               value: 15,
               isPositive: true
@@ -140,15 +144,16 @@ const SuperAdminDashboard: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           <Card className="lg:col-span-2">
             <CardHeader className="pb-2">
-              <div className="flex items-center justify-between">
-                <CardTitle>Application Deadlines</CardTitle>
+              <div className="flex items-center justify-between border-l-4 border-l-blue-500 -mx-4 h-14 mt-[-0.9rem] ">
+                <CardTitle className="text-xl text-blue-800 font-bold  pl-4 ">Application Deadlines</CardTitle>
                 <Button 
                   variant="outline" 
                   size="sm"
                   onClick={() => navigate("/superadmin/deadlines")}
+                  className="hover:underline border-none hover:text-blue-600 mr-3"
                 >
-                  Manage
-                  <ArrowRight className="ml-1 h-4 w-4" />
+                  Manage all Deadlines
+                  {/* <ArrowRight className="ml-1 h-4 w-4" /> */}
                 </Button>
               </div>
             </CardHeader>
@@ -160,7 +165,7 @@ const SuperAdminDashboard: React.FC = () => {
                       <th className="py-2 px-4 text-left font-medium">Type</th>
                       <th className="py-2 px-4 text-left font-medium">Academic Year</th>
                       <th className="py-2 px-4 text-left font-medium">Status</th>
-                      <th className="py-2 px-4 text-left font-medium">Closing Date</th>
+                      <th className="py-2 px-4 text-right font-medium">Closing Date</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y">
@@ -192,7 +197,7 @@ const SuperAdminDashboard: React.FC = () => {
                                 : 'Inactive'}
                             </span>
                           </td>
-                          <td className="py-2 px-4">
+                          <td className="py-2 px-4 text-right">
                             {closingDate.toLocaleDateString()}
                           </td>
                         </tr>
@@ -205,44 +210,44 @@ const SuperAdminDashboard: React.FC = () => {
           </Card>
           
           <Card>
-            <CardHeader>
-              <CardTitle>System Overview</CardTitle>
+            <CardHeader className="border-l-4 border-b-2 mb-2 border-l-purple-500">
+              <CardTitle className="text-xl text-blue-800 font-bold">System Overview</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <Users className="h-5 w-5 text-gray-500 mr-2" />
-                  <span>Total Users</span>
+                  <span className="text-[15px]">Total Users</span>
                 </div>
-                <span className="font-bold">350</span>
+                <span className="font-semibold  hover:underline hover:text-blue-500">350</span>
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <School className="h-5 w-5 text-gray-500 mr-2" />
-                  <span>Institutions</span>
+                  <span className="text-[15px]">Institutions</span>
                 </div>
-                <span className="font-bold">42</span>
+                <span className="font-semibold  hover:underline hover:text-blue-500">42</span>
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <GraduationCap className="h-5 w-5 text-gray-500 mr-2" />
-                  <span>Students</span>
+                  <span className="text-[15px]">Students</span>
                 </div>
-                <span className="font-bold">285</span>
+                <span className="font-semibold  hover:underline hover:text-blue-500">285</span>
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <CalendarDays className="h-5 w-5 text-gray-500 mr-2" />
-                  <span>Active Deadlines</span>
+                  <span className="text-[15px]">Active Deadlines</span>
                 </div>
-                <span className="font-bold">{activeDeadlines.length}</span>
+                <span className="font-semibold  hover:underline hover:text-blue-500">{activeDeadlines.length}</span>
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <DollarSign className="h-5 w-5 text-gray-500 mr-2" />
-                  <span>Annual Budget</span>
+                  <span className="text-[15px]">Annual Budget</span>
                 </div>
-                <span className="font-bold">KES 25.5M</span>
+                <span className="font-semibold hover:underline hover:text-blue-500">KES 8,000,000.00</span>
               </div>
             </CardContent>
           </Card>
