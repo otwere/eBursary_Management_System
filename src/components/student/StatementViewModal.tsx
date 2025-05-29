@@ -23,9 +23,9 @@ const StatementViewModal: React.FC<StatementViewModalProps> = ({
 }) => {
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-5xl bg-blue-50">
-        <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
+      <DialogContent className="lg:max-w-5xl bg-gray-50">
+        <DialogHeader className="border-l-4 border-l-orange-500 h-12 pl-2 border-b-2">
+          <DialogTitle className="flex items-center gap-2 text-blue-800 font-bold text-xl">
             <FileText className="h-5 w-5" />
             Financial Statement
           </DialogTitle>

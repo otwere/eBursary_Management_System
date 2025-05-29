@@ -223,7 +223,7 @@ const ApplicationsReview = () => {
 
   return (
     <DashboardLayout title="Applications Review">
-      <div className="space-y-6 lg:-mx-[110px] px-4 sm:px-6 lg:px-8">
+      <div className="space-y-6 lg:-mx-[113px] px-4 sm:px-6 lg:px-8">
         <Card>
           <CardHeader>
             <div className="flex items-center justify-between bg-gray-50">
@@ -254,19 +254,19 @@ const ApplicationsReview = () => {
                   <Input 
                     type="search" 
                     placeholder="Search Applications , Student name , Reference" 
-                    className="pl-9"
+                    className="pl-9 w-[68rem]"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
                 </div>
                 <Select onValueChange={setStatusFilter} defaultValue={statusFilter}>
-                  <SelectTrigger className="w-[180px] flex gap-2">
+                  <SelectTrigger className="w-[270px] flex gap-2">
                     <Filter className="h-4 w-4" />
                     <SelectValue placeholder="Filter by status" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">
-                      All 
+                      All Applications
                       <Badge variant="secondary" className="ml-2">{getCountByStatus("all")}</Badge>
                     </SelectItem>
                     <SelectItem value="submitted">
@@ -307,19 +307,19 @@ const ApplicationsReview = () => {
                 <table className="w-full border-collapse border-t-2">
                   <thead>
                     <tr className="border-b text-left text-muted-foreground">
-                      <th className="p-3 font-medium">Student</th>
-                      <th className="p-3 font-medium">Reference</th>
-                      <th className="p-3 font-medium">Institution</th>
-                      <th className="p-3 font-medium">Status</th>
-                      <th className="p-3 font-medium text-right">Actions</th>
+                      <th className="p-3 font-medium text-sm">Student</th>
+                      <th className="p-3 font-medium text-sm">Reference</th>
+                      <th className="p-3 font-medium text-sm">Institution</th>
+                      <th className="p-3 font-medium text-sm">Status</th>
+                      <th className="p-3 font-medium text-right text-sm">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y">
                     {filteredApplications.map((application) => (
                       <tr key={application.id} className="hover:bg-gray-50">
-                        <td className="p-3">{application.studentName || "Unknown"}</td>
-                        <td className="p-3">{application.id}</td>
-                        <td className="p-3">{application.institutionName}</td>
+                        <td className="p-3 text-sm">{application.studentName || "Unknown"}</td>
+                        <td className="p-3 text-sm">{application.id}</td>
+                        <td className="p-3 text-sm">{application.institutionName}</td>
                         <td className="p-3">
                           <StatusBadge status={application.status} />
                           {application.status === "pending-allocation" && (

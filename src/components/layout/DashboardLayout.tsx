@@ -188,7 +188,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
         </div>
 
         <div className="fixed top-0 left-64 right-0 z-10 bg-white border-b h-16 flex items-center px-6 justify-between">
-          <h1 className="text-xl font-semibold">
+          <h1 className="text-xl text-primary-800 font-bold">
             {title || "Dashboard"}
           </h1>
           

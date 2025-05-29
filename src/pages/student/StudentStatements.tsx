@@ -45,17 +45,17 @@ const StudentStatements = () => {
 
   return (
     <DashboardLayout title='eBursary Disbursement Statement'>
-      <div className=" lg:-mx-[80px] p-0 md:p-0">
-       <div className="min-h-20 bg-sky-100 mb-2 px-2 rounded border-l-4 border-l-blue-500 border-b-2">
-       <h1 className="text-xl text-blue-800 font-semibold pt-2">Financial Statements</h1>
+      <div className="lg:-mx-[80px] p-0 md:p-0">
+       <div className="h-16 bg-gray-50 mb-2 px-2 rounded border-l-4 border-l-blue-500 border-b-2">
+       <h1 className="text-xl text-blue-800 font-bold pt-2">Financial Statements</h1>
        </div>
 
         <div className="my-4">
           <Card>
             <CardContent className="space-y-6 p-0 ">
               <Tabs value={activeTab} onValueChange={setActiveTab}>
-                <div className="border-b px-2">
-                  <TabsList className="h-12 lg:space-x-52 space-x-0">
+                <div className="border-b p-2">
+                  <TabsList className="lg:space-x-52 space-x-0">
                     <TabsTrigger value="all">
                       All <span className="ml-1 text-xs rounded-full bg-gray-100 px-2 py-1">{tabCounts.all}</span>
                     </TabsTrigger>

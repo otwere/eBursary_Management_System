@@ -161,7 +161,7 @@ const StudentNotifications = () => {
   };
   
   return (
-    <DashboardLayout title="Notifications">
+    <DashboardLayout title="Notifications & Alerts">
       <div className="space-y-2 lg:-mx-[80px]">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-blue-50 h-20 px-4 rounded border-l-4 border-l-purple-500 border-b-2 ">
           <div>

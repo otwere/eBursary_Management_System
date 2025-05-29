@@ -449,20 +449,20 @@ const ApplicationDetail = () => {
               <TabsContent value="financial">
                 <div className="space-y-6">
                   <Card>
-                    <CardHeader className="pb-3 border-l-4 border-l-blue-500 mb-4 border-b-2 rounded">
+                    <CardHeader className="pb-3 border-l-4 border-l-blue-500 mb-8 border-b-2 rounded ">
                       <CardTitle className="text-lg font-bold text-blue-800 mb-[-0.5rem]">Financial Summary</CardTitle>
                       <CardDescription className="text-muted-foreground">
                         Overview of the Financial Details for this Application | <span className="font-bold"> #{application.id}</span>
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <div className="grid grid-cols-3 gap-4 ">
-                        <div className="p-4 bg-blue-50 border border-blue-100 hover:bg-blue-100 text-center border-l-4 border-l-blue-700 rounded">
+                      <div className="grid grid-cols-3 gap-4 mx-4 ">
+                        <div className="p-4 bg-blue-50 border border-blue-100 hover:bg-blue-100 text-center border-l-4 border-l-blue-700 rounded w-96">
                           <p className="text-xs text-blue-600 uppercase font-medium">Requested</p>
                           <p className="text-xl font-bold text-blue-700">{formatCurrency(application.requestedAmount)}</p>
                         </div>
                         
-                        <div className="p-4 bg-green-50 hover:bg-green-100 border border-green-100 border-l-4 border-l-green-500 rounded text-center">
+                        <div className="p-4 bg-green-50 hover:bg-green-100 border border-green-100 border-l-4 border-l-green-500 rounded text-center w-96">
                           <p className="text-xs text-green-600 uppercase font-medium">Approved</p>
                           <p className="text-xl font-bold text-green-700">
                             {application.approvedAmount 
@@ -478,7 +478,7 @@ const ApplicationDetail = () => {
                           )}
                         </div>
                         
-                        <div className="p-4 bg-purple-50 hover:bg-purple-100 border-l-4 border-l-purple-500 border border-purple-100 rounded text-center">
+                        <div className="p-4 bg-purple-50 hover:bg-purple-100 border-l-4 border-l-purple-500 border border-purple-100 rounded text-center w-96">
                           <p className="text-xs text-purple-600 uppercase font-medium">Disbursed</p>
                           <p className="text-xl font-bold text-purple-700">
                             {application.disbursedAmount 
@@ -508,7 +508,7 @@ const ApplicationDetail = () => {
                         {formatDate(new Date(application.applicationDate))}
                       </time>
                       <p className="mt-2 text-sm">
-                        Student submitted application for {formatCurrency(application.requestedAmount)}
+                        Student submitted Application for {formatCurrency(application.requestedAmount)}
                       </p>
                     </div>
                   </div>

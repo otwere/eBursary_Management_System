@@ -663,7 +663,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                           </div>
                         </div>
                         
-                        <Collapsible 
+                        {/* <Collapsible 
                           open={isOpenCollapsible} 
                           onOpenChange={setIsOpenCollapsible}
                           className="bg-white p-4 rounded border border-gray-200"
@@ -723,7 +723,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
                             />
                           </CollapsibleContent>
                         </Collapsible>
-                        
+                         */}
                         <div className="mt-6 flex justify-end">
                           <Button type="button" onClick={handleNext} className="bg-primary hover:bg-primary/90">
                             Next <ArrowRight className="ml-2 h-4 w-4" />
