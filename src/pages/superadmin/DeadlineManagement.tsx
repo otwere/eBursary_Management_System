@@ -200,10 +200,10 @@ const DeadlineManagement: React.FC = () => {
 
   return (
     <DashboardLayout title="Application Deadline Management">
-      <div className="space-y-6 lg:-mx-[80px]">
-        <div className="flex justify-between items-center border-l-4 border-l-amber-500 pl-2 h-16 border-b-2">
+      <div className="space-y-6 lg:-mx-[85px]">
+        <div className="flex justify-between items-center border-l-4 border-l-amber-500 pl-2 h-[4.5rem] border-b-2">
           <div className="-mt-4">
-            <h1 className="text-xl text-blue-800 font-bold">Application Deadlines</h1>
+            <h1 className="text-xl text-blue-800 font-bold mb-[-0.25rem]">Application Deadlines</h1>
             <p className="text-muted-foreground text-sm">
               Manage Opening and Closing Dates for Bursary Applications
             </p>
@@ -228,8 +228,8 @@ const DeadlineManagement: React.FC = () => {
         </div>
 
         <Card>
-          <CardHeader className="flex flex-col md:flex-row md:items-center justify-between space-y-2 md:space-y-0 pb-2 border-l-4 border-l-red-400 rounded-s-sm">
-            <CardTitle className="text-xl font-bold text-primary-800">All Deadlines</CardTitle>
+          <CardHeader className="flex flex-col md:flex-row md:items-center justify-between space-y-2 md:space-y-0 pb-2 border-l-4 border-l-red-500 rounded-s-sm border-b-2 mb-6">
+            <CardTitle className="text-xl font-bold text-primary-800">Create & Manage Deadlines</CardTitle>
             <div className="relative w-full md:w-64">
               <Input
                 placeholder="Search deadlines"

@@ -429,7 +429,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
       localStorage.setItem('bursary-form-draft', JSON.stringify(currentData));
       setAutoSaveStatus("saved");
       toast.success("Application progress saved");
-      
+            
       // Reset to idle after 2 seconds
       setTimeout(() => {
         setAutoSaveStatus("idle");

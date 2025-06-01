@@ -35,13 +35,13 @@ const FDODashboard = () => {
   ).slice(0, 3);
 
   return (
-    <DashboardLayout title="Fund Disbursement Dashboard">
-      <div className="space-y-6">
+    <DashboardLayout title="Funds Disbursement Officer Officer - Dashboard">
+      <div className="space-y-6 lg:mx-[-82px]">
         {/* Overview section */}
-        <div className="bg-white p-4 rounded border">
-          <h1 className="text-2xl font-semibold">Fund Disbursement Dashboard</h1>
-          <p className="text-gray-600 mt-1">
-            Process and track disbursement of allocated funds to students.
+        <div className=" border-b-2 p-4 rounded border-l-lime-500 border-l-4 h-20">
+          <h1 className="text-xl font-bold text-blue-800 my-[-0.5rem]">Fund Disbursement  Dashboard</h1>
+          <p className="text-muted-foreground text-sm">
+            Process and track Disbursement of Allocated Funds to Students.
           </p>
         </div>
 
@@ -51,33 +51,36 @@ const FDODashboard = () => {
             title="Pending Disbursements" 
             value={allocatedApplications.length}
             icon={<CreditCard className="h-6 w-6" />}
-            description="Applications awaiting funds disbursement"
+            description="Applications awaiting Funds Disbursement"
+            className="border-l-4 border-l-amber-500 bg-amber-50 hover:bg-amber-100"
           />
           <StatCard 
-            title="Disbursed This Month" 
+            title="Total Disbursements" 
             value={disbursedApplications.length}
             icon={<DollarSign className="h-6 w-6" />}
-            description="Successfully processed disbursements"
+            description="Successfully Processed Disbursements"
             trend={{ value: 23, isPositive: true }}
+            className="border-l-4 border-l-green-500 bg-green-50 hover:bg-green-100"
           />
           <StatCard 
             title="Amount to Disburse" 
-            value={`$${pendingDisbursement.toLocaleString()}`}
+            value={`KES ${pendingDisbursement.toLocaleString()}`}
             icon={<PiggyBank className="h-6 w-6" />}
-            description="Total funds pending disbursement"
+            description="Total Funds Pending Disbursement"
+            className="border-l-4 border-l-blue-500 bg-blue-50 hover:bg-blue-100"
           />
         </div>
 
         {/* Disbursement overview */}
         <Card>
-          <CardHeader>
-            <CardTitle>Disbursement Overview</CardTitle>
+          <CardHeader className="border-l-4 border-l-blue-500 border-b-2 mb-4">
+            <CardTitle className="text-xl text-blue-800 font-bold">Disbursement Overview</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-green-50 rounded p-4 border border-green-100">
+              <div className="bg-green-50 hover:bg-green-100 rounded p-4 border border-green-100">
                 <p className="text-sm font-medium text-green-700">Total Disbursed</p>
-                <p className="text-2xl font-bold">${totalDisbursed.toLocaleString()}</p>
+                <p className="text-xl font-bold">KES {totalDisbursed.toLocaleString()}</p>
                 <div className="mt-2">
                   <div className="flex justify-between text-sm">
                     <p className="text-green-700">{disbursedApplications.length} Applications</p>
@@ -85,9 +88,9 @@ const FDODashboard = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-blue-50 rounded p-4 border border-blue-100">
+              <div className="bg-blue-50 hover:bg-blue-100 rounded p-4 border border-blue-100">
                 <p className="text-sm font-medium text-blue-700">Pending Disbursement</p>
-                <p className="text-2xl font-bold">${pendingDisbursement.toLocaleString()}</p>
+                <p className="text-xl font-bold">KES {pendingDisbursement.toLocaleString()}</p>
                 <div className="mt-2">
                   <div className="flex justify-between text-sm">
                     <p className="text-blue-700">{allocatedApplications.length} Applications</p>
@@ -109,13 +112,13 @@ const FDODashboard = () => {
 
         {/* Quick actions */}
         <Card>
-          <CardHeader>
-            <CardTitle>Quick Actions</CardTitle>
+          <CardHeader className="border-l-4 border-l-blue-500 rounded mb-4 border-b-2">
+            <CardTitle className="text-blue-800 text-xl font-bold">Quick Actions</CardTitle>
           </CardHeader>
           <CardContent className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             <Button 
               variant="outline" 
-              className="h-auto flex flex-col items-center justify-center py-4 px-2"
+              className="h-auto flex flex-col items-center justify-center py-4 px-2 bg-orange-50 border-l-4 border-l-amber-500"
               onClick={() => navigate("/FDO/disbursements")}
             >
               <DollarSign className="h-6 w-6 mb-2" />
@@ -123,7 +126,7 @@ const FDODashboard = () => {
             </Button>
             <Button 
               variant="outline" 
-              className="h-auto flex flex-col items-center justify-center py-4 px-2"
+              className="h-auto flex flex-col items-center justify-center py-4 px-2 border-l-4 border-l-blue-500 bg-blue-50"
               onClick={() => navigate("/FDO/schedule")}
             >
               <Calendar className="h-6 w-6 mb-2" />
@@ -131,7 +134,7 @@ const FDODashboard = () => {
             </Button>
             <Button 
               variant="outline" 
-              className="h-auto flex flex-col items-center justify-center py-4 px-2"
+              className="h-auto flex flex-col items-center justify-center py-4 px-2 border-l-4 border-l-green-500 bg-green-50"
               onClick={() => navigate("/FDO/history")}
             >
               <FileArchive className="h-6 w-6 mb-2" />
@@ -143,7 +146,7 @@ const FDODashboard = () => {
         {/* Pending disbursements */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle>Ready for Disbursement</CardTitle>
+            <CardTitle className="text-blue-800 text-xl font-bold mt-[-1rem]">Ready for Disbursement</CardTitle>
             <Button variant="outline" size="sm" onClick={() => navigate("/FDO/disbursements")}>
               View All
             </Button>
@@ -168,9 +171,9 @@ const FDODashboard = () => {
         </Card>
 
         {/* Disbursement trends */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Disbursement Trends</CardTitle>
+        <Card> 
+          <CardHeader className="border-l-4 border-l-blue-500 border-b-2">
+            <CardTitle className="text-xl text-blue-800 font-bold">Disbursement Trends</CardTitle>
           </CardHeader>
           <CardContent className="h-80 flex items-center justify-center">
             <div className="text-center space-y-2">
