@@ -175,7 +175,7 @@ const StudentApplications = () => {
       }
     >
       <div className="space-y-6 lg:-mx-[80px]">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-indigo-50 h-20 rounded px-2 border-b-2 border-l-4 border-l-green-500">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-indigo-50 h-20 rounded px-2 border-b-2 border-l-4 border-l-green-500 mt-[-4rem]">
           <div>
             <h1 className="text-xl  text-blue-800 p-0 -mt-2 font-bold">My Applications</h1>
             <p className="text-muted-foreground text-sm mt-0">

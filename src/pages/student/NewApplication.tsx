@@ -655,7 +655,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
 
   return (
     <DashboardLayout title="New Application">
-      <Card className="lg:mx-[-70px] shadow-none border-primary/10 overflow-hidden">
+      <Card className="lg:mx-[-70px] shadow-none border-primary/10 overflow-hidden mt-[-3rem]">
         <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b relative">
           <div className="absolute top-4 right-4 flex items-center space-x-2">
             <Button
@@ -696,7 +696,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Hash className="h-4 w-4 text-blue-600" />
-                  <span className="text-sm font-medium text-gray-700">Application Number:</span>
+                  <span className="text-sm font-medium text-gray-700">Application Number :</span>
                   <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-300 font-mono">
                     {applicationNumber}
                   </Badge>

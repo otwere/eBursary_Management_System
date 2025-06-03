@@ -245,7 +245,7 @@ const StudentDashboard = () => {
 
   return (
     <DashboardLayout title="Student Dashboard">
-      <div className="space-y-4 lg:-mx-[70px]">
+      <div className="space-y-4 lg:-mx-[70px] mt-[-4rem]">
         {/* Welcome Banner */}
         <div className=" p-2 rounded border-b-2 border-l-4 border-l-blue-500 h-20">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
