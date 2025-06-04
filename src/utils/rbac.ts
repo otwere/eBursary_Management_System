@@ -71,7 +71,7 @@ export const getRoleDisplayName = (role: UserRole): string => {
     case "ARO":
       return "Applications Review Officer";
     case "FAO":
-      return "Financial Allocations Officer";
+      return "Funds Manager Officer";
     case "FDO":
       return "Fund Disbursement Officer";
     case "superadmin":

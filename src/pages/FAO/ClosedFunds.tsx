@@ -242,7 +242,7 @@ const ClosedFunds = () => {
   
   return (
     <DashboardLayout title="Closure & Reopening of Funds ">
-      <div className="space-y-6 lg:-mx-[85px]">
+      <div className="space-y-6 lg:-mx-[90px] mt-[-4rem]">
         <Card>
           <CardHeader>
             <div className="flex flex-col sm:flex-row justify-between gap-4 border-b-2">

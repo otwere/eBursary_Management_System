@@ -41,7 +41,7 @@ const SuperAdminDashboard: React.FC = () => {
         <div className="p-4 rounded bg-gradient-to-r from-blue-500 to-purple-600 text-white">
           <h2 className="text-xl font-bold mb-0">Welcome, Super Admin</h2>
           <p className="text-muted text-sm">
-            You have full access to Manage the eBursary  Portal Platform. Below is an overview of the System.
+            You have full access to Manage the eBursary  Portal Platform.
           </p>
         </div>
         
@@ -143,8 +143,8 @@ const SuperAdminDashboard: React.FC = () => {
         {/* Application Deadlines Summary */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           <Card className="lg:col-span-2">
-            <CardHeader className="pb-2">
-              <div className="flex items-center justify-between border-l-4 border-l-blue-500 -mx-4 h-14 mt-[-0.9rem] ">
+            <CardHeader className="pb-2  border-l-4 border-l-blue-500 border-b-2 mb-4 h-16 ">
+              <div className="flex items-center justify-between -mx-4">
                 <CardTitle className="text-xl text-blue-800 font-bold  pl-4 ">Application Deadlines</CardTitle>
                 <Button 
                   variant="outline" 
