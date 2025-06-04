@@ -291,7 +291,7 @@ const AllocationManagement = () => {
 
   return (
     <DashboardLayout title="Allocation Management">
-      <div className="space-y-6 lg:-mx-[70px]">
+      <div className="space-y-6 lg:-mx-[75px] mt-[-4rem]">
         {/* Header */}
         <div className="flex items-center justify-between border-l-4 border-l-green-500 pl-2 rounded h-16">
           <div className="">

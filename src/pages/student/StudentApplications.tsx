@@ -164,7 +164,7 @@ const StudentApplications = () => {
 
   return (
     <DashboardLayout 
-      title="My Applications" 
+      title="Applications" 
       notificationBadge={
         <NotificationBadge
           notifications={notifications}

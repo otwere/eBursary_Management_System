@@ -36,7 +36,7 @@ const SuperAdminDashboard: React.FC = () => {
 
   return (
     <DashboardLayout title="Admin Dashboard">
-      <div className="space-y-6 lg:-mx-[80px]">
+      <div className="space-y-6 lg:-mx-[80px] mt-[-4rem]">
         {/* Welcome message */}
         <div className="p-4 rounded bg-gradient-to-r from-blue-500 to-purple-600 text-white">
           <h2 className="text-xl font-bold mb-0">Welcome, Super Admin</h2>

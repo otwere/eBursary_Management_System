@@ -200,7 +200,7 @@ const DeadlineManagement: React.FC = () => {
 
   return (
     <DashboardLayout title="Application Deadline Management">
-      <div className="space-y-6 lg:-mx-[85px]">
+      <div className="space-y-6 lg:-mx-[85px] mt-[-3.5rem]">
         <div className="flex justify-between items-center border-l-4 border-l-amber-500 pl-2 h-[4.5rem] border-b-2">
           <div className="-mt-4">
             <h1 className="text-xl text-blue-800 font-bold mb-[-0.25rem]">Application Deadlines</h1>

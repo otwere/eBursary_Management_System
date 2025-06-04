@@ -185,7 +185,7 @@ const ApplicationDetail = () => {
 
   return (
     <DashboardLayout title="Application Details">
-      <div className="space-y-6 lg:-mx-[80px]">
+      <div className="space-y-6 lg:-mx-[80px] mt-[-4rem]">
         <div className="flex items-center justify-between bg-gray-100 h-20 border-l-4   border-l-blue-500 rounded ">
           <div className="flex items-center space-x-4  rounded h-12 pl-2 ">
             {/* <Button

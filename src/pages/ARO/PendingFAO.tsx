@@ -45,7 +45,7 @@ const PendingFAO = () => {
 
   return (
     <DashboardLayout title="Pending FAO Review">
-      <div className="space-y-6 lg:-mx-[85px]">
+      <div className="space-y-6 lg:-mx-[85px] mt-[-4rem]">
         <Card>
           <CardHeader>
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-l-4 border-l-blue-500 rounded h-16 border-b-2">

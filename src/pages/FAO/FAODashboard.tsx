@@ -157,7 +157,7 @@ const FAODashboard = () => {
 
   return (
     <DashboardLayout title="Funds Manager - Dashboard">
-      <div className="space-y-6 lg:-mx-[65px] mt-0">
+      <div className="space-y-6 lg:-mx-[80px] mt-[-4rem]">
         {/* Overview section */}
         <div className="flex justify-between items-center border-l-4  border-l-green-500 rounded h-16">
           <div className="pl-2">

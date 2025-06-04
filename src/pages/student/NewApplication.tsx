@@ -682,7 +682,7 @@ const StudentApplicationForm: React.FC<StudentApplicationFormProps> = ({
             </Button>
           </div>
 
-          <CardTitle className="text-blue-800 font-bold flex items-center gap-2 text-xl">
+          <CardTitle className="text-blue-800 font-bold flex items-center gap-2 text-2xl">
             <School className="h-5 w-5" />
             eBursary Application Form
           </CardTitle>

@@ -36,7 +36,7 @@ const FDODashboard = () => {
 
   return (
     <DashboardLayout title="Funds Disbursement Officer Officer - Dashboard">
-      <div className="space-y-6 lg:mx-[-82px]">
+      <div className="space-y-6 lg:mx-[-85px] mt-[-4rem]">
         {/* Overview section */}
         <div className=" border-b-2 p-4 rounded border-l-lime-500 border-l-4 h-20">
           <h1 className="text-xl font-bold text-blue-800 my-[-0.5rem]">Fund Disbursement  Dashboard</h1>

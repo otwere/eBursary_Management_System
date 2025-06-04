@@ -182,16 +182,14 @@ const DisbursementTracking = () => {
   };
 
   return (
-    <DashboardLayout title="Disbursement Tracking">
-      <div className="space-y-6 lg:-mx-[120px] px-4 md:px-8 lg:px-12 py-6">
+    <DashboardLayout title="Disbursement Tracking - Dashboard">
+      <div className="space-y-6 lg:-mx-[125px] px-4 md:px-8 lg:px-12 py-6 mt-[-54px]">
         {/* Header */}
-        <div className="-mt-8 border-l-4 border-l-purple-500 pl-2 rounded-sm border-b-2 h-20">
-          <div className="">
+        <div className="-mt-8 border-l-4 border-l-purple-500 pl-2 rounded-sm border-b-2 h-20">          
           <h1 className="text-xl font-bold text-blue-800 ">Disbursement Tracking</h1>
           <p className="text-muted-foreground -mt-1 text-sm">
             Track and Manage Fund Disbursements to Institutions
-          </p>
-          </div>
+          </p>          
         </div>
 
         {/* Overview Stats */}

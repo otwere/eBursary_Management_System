@@ -435,7 +435,7 @@ const TransactionHistory = () => {
 
   return (
     <DashboardLayout title="Transaction History">
-      <div className="space-y-6 lg:-mx-[78px]">
+      <div className="space-y-6 lg:-mx-[78px] mt-[-4rem]">
         {/* Header */}
         <div className="border-l-4 border-l-yellow-500 pl-2 rounded h-20 border-b-2 ">
           <h1 className="text-xl font-bold text-blue-800 -mb-2 ">Transaction History - Disbursement</h1>

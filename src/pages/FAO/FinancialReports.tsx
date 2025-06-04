@@ -175,10 +175,10 @@ const FinancialReports = () => {
   };
 
   return (
-    <DashboardLayout title="Financial Reports">
-      <div className="space-y-6 lg:-mx-[70px]">
+    <DashboardLayout title="Financial Reports - Dashboard">
+      <div className="space-y-6 lg:-mx-[70px] mt-[-4rem]">
         {/* Header */}
-        <div className="border-l-4 border-l-red-500 pl-2 rounded-sm bg-blue-50 h-20">
+        <div className="border-l-4 border-l-red-500 pl-2 rounded-sm h-20 border-b-2">
           <h1 className="text-xl font-bold text-blue-800">Financial Reports</h1>
           <p className="text-muted-foreground text-sm -mt-0">
             Generate and Analyze Financial Reports for Funds Approval & Allocation and Disbursement

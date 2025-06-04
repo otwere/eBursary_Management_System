@@ -226,9 +226,9 @@ const StudentApplications = () => {
   
   return (
     <DashboardLayout title="Student Applications">
-      <div className="space-y-6  lg:-mx-[85px]">
+      <div className="space-y-6  lg:-mx-[85px] mt-[-4rem]">
         {/* Header section */}
-        <div className="bg-blue-50 border-l-4 border-l-blue-500 p-4 rounded border-b-2 h-20">
+        <div className="border-l-4 border-l-blue-500 p-4 rounded border-b-2 h-20">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h1 className="text-xl font-bold text-blue-800 -mt-2">Student Applications</h1>

@@ -223,10 +223,10 @@ const ApplicationsReview = () => {
 
   return (
     <DashboardLayout title="Applications Review">
-      <div className="space-y-6 lg:-mx-[113px] px-4 sm:px-6 lg:px-8">
+      <div className="space-y-6 lg:-mx-[113px] px-4 sm:px-6 lg:px-8 mt-[-4rem]">
         <Card>
           <CardHeader>
-            <div className="flex items-center justify-between bg-gray-50">
+            <div className="flex items-center justify-between">
               <div className="border-l-4 border-l-purple-500 rounded ml-0  border-b-2 w-full h-20">
                 <CardTitle className="text-xl font-bold ml-2 text-blue-800">Review Applications</CardTitle>
                 <CardDescription className="ml-2 text-muted-foreground">

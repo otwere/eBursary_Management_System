@@ -31,10 +31,10 @@ const ARODashboard = () => {
     .slice(0, 3);
   
   return (
-    <DashboardLayout title="Application & Documents Review Officer (ADRO) Dashboard">
-      <div className="space-y-6 -mx-[70px]">
+    <DashboardLayout title="ADRO Dashboard">
+      <div className="space-y-6 lg:-mx-[70px] mt-[-4rem]">
         {/* Overview section */}
-        <div className="bg-amber-50 p-4 rounded border-b-2 border-l-4 border-l-green-500 h-20">
+        <div className=" p-4 rounded border-b-2 border-l-4 border-l-green-500 h-20">
           <h1 className="text-xl text-blue-800 font-bold -mt-2">Application Review Dashboard</h1>
           <p className="text-muted-foreground text-sm mt-[-0.25rem]">
             Review and manage Bursary Applications.

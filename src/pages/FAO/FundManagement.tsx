@@ -252,7 +252,7 @@ const FundManagement = () => {
 
   return (
     <DashboardLayout title="Funds Management Dashboard">
-      <div className="space-y-6 lg:-mx-[65px]">
+      <div className="space-y-6 lg:-mx-[70px] mt-[-4rem]">
         {/* Header */}
         <div className="flex items-center justify-between border-l-4 border-l-blue-500 h-16 rounded">
           <div className="pl-4">
