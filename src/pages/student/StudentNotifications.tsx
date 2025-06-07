@@ -162,8 +162,8 @@ const StudentNotifications = () => {
   
   return (
     <DashboardLayout title="Notifications & Alerts">
-      <div className="space-y-2 lg:-mx-[80px]">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-blue-50 h-20 px-4 rounded border-l-4 border-l-purple-500 border-b-2 mt-[-4rem]">
+      <div className="space-y-2 lg:-mx-[80px] -mt-16">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 h-20 px-4 rounded border-l-4 border-l-purple-500 border-b-2 ">
           <div>
             <h1 className="text-xl text-blue-800 font-bold -mt-4">Notifications</h1>
             <p className="text-muted-foreground text-sm mt-0">Stay updated with your Application status and System Alerts</p>

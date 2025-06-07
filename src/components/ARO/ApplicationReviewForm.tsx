@@ -174,7 +174,7 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
                   {!canEditAmount && (
                     <div className="flex items-center gap-1 text-xs text-blue-600 bg-blue-50 px-2 py-1 rounded-full">
                       <Lock className="h-3 w-3" />
-                      <span>Only FAO can edit</span>
+                      <span>Only FMO to Approve </span>
                     </div>
                   )}
                 </div>

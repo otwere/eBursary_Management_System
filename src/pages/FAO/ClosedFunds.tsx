@@ -40,7 +40,7 @@ const ClosedFunds = () => {
       remainingAmount: 250000,
       financialPeriod: "2024-Q1",
       closedAt: "2024-04-01T10:30:00.000Z",
-      closedBy: "Kevin mwangi",
+      closedBy: "Kevin Mwangi",
       closureReason: "End of Financial Period, remaining Funds to be carried forward."
     },
     {
@@ -57,7 +57,7 @@ const ClosedFunds = () => {
       remainingAmount: 200000,
       financialPeriod: "2023",
       closedAt: "2023-12-20T15:45:00.000Z",
-      closedBy: "Kevin mwangi",
+      closedBy: "Kevin Mwangi",
       closureReason: "End of Academic Year, all approved applications processed."
     },
     {
@@ -74,7 +74,7 @@ const ClosedFunds = () => {
       remainingAmount: 50000,
       financialPeriod: "2023-Q2",
       closedAt: "2023-07-10T09:20:00.000Z",
-      closedBy: "Kevin mwangi",
+      closedBy: "Kevin Mwangi",
       closureReason: "Funds Objectives met, remaining Amount to be carried forward to the next Quatre."
     },
     {
@@ -357,7 +357,7 @@ const ClosedFunds = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
               <div className="space-y-1 mt-2 border-l-4 border-l-blue-500 pl-2 rounded">
                 <p className="text-sm text-gray-500 -mb-2">Total Amount</p>
-                <p className="text-lg font-bold text-blue-800">{formatCurrency(totalAmount)}</p>
+                <p className="text-lg font-bold text-gray-800">{formatCurrency(totalAmount)}</p>
                 <p className="text-xs text-gray-500">{allocationPercentage(totalAmount, totalAmount)}</p>
               </div>
               <div className="space-y-1 mt-2 border-l-4 border-l-lime-500 pl-2 rounded">
@@ -404,36 +404,36 @@ const ClosedFunds = () => {
               <div className="grid grid-cols-2 gap-4 border rounded bg-blue-50">
                 <div className="space-y-1 mx-4">
                   <p className="text-sm text-gray-500 mb-[-0.4rem] mt-4">Academic Year</p>
-                  <p className="font-bold text-blue-800">{selectedFund.academicYear}</p>
+                  <p className="font-bold text-gray-800">{selectedFund.academicYear}</p>
                 </div>
                 <div className="space-y-1 mx-32">
                   <p className="text-sm text-gray-500 mb-[-0.4rem] mt-4 ">Financial Period</p>
-                  <p className="font-bold text-blue-800">{selectedFund.financialPeriod || "N/A"}</p>
+                  <p className="font-bold text-gray-800">{selectedFund.financialPeriod || "N/A"}</p>
                 </div>
                 <div className="space-y-1 mx-4">
                   <p className="text-sm text-gray-500 mb-[-0.4rem] ">Created On</p>
-                  <p className="font-bold text-blue-800">{formatDate(selectedFund.createdAt)}</p>
+                  <p className="font-bold text-gray-800">{formatDate(selectedFund.createdAt)}</p>
                 </div>
                 <div className="space-y-1 mx-32">
                   <p className="text-sm text-gray-500 mb-[-0.4rem]">Created By</p>
-                  <p className="font-bold text-blue-800">{selectedFund.createdBy}</p>
+                  <p className="font-bold text-gray-800">{selectedFund.createdBy}</p>
                 </div>
                 {selectedFund.status === "closed" && (
                   <>
                     <div className="space-y-1 mx-4 mb-4">
                       <p className="text-sm text-gray-500 mb-[-0.4rem]">Closed On</p>
-                      <p className="font-bold text-blue-800">{formatDate(selectedFund.closedAt)}</p>
+                      <p className="font-bold text-gray-800">{formatDate(selectedFund.closedAt)}</p>
                     </div>
                     <div className="space-y-1 mx-32">
                       <p className="text-sm text-gray-500 mb-[-0.4rem]">Closed By</p>
-                      <p className="font-bold text-blue-800">{selectedFund.closedBy}</p>
+                      <p className="font-bold text-gray-800">{selectedFund.closedBy}</p>
                     </div>
                   </>
                 )}
               </div>
               
               <div className="rounded border p-4 space-y-3 bg-gray-100">
-                <h4 className="font-bold text-blue-800">Funds Allocation</h4>
+                <h4 className="font-bold text-gray-800">Funds Allocation</h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <div className="space-y-1 border-l-4 border-l-blue-500 pl-2 rounded">
                     <p className="text-sm text-gray-500">Total Amount</p>
@@ -468,7 +468,7 @@ const ClosedFunds = () => {
               
               {selectedFund.status === "closed" && selectedFund.closureReason && (
                 <div className="space-y-2 rounded">
-                  <h4 className="font-bold text-blue-800">Closure Reason</h4>
+                  <h4 className="font-bold text-gray-800">Closure Reason</h4>
                   <p className="text-sm text-gray-600 p-3 rounded border bg-red-50">
                     {selectedFund.closureReason}
                   </p>
@@ -509,7 +509,7 @@ const ClosedFunds = () => {
       <Dialog open={isReopenFundModalOpen} onOpenChange={setIsReopenFundModalOpen}>
         <DialogContent className="lg:max-w-5xl sm:max-w-xl bg-gray-50">
           <DialogHeader className="border-l-4 border-l-blue-500 pl-2 rounded h-12 border-b-2">
-            <DialogTitle className="font-bold text-blue-800 mb-[-0.4rem]">Reopen Fund</DialogTitle>
+            <DialogTitle className="font-bold text-gray-800 mb-[-0.4rem]">Reopen Fund</DialogTitle>
             <DialogDescription className="text-muted-foreground">
               Are you sure you want to reopen this fund?
             </DialogDescription>
@@ -518,7 +518,7 @@ const ClosedFunds = () => {
           {selectedFund && (
             <div className="space-y-4 py-4">
               <div className="space-y-1">
-                <h3 className="font-bold text-blue-800">{selectedFund.name}</h3>
+                <h3 className="font-bold text-gray-800">{selectedFund.name}</h3>
                 <p className="text-sm text-gray-500">{selectedFund.description}</p>
               </div>
               
@@ -678,7 +678,7 @@ const FundTable: React.FC<FundTableProps> = ({
           {funds.map(fund => (
             <TableRow key={fund.id}>
               <TableCell>
-                <div className="font-bold text-blue-800">{fund.name}</div>
+                <div className="font-bold text-gray-800">{fund.name}</div>
                 <div className="text-sm text-gray-500 truncate max-w-xs">
                   {fund.description}
                 </div>

@@ -156,7 +156,7 @@ const mockAcademicRecordsByLevel = {
   ],
   university: [
     {
-      term: "Fall",
+      term: "1st Semester",
       year: "2024",
       gpa: 3.7,
       status: "completed" as const,
@@ -164,7 +164,7 @@ const mockAcademicRecordsByLevel = {
       totalCredits: 15
     },
     {
-      term: "Spring",
+      term: "2nd Semester",
       year: "2025",
       gpa: 3.8,
       status: "in-progress" as const,
@@ -172,7 +172,7 @@ const mockAcademicRecordsByLevel = {
       totalCredits: 15
     },
     {
-      term: "Summer",
+      term: "3rd Semester",
       year: "2025",
       status: "upcoming" as const,
       credits: 0,

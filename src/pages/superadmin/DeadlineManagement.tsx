@@ -1,18 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import {  Table,TableBody,TableCell,TableHead,TableHeader,TableRow,} from "@/components/ui/table";
 import {
   Dialog,
   DialogClose,
@@ -229,7 +222,7 @@ const DeadlineManagement: React.FC = () => {
 
         <Card>
           <CardHeader className="flex flex-col md:flex-row md:items-center justify-between space-y-2 md:space-y-0 pb-2 border-l-4 border-l-red-500 rounded-s-sm border-b-2 mb-6">
-            <CardTitle className="text-xl font-bold text-primary-800">Create & Manage Deadlines</CardTitle>
+            <CardTitle className="text-xl font-bold text-primary-800">Manage Deadlines</CardTitle>
             <div className="relative w-full md:w-64">
               <Input
                 placeholder="Search deadlines"

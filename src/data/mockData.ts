@@ -188,7 +188,7 @@ export const mockApplications: Application[] = [
     requestedAmount: 40000,
     status: "rejected",
     academicYear: "2022/2023",
-    reviewComments: "Incomplete documentation provided. Please reapply with all required documents.",
+    reviewComments: "Incomplete documentation provided. Please resubmit with all required documents.",
     submittedAt: "2023-03-05T10:00:00.000Z",
     createdAt: "2023-03-01T10:00:00.000Z",
     reviewDate: "2023-03-15T10:00:00.000Z",

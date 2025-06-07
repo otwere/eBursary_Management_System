@@ -131,21 +131,21 @@ const AcademicRecordsCard: React.FC<AcademicRecordsCardProps> = ({
 
           <div className="space-y-2">
             <div className="flex justify-between">
-              <span className="text-sm text-gray-500">Start Date:</span>
+              <span className="text-sm text-gray-500">Start Date :</span>
               <div className="flex items-center">
                 <CalendarDays className="h-3 w-3 mr-1 text-gray-500" />
                 <span className="text-sm font-medium">{formatDate(startDate)}</span>
               </div>
             </div>
             <div className="flex justify-between">
-              <span className="text-sm text-gray-500">Expected Graduation:</span>
+              <span className="text-sm text-gray-500">Expected Graduation :</span>
               <div className="flex items-center">
                 <Award className="h-3 w-3 mr-1 text-gray-500" />
                 <span className="text-sm font-medium">{formatDate(expectedGraduation)}</span>
               </div>
             </div>
             <div className="flex justify-between">
-              <span className="text-sm text-gray-500">Current Level:</span>
+              <span className="text-sm text-gray-500">Current Level :</span>
               <Badge variant="outline">Year {currentYear} of {totalYears}</Badge>
             </div>
           </div>
@@ -170,9 +170,9 @@ const AcademicRecordsCard: React.FC<AcademicRecordsCardProps> = ({
                   <tr>
                     <th className="px-4 py-2 text-left text-xs font-medium text-gray-500">Term</th>
                     <th className="px-4 py-2 text-left text-xs font-medium text-gray-500">Year</th>
-                    <th className="px-4 py-2 text-left text-xs font-medium text-gray-500">GPA</th>
+                    <th className="px-4 py-2 text-left text-xs font-medium text-gray-500">Mean Grade</th>
                     <th className="px-4 py-2 text-left text-xs font-medium text-gray-500">Credits</th>
-                    <th className="px-4 py-2 text-left text-xs font-medium text-gray-500">Status</th>
+                    <th className="px-4 py-2 text-xs font-medium text-gray-500 text-right">Status</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
@@ -186,7 +186,7 @@ const AcademicRecordsCard: React.FC<AcademicRecordsCardProps> = ({
                       <td className="px-4 py-2 text-sm">
                         {record.credits} / {record.totalCredits}
                       </td>
-                      <td className="px-4 py-2 text-sm">
+                      <td className="px-4 py-2 text-sm text-right">
                         <Badge variant="outline" className={getStatusColor(record.status)}>
                           {record.status.charAt(0).toUpperCase() + record.status.slice(1)}
                         </Badge>
