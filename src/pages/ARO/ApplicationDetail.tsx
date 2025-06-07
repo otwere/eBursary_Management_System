@@ -184,9 +184,9 @@ const ApplicationDetail = () => {
   const canSubmitToFAO = permissions.canSubmitToFAO && isApproved;
 
   return (
-    <DashboardLayout title="Application Details">
+    <DashboardLayout title="Applicants Information">
       <div className="space-y-6 lg:-mx-[80px] mt-[-4rem]">
-        <div className="flex items-center justify-between bg-gray-100 h-20 border-l-4   border-l-blue-500 rounded ">
+        <div className="flex items-center justify-between border-b-2 h-20 border-l-4 border-l-blue-500 rounded ">
           <div className="flex items-center space-x-4  rounded h-12 pl-2 ">
             {/* <Button
               variant="outline"

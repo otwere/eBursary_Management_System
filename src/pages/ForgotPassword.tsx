@@ -78,11 +78,11 @@ const ForgotPassword = () => {
             </Button>
           </form>
         ) : (
-          <div className="text-center space-y-4">
-            <div className="bg-green-50 border border-green-200 p-4 rounded">
+          <div className="text-center space-y-4 -mx-4">
+            <div className="bg-green-50 border border-green-200 p-4 rounded ">
               <h3 className="font-medium text-green-800">Email sent!</h3>
               <p className="mt-2 text-green-700">
-                Check your email inbox for link to reset your password.
+                Check your Email inbox for link to reset your Password.
               </p>
             </div>
             

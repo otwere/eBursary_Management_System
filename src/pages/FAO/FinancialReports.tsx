@@ -355,7 +355,7 @@ const FinancialReports = () => {
 
   return (
     <DashboardLayout title="Financial Reports - Dashboard">
-      <div className="space-y-6 lg:-mx-[70px] mt-[-4rem]">
+      <div className="space-y-6 lg:-mx-[80px] mt-[-4rem]">
         {/* Header */}
         <div className="border-l-4 border-l-red-500 pl-2 rounded-sm h-20 border-b-2">
           <h1 className="text-xl font-bold text-blue-800">Financial Reports</h1>
@@ -583,9 +583,9 @@ const FinancialReports = () => {
                           <TableHeader>
                             <TableRow>
                               <TableHead>Category</TableHead>
-                              <TableHead>Allocated</TableHead>
-                              <TableHead>Disbursed</TableHead>
-                              <TableHead>Percentage</TableHead>
+                              <TableHead>Allocated Amount</TableHead>
+                              <TableHead>Disbursed Amount</TableHead>
+                              <TableHead className="text-right">Percentage</TableHead>
                               <TableHead>Utilization</TableHead>
                             </TableRow>
                           </TableHeader>
@@ -597,7 +597,7 @@ const FinancialReports = () => {
                                 </TableCell>
                                 <TableCell>{formatCurrency(category.allocatedAmount)}</TableCell>
                                 <TableCell>{formatCurrency(category.disbursedAmount)}</TableCell>
-                                <TableCell>{formatPercentage(category.percentage)}</TableCell>
+                                <TableCell className="text-right">{formatPercentage(category.percentage)}</TableCell>
                                 <TableCell>
                                   <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
                                     <div
@@ -750,8 +750,8 @@ const FinancialReports = () => {
                           <TableHeader>
                             <TableRow>
                               <TableHead>Method</TableHead>
-                              <TableHead>Amount</TableHead>
-                              <TableHead className="text-right">Transactions</TableHead>
+                              <TableHead>Total Amount</TableHead>
+                              <TableHead className="text-right">No. of Transactions</TableHead>
                               <TableHead className="text-right">Percentage</TableHead>
                               <TableHead className="text-right">Distribution</TableHead>
                             </TableRow>
@@ -876,15 +876,15 @@ const FinancialReports = () => {
                   <Card className="md:col-span-2">
                     <CardHeader className="pb-2 border-l-4 border-l-purple-500 rounded-none border-b-2">
                       <CardTitle className="text-lg text-blue-800 font-bold -mb-2">Approval by Category</CardTitle>
-                      <CardDescription>Breakdown of applications and approvals by fund category</CardDescription>
+                      <CardDescription>Breakdown of Applications and Approvals by Fund Category</CardDescription>
                     </CardHeader>
                     <CardContent>
                       <Table>
                         <TableHeader>
                           <TableRow>
                             <TableHead>Category</TableHead>
-                            <TableHead>Applications</TableHead>
-                            <TableHead>Approved</TableHead>
+                            <TableHead>Total Applications</TableHead>
+                            <TableHead>Total Approved</TableHead>
                             <TableHead>Rejected</TableHead>
                             <TableHead>Approval Rate</TableHead>
                             <TableHead>Progress</TableHead>
@@ -999,8 +999,8 @@ const FinancialReports = () => {
                       <TableHeader>
                         <TableRow>
                           <TableHead>Wards</TableHead>
-                          <TableHead>Applications</TableHead>
-                          <TableHead>Approved</TableHead>
+                          <TableHead>Total Applications</TableHead>
+                          <TableHead>Total Approved</TableHead>
                           <TableHead>Rejected</TableHead>
                           <TableHead>Approval Rate</TableHead>
                           <TableHead>Progress</TableHead>
@@ -1477,11 +1477,11 @@ const FinancialReports = () => {
           <div className="space-y-6">
             <Tabs defaultValue="overview">
               <div className="flex justify-between items-center mb-4">
-                <TabsList className="lg:space-x-[17.5rem] sm:space-x-0">
+                <TabsList className="lg:space-x-[17rem] sm:space-x-0">
                   <TabsTrigger value="overview">Overview</TabsTrigger>
                   <TabsTrigger value="categories">By Category</TabsTrigger>
                   <TabsTrigger value="demographics">Demographics</TabsTrigger>
-                  <TabsTrigger value="regions">By Region</TabsTrigger>
+                  <TabsTrigger value="regions">By Region | Ward</TabsTrigger>
                 </TabsList>
                 <Button variant="outline" size="sm">
                   <DownloadCloud className="h-4 w-4 mr-2" />
@@ -1729,7 +1729,7 @@ const FinancialReports = () => {
               <TabsContent value="regions" className="mt-0">
                 <Card>
                   <CardHeader className="pb-2 border-l-4 border-l-blue-500 rounded-none border-b-2">
-                    <CardTitle className="text-lg text-blue-800 font-bold -mb-2">Beneficiaries by Region</CardTitle>
+                    <CardTitle className="text-lg text-blue-800 font-bold -mb-2">Beneficiaries by Region | Ward</CardTitle>
                     <CardDescription>Geographical Distribution of Beneficiaries</CardDescription>
                   </CardHeader>
                   <CardContent>
