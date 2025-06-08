@@ -53,9 +53,9 @@ const AllocationsQueue = () => {
 
   return (
     <DashboardLayout title="Funds Approval & Allocation - Dashboard">
-      <div className="p-1 lg:-mx-[85px]">
-        <div className="flex justify-between items-center mb-2">
-          <div className="border-l-4 border-l-green-500 pl-2 rounded mb-4 h-20 w-full border-b-2">
+      <div className="p-1 lg:-mx-[85px] -mt-[4rem]">
+        <div className="flex justify-between items-center mb-10 border-b-2">
+          <div className="border-l-4 border-l-green-500 pl-2 rounded mb-4 h-16 w-full">
             <h1 className="text-xl font-bold text-blue-800 mt-1 -mb-1">Allocations Queue</h1>
             <p className="text-muted-foreground text-sm">Manage Approve & Allocate Funds for Applicants</p>
           </div>

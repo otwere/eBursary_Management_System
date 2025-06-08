@@ -354,7 +354,7 @@ const ClosedFunds = () => {
             </Tabs>
           </CardContent>
           <CardFooter className="flex flex-col sm:flex-row border-t bg-gray-50 gap-4 mt-0">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mt-3">
               <div className="space-y-1 mt-2 border-l-4 border-l-blue-500 pl-2 rounded">
                 <p className="text-sm text-gray-500 -mb-2">Total Amount</p>
                 <p className="text-lg font-bold text-gray-800">{formatCurrency(totalAmount)}</p>

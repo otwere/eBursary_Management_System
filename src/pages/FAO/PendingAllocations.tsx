@@ -370,12 +370,12 @@ const PendingAllocations = () => {
   
   return (
     <DashboardLayout title="Pending Allocations">
-      <div className="space-y-4 lg:-mx-[80px]">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 bg-blue-50">
-          <div className="border-l-4 border-l-red-500 pl-2 rounded h-16">
+      <div className="space-y-4 lg:-mx-[80px] -mt-[4rem]">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 border-b-2">
+          <div className="border-l-4 border-l-red-500 pl-2 rounded h-20">
             <h1 className="text-xl font-bold text-blue-800">Pending Fund Allocations</h1>
             <p className="text-muted-foreground text-sm -mt-1">
-              Review , Approve and Allocate Funds to Applications Submitted by ARO
+              Review | Approve and Allocate Funds to Applications Submitted by ARO
             </p>
           </div>
           

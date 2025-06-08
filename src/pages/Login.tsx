@@ -111,6 +111,7 @@ const Login = () => {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password as password"
               />
             </div>
           </div>
@@ -120,7 +121,7 @@ const Login = () => {
           {loading ? "Signing in..." : "Sign in"}
         </Button>
 
-        <div className="relative">
+        {/* <div className="relative">
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t border-gray-300"></div>
           </div>
@@ -139,11 +140,11 @@ const Login = () => {
             <p>Email : aro@ebursary.co.ke</p>
           </div>
           <div className="p-2 border rounded">
-            <p className="font-medium">Funds Manager (FAO):</p>
+            <p className="font-medium">Funds Manager (FMO):</p>
             <p>Email : fao@ebursary.co.ke</p>
           </div>
           <div className="p-2 border rounded">
-            <p className="font-medium">Funds Disbursement Officer (FAO):</p>
+            <p className="font-medium">Funds Disbursement Officer (FDO):</p>
             <p>Email : fdo@ebursary.co.ke</p>
           </div>
           <div className="p-2 border rounded">
@@ -152,7 +153,7 @@ const Login = () => {
           </div>
 
           <p className="text-xs text-gray-500">All demo accounts use "Password" as password</p>
-        </div>
+        </div> */}
       </form>
     </AuthLayout>
   );

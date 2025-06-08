@@ -792,6 +792,8 @@ const FinancialReports = () => {
         )}
 
         {/* Additional report types would be added here */}
+        
+
         {/* Funds Approved Report */}
         {selectedReport === "fund-approval" && (
           <div className="space-y-6">
@@ -1767,7 +1769,7 @@ const FinancialReports = () => {
           <div className="space-y-6">
             <Tabs defaultValue="types">
               <div className="flex justify-between items-center mb-4">
-                <TabsList className="lg:space-x-56 sm:space-x-0">
+                <TabsList className="lg:space-x-60 sm:space-x-0">
                   <TabsTrigger value="types">By Institution Type</TabsTrigger>
                   <TabsTrigger value="regions">By Region | Ward</TabsTrigger>
                   <TabsTrigger value="funding">Funding Analysis</TabsTrigger>

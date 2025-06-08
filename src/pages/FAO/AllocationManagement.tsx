@@ -291,10 +291,10 @@ const AllocationManagement = () => {
 
   return (
     <DashboardLayout title="Allocation Management">
-      <div className="space-y-6 lg:-mx-[75px] mt-[-4rem]">
+      <div className="space-y-6 lg:-mx-[80px] mt-[-4rem]">
         {/* Header */}
-        <div className="flex items-center justify-between border-l-4 border-l-green-500 pl-2 rounded h-16">
-          <div className="">
+        <div className="flex items-center justify-between border-l-4 border-l-green-500 pl-2 rounded h-20 border-b-2">
+          <div className="-mt-5">
             <h1 className="text-xl font-bold text-blue-800">Funds Allocation Management</h1>
             <p className="text-muted-foreground  text-sm -mt-1">
               Manage and track Fund Allocations by Education Level

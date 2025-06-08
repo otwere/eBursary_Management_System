@@ -252,10 +252,10 @@ const FundManagement = () => {
 
   return (
     <DashboardLayout title="Funds Management Dashboard">
-      <div className="space-y-6 lg:-mx-[70px] mt-[-4rem]">
+      <div className="space-y-6 lg:-mx-[80px] mt-[-4rem]">
         {/* Header */}
-        <div className="flex items-center justify-between border-l-4 border-l-blue-500 h-16 rounded">
-          <div className="pl-4">
+        <div className="flex items-center justify-between border-l-4 border-l-blue-500 h-20 rounded-none border-b-2">
+          <div className="pl-4 -mt-5">
             <h1 className="text-xl font-bold text-blue-800">Funds Management</h1>
             <p className="text-muted-foreground text-sm -mt-1">
               Create | Manage | Approve & Allocate Funds for Bursaries and Scholarships
@@ -263,7 +263,7 @@ const FundManagement = () => {
           </div>
           <Button onClick={() => setIsCreateFundOpen(true)}>
             <PlusCircle className="h-4 w-4 mr-2" />
-            Load New Fund
+            Load New Fund (Float)
           </Button>
         </div>
 
@@ -539,7 +539,7 @@ const FundManagement = () => {
       <Dialog open={isCreateFundOpen} onOpenChange={setIsCreateFundOpen}>
         <DialogContent className="sm:max-w-2xl md:max-w-3xl lg:max-w-5xl bg-gray-50">
           <DialogHeader className="border-l-4 border-l-lime-500 pl-2 rounded h-16 border-b-2">
-            <DialogTitle className="text-lg font-bold text-blue-800 -mb-2">Load New Fund</DialogTitle>
+            <DialogTitle className="text-lg font-bold text-blue-800 -mb-2">Load New Fund (Float)</DialogTitle>
             <DialogDescription className="text-muted-foreground">
               Create a new Fund Allocation that can be Distributed to Bursaries and Scholarships.
             </DialogDescription>
