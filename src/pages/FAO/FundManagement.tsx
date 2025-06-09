@@ -457,7 +457,7 @@ const FundManagement = () => {
                     {/* Fund Categories */}
                     {getFundCategoriesByFloatId(fund.id).length > 0 && (
                       <div className="border-t bg-gray-50 p-4">
-                        <h4 className="text-lg font-medium text-gray-700 mb-4">Fund Categories</h4>
+                        <h4 className="font-bold text-gray-600 mb-4">Fund Categories</h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           {getFundCategoriesByFloatId(fund.id).map(category => (
                             <Card key={category.id} className="border bg-white">
@@ -618,8 +618,8 @@ const FundManagement = () => {
       {/* Allocate Fund Dialog */}
       <Dialog open={isAllocateOpen} onOpenChange={setIsAllocateOpen}>
         <DialogContent className=" lg:max-w-5xl md:max-w-3xl sm:max-w-2xl">
-          <DialogHeader className="border-l-4 border-l-cyan-500 rounded pl-2 h-14">
-            <DialogTitle className="font-bold text-blue-800 -mb-1">Create Fund Categories</DialogTitle>
+          <DialogHeader className="border-l-4 border-l-cyan-500 rounded-none pl-2 h-16 border-b-2">
+            <DialogTitle className="font-bold text-blue-800 text-xl -mb-3">Create Fund Categories</DialogTitle>
             <DialogDescription className="text-muted-foreground">
               Divide the Funds into Bursary and Scholarship Categories.
             </DialogDescription>

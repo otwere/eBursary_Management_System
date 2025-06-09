@@ -64,7 +64,7 @@ const DeadlineDetailsModal: React.FC<DeadlineDetailsModalProps> = ({
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="lg:max-w-6xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader className="-mx-2 border-l-4 border-l-green-500 rounded h-20 border-b-2">
+        <DialogHeader className="-mx-2 border-l-4 border-l-green-500 rounded-none h-20 border-b-2">
           <DialogTitle className="text-xl font-bold text-blue-800 flex items-center gap-2">
             <School className="h-5 w-5 text-primary mx-2 " />
             {deadline.institutionType} Application Details
@@ -76,7 +76,7 @@ const DeadlineDetailsModal: React.FC<DeadlineDetailsModalProps> = ({
 
         <div className="mt-4 space-y-6">
           {/* Status Banner */}
-          <div className={`p-4 rounded ${
+          <div className={`p-4 rounded-none ${
             isExpired ? 'bg-red-50 border border-red-100' : 'bg-blue-50 border border-blue-100'
           } flex flex-col sm:flex-row sm:items-center justify-between gap-2`}>
             <div className="flex items-center gap-2">
@@ -106,15 +106,15 @@ const DeadlineDetailsModal: React.FC<DeadlineDetailsModalProps> = ({
                 </h3>
                 
                 <div className="grid grid-cols-3 gap-4 text-center">
-                  <div className="p-3 rounded bg-blue-50">
+                  <div className="p-3 rounded-none bg-blue-50">
                     <div className="text-2xl font-bold text-blue-700">{daysRemaining}</div>
                     <div className="text-xs text-blue-600">Days</div>
                   </div>
-                  <div className="p-3 rounded bg-blue-50">
+                  <div className="p-3 rounded-none bg-blue-50">
                     <div className="text-2xl font-bold text-blue-700">{hoursRemaining}</div>
                     <div className="text-xs text-blue-600">Hours</div>
                   </div>
-                  <div className="p-3 rounded bg-blue-50">
+                  <div className="p-3 rounded-none bg-blue-50">
                     <div className="text-2xl font-bold text-blue-700">{minutesRemaining}</div>
                     <div className="text-xs text-blue-600">Minutes</div>
                   </div>
@@ -163,7 +163,7 @@ const DeadlineDetailsModal: React.FC<DeadlineDetailsModalProps> = ({
                 Eligibility Information
               </h3>
               
-              <div className={`p-3 rounded border ${getEligibilityColor()}`}>
+              <div className={`p-3 rounded-none border ${getEligibilityColor()}`}>
                 <div className="flex items-center gap-2">
                   {canApply ? (
                     <CheckCircle className="h-4 w-4 text-green-500" />

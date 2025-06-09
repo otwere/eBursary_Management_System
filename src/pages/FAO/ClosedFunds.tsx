@@ -355,22 +355,22 @@ const ClosedFunds = () => {
           </CardContent>
           <CardFooter className="flex flex-col sm:flex-row border-t bg-gray-50 gap-4 mt-0">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mt-3">
-              <div className="space-y-1 mt-2 border-l-4 border-l-blue-500 pl-2 rounded">
+              <div className="space-y-1 mt-2 border-l-4 border-l-blue-500 pl-2 rounded-none">
                 <p className="text-sm text-gray-500 -mb-2">Total Amount</p>
                 <p className="text-lg font-bold text-gray-800">{formatCurrency(totalAmount)}</p>
                 <p className="text-xs text-gray-500">{allocationPercentage(totalAmount, totalAmount)}</p>
               </div>
-              <div className="space-y-1 mt-2 border-l-4 border-l-lime-500 pl-2 rounded">
+              <div className="space-y-1 mt-2 border-l-4 border-l-lime-500 pl-2 rounded-none">
                 <p className="text-sm text-gray-500 -mb-1">Total Allocated</p>
                 <p className=" text-lg font-bold text-lime-500">{formatCurrency(totalAllocated)}</p>
                 <p className="text-xs text-gray-500">{allocationPercentage(totalAllocated, totalAmount)}</p>
               </div>
-              <div className="space-y-1 mt-2 border-l-4 border-l-green-500 pl-2 rounded">
+              <div className="space-y-1 mt-2 border-l-4 border-l-green-500 pl-2 rounded-none">
                 <p className="text-sm text-gray-500 -mb-1">Total Disbursed</p>
                 <p className=" text-lg font-bold text-green-500">{formatCurrency(totalDisbursed)}</p>
                 <p className="text-xs text-gray-500">{allocationPercentage(totalDisbursed, totalAmount)}</p>
               </div>
-              <div className="space-y-1 mt-2 border-l-4 border-l-orange-500 pl-2 rounded">
+              <div className="space-y-1 mt-2 border-l-4 border-l-orange-500 pl-2 rounded-none">
                 <p className="text-sm text-gray-500 -mb-1">Total Remaining (Balance)</p>
                 <p className="text-lg font-bold text-orange-500">{formatCurrency(totalRemaining)}</p>
                 <p className="text-xs text-gray-500">{allocationPercentage(totalRemaining, totalAmount)}</p>

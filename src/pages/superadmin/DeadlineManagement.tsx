@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {  Table,TableBody,TableCell,TableHead,TableHeader,TableRow,} from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import {
   Dialog,
   DialogClose,
@@ -39,24 +39,33 @@ import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { mockDeadlines } from "@/data/mockData";
 import { ApplicationDeadline, InstitutionType } from "@/types/auth";
-import { CalendarIcon, Clock, Plus, Pencil, Trash2, CalendarDays } from "lucide-react";
+import { CalendarIcon, Clock, Plus, Pencil, Trash2, CalendarDays, Download, Filter, ChevronDown, ChevronUp } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { format } from "date-fns";
+import { format, addDays } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+// import { CSVLink } from "react-csv";
 
 const deadlineFormSchema = z.object({
-  institutionType: z.enum(["Secondary", "TVET", "College", "University"] as const),
+  institutionType: z.enum(["Secondary", "TVET", "College", "University"] as const, {
+    required_error: "Institution type is required",
+  }),
   closingDate: z.date({
     required_error: "Closing date is required",
   }),
-  academicYear: z.string().min(4, {
-    message: "Academic Year must be at least 4 characters.",
-  }),
-  description: z.string().optional(),
+  academicYear: z.string()
+    .min(4, {
+      message: "Academic Year must be at least 4 characters.",
+    })
+    .regex(/^\d{4}-\d{4}$/, {
+      message: "Academic Year must be in format YYYY-YYYY",
+    }),
+  description: z.string().max(500, {
+    message: "Description cannot exceed 500 characters",
+  }).optional(),
   isActive: z.boolean().default(true),
   notifyStudents: z.boolean().default(true),
 });
@@ -72,17 +81,39 @@ const DeadlineManagement: React.FC = () => {
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const [editingDeadline, setEditingDeadline] = useState<ApplicationDeadline | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedDeadlines, setSelectedDeadlines] = useState<string[]>([]);
+  const [showFilters, setShowFilters] = useState(false);
+  const [statusFilter, setStatusFilter] = useState<"all" | "active" | "inactive">("all");
+  const [expiryFilter, setExpiryFilter] = useState<"all" | "active" | "expired">("all");
 
   const form = useForm<DeadlineFormValues>({
     resolver: zodResolver(deadlineFormSchema),
     defaultValues: {
-      academicYear: new Date().getFullYear() + "-" + (new Date().getFullYear() + 1),
+      academicYear: `${new Date().getFullYear()}-${new Date().getFullYear() + 1}`,
       isActive: true,
       notifyStudents: true,
     },
   });
 
+  const checkDuplicateDeadline = useCallback((institutionType: InstitutionType, academicYear: string, excludeId?: string) => {
+    return deadlines.some(d => 
+      d.institutionType === institutionType && 
+      d.academicYear === academicYear &&
+      d.id !== excludeId
+    );
+  }, [deadlines]);
+
   const onSubmit = (data: DeadlineFormValues) => {
+    // Check for duplicate deadlines (only for new entries or when academic year/institution changes)
+    if (!editingDeadline || 
+        (editingDeadline.academicYear !== data.academicYear) || 
+        (editingDeadline.institutionType !== data.institutionType)) {
+      if (checkDuplicateDeadline(data.institutionType, data.academicYear, editingDeadline?.id)) {
+        toast.error("A deadline already exists for this institution type and academic year");
+        return;
+      }
+    }
+
     const formattedData = {
       ...data,
       closingDate: data.closingDate.toISOString(),
@@ -101,7 +132,7 @@ const DeadlineManagement: React.FC = () => {
       toast.success("Deadline updated successfully");
     } else {
       const newDeadline: ApplicationDeadline = {
-        id: `Deadline-${new Date().getFullYear()}-${(deadlines.length + 1).toString().padStart(3, '0')}`,
+        id: `Deadline-${new Date().getTime()}`,
         institutionType: formattedData.institutionType,
         closingDate: formattedData.closingDate,
         isActive: formattedData.isActive,
@@ -110,7 +141,12 @@ const DeadlineManagement: React.FC = () => {
         openingDate: formattedData.openingDate
       };
       setDeadlines([...deadlines, newDeadline]);
-      toast.success("New deadline created successfully");
+      
+      if (data.notifyStudents) {
+        toast.success("New deadline created successfully. Students will be notified.");
+      } else {
+        toast.success("New deadline created successfully");
+      }
     }
     
     setIsCreateDialogOpen(false);
@@ -133,7 +169,14 @@ const DeadlineManagement: React.FC = () => {
 
   const handleDeleteDeadline = (id: string) => {
     setDeadlines(deadlines.filter(d => d.id !== id));
+    setSelectedDeadlines(selectedDeadlines.filter(d => d !== id));
     toast.success("Deadline deleted successfully");
+  };
+
+  const handleBulkDelete = () => {
+    setDeadlines(deadlines.filter(d => !selectedDeadlines.includes(d.id)));
+    setSelectedDeadlines([]);
+    toast.success(`${selectedDeadlines.length} deadlines deleted successfully`);
   };
 
   const handleExtendDeadline = (id: string, days: number) => {
@@ -168,11 +211,28 @@ const DeadlineManagement: React.FC = () => {
     }
   };
 
-  const filteredDeadlines = deadlines.filter(d => 
-    d.institutionType.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    d.academicYear.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    d.description?.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const handleBulkStatusChange = (status: boolean) => {
+    setDeadlines(deadlines.map(d => 
+      selectedDeadlines.includes(d.id) ? { ...d, isActive: status } : d
+    ));
+    toast.success(`${selectedDeadlines.length} deadlines ${status ? 'activated' : 'deactivated'}`);
+  };
+
+  const toggleSelectDeadline = (id: string) => {
+    setSelectedDeadlines(prev => 
+      prev.includes(id) 
+        ? prev.filter(d => d !== id) 
+        : [...prev, id]
+    );
+  };
+
+  const toggleSelectAllDeadlines = () => {
+    if (selectedDeadlines.length === filteredDeadlines.length) {
+      setSelectedDeadlines([]);
+    } else {
+      setSelectedDeadlines(filteredDeadlines.map(d => d.id));
+    }
+  };
 
   const getTimeRemaining = (closingDate: string) => {
     const deadline = new Date(closingDate);
@@ -190,6 +250,43 @@ const DeadlineManagement: React.FC = () => {
   };
 
   const extensionOptions = [1, 3, 7, 14, 30];
+
+  const filteredDeadlines = useMemo(() => {
+    return deadlines.filter(d => {
+      // Search term filter
+      const matchesSearch = 
+        d.institutionType.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        d.academicYear.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        d.description?.toLowerCase().includes(searchTerm.toLowerCase());
+      
+      // Status filter
+      const matchesStatus = 
+        statusFilter === "all" || 
+        (statusFilter === "active" && d.isActive) || 
+        (statusFilter === "inactive" && !d.isActive);
+      
+      // Expiry filter
+      const isExpired = new Date(d.closingDate) <= new Date();
+      const matchesExpiry = 
+        expiryFilter === "all" || 
+        (expiryFilter === "active" && !isExpired) || 
+        (expiryFilter === "expired" && isExpired);
+      
+      return matchesSearch && matchesStatus && matchesExpiry;
+    });
+  }, [deadlines, searchTerm, statusFilter, expiryFilter]);
+
+  const exportData = useMemo(() => {
+    return filteredDeadlines.map(d => ({
+      "Institution Type": d.institutionType,
+      "Academic Year": d.academicYear,
+      "Opening Date": format(new Date(d.openingDate), "PPP p"),
+      "Closing Date": format(new Date(d.closingDate), "PPP p"),
+      "Status": d.isActive ? "Active" : "Inactive",
+      "Time Remaining": getTimeRemaining(d.closingDate),
+      "Description": d.description || "",
+    }));
+  }, [filteredDeadlines]);
 
   return (
     <DashboardLayout title="Application Deadline Management">

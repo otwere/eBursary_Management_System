@@ -185,8 +185,8 @@ const DisbursementTracking = () => {
     <DashboardLayout title="Disbursement Tracking - Dashboard">
       <div className="space-y-6 lg:-mx-[125px] px-4 md:px-8 lg:px-12 py-6 mt-[-54px]">
         {/* Header */}
-        <div className="-mt-8 border-l-4 border-l-purple-500 pl-2 rounded-sm border-b-2 h-20">          
-          <h1 className="text-xl font-bold text-blue-800 ">Disbursement Tracking</h1>
+        <div className="-mt-8 border-l-4 border-l-purple-500 pl-2 rounded-none border-b-2 h-20">          
+          <h1 className="text-xl font-bold text-blue-800">Disbursement Tracking</h1>
           <p className="text-muted-foreground -mt-1 text-sm">
             Track and Manage Fund Disbursements to Institutions
           </p>          
@@ -194,7 +194,7 @@ const DisbursementTracking = () => {
 
         {/* Overview Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <Card className="h-28 border-l-4 border-l-cyan-500 bg-cyan-50 hover:bg-cyan-100">
+          <Card className="border-l-4 border-l-cyan-500 bg-cyan-50 hover:bg-cyan-100">
             <CardContent className="p-4 md:p-4 lg:p-8 -mx-4 -mt-4">
               <div className="flex justify-between items-start">
                 <div>
@@ -267,7 +267,7 @@ const DisbursementTracking = () => {
         <Card>
           <CardHeader className="p-4 md:p-4 lg:p-8 border-b-2">
             <div className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
-              <div className="border-l-4 border-l-purple-500 pl-2 -mx-8 -mt-8 h-16  -mb-4 rounded  ">
+              <div className="border-l-4 border-l-purple-500 pl-2 -mx-8 -mt-8 h-16  -mb-4 rounded-none  ">
                 <CardTitle className="text-xl font-bold mt-[0.5rem] text-blue-800">Disbursements</CardTitle>
                 <CardDescription className="text-muted- -mt-1">
                   View and Manage Fund Disbursements

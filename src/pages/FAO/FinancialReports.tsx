@@ -283,8 +283,10 @@ const mockInstitutionBreakdown = {
     { type: "Private University", count: 25, students: 5000, funding: 350000 },
     { type: "Public College", count: 85, students: 17000, funding: 700000 },
     { type: "Private College", count: 50, students: 5000, funding: 175000 },
-    { type: "TVET Institute", count: 120, students: 24000, funding: 525000 },
-    { type: "Secondary School", count: 50, students: 10000, funding: 350000 }
+    { type: "Public TVET Institute", count: 120, students: 24000, funding: 525000 },
+    { type: "Private TVET Institute", count: 4, students: 24000, funding: 525000 },
+    { type: "Public Secondary School", count: 50, students: 100, funding: 350000 },
+    { type: "Private Secondary School", count: 2, students: 10, funding: 3500 }
   ],
   institutionsByRegion: [
     { region: "Nairobi", count: 80, funding: 700000 },
@@ -440,7 +442,7 @@ const FinancialReports = () => {
           <div className="space-y-6">
             <Tabs defaultValue="overview" onValueChange={setActiveTab}>
               <div className="flex justify-between items-center mb-4">
-                <TabsList className="lg:space-x-56 sm:space-x-0">
+                <TabsList className="lg:space-x-60 sm:space-x-0">
                   <TabsTrigger value="overview">Overview</TabsTrigger>
                   <TabsTrigger value="category-breakdown">Category Breakdown</TabsTrigger>
                   <TabsTrigger value="education-level">Education Level</TabsTrigger>

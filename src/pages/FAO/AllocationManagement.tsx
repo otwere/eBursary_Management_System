@@ -293,7 +293,7 @@ const AllocationManagement = () => {
     <DashboardLayout title="Allocation Management">
       <div className="space-y-6 lg:-mx-[80px] mt-[-4rem]">
         {/* Header */}
-        <div className="flex items-center justify-between border-l-4 border-l-green-500 pl-2 rounded h-20 border-b-2">
+        <div className="flex items-center justify-between border-l-4 border-l-green-500 pl-2 rounded-none h-20 border-b-2">
           <div className="-mt-5">
             <h1 className="text-xl font-bold text-blue-800">Funds Allocation Management</h1>
             <p className="text-muted-foreground  text-sm -mt-1">
@@ -308,7 +308,7 @@ const AllocationManagement = () => {
 
         {/* Overview */}
         <Card>
-          <CardHeader className="border-l-4 border-l-lime-500 rounded border-b-2 mb-6 ">
+          <CardHeader className="border-l-4 border-l-lime-500 rounded-none border-b-2 mb-6 ">
             <CardTitle className="text-xl text-blue-800 font-bold -mb-2">Allocation Overview</CardTitle>
             <CardDescription>
               Summary of Fund Allocations by Category & Education Level
@@ -399,7 +399,7 @@ const AllocationManagement = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Bursary Distribution */}
                 <Card className="bg-gray-50">
-                  <CardHeader className=" border-l-4 border-l-blue-500 pl-2 border-b-2 mb-4 rounded">
+                  <CardHeader className=" border-l-4 border-l-blue-500 pl-2 border-b-2 mb-4 rounded-none">
                     <CardTitle className="text-lg text-blue-800  font-bold">Bursary Distribution</CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -445,7 +445,7 @@ const AllocationManagement = () => {
 
                 {/* Scholarship Distribution */}
                 <Card className="bg-gray-50">
-                  <CardHeader className=" text-green-600 border-l-4 border-l-green-500 pl-2 border-b-2 mb-4 rounded">
+                  <CardHeader className=" text-green-600 border-l-4 border-l-green-500 pl-2 border-b-2 mb-4 rounded-none">
                     <CardTitle className="text-lg font-bold">Scholarship Distribution</CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -495,9 +495,9 @@ const AllocationManagement = () => {
 
         {/* Allocations Table */}
         <Card>
-          <CardHeader>
+          <CardHeader className="border-l-4 border-l-lime-500">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="border-l-4 border-lime-500 pl-2 rounded h-16 ">
+              <div>
                 <CardTitle className="text-xl font-bold text-blue-800 -mb-1">Fund Allocations | FY-2024-2025-ALLOC-0011</CardTitle>
                 <CardDescription>
                   View and manage all Funds Allocations

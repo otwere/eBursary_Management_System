@@ -35,10 +35,10 @@ const BulkAllocateDialog: React.FC<BulkAllocateDialogProps> = ({
 }) => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle>Bulk Allocate Funds</DialogTitle>
-          <DialogDescription>
+      <DialogContent className="sm:max-w-md bg-gray-50">
+        <DialogHeader className="border-l-4 border-l-lime-500 pl-2 border-b-2 h-16">
+          <DialogTitle className="text-lg text-blue-800 -mb-2">Bulk Allocate Funds</DialogTitle>
+          <DialogDescription className="text-muted-foreground ">
             Allocate funds for {selectedApplications.length} selected applications
           </DialogDescription>
         </DialogHeader>

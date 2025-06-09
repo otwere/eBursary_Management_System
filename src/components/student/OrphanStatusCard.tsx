@@ -66,7 +66,7 @@ const OrphanStatusCard: React.FC<OrphanStatusCardProps> = ({ orphanStatus }) => 
   };
 
   return (
-    <Card className="shadow-none border-l-4 border-l-rose-500 rounded">
+    <Card className="shadow-none border-l-4 border-l-rose-500 rounded-none">
       <CardHeader className="pb-2 bg-gradient-to-r from-blue-50 to-indigo-50">
         <CardTitle className="text-xl text-blue-800 font-bold flex items-center gap-2">
           <Heart className="h-5 w-5 text-rose-500" />
@@ -82,7 +82,7 @@ const OrphanStatusCard: React.FC<OrphanStatusCardProps> = ({ orphanStatus }) => 
         </div>
 
         {(statusData.guardianType === "total-orphan" || statusData.guardianType === "single-parent") && (
-          <div className="bg-gray-50 p-4 rounded border space-y-3">
+          <div className="bg-gray-50 p-4 rounded-none border space-y-3">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <h4 className="text-sm font-medium flex items-center gap-1">

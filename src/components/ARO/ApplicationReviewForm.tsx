@@ -64,9 +64,9 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader className="border-l-4 h-20  border-l-blue-500 pl-4 rounded border-b-2 ">
+        <DialogHeader className="border-l-4 h-20  border-l-blue-500 pl-4 rounded-none border-b-2 ">
           <DialogTitle className="text-xl flex items-center gap-2">
-            <div className="p-2 rounded-full bg-primary-50">
+            <div className="p-2 rounded-none-full bg-primary-50">
               <FileText className="h-5 w-5 text-primary-600" />
             </div>
            <div className="font-bold text-blue-800">
@@ -76,7 +76,7 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
           <DialogDescription className="flex items-center justify-between">
             <div className="flex items-center gap-1.5 pl-2">
               <span className="text-gray-500">ID :</span>
-              <code className="bg-gray-100 px-3 py-1 mx-2 rounded text-gray-700 text-xs font-mono">
+              <code className="bg-gray-100 px-3 py-1 mx-2 rounded-none text-gray-700 text-xs font-mono">
                 {application.id}
               </code>
             </div>
@@ -85,7 +85,7 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
         </DialogHeader>
 
         <div className="space-y-4 py-4">
-          <div className="grid grid-cols-2 gap-4 bg-blue-50 p-4 rounded">
+          <div className="grid grid-cols-2 gap-4 bg-blue-50 p-4 rounded-none">
             <div>
               <p className="text-sm text-gray-500 -mb-1">Student Name</p>
               <p className="font-medium text-blue-800">{application.studentName || "Unknown"}</p>
@@ -132,7 +132,7 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
               onValueChange={setStatus}
               className="grid grid-cols-1 gap-3"
             >
-              <div className="flex items-center space-x-2 border p-3 rounded hover:bg-gray-50">
+              <div className="flex items-center space-x-2 border p-3 rounded-none hover:bg-gray-50">
                 <RadioGroupItem id="under-review" value="under-review" />
                 <Label htmlFor="under-review" className="flex items-center cursor-pointer">
                   <RotateCw className="h-4 w-4 mr-2 text-blue-500" />
@@ -140,7 +140,7 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
                 </Label>
               </div>
               
-              <div className={`flex items-center space-x-2 border p-3 rounded ${canApprove ? "hover:bg-gray-50" : "opacity-60"}`}>
+              <div className={`flex items-center space-x-2 border p-3 rounded-none ${canApprove ? "hover:bg-gray-50" : "opacity-60"}`}>
                 <RadioGroupItem id="approved" value="approved" disabled={!canApprove} />
                 <Label htmlFor="approved" className="flex items-center cursor-pointer">
                   <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
@@ -148,7 +148,7 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
                 </Label>
               </div>
               
-              <div className="flex items-center space-x-2 border p-3 rounded hover:bg-gray-50">
+              <div className="flex items-center space-x-2 border p-3 rounded-none hover:bg-gray-50">
                 <RadioGroupItem id="corrections-needed" value="corrections-needed" />
                 <Label htmlFor="corrections-needed" className="flex items-center cursor-pointer">
                   <AlertTriangle className="h-4 w-4 mr-2 text-amber-500" />
@@ -156,7 +156,7 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
                 </Label>
               </div>
               
-              <div className={`flex items-center space-x-2 border p-3 rounded ${canApprove ? "hover:bg-gray-50" : "opacity-60"}`}>
+              <div className={`flex items-center space-x-2 border p-3 rounded-none ${canApprove ? "hover:bg-gray-50" : "opacity-60"}`}>
                 <RadioGroupItem id="rejected" value="rejected" disabled={!canApprove} />
                 <Label htmlFor="rejected" className="flex items-center cursor-pointer">
                   <X className="h-4 w-4 mr-2 text-red-500" />
@@ -168,11 +168,11 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
           
           {status === "approved" && (
             <>
-              <div className={`space-y-2 p-4 border rounded ${canEditAmount ? "bg-green-50" : "bg-gray-50"}`}>
+              <div className={`space-y-2 p-4 border rounded-none ${canEditAmount ? "bg-green-50" : "bg-gray-50"}`}>
                 <div className="flex justify-between items-center">
                   <Label htmlFor="approvedAmount" className="text-base">Approved Amount</Label>
                   {!canEditAmount && (
-                    <div className="flex items-center gap-1 text-xs text-blue-600 bg-blue-50 px-2 py-1 rounded-full">
+                    <div className="flex items-center gap-1 text-xs text-blue-600 bg-blue-50 px-2 py-1 rounded-none-full">
                       <Lock className="h-3 w-3" />
                       <span>Only FMO to Approve </span>
                     </div>
@@ -191,7 +191,7 @@ const ApplicationReviewForm: React.FC<ApplicationReviewFormProps> = ({
                     Requested: {formatCurrency(application.requestedAmount)}
                   </span>
                   {approvedAmount !== application.requestedAmount && (
-                    <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full flex items-center">
+                    <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-none-full flex items-center">
                       <ArrowUpDown className="h-3 w-3 mr-1" />
                       {approvedAmount > application.requestedAmount 
                         ? `+${formatCurrency(approvedAmount - application.requestedAmount)}`

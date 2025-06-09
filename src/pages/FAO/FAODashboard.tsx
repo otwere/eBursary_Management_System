@@ -267,7 +267,7 @@ const FAODashboard = () => {
           {/* Active Funds Section */}
           <Card className="lg:col-span-2">
             <CardHeader className="flex flex-row items-center justify-between">
-              <div className="border-l-4 border-l-green-500 rounded-sm pl-2">
+              <div className="border-l-4 border-l-green-500 rounded-none pl-2">
                 <CardTitle className="text-lg font-bold text-blue-800">Active Funds</CardTitle>
                 <CardDescription className="text-muted-foreground">Current Active Funding Sources</CardDescription>
               </div>
