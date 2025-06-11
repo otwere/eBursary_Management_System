@@ -76,10 +76,10 @@ const ApplicationDetail = () => {
   if (authState.user && application.studentId !== authState.user.id) {
     return (
       <DashboardLayout title="Unauthorized">
-        <div className="bg-white p-4 rounded border text-center">
-          <h2 className="text-xl font-medium mb-4">Unauthorized Access</h2>
+        <div className="bg-gray-100 p-4 rounded border text-center -mx-[85px] -mt-12">
+          <h2 className="text-xl font-bold mb-4">Unauthorized Access</h2>
           <p className="text-gray-600 mb-4">
-            You don't have permission to view this application.
+            You don't have permission to view detailed information on this application.
           </p>
           <Button onClick={() => navigate("/student/applications")}>
             Back to Applications

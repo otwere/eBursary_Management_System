@@ -1,5 +1,4 @@
-
-import  { useState } from "react";
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
@@ -14,7 +13,7 @@ import { Progress } from "@/components/ui/progress";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { EducationLevelType, FundCategory, FundAllocation } from "@/types/funds";
-import { PlusCircle, Layers, FileText, ArrowUp, ArrowDown, Filter, ArrowRight, Search, Check, X } from "lucide-react";
+import { PlusCircle, Layers, FileText, ArrowUp, ArrowDown, Filter, ArrowRight, Search, Check, X, ChevronDown, ChevronUp, Clock, User, Calendar, BookOpen, Percent, Wallet } from "lucide-react";
 import { toast } from "sonner";
 
 // Mock fund allocations
@@ -31,7 +30,11 @@ const mockFundAllocations: FundAllocation[] = [
     academicYear: "2024",
     createdAt: "2024-03-20T09:00:00.000Z",
     createdBy: "Michael Johnson",
-    status: "active"
+    status: "active",
+    beneficiaries: 125,
+    applications: 230,
+    approvalRate: 54,
+    averageAward: 4000
   },
   {
     id: "alloc-2",
@@ -45,7 +48,11 @@ const mockFundAllocations: FundAllocation[] = [
     academicYear: "2024",
     createdAt: "2024-03-20T09:15:00.000Z",
     createdBy: "Michael Johnson",
-    status: "active"
+    status: "active",
+    beneficiaries: 75,
+    applications: 150,
+    approvalRate: 50,
+    averageAward: 2667
   },
   {
     id: "alloc-3",
@@ -59,7 +66,11 @@ const mockFundAllocations: FundAllocation[] = [
     academicYear: "2024",
     createdAt: "2024-03-20T09:30:00.000Z",
     createdBy: "Michael Johnson",
-    status: "active"
+    status: "active",
+    beneficiaries: 50,
+    applications: 120,
+    approvalRate: 42,
+    averageAward: 2000
   },
   {
     id: "alloc-4",
@@ -73,7 +84,11 @@ const mockFundAllocations: FundAllocation[] = [
     academicYear: "2024",
     createdAt: "2024-03-20T09:45:00.000Z",
     createdBy: "Michael Johnson",
-    status: "active"
+    status: "active",
+    beneficiaries: 30,
+    applications: 80,
+    approvalRate: 38,
+    averageAward: 1000
   },
   {
     id: "alloc-5",
@@ -87,7 +102,11 @@ const mockFundAllocations: FundAllocation[] = [
     academicYear: "2024",
     createdAt: "2024-03-21T10:00:00.000Z",
     createdBy: "Michael Johnson",
-    status: "active"
+    status: "active",
+    beneficiaries: 80,
+    applications: 200,
+    approvalRate: 40,
+    averageAward: 5000
   },
   {
     id: "alloc-6",
@@ -101,7 +120,11 @@ const mockFundAllocations: FundAllocation[] = [
     academicYear: "2024",
     createdAt: "2024-03-21T10:15:00.000Z",
     createdBy: "Michael Johnson",
-    status: "active"
+    status: "active",
+    beneficiaries: 50,
+    applications: 130,
+    approvalRate: 38,
+    averageAward: 3000
   },
   {
     id: "alloc-7",
@@ -115,7 +138,11 @@ const mockFundAllocations: FundAllocation[] = [
     academicYear: "2024",
     createdAt: "2024-03-21T10:30:00.000Z",
     createdBy: "Michael Johnson",
-    status: "active"
+    status: "active",
+    beneficiaries: 25,
+    applications: 90,
+    approvalRate: 28,
+    averageAward: 2000
   },
   {
     id: "alloc-8",
@@ -129,7 +156,11 @@ const mockFundAllocations: FundAllocation[] = [
     academicYear: "2024",
     createdAt: "2024-03-21T10:45:00.000Z",
     createdBy: "Michael Johnson",
-    status: "active"
+    status: "active",
+    beneficiaries: 0,
+    applications: 0,
+    approvalRate: 0,
+    averageAward: 0
   }
 ];
 
@@ -171,6 +202,7 @@ const AllocationManagement = () => {
   const [fundCategories, setFundCategories] = useState<FundCategory[]>(mockFundCategories);
   const [filteredLevel, setFilteredLevel] = useState<EducationLevelType | "all">("all");
   const [filteredCategory, setFilteredCategory] = useState<string>("all");
+  const [expandedAllocationId, setExpandedAllocationId] = useState<string | null>(null);
   
   // Form state for new allocation
   const [newAllocationCategory, setNewAllocationCategory] = useState("");
@@ -195,8 +227,15 @@ const AllocationManagement = () => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
     });
+  };
+
+  // Toggle allocation details
+  const toggleAllocationDetails = (allocationId: string) => {
+    setExpandedAllocationId(expandedAllocationId === allocationId ? null : allocationId);
   };
 
   // Get allocations by category and level
@@ -260,7 +299,11 @@ const AllocationManagement = () => {
       academicYear: category.academicYear,
       createdAt: new Date().toISOString(),
       createdBy: "Michael Johnson", // Would come from auth context in real app
-      status: "active"
+      status: "active",
+      beneficiaries: 0,
+      applications: 0,
+      approvalRate: 0,
+      averageAward: 0
     };
 
     // Update the category's allocated amount
@@ -563,45 +606,197 @@ const AllocationManagement = () => {
               <TableBody>
                 {getFilteredAllocations().map(allocation => {
                   const category = getCategoryById(allocation.categoryId);
+                  const isExpanded = expandedAllocationId === allocation.id;
+                  
                   return (
-                    <TableRow key={allocation.id}>
-                      <TableCell>
-                        <div className="font-medium">{allocation.educationLevel}</div>
-                        <div className="text-sm text-gray-500">{allocation.description}</div>
-                      </TableCell>
-                      <TableCell>
-                        <Badge variant="outline" className={
-                          category?.name === "Bursary" ? "border-blue-200 text-blue-800 bg-blue-100" : "border-green-200 text-green-800 bg-green-100"
-                        }>
-                          {category?.name || "Unknown"}
-                        </Badge>
-                      </TableCell>
-                      <TableCell>{formatCurrency(allocation.amount)}</TableCell>
-                      <TableCell>
-                        <div className="flex items-center">
-                          <span className="mr-2">{formatCurrency(allocation.allocatedAmount)}</span>
-                          {allocation.allocatedAmount > 0 && (
-                            <Badge className="text-xs bg-green-200 text-green-700" variant="outline">
-                              {Math.round((allocation.allocatedAmount / allocation.amount) * 100)}%
-                            </Badge>
-                          )}
-                        </div>
-                      </TableCell>
-                      <TableCell>{formatCurrency(allocation.disbursedAmount)}</TableCell>
-                      <TableCell className="font-medium">{formatCurrency(allocation.remainingAmount)}</TableCell>
-                      <TableCell>
-                        <Badge variant={allocation.status === "active" ? "default" : "secondary"} className="capitalize">
-                          {allocation.status}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="text-sm text-nowrap">{formatDate(allocation.createdAt)}</TableCell>
-                      <TableCell className="text-right">
-                        <Button variant="ghost" size="sm">
-                          <Search className="h-4 w-4 mr-1" />
-                          View Details
-                        </Button>
-                      </TableCell>
-                    </TableRow>
+                    <>
+                      <TableRow key={allocation.id}>
+                        <TableCell>
+                          <div className="font-medium">{allocation.educationLevel}</div>
+                          <div className="text-sm text-gray-500">{allocation.description}</div>
+                        </TableCell>
+                        <TableCell>
+                          <Badge variant="outline" className={
+                            category?.name === "Bursary" ? "border-blue-200 text-blue-800 bg-blue-100" : "border-green-200 text-green-800 bg-green-100"
+                          }>
+                            {category?.name || "Unknown"}
+                          </Badge>
+                        </TableCell>
+                        <TableCell>{formatCurrency(allocation.amount)}</TableCell>
+                        <TableCell>
+                          <div className="flex items-center">
+                            <span className="mr-2">{formatCurrency(allocation.allocatedAmount)}</span>
+                            {allocation.allocatedAmount > 0 && (
+                              <Badge className="text-xs bg-green-200 text-green-700" variant="outline">
+                                {Math.round((allocation.allocatedAmount / allocation.amount) * 100)}%
+                              </Badge>
+                            )}
+                          </div>
+                        </TableCell>
+                        <TableCell>{formatCurrency(allocation.disbursedAmount)}</TableCell>
+                        <TableCell className="font-medium">{formatCurrency(allocation.remainingAmount)}</TableCell>
+                        <TableCell>
+                          <Badge variant={allocation.status === "active" ? "default" : "secondary"} className="capitalize">
+                            {allocation.status}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="text-sm text-nowrap">{formatDate(allocation.createdAt)}</TableCell>
+                        <TableCell className="text-right">
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => toggleAllocationDetails(allocation.id)}
+                          >
+                            <Search className="h-4 w-4 mr-1" />
+                            {isExpanded ? "Hide Details" : "View Details"}
+                            {isExpanded ? (
+                              <ChevronUp className="h-4 w-4 ml-1" />
+                            ) : (
+                              <ChevronDown className="h-4 w-4 ml-1" />
+                            )}
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                      
+                      {isExpanded && (
+                        <TableRow className="bg-gray-50 hover:bg-gray-50">
+                          <TableCell colSpan={9} className="p-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                              {/* Allocation Details */}
+                              <Card className="border-l-4 border-l-blue-500">
+                                <CardHeader className="pb-2">
+                                  <CardTitle className="text-lg flex items-center">
+                                    <BookOpen className="h-5 w-5 mr-2 text-blue-500" />
+                                    Allocation Details
+                                  </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                  <div className="space-y-2">
+                                    <div className="flex justify-between">
+                                      <span className="text-sm text-gray-500">Academic Year</span>
+                                      <span className="font-medium">{allocation.academicYear}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                      <span className="text-sm text-gray-500">Created By</span>
+                                      <span className="font-medium">{allocation.createdBy}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                      <span className="text-sm text-gray-500">Created On</span>
+                                      <span className="font-medium">{formatDate(allocation.createdAt)}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                      <span className="text-sm text-gray-500">Description</span>
+                                      <span className="font-medium text-right max-w-[200px]">{allocation.description}</span>
+                                    </div>
+                                  </div>
+                                </CardContent>
+                              </Card>
+                              
+                              {/* Financial Summary */}
+                              <Card className="border-l-4 border-l-green-500">
+                                <CardHeader className="pb-2">
+                                  <CardTitle className="text-lg flex items-center">
+                                    <Wallet className="h-5 w-5 mr-2 text-green-500" />
+                                    Financial Summary
+                                  </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                  <div className="space-y-2">
+                                    <div className="flex justify-between">
+                                      <span className="text-sm text-gray-500">Total Amount</span>
+                                      <span className="font-medium">{formatCurrency(allocation.amount)}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                      <span className="text-sm text-gray-500">Allocated</span>
+                                      <span className="font-medium">
+                                        {formatCurrency(allocation.allocatedAmount)} ({Math.round((allocation.allocatedAmount / allocation.amount) * 100)}%)
+                                      </span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                      <span className="text-sm text-gray-500">Disbursed</span>
+                                      <span className="font-medium">
+                                        {formatCurrency(allocation.disbursedAmount)} ({Math.round((allocation.disbursedAmount / allocation.amount) * 100)}%)
+                                      </span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                      <span className="text-sm text-gray-500">Remaining</span>
+                                      <span className="font-medium">
+                                        {formatCurrency(allocation.remainingAmount)} ({Math.round((allocation.remainingAmount / allocation.amount) * 100)}%)
+                                      </span>
+                                    </div>
+                                  </div>
+                                </CardContent>
+                              </Card>
+                              
+                              {/* Beneficiary Stats */}
+                              <Card className="border-l-4 border-l-purple-500">
+                                <CardHeader className="pb-2">
+                                  <CardTitle className="text-lg flex items-center">
+                                    <User className="h-5 w-5 mr-2 text-purple-500" />
+                                    Beneficiary Stats
+                                  </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                  <div className="space-y-2">
+                                    <div className="flex justify-between">
+                                      <span className="text-sm text-gray-500">Total Beneficiaries</span>
+                                      <span className="font-medium">{allocation.beneficiaries}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                      <span className="text-sm text-gray-500">Applications Received</span>
+                                      <span className="font-medium">{allocation.applications}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                      <span className="text-sm text-gray-500">Approval Rate</span>
+                                      <span className="font-medium">{allocation.approvalRate}%</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                      <span className="text-sm text-gray-500">Average Award</span>
+                                      <span className="font-medium">{formatCurrency(allocation.averageAward)}</span>
+                                    </div>
+                                  </div>
+                                </CardContent>
+                              </Card>
+                              
+                              {/* Utilization Metrics */}
+                              <Card className="border-l-4 border-l-amber-500">
+                                <CardHeader className="pb-2">
+                                  <CardTitle className="text-lg flex items-center">
+                                    <Percent className="h-5 w-5 mr-2 text-amber-500" />
+                                    Utilization Metrics
+                                  </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                  <div className="space-y-4">
+                                    <div>
+                                      <div className="flex justify-between text-sm mb-1">
+                                        <span className="text-gray-500">Allocation Utilization</span>
+                                        <span>{Math.round((allocation.allocatedAmount / allocation.amount) * 100)}%</span>
+                                      </div>
+                                      <Progress value={(allocation.allocatedAmount / allocation.amount) * 100} className="h-2" />
+                                    </div>
+                                    <div>
+                                      <div className="flex justify-between text-sm mb-1">
+                                        <span className="text-gray-500">Disbursement Rate</span>
+                                        <span>{Math.round((allocation.disbursedAmount / allocation.allocatedAmount) * 100)}%</span>
+                                      </div>
+                                      <Progress value={(allocation.disbursedAmount / allocation.allocatedAmount) * 100} className="h-2" />
+                                    </div>
+                                    <div>
+                                      <div className="flex justify-between text-sm mb-1">
+                                        <span className="text-gray-500">Funds Utilization</span>
+                                        <span>{Math.round((allocation.disbursedAmount / allocation.amount) * 100)}%</span>
+                                      </div>
+                                      <Progress value={(allocation.disbursedAmount / allocation.amount) * 100} className="h-2" />
+                                    </div>
+                                  </div>
+                                </CardContent>
+                              </Card>
+                            </div>
+                          </TableCell>
+                        </TableRow>
+                      )}
+                    </>
                   );
                 })}
 
@@ -644,7 +839,7 @@ const AllocationManagement = () => {
                 <SelectContent>
                   {fundCategories.map(category => (
                     <SelectItem key={category.id} value={category.id}>
-                      {category.name} - {formatCurrency(category.remainingAmount)} remaining
+                      {category.name} - {formatCurrency(category.remainingAmount)} remaining (Balance)
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -674,7 +869,7 @@ const AllocationManagement = () => {
                 onValueChange={(value) => setNewAllocationLevel(value as EducationLevelType)}
               >
                 <SelectTrigger>
-                  <SelectValue placeholder="Select education level" />
+                  <SelectValue placeholder="Select Education Level for Allocation" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="University">University</SelectItem>

@@ -1,5 +1,4 @@
 
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -159,8 +158,8 @@ const FAODashboard = () => {
     <DashboardLayout title="Funds Manager - Dashboard">
       <div className="space-y-6 lg:-mx-[80px] mt-[-4rem]">
         {/* Overview section */}
-        <div className="flex justify-between items-center border-l-4  border-l-green-500 rounded h-16">
-          <div className="pl-2">
+        <div className="flex justify-between items-center border-l-4  border-l-green-500 rounded-none h-20 border-b-2">
+          <div className="pl-2 mb-5">
             <h1 className="text-xl font-bold text-blue-800">Funds Manager Allocation Dashboard</h1>
             <p className="text-muted-foreground text-sm -mt-1">
               Manage Funds Approves & Allocate  Bursary & Scholarship Applications
@@ -180,8 +179,8 @@ const FAODashboard = () => {
 
         {/* Budget overview */}
         <Card>
-          <CardHeader className="border-l-4 border-l-blue-500 mb-4 border-b-2 rounded">
-            <CardTitle className="text-xl -mb-2 text-blue-800 font-bold">Budget Overview</CardTitle>
+          <CardHeader className="border-l-4 border-l-blue-500 mb-4 border-b-2 rounded-none">
+            <CardTitle className="text-xl -my-2 text-blue-800 font-bold">Budget Overview</CardTitle>
             <CardDescription className="text-muted-foreground">Current Financial Period Funding Status</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">

@@ -3,7 +3,7 @@ import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogFooter, DialogTrigger } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -11,8 +11,13 @@ import { FundFloat, FundStatusType } from "@/types/funds";
 import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Archive, ArrowUpDown, Download, FileBarChart, FileClock, FileText, InfoIcon, Search, X } from "lucide-react";
+import { Archive, ArrowUpDown, Download, FileBarChart, FileClock, FileText, InfoIcon, Search, X, PlusCircle, AlertCircle, Clock, CheckCircle2, Calendar } from "lucide-react";
 import { toast } from "sonner";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Progress } from "@/components/ui/progress";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Calendar as CalendarComp } from "@/components/ui/calendar";
+import { format, isBefore, isAfter, isSameYear, addYears } from "date-fns";
 
 const ClosedFunds = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -21,8 +26,19 @@ const ClosedFunds = () => {
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("desc");
   const [isViewDetailsModalOpen, setIsViewDetailsModalOpen] = useState(false);
   const [isReopenFundModalOpen, setIsReopenFundModalOpen] = useState(false);
+  const [isCloseFundModalOpen, setIsCloseFundModalOpen] = useState(false);
   const [selectedFund, setSelectedFund] = useState<FundFloat | null>(null);
   const [reopenReason, setReopenReason] = useState("");
+  const [closureReason, setClosureReason] = useState("");
+  const [carryForwardAmount, setCarryForwardAmount] = useState(0);
+  const [newFundName, setNewFundName] = useState("");
+  const [newFundDescription, setNewFundDescription] = useState("");
+  const [newFundAmount, setNewFundAmount] = useState(0);
+  const [newFundDate, setNewFundDate] = useState<Date | undefined>(new Date());
+  const [isCreateFundModalOpen, setIsCreateFundModalOpen] = useState(false);
+  
+  // Current financial year (could be fetched from system settings)
+  const currentFinancialYear = new Date().getFullYear().toString();
   
   // Mock fund data
   const [funds, setFunds] = useState<FundFloat[]>([
@@ -75,7 +91,7 @@ const ClosedFunds = () => {
       financialPeriod: "2023-Q2",
       closedAt: "2023-07-10T09:20:00.000Z",
       closedBy: "Kevin Mwangi",
-      closureReason: "Funds Objectives met, remaining Amount to be carried forward to the next Quatre."
+      closureReason: "Funds Objectives met, remaining Amount to be carried forward to the next Quarter."
     },
     {
       id: "fund-4",
@@ -163,7 +179,9 @@ const ClosedFunds = () => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
     });
   };
   
@@ -175,9 +193,23 @@ const ClosedFunds = () => {
   
   // Handle reopening a fund
   const handleReopenFund = (fund: FundFloat) => {
+    // Check if fund is from a previous financial year
+    if (fund.academicYear !== currentFinancialYear) {
+      toast.error(`Cannot reopen funds from previous financial years (${fund.academicYear})`);
+      return;
+    }
+    
     setSelectedFund(fund);
     setReopenReason("");
     setIsReopenFundModalOpen(true);
+  };
+  
+  // Handle closing a fund
+  const handleCloseFund = (fund: FundFloat) => {
+    setSelectedFund(fund);
+    setClosureReason("");
+    setCarryForwardAmount(fund.remainingAmount);
+    setIsCloseFundModalOpen(true);
   };
   
   // Submit fund reopening
@@ -195,9 +227,12 @@ const ClosedFunds = () => {
         ? {
             ...fund,
             status: "active" as FundStatusType,
-            closedAt: new Date().toISOString(), // Update closedAt to current timestamp
+            closedAt: undefined,
             closedBy: undefined,
             closureReason: undefined,
+            reopenReason,
+            reopenedAt: new Date().toISOString(),
+            reopenedBy: "Current User" // In a real app, this would be the logged in user
           }
         : fund
     );
@@ -205,6 +240,95 @@ const ClosedFunds = () => {
     setFunds(updatedFunds);
     setIsReopenFundModalOpen(false);
     toast.success(`Fund "${selectedFund.name}" has been reopened successfully at ${new Date().toLocaleString()}`);
+  };
+  
+  // Submit fund closure
+  const handleSubmitCloseFund = () => {
+    if (!selectedFund) return;
+    
+    if (!closureReason.trim()) {
+      toast.error("Please provide a reason for closing this fund");
+      return;
+    }
+    
+    if (carryForwardAmount > selectedFund.remainingAmount) {
+      toast.error("Carry forward amount cannot exceed remaining balance");
+      return;
+    }
+    
+    // Update the fund status with the current timestamp
+    const updatedFunds = funds.map(fund =>
+      fund.id === selectedFund.id
+        ? {
+            ...fund,
+            status: "closed" as FundStatusType,
+            closedAt: new Date().toISOString(),
+            closedBy: "Current User", // In a real app, this would be the logged in user
+            closureReason,
+            remainingAmount: selectedFund.remainingAmount - carryForwardAmount,
+            carryForwardAmount
+          }
+        : fund
+    );
+    
+    setFunds(updatedFunds);
+    setIsCloseFundModalOpen(false);
+    toast.success(`Fund "${selectedFund.name}" has been closed successfully at ${new Date().toLocaleString()}`);
+    
+    // If there's an amount to carry forward, create a new fund
+    if (carryForwardAmount > 0) {
+      const newFund: FundFloat = {
+        id: `fund-${Date.now()}`,
+        name: `${selectedFund.academicYear} Carry Forward Fund`,
+        description: `Carry forward from ${selectedFund.name} | ${closureReason}`,
+        amount: carryForwardAmount,
+        academicYear: selectedFund.academicYear,
+        createdAt: new Date().toISOString(),
+        createdBy: "Current User",
+        status: "active",
+        allocatedAmount: 0,
+        disbursedAmount: 0,
+        remainingAmount: carryForwardAmount,
+        financialPeriod: selectedFund.financialPeriod,
+        sourceFundId: selectedFund.id
+      };
+      
+      setFunds(prev => [...prev, newFund]);
+      toast.success(`New carry forward fund created with ${formatCurrency(carryForwardAmount)}`);
+    }
+  };
+  
+  // Handle creating a new fund
+  const handleCreateFund = () => {
+    if (!newFundName.trim() || !newFundDescription.trim() || newFundAmount <= 0 || !newFundDate) {
+      toast.error("Please fill all required fields with valid values");
+      return;
+    }
+    
+    const academicYear = newFundDate.getFullYear().toString();
+    
+    const newFund: FundFloat = {
+      id: `fund-${Date.now()}`,
+      name: newFundName,
+      description: newFundDescription,
+      amount: newFundAmount,
+      academicYear,
+      createdAt: newFundDate.toISOString(),
+      createdBy: "Current User",
+      status: "active",
+      allocatedAmount: 0,
+      disbursedAmount: 0,
+      remainingAmount: newFundAmount,
+      financialPeriod: academicYear
+    };
+    
+    setFunds(prev => [...prev, newFund]);
+    setIsCreateFundModalOpen(false);
+    setNewFundName("");
+    setNewFundDescription("");
+    setNewFundAmount(0);
+    setNewFundDate(new Date());
+    toast.success(`New fund "${newFundName}" created successfully`);
   };
   
   // Calculate total values
@@ -240,16 +364,26 @@ const ClosedFunds = () => {
     toast.success(`Exporting report for "${fund.name}"`);
   };
   
+  // Check if a fund can be closed (must be active and not already closed)
+  const canCloseFund = (fund: FundFloat) => {
+    return fund.status === "active";
+  };
+  
+  // Check if a fund can be reopened (must be closed and from current financial year)
+  const canReopenFund = (fund: FundFloat) => {
+    return fund.status === "closed" && fund.academicYear === currentFinancialYear;
+  };
+  
   return (
-    <DashboardLayout title="Closure & Reopening of Funds ">
+    <DashboardLayout title="Funds Management System">
       <div className="space-y-6 lg:-mx-[90px] mt-[-4rem]">
         <Card>
           <CardHeader>
             <div className="flex flex-col sm:flex-row justify-between gap-4 border-b-2">
               <div className="border-l-4 border-l-red-500 pl-2 rounded  w-full h-16">
-                <CardTitle className="text-xl font-bold text-blue-800">Funds Closure & Reopen Management</CardTitle>
+                <CardTitle className="text-xl font-bold text-blue-800">Funds Management System</CardTitle>
                 <CardDescription className="text-muted-foreground -mt-1">
-                  View and Manage Active and Closed Funds
+                  Comprehensive management of funds including creation, closure, and reopening
                 </CardDescription>
               </div>
             </div>
@@ -258,22 +392,113 @@ const ClosedFunds = () => {
             <Tabs defaultValue={activeTab} onValueChange={(value) => setActiveTab(value as FundStatusType | "all")} className="w-full">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
                 <TabsList className="space-x-40">
-                  <TabsTrigger value="all">All Created Funds</TabsTrigger>
+                  <TabsTrigger value="all">All Funds</TabsTrigger>
                   <TabsTrigger value="active">Active</TabsTrigger>
                   <TabsTrigger value="closed">Closed</TabsTrigger>
                   <TabsTrigger value="pending">Pending</TabsTrigger>
                   <TabsTrigger value="depleted">Depleted</TabsTrigger>
                 </TabsList>
                 
-                <div className="relative w-full sm:w-auto">
-                  <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-400" />
-                  <Input 
-                    type="search" 
-                    placeholder="Search funds..." 
-                    className="pl-9 w-full sm:w-[300px]"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                  />
+                <div className="flex items-center gap-2">
+                  <div className="relative w-full sm:w-auto">
+                    <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-400" />
+                    <Input 
+                      type="search" 
+                      placeholder="Search funds..." 
+                      className="pl-9 w-full sm:w-[300px]"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                  </div>
+                  
+                  <Dialog open={isCreateFundModalOpen} onOpenChange={setIsCreateFundModalOpen}>
+                    <DialogTrigger asChild>
+                      <Button className="hidden sm:flex">
+                        <PlusCircle className="h-4 w-4 mr-2" />
+                        Create Fund
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[625px]">
+                      <DialogHeader className="border-l-4 border-l-blue-500 pl-2">
+                        <DialogTitle>Create New Fund</DialogTitle>
+                        <DialogDescription>
+                          Fill in the details to create a new fund allocation
+                        </DialogDescription>
+                      </DialogHeader>
+                      <div className="grid gap-4 py-4">
+                        <div className="grid grid-cols-4 items-center gap-4">
+                          <Label htmlFor="fund-name" className="text-right">
+                            Fund Name
+                          </Label>
+                          <Input
+                            id="fund-name"
+                            value={newFundName}
+                            onChange={(e) => setNewFundName(e.target.value)}
+                            className="col-span-3"
+                            placeholder="e.g. 2024 Q3 Bursary Fund"
+                          />
+                        </div>
+                        <div className="grid grid-cols-4 items-center gap-4">
+                          <Label htmlFor="fund-description" className="text-right">
+                            Description
+                          </Label>
+                          <Textarea
+                            id="fund-description"
+                            value={newFundDescription}
+                            onChange={(e) => setNewFundDescription(e.target.value)}
+                            className="col-span-3"
+                            placeholder="Detailed description of the fund purpose"
+                            rows={3}
+                          />
+                        </div>
+                        <div className="grid grid-cols-4 items-center gap-4">
+                          <Label htmlFor="fund-amount" className="text-right">
+                            Amount (KES)
+                          </Label>
+                          <Input
+                            id="fund-amount"
+                            type="number"
+                            value={newFundAmount}
+                            onChange={(e) => setNewFundAmount(Number(e.target.value))}
+                            className="col-span-3"
+                            placeholder="Enter amount in KES"
+                          />
+                        </div>
+                        <div className="grid grid-cols-4 items-center gap-4">
+                          <Label htmlFor="fund-date" className="text-right">
+                            Creation Date
+                          </Label>
+                          <Popover>
+                            <PopoverTrigger asChild>
+                              <Button
+                                variant={"outline"}
+                                className="col-span-3 justify-start text-left font-normal"
+                              >
+                                <Calendar className="mr-2 h-4 w-4" />
+                                {newFundDate ? format(newFundDate, "PPP") : <span>Pick a date</span>}
+                              </Button>
+                            </PopoverTrigger>
+                            <PopoverContent className="w-auto p-0">
+                              <CalendarComp
+                                mode="single"
+                                selected={newFundDate}
+                                onSelect={setNewFundDate}
+                                initialFocus
+                              />
+                            </PopoverContent>
+                          </Popover>
+                        </div>
+                      </div>
+                      <DialogFooter>
+                        <Button type="button" variant="outline" onClick={() => setIsCreateFundModalOpen(false)}>
+                          Cancel
+                        </Button>
+                        <Button type="button" onClick={handleCreateFund}>
+                          Create Fund
+                        </Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
                 </div>
               </div>
               
@@ -285,10 +510,14 @@ const ClosedFunds = () => {
                   handleSort={handleSort}
                   handleViewFundDetails={handleViewFundDetails}
                   handleReopenFund={handleReopenFund}
+                  handleCloseFund={handleCloseFund}
                   handleExportReport={handleExportReport}
                   formatCurrency={formatCurrency}
                   formatDate={formatDate}
                   getStatusBadgeColor={getStatusBadgeColor}
+                  canCloseFund={canCloseFund}
+                  canReopenFund={canReopenFund}
+                  currentFinancialYear={currentFinancialYear}
                 />
               </TabsContent>
               
@@ -300,10 +529,14 @@ const ClosedFunds = () => {
                   handleSort={handleSort}
                   handleViewFundDetails={handleViewFundDetails}
                   handleReopenFund={handleReopenFund}
+                  handleCloseFund={handleCloseFund}
                   handleExportReport={handleExportReport}
                   formatCurrency={formatCurrency}
                   formatDate={formatDate}
                   getStatusBadgeColor={getStatusBadgeColor}
+                  canCloseFund={canCloseFund}
+                  canReopenFund={canReopenFund}
+                  currentFinancialYear={currentFinancialYear}
                 />
               </TabsContent>
               
@@ -315,10 +548,14 @@ const ClosedFunds = () => {
                   handleSort={handleSort}
                   handleViewFundDetails={handleViewFundDetails}
                   handleReopenFund={handleReopenFund}
+                  handleCloseFund={handleCloseFund}
                   handleExportReport={handleExportReport}
                   formatCurrency={formatCurrency}
                   formatDate={formatDate}
                   getStatusBadgeColor={getStatusBadgeColor}
+                  canCloseFund={canCloseFund}
+                  canReopenFund={canReopenFund}
+                  currentFinancialYear={currentFinancialYear}
                 />
               </TabsContent>
               
@@ -330,10 +567,14 @@ const ClosedFunds = () => {
                   handleSort={handleSort}
                   handleViewFundDetails={handleViewFundDetails}
                   handleReopenFund={handleReopenFund}
+                  handleCloseFund={handleCloseFund}
                   handleExportReport={handleExportReport}
                   formatCurrency={formatCurrency}
                   formatDate={formatDate}
                   getStatusBadgeColor={getStatusBadgeColor}
+                  canCloseFund={canCloseFund}
+                  canReopenFund={canReopenFund}
+                  currentFinancialYear={currentFinancialYear}
                 />
               </TabsContent>
               
@@ -345,10 +586,14 @@ const ClosedFunds = () => {
                   handleSort={handleSort}
                   handleViewFundDetails={handleViewFundDetails}
                   handleReopenFund={handleReopenFund}
+                  handleCloseFund={handleCloseFund}
                   handleExportReport={handleExportReport}
                   formatCurrency={formatCurrency}
                   formatDate={formatDate}
                   getStatusBadgeColor={getStatusBadgeColor}
+                  canCloseFund={canCloseFund}
+                  canReopenFund={canReopenFund}
+                  currentFinancialYear={currentFinancialYear}
                 />
               </TabsContent>
             </Tabs>
@@ -464,33 +709,89 @@ const ClosedFunds = () => {
                     </p>
                   </div>
                 </div>
+                
+                {/* Progress bars for visualization */}
+                <div className="space-y-2 mt-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium text-gray-700">Allocation Progress</span>
+                    <span className="text-sm text-gray-500">
+                      {((selectedFund.allocatedAmount / selectedFund.amount) * 100).toFixed(1)}%
+                    </span>
+                  </div>
+                  <Progress 
+                    value={(selectedFund.allocatedAmount / selectedFund.amount) * 100} 
+                    className="h-2 bg-gray-200"
+                    indicatorClassName="bg-lime-500"
+                  />
+                  
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium text-gray-700">Disbursement Progress</span>
+                    <span className="text-sm text-gray-500">
+                      {((selectedFund.disbursedAmount / selectedFund.amount) * 100).toFixed(1)}%
+                    </span>
+                  </div>
+                  <Progress 
+                    value={(selectedFund.disbursedAmount / selectedFund.amount) * 100} 
+                    className="h-2 bg-gray-200"
+                    indicatorClassName="bg-green-500"
+                  />
+                </div>
               </div>
               
               {selectedFund.status === "closed" && selectedFund.closureReason && (
                 <div className="space-y-2 rounded">
-                  <h4 className="font-bold text-gray-800">Closure Reason</h4>
-                  <p className="text-sm text-gray-600 p-3 rounded border bg-red-50">
-                    {selectedFund.closureReason}
-                  </p>
+                  <h4 className="font-bold text-gray-800">Closure Details</h4>
+                  <div className="p-3 rounded border bg-red-50">
+                    <p className="text-sm font-medium text-gray-700">Reason:</p>
+                    <p className="text-sm text-gray-600">{selectedFund.closureReason}</p>
+                    
+                    {selectedFund.carryForwardAmount && selectedFund.carryForwardAmount > 0 && (
+                      <>
+                        <p className="text-sm font-medium text-gray-700 mt-2">Carry Forward:</p>
+                        <p className="text-sm text-gray-600">
+                          {formatCurrency(selectedFund.carryForwardAmount)} was carried forward to a new fund
+                        </p>
+                      </>
+                    )}
+                  </div>
                 </div>
               )}
             </div>
           )}
           
           <DialogFooter className="flex flex-col sm:flex-row gap-2">
-            {selectedFund?.status === "closed" && (
-              <Button 
-                variant="outline" 
-                className="sm:mr-auto"
-                onClick={() => {
-                  setIsViewDetailsModalOpen(false);
-                  handleReopenFund(selectedFund);
-                }}
-              >
-                <Archive className="h-4 w-4 mr-1 rotate-180" />
-                Reopen Fund
-              </Button>
+            {selectedFund && (
+              <>
+                {selectedFund.status === "closed" && canReopenFund(selectedFund) && (
+                  <Button 
+                    variant="outline" 
+                    className="sm:mr-auto"
+                    onClick={() => {
+                      setIsViewDetailsModalOpen(false);
+                      handleReopenFund(selectedFund);
+                    }}
+                  >
+                    <Archive className="h-4 w-4 mr-1 rotate-180" />
+                    Reopen Fund
+                  </Button>
+                )}
+                
+                {selectedFund.status === "active" && canCloseFund(selectedFund) && (
+                  <Button 
+                    variant="outline" 
+                    className="sm:mr-auto"
+                    onClick={() => {
+                      setIsViewDetailsModalOpen(false);
+                      handleCloseFund(selectedFund);
+                    }}
+                  >
+                    <Archive className="h-4 w-4 mr-1" />
+                    Close Fund
+                  </Button>
+                )}
+              </>
             )}
+            
             <Button 
               variant="outline"
               onClick={() => selectedFund && handleExportReport(selectedFund)}
@@ -522,8 +823,26 @@ const ClosedFunds = () => {
                 <p className="text-sm text-gray-500">{selectedFund.description}</p>
               </div>
               
+              <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <AlertCircle className="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                  </div>
+                  <div className="ml-3">
+                    <h3 className="text-sm font-medium text-yellow-800">Important Notice</h3>
+                    <div className="mt-2 text-sm text-yellow-700">
+                      <p>
+                        Reopening a fund will make it available for allocations again. 
+                        This action should only be performed if the fund needs to be active 
+                        within the current financial year ({currentFinancialYear}).
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
               <div className="space-y-2">
-                <Label htmlFor="reopen-reason">Reason for Reopening</Label>
+                <Label htmlFor="reopen-reason">Reason for Reopening *</Label>
                 <Textarea
                   id="reopen-reason"
                   value={reopenReason}
@@ -531,6 +850,9 @@ const ClosedFunds = () => {
                   placeholder="Enter the reason for reopening this fund..."
                   rows={4}
                 />
+                <p className="text-xs text-gray-500">
+                  Provide a detailed explanation for reopening this fund. This will be recorded in the audit log.
+                </p>
               </div>
             </div>
           )}
@@ -540,7 +862,115 @@ const ClosedFunds = () => {
               Cancel
             </Button>
             <Button onClick={handleSubmitReopenFund}>
-              Reopen Fund
+              Confirm Reopen
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+      
+      {/* Close Fund Modal */}
+      <Dialog open={isCloseFundModalOpen} onOpenChange={setIsCloseFundModalOpen}>
+        <DialogContent className="lg:max-w-5xl sm:max-w-xl bg-gray-50">
+          <DialogHeader className="border-l-4 border-l-blue-500 pl-2 rounded h-12 border-b-2">
+            <DialogTitle className="font-bold text-gray-800 mb-[-0.4rem]">Close Fund</DialogTitle>
+            <DialogDescription className="text-muted-foreground">
+              Close this fund and optionally carry forward remaining balance
+            </DialogDescription>
+          </DialogHeader>
+          
+          {selectedFund && (
+            <div className="space-y-4 py-4">
+              <div className="space-y-1">
+                <h3 className="font-bold text-gray-800">{selectedFund.name}</h3>
+                <p className="text-sm text-gray-500">{selectedFund.description}</p>
+              </div>
+              
+              <div className="bg-blue-50 border-l-4 border-blue-400 p-4">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <InfoIcon className="h-5 w-5 text-blue-400" aria-hidden="true" />
+                  </div>
+                  <div className="ml-3">
+                    <h3 className="text-sm font-medium text-blue-800">Fund Status</h3>
+                    <div className="mt-2 text-sm text-blue-700">
+                      <p>
+                        Current remaining balance: {formatCurrency(selectedFund.remainingAmount)}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="closure-reason">Reason for Closure *</Label>
+                <Textarea
+                  id="closure-reason"
+                  value={closureReason}
+                  onChange={(e) => setClosureReason(e.target.value)}
+                  placeholder="Enter the reason for closing this fund..."
+                  rows={4}
+                />
+                <p className="text-xs text-gray-500">
+                  Provide a detailed explanation for closing this fund. This will be recorded in the audit log.
+                </p>
+              </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="carry-forward">Amount to Carry Forward</Label>
+                <div className="flex items-center gap-2">
+                  <Input
+                    id="carry-forward"
+                    type="number"
+                    value={carryForwardAmount}
+                    onChange={(e) => setCarryForwardAmount(Number(e.target.value))}
+                    placeholder="Enter amount to carry forward"
+                    min={0}
+                    max={selectedFund.remainingAmount}
+                  />
+                  <Button 
+                    variant="outline" 
+                    onClick={() => setCarryForwardAmount(selectedFund.remainingAmount)}
+                  >
+                    Full Amount
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    onClick={() => setCarryForwardAmount(0)}
+                  >
+                    None
+                  </Button>
+                </div>
+                <p className="text-xs text-gray-500">
+                  Specify the amount to carry forward to a new fund (if any). The remaining balance will be closed.
+                </p>
+              </div>
+              
+              {carryForwardAmount > 0 && (
+                <div className="bg-green-50 border-l-4 border-green-400 p-4">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <CheckCircle2 className="h-5 w-5 text-green-400" aria-hidden="true" />
+                    </div>
+                    <div className="ml-3">
+                      <h3 className="text-sm font-medium text-green-800">New Fund Creation</h3>
+                      <div className="mt-2 text-sm text-green-700">
+                        <p>
+                          A new fund will be created with {formatCurrency(carryForwardAmount)} from this fund's balance.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+          
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setIsCloseFundModalOpen(false)}>
+              Cancel
+            </Button>
+            <Button onClick={handleSubmitCloseFund}>
+              Confirm Closure
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -557,10 +987,14 @@ interface FundTableProps {
   handleSort: (column: keyof FundFloat) => void;
   handleViewFundDetails: (fund: FundFloat) => void;
   handleReopenFund: (fund: FundFloat) => void;
+  handleCloseFund: (fund: FundFloat) => void;
   handleExportReport: (fund: FundFloat) => void;
   formatCurrency: (amount: number) => string;
   formatDate: (dateString?: string) => string;
   getStatusBadgeColor: (status: FundStatusType) => string;
+  canCloseFund: (fund: FundFloat) => boolean;
+  canReopenFund: (fund: FundFloat) => boolean;
+  currentFinancialYear: string;
 }
 
 const FundTable: React.FC<FundTableProps> = ({
@@ -570,10 +1004,14 @@ const FundTable: React.FC<FundTableProps> = ({
   handleSort,
   handleViewFundDetails,
   handleReopenFund,
+  handleCloseFund,
   handleExportReport,
   formatCurrency,
   formatDate,
-  getStatusBadgeColor
+  getStatusBadgeColor,
+  canCloseFund,
+  canReopenFund,
+  currentFinancialYear
 }) => {
   // If no funds, show message
   if (funds.length === 0) {
@@ -683,7 +1121,23 @@ const FundTable: React.FC<FundTableProps> = ({
                   {fund.description}
                 </div>
               </TableCell>
-              <TableCell>{fund.academicYear}</TableCell>
+              <TableCell>
+                <div className="flex items-center gap-1">
+                  {fund.academicYear}
+                  {fund.academicYear !== currentFinancialYear && (
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <FileClock className="h-4 w-4 text-gray-400" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Previous financial year</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  )}
+                </div>
+              </TableCell>
               <TableCell>{formatCurrency(fund.amount)}</TableCell>
               <TableCell>
                 <div className="space-y-1">
@@ -720,7 +1174,19 @@ const FundTable: React.FC<FundTableProps> = ({
                   >
                     <FileText className="h-4 w-4" />
                   </Button>
-                  {fund.status === "closed" && (
+                  
+                  {canCloseFund(fund) && (
+                    <Button 
+                      variant="ghost" 
+                      size="icon"
+                      onClick={() => handleCloseFund(fund)}
+                      title="Close Fund"
+                    >
+                      <Archive className="h-4 w-4" />
+                    </Button>
+                  )}
+                  
+                  {canReopenFund(fund) && (
                     <Button 
                       variant="ghost" 
                       size="icon"

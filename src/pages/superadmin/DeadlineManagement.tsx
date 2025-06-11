@@ -47,7 +47,7 @@ import { format, addDays } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-// import { CSVLink } from "react-csv";
+import { CSVLink } from "react-csv";
 
 const deadlineFormSchema = z.object({
   institutionType: z.enum(["Secondary", "TVET", "College", "University"] as const, {
@@ -290,7 +290,7 @@ const DeadlineManagement: React.FC = () => {
 
   return (
     <DashboardLayout title="Application Deadline Management">
-      <div className="space-y-6 lg:-mx-[85px]  mt-[-3.5rem]">
+      <div className="space-y-6 lg:-mx-[85px] mt-[-3.5rem]">
         <div className="flex justify-between items-center border-l-4 border-l-amber-500 pl-2 h-[4.5rem] border-b-2">
           <div className="-mt-4">
             <h1 className="text-xl text-blue-800 font-bold mb-[-0.25rem]">Application Deadlines</h1>
@@ -302,8 +302,8 @@ const DeadlineManagement: React.FC = () => {
             onClick={() => {
               form.reset({
                 institutionType: "Secondary",
-                closingDate: new Date(new Date().setDate(new Date().getDate() + 14)),
-                academicYear: new Date().getFullYear() + "-" + (new Date().getFullYear() + 1),
+                closingDate: addDays(new Date(), 14),
+                academicYear: `${new Date().getFullYear()}-${new Date().getFullYear() + 1}`,
                 description: "",
                 isActive: true,
                 notifyStudents: true,
@@ -320,19 +320,109 @@ const DeadlineManagement: React.FC = () => {
         <Card>
           <CardHeader className="flex flex-col md:flex-row md:items-center justify-between space-y-2 md:space-y-0 pb-2 border-l-4 border-l-red-500 rounded-s-sm border-b-2 mb-6">
             <CardTitle className="text-xl font-bold text-primary-800">Manage Deadlines</CardTitle>
-            <div className="relative w-full md:w-64">
-              <Input
-                placeholder="Search deadlines"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
+            <div className="flex items-center gap-4">
+              <div className="relative w-full md:w-64">
+                <Input
+                  placeholder="Search deadlines"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+              </div>
+              <Button 
+                variant="outline" 
+                onClick={() => setShowFilters(!showFilters)}
+                className="flex items-center gap-2"
+              >
+                <Filter className="h-4 w-4" />
+                Filters
+                {showFilters ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+              </Button>
+              <CSVLink 
+                data={exportData} 
+                filename="deadlines-export.csv"
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Export
+              </CSVLink>
             </div>
           </CardHeader>
+
+          {showFilters && (
+            <div className="px-6 pb-4 border-b">
+              <div className="flex flex-wrap gap-4">
+                <div>
+                  <Label className="block mb-2">Status</Label>
+                  <Select value={statusFilter} onValueChange={(v: "all" | "active" | "inactive") => setStatusFilter(v)}>
+                    <SelectTrigger className="w-[180px]">
+                      <SelectValue placeholder="Filter by status" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Statuses</SelectItem>
+                      <SelectItem value="active">Active Only</SelectItem>
+                      <SelectItem value="inactive">Inactive Only</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div>
+                  <Label className="block mb-2">Expiry</Label>
+                  <Select value={expiryFilter} onValueChange={(v: "all" | "active" | "expired") => setExpiryFilter(v)}>
+                    <SelectTrigger className="w-[180px]">
+                      <SelectValue placeholder="Filter by expiry" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Deadlines</SelectItem>
+                      <SelectItem value="active">Active (Not Expired)</SelectItem>
+                      <SelectItem value="expired">Expired Only</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {selectedDeadlines.length > 0 && (
+            <div className="px-6 py-3 bg-gray-100 border-b flex items-center justify-between">
+              <div className="text-sm text-gray-600">
+                {selectedDeadlines.length} deadline(s) selected
+              </div>
+              <div className="flex gap-2">
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => handleBulkStatusChange(true)}
+                >
+                  Activate
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => handleBulkStatusChange(false)}
+                >
+                  Deactivate
+                </Button>
+                <Button 
+                  variant="destructive" 
+                  size="sm"
+                  onClick={handleBulkDelete}
+                >
+                  Delete
+                </Button>
+              </div>
+            </div>
+          )}
+
           <CardContent>
             <div className="rounded border">
               <Table>
                 <TableHeader>
                   <TableRow>
+                    <TableHead className="w-[40px]">
+                      <Checkbox
+                        checked={selectedDeadlines.length === filteredDeadlines.length && filteredDeadlines.length > 0}
+                        onCheckedChange={toggleSelectAllDeadlines}
+                      />
+                    </TableHead>
                     <TableHead>Institution Type</TableHead>
                     <TableHead>Academic Year</TableHead>
                     <TableHead>Closing Date</TableHead>
@@ -350,11 +440,17 @@ const DeadlineManagement: React.FC = () => {
                       return (
                         <TableRow key={deadline.id}>
                           <TableCell>
+                            <Checkbox
+                              checked={selectedDeadlines.includes(deadline.id)}
+                              onCheckedChange={() => toggleSelectDeadline(deadline.id)}
+                            />
+                          </TableCell>
+                          <TableCell>
                             <div className="font-medium">
                               {deadline.institutionType}
                             </div>
                             {deadline.description && (
-                              <div className="text-xs text-gray-500 mt-1">
+                              <div className="text-xs text-gray-500 mt-1 line-clamp-1">
                                 {deadline.description}
                               </div>
                             )}
@@ -398,7 +494,7 @@ const DeadlineManagement: React.FC = () => {
                                   </PopoverTrigger>
                                   <PopoverContent className="w-auto p-2">
                                     <div className="space-y-2">
-                                      <h4 className=" text-xs">Extend Deadline</h4>
+                                      <h4 className="text-xs">Extend Deadline</h4>
                                       <div className="flex gap-2 flex-wrap">
                                         {extensionOptions.map((days) => (
                                           <Button
@@ -430,9 +526,9 @@ const DeadlineManagement: React.FC = () => {
                     })
                   ) : (
                     <TableRow>
-                      <TableCell colSpan={6} className="text-center py-6">
-                        {searchTerm 
-                          ? "No deadlines match your search" 
+                      <TableCell colSpan={7} className="text-center py-6">
+                        {searchTerm || statusFilter !== "all" || expiryFilter !== "all"
+                          ? "No deadlines match your criteria" 
                           : "No deadlines have been created yet"}
                       </TableCell>
                     </TableRow>
@@ -458,53 +554,58 @@ const DeadlineManagement: React.FC = () => {
             
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="institutionType"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Institution Type</FormLabel>
-                      <Select 
-                        onValueChange={field.onChange} 
-                        defaultValue={field.value}
-                      >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="institutionType"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Institution Type *</FormLabel>
+                        <Select 
+                          onValueChange={field.onChange} 
+                          defaultValue={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select institution type" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="Secondary">Secondary School</SelectItem>
+                            <SelectItem value="TVET">TVET Institution</SelectItem>
+                            <SelectItem value="College">College</SelectItem>
+                            <SelectItem value="University">University</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="academicYear"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Academic Year *</FormLabel>
                         <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select institution type" />
-                          </SelectTrigger>
+                          <Input placeholder="e.g. 2025-2026" {...field} />
                         </FormControl>
-                        <SelectContent>
-                          <SelectItem value="Secondary">Secondary School</SelectItem>
-                          <SelectItem value="TVET">TVET Institution</SelectItem>
-                          <SelectItem value="College">College</SelectItem>
-                          <SelectItem value="University">University</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="academicYear"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Academic Year</FormLabel>
-                      <FormControl>
-                        <Input placeholder="e.g. 2025-2026" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
+                        <FormDescription>
+                          Format: YYYY-YYYY
+                        </FormDescription>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
                 <FormField
                   control={form.control}
                   name="closingDate"
                   render={({ field }) => (
                     <FormItem className="flex flex-col">
-                      <FormLabel>Application Closing Date & Time</FormLabel>
+                      <FormLabel>Application Closing Date & Time *</FormLabel>
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
@@ -578,54 +679,59 @@ const DeadlineManagement: React.FC = () => {
                           {...field}
                         />
                       </FormControl>
+                      <FormDescription>
+                        Max 500 characters
+                      </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
                 
-                <FormField
-                  control={form.control}
-                  name="isActive"
-                  render={({ field }) => (
-                    <FormItem className="flex flex-row items-center justify-between rounded border p-3 shadow-none">
-                      <div className="space-y-0.5">
-                        <FormLabel>Active Status</FormLabel>
-                        <FormDescription>
-                          Make this deadline visible to students
-                        </FormDescription>
-                      </div>
-                      <FormControl>
-                        <Switch
-                          checked={field.value}
-                          onCheckedChange={field.onChange}
-                        />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="notifyStudents"
-                  render={({ field }) => (
-                    <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                      <FormControl>
-                        <Checkbox
-                          checked={field.value}
-                          onCheckedChange={field.onChange}
-                        />
-                      </FormControl>
-                      <div className="space-y-1 leading-none">
-                        <FormLabel>
-                          Notify eligible students
-                        </FormLabel>
-                        <FormDescription>
-                          Send notification to eligible students about this deadline
-                        </FormDescription>
-                      </div>
-                    </FormItem>
-                  )}
-                />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="isActive"
+                    render={({ field }) => (
+                      <FormItem className="flex flex-row items-center justify-between rounded border p-3 shadow-none">
+                        <div className="space-y-0.5">
+                          <FormLabel>Active Status</FormLabel>
+                          <FormDescription>
+                            Make this deadline visible to students
+                          </FormDescription>
+                        </div>
+                        <FormControl>
+                          <Switch
+                            checked={field.value}
+                            onCheckedChange={field.onChange}
+                          />
+                        </FormControl>
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="notifyStudents"
+                    render={({ field }) => (
+                      <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded border p-3">
+                        <FormControl>
+                          <Checkbox
+                            checked={field.value}
+                            onCheckedChange={field.onChange}
+                          />
+                        </FormControl>
+                        <div className="space-y-1 leading-none">
+                          <FormLabel>
+                            Notify eligible students
+                          </FormLabel>
+                          <FormDescription>
+                            Send notification to eligible students about this deadline
+                          </FormDescription>
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                </div>
                 
                 <DialogFooter>
                   <DialogClose asChild>
