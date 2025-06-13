@@ -251,10 +251,10 @@ const FundManagement = () => {
       floatNumber
     };
 
-    // In a real app, we would upload the document file here
+    //  we would upload the document file here
     if (documentFile) {
       toast.success("Proof of funds document uploaded successfully");
-      // Add to proofOfFunds array in a real app
+      // Add to proofOfFunds array here
     }
 
     setFundFloats([...fundFloats, newFund]);
