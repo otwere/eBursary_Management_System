@@ -375,7 +375,7 @@ const ClosedFunds = () => {
   };
   
   return (
-    <DashboardLayout title="Funds Management System">
+    <DashboardLayout title="Open & Close Fund">
       <div className="space-y-6 lg:-mx-[90px] mt-[-4rem]">
         <Card>
           <CardHeader>
@@ -391,7 +391,7 @@ const ClosedFunds = () => {
           <CardContent>
             <Tabs defaultValue={activeTab} onValueChange={(value) => setActiveTab(value as FundStatusType | "all")} className="w-full">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
-                <TabsList className="space-x-40">
+                <TabsList className="space-x-32">
                   <TabsTrigger value="all">All Funds</TabsTrigger>
                   <TabsTrigger value="active">Active</TabsTrigger>
                   <TabsTrigger value="closed">Closed</TabsTrigger>

@@ -919,9 +919,9 @@ const FundManagement = () => {
 
       {/* Allocate Fund Dialog */}
       <Dialog open={isAllocateOpen} onOpenChange={setIsAllocateOpen}>
-        <DialogContent className="sm:max-w-xl">
-          <DialogHeader>
-            <DialogTitle className="text-blue-800">
+        <DialogContent className="lg:max-w-4xl sm:max-w-xl bg-gray-50">
+          <DialogHeader className="border-l-4 border-l-blue-500 pl-2 border-b-2 h-16">
+            <DialogTitle className="text-blue-800 text-xl font-bold -mb-2">
               Allocate Funds to Categories
             </DialogTitle>
             <DialogDescription>
@@ -929,21 +929,21 @@ const FundManagement = () => {
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4 py-4">
-            <div className="space-y-2">
-              <Label>Available Fund Amount</Label>
-              <p className="text-xl font-bold text-green-600">
+            <div className="space-y-0 border-l-4 border-l-orange-500 pl-2">
+              <Label>Available (Balance) Fund Amount</Label>
+              <p className="text-xl font-bold text-orange-600">
                 {selectedFund ? formatCurrency(selectedFund.remainingAmount) : "N/A"}
               </p>
             </div>
 
-            <div className="space-y-4 border-t pt-4">
-              <h4 className="font-medium">Bursary Allocation</h4>
+            <div className="space-y-1 border-t pt-4">
+              <h4 className="font-medium text-primary-700">Bursary Allocation</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="bursaryAmount">Amount (KES)</Label>
                   <Input
                     id="bursaryAmount"
-                    placeholder="Enter amount"
+                    placeholder="Enter amount allocated for Bursary"
                     type="number"
                     value={bursaryAmount}
                     onChange={(e) => setBursaryAmount(e.target.value)}
@@ -961,14 +961,14 @@ const FundManagement = () => {
               </div>
             </div>
 
-            <div className="space-y-4 border-t pt-4">
-              <h4 className="font-medium">Scholarship Allocation</h4>
+            <div className="space-y-1 border-t pt-4">
+              <h4 className="font-medium text-primary-700">Scholarship Allocation</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="scholarshipAmount">Amount (KES)</Label>
                   <Input
                     id="scholarshipAmount"
-                    placeholder="Enter amount"
+                    placeholder="Enter amount allocated for Scholarship"
                     type="number"
                     value={scholarshipAmount}
                     onChange={(e) => setScholarshipAmount(e.target.value)}

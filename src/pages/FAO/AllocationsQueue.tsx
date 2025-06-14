@@ -1,16 +1,20 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { Check, Download, FileText, RefreshCw, Printer } from "lucide-react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
+import { useToast } from "@/components/ui/use-toast";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-// Import refactored components
+// Import components
 import StatCards from "@/components/FAO/AllocationsQueue/StatCards";
 import FilterControls from "@/components/FAO/AllocationsQueue/FilterControls";
 import ApplicationsTable from "@/components/FAO/AllocationsQueue/ApplicationsTable";
 import AllocateDialog from "@/components/FAO/AllocationsQueue/AllocateDialog";
 import BulkAllocateDialog from "@/components/FAO/AllocationsQueue/BulkAllocateDialog";
+import { ExportDialog } from "@/components/FAO/AllocationsQueue/ExportDialog";
 import { useAllocationsQueue } from "@/components/FAO/AllocationsQueue/hooks/useAllocationsQueue";
+
+
 
 const AllocationsQueue = () => {
   const {

@@ -172,7 +172,7 @@ const FAODashboard = () => {
             </Button>
             <Button onClick={() => navigate("/FAO/fund-management")}>
               <Plus className="h-4 w-4 mr-2" />
-              Create Funds
+              Load New Funds (Float)
             </Button>
           </div>
         </div>

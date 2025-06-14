@@ -561,7 +561,7 @@ const FinancialReports = () => {
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                   <div className="md:col-span-1">
                     <Card>
-                      <CardHeader className="border-l-4 border-l-purple-500 border-b-2 rounded">
+                      <CardHeader className="border-l-4 border-l-purple-500 border-b-2 rounded-none">
                         <CardTitle className="text-lg font-bold text-blue-800 -mb-3">Fund Categories</CardTitle>
                         <CardDescription className="text-muted-foreground">Bursary vs Scholarship Distribution</CardDescription>
                       </CardHeader>
@@ -576,7 +576,7 @@ const FinancialReports = () => {
 
                   <div className="md:col-span-2">
                     <Card>
-                      <CardHeader className="border-l-4 border-l-purple-500 border-b-2 rounded">
+                      <CardHeader className="border-l-4 border-l-purple-500 border-b-2 rounded-none">
                         <CardTitle className="text-lg text-blue-800 font-bold -mb-2">Category Details</CardTitle>
                         <CardDescription>Detailed breakdown of Fund Categories</CardDescription>
                       </CardHeader>
@@ -618,7 +618,7 @@ const FinancialReports = () => {
 
                   <div className="md:col-span-3">
                     <Card>
-                      <CardHeader className="border-l-4 border-l-purple-500 rounded border-b-2 mb-4">
+                      <CardHeader className="border-l-4 border-l-purple-500 rounded-none border-b-2 mb-4">
                         <CardTitle className="text-lg font-bold text-blue-800 -mb-2">Monthly Breakdown by Category</CardTitle>
                         <CardDescription className="text-muted-foreground">Monthly Distribution of Disbursements by Category</CardDescription>
                       </CardHeader>
@@ -1660,7 +1660,7 @@ const FinancialReports = () => {
                         {mockBeneficiaryAnalysis.beneficiariesByGender.map((gender) => (
                           <div key={gender.gender} className="space-y-2">
                             <div className="flex justify-between">
-                              <span className="font-medium">{gender.gender}</span>
+                              <span className="font-medium mt-2">{gender.gender}</span>
                               <span>{formatPercentage(gender.percentage)}</span>
                             </div>
                             <Progress value={gender.percentage} className="h-2" />
@@ -1683,11 +1683,11 @@ const FinancialReports = () => {
                         {mockBeneficiaryAnalysis.beneficiariesByDisability.map((disability) => (
                           <div key={disability.disabilityStatus} className="space-y-2">
                             <div className="flex justify-between">
-                              <span className="font-medium">{disability.disabilityStatus}</span>
+                              <span className="font-medium mt-2">{disability.disabilityStatus}</span>
                               <span>{formatPercentage(disability.percentage)}</span>
                             </div>
                             <Progress value={disability.percentage} className="h-2" />
-                            <div className="flex justify-between text-sm text-gray-500 cursor-pointer">
+                            <div className="flex justify-between text-sm text-gray-500 hover:text-muted-foreground cursor-pointer">
                               <span>Beneficiary (Students) : {disability.count}</span>
                             </div>
                           </div>

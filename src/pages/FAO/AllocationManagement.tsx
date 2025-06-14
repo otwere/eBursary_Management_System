@@ -1627,23 +1627,23 @@ const AllocationManagement = () => {
               <div className="bg-blue-50 p-3 rounded">
                 <p className="text-lg font-bold text-blue-800 mb-4">Current Utilization</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="space-y-2">
-                    <p className="text-sm text-gray-500">Allocated Amount</p>
+                  <div className="space-y-2 border-l-4 border-l-blue-500 pl-2">
+                    <p className="text-sm text-gray-500 -mb-1">Allocated Amount</p>
                     <p className="font-medium">
                       {formatCurrency(selectedAllocation.allocatedAmount)} ({calculateAllocationPercentage(selectedAllocation)}%)
                     </p>
                     <Progress value={calculateAllocationPercentage(selectedAllocation)} className="h-2" />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-2 border-l-4 border-l-green-500 pl-2">
                     <p className="text-sm text-gray-500">Disbursed Amount</p>
-                    <p className="font-medium">
+                    <p className="font-medium text-green-600">
                       {formatCurrency(selectedAllocation.disbursedAmount)} ({calculateDisbursementPercentage(selectedAllocation)}%)
                     </p>
                     <Progress value={calculateDisbursementPercentage(selectedAllocation)} className="h-2" />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-2 border-l-4  border-l-cyan-500 pl-2">
                     <p className="text-sm text-gray-500">Funds Utilization</p>
-                    <p className="font-medium">
+                    <p className="font-medium text-cyan-700">
                       {formatCurrency(selectedAllocation.disbursedAmount)} ({calculateUtilizationPercentage(selectedAllocation)}%)
                     </p>
                     <Progress value={calculateUtilizationPercentage(selectedAllocation)} className="h-2" />
