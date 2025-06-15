@@ -375,15 +375,15 @@ const ClosedFunds = () => {
   };
   
   return (
-    <DashboardLayout title="Open & Close Fund">
+    <DashboardLayout title="Close Fund">
       <div className="space-y-6 lg:-mx-[90px] mt-[-4rem]">
         <Card>
           <CardHeader>
             <div className="flex flex-col sm:flex-row justify-between gap-4 border-b-2">
               <div className="border-l-4 border-l-red-500 pl-2 rounded  w-full h-16">
-                <CardTitle className="text-xl font-bold text-blue-800">Funds Management System</CardTitle>
+                <CardTitle className="text-xl font-bold text-blue-800">Close Fund Management System</CardTitle>
                 <CardDescription className="text-muted-foreground -mt-1">
-                  Comprehensive management of funds including creation, closure, and reopening
+                  Comprehensive management of funds including closure, and reopening
                 </CardDescription>
               </div>
             </div>
@@ -391,7 +391,7 @@ const ClosedFunds = () => {
           <CardContent>
             <Tabs defaultValue={activeTab} onValueChange={(value) => setActiveTab(value as FundStatusType | "all")} className="w-full">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
-                <TabsList className="space-x-32">
+                <TabsList className="lg:space-x-44 sm:space-x-0 md:space-x-0">
                   <TabsTrigger value="all">All Funds</TabsTrigger>
                   <TabsTrigger value="active">Active</TabsTrigger>
                   <TabsTrigger value="closed">Closed</TabsTrigger>
@@ -404,7 +404,7 @@ const ClosedFunds = () => {
                     <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-400" />
                     <Input 
                       type="search" 
-                      placeholder="Search funds..." 
+                      placeholder="Search funds" 
                       className="pl-9 w-full sm:w-[300px]"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
@@ -412,17 +412,17 @@ const ClosedFunds = () => {
                   </div>
                   
                   <Dialog open={isCreateFundModalOpen} onOpenChange={setIsCreateFundModalOpen}>
-                    <DialogTrigger asChild>
+                    {/* <DialogTrigger asChild>
                       <Button className="hidden sm:flex">
                         <PlusCircle className="h-4 w-4 mr-2" />
-                        Create Fund
+                        Open New Fund
                       </Button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-[625px]">
-                      <DialogHeader className="border-l-4 border-l-blue-500 pl-2">
-                        <DialogTitle>Create New Fund</DialogTitle>
-                        <DialogDescription>
-                          Fill in the details to create a new fund allocation
+                    </DialogTrigger> */}
+                    <DialogContent className="lg:max-w-3xl sm:max-w-[625px] bg-gray-50">
+                      <DialogHeader className="border-l-4 border-l-blue-500 pl-2 border-b-2 h-16">
+                        <DialogTitle className="text-blue-800 font-bold -mb-1">Open New Fund</DialogTitle>
+                        <DialogDescription className="text-muted-foreground">
+                          Fill in the details to create a new Fund Allocation
                         </DialogDescription>
                       </DialogHeader>
                       <div className="grid gap-4 py-4">

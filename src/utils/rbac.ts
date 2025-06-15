@@ -113,7 +113,7 @@ export const getApplicationPermissions = (role: UserRole): {
       return { 
         canReview: true, 
         canAllocate: true, 
-        canDisburse: false, 
+        canDisburse: true, 
         canApprove: false,
         canSubmitToFAO: false,
         canEditAllocationAmount: true
