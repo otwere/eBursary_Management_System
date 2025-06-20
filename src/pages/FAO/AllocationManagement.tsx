@@ -124,6 +124,7 @@ const mockFundAllocations: FundAllocation[] = [
     averageAward: 3750,
     notes: "Includes technical college programs"
   },
+  
   {
     id: "alloc-3",
     categoryId: "cat-1",
@@ -876,11 +877,11 @@ const AllocationManagement = () => {
               Manage and track Fund Allocations by Education Level
             </p>
           </div>
-          <div className="flex gap-2">
-            <Button variant="outline" onClick={refreshData} disabled={isLoading}>
+          <div>
+            {/* <Button variant="outline" onClick={refreshData} disabled={isLoading}>
               <RefreshCw className={`h-4 w-4 mr-2 ${isLoading ? 'animate-spin' : ''}`} />
               Refresh
-            </Button>
+            </Button> */}
             <Button onClick={() => setIsCreateAllocationOpen(true)}>
               <PlusCircle className="h-4 w-4 mr-2" />
               Create Allocation
@@ -1080,21 +1081,21 @@ const AllocationManagement = () => {
           <CardHeader className="border-l-4 border-l-lime-500">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <CardTitle className="text-xl font-bold text-blue-800 -mb-1">Fund Allocations | FY-2024-2025-ALLOC-0011</CardTitle>
+                <CardTitle className="text-xl font-bold text-blue-800 -mb-1">Fund Allocated</CardTitle>
                 <CardDescription>
                   View and manage all Funds Allocations
                 </CardDescription>
               </div>
               <div className="flex flex-col sm:flex-row gap-2">
-                <div className="relative">
+                {/* <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                   <Input
                     placeholder="Search Allocations"
-                    className="pl-9 w-[400px]"
+                    className="pl-9 w-[200px]"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
-                </div>
+                </div> */}
                 <Select
                   value={filteredCategory}
                   onValueChange={setFilteredCategory}
@@ -1133,10 +1134,14 @@ const AllocationManagement = () => {
                     <SelectItem value="Secondary">Secondary</SelectItem>
                   </SelectContent>
                 </Select>
-                <Button variant="outline" onClick={exportToCSV}>
+                <Button variant="outline" onClick={exportToCSV} className="h-10">
                   <Download className="h-4 w-4 mr-2" />
                   Export
                 </Button>
+                <Button variant="outline" onClick={refreshData} disabled={isLoading} className="bg-gray-50 hover:bg-inherit h-10">
+              <RefreshCw className={`h-4 w-4 mr-2 ${isLoading ? 'animate-spin' : ''}`} />
+              Refresh
+            </Button>
               </div>
             </div>
           </CardHeader>
@@ -1149,7 +1154,7 @@ const AllocationManagement = () => {
               <Table>
                 <TableHeader className="border-t-2">
                   <TableRow>
-                    <TableHead className="text-nowrap">Education Level</TableHead>
+                    <TableHead className="lg:text-nowrap">Education Level</TableHead>
                     <TableHead>Category</TableHead>
                     <TableHead>Amount</TableHead>
                     <TableHead>Allocated</TableHead>
@@ -1271,9 +1276,9 @@ const AllocationManagement = () => {
                           <TableCell colSpan={9} className="p-4">
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                               {/* Allocation Details */}
-                              <Card className="border-l-4 border-l-blue-500">
+                              <Card className="border-l-4 border-l-blue-500 bg-gray-50 hover:bg-gray-100">
                                 <CardHeader className="pb-2">
-                                  <CardTitle className="text-lg flex items-center">
+                                  <CardTitle className="text-lg text-blue-800 font-bold flex items-center">
                                     <BookOpen className="h-5 w-5 mr-2 text-blue-500" />
                                     Allocation Details
                                   </CardTitle>
@@ -1301,9 +1306,9 @@ const AllocationManagement = () => {
                               </Card>
                               
                               {/* Financial Summary */}
-                              <Card className="border-l-4 border-l-green-500">
+                              <Card className="border-l-4 border-l-green-500 bg-gray-50 hover:bg-gray-100">
                                 <CardHeader className="pb-2">
-                                  <CardTitle className="text-lg flex items-center">
+                                  <CardTitle className="text-lg text-blue-800 font-bold flex items-center">
                                     <Wallet className="h-5 w-5 mr-2 text-green-500" />
                                     Financial Summary
                                   </CardTitle>
@@ -1337,9 +1342,9 @@ const AllocationManagement = () => {
                               </Card>
                               
                               {/* Beneficiary Stats */}
-                              <Card className="border-l-4 border-l-purple-500">
+                              <Card className="border-l-4 border-l-purple-500 bg-gray-50 hover:bg-gray-100">
                                 <CardHeader className="pb-2">
-                                  <CardTitle className="text-lg flex items-center">
+                                  <CardTitle className="text-lg text-blue-800 font-bold flex items-center">
                                     <User className="h-5 w-5 mr-2 text-purple-500" />
                                     Beneficiary Stats
                                   </CardTitle>
@@ -1367,9 +1372,9 @@ const AllocationManagement = () => {
                               </Card>
                               
                               {/* Utilization Metrics */}
-                              <Card className="border-l-4 border-l-amber-500">
+                              <Card className="border-l-4 border-l-amber-500 bg-gray-50 hover:bg-gray-100">
                                 <CardHeader className="pb-2">
-                                  <CardTitle className="text-lg flex items-center">
+                                  <CardTitle className="text-lg font-bold text-blue-800  flex items-center">
                                     <Percent className="h-5 w-5 mr-2 text-amber-500" />
                                     Utilization Metrics
                                   </CardTitle>
@@ -1425,7 +1430,7 @@ const AllocationManagement = () => {
       {/* Create Allocation Dialog */}
       <Dialog open={isCreateAllocationOpen} onOpenChange={setIsCreateAllocationOpen}>
         <DialogContent className="lg:max-w-6xl sm:max-w-3xl bg-gray-50">
-          <DialogHeader className="border-l-4 border-l-red-500 pl-2 rounded h-16 border-b-2">
+          <DialogHeader className="border-l-4 border-l-red-500 pl-2 rounded-none h-16 border-b-2">
             <DialogTitle className="text-blue-800 font-bold -mb-1 mt-2">Create Fund Allocation</DialogTitle>
             <DialogDescription className="text-muted-foreground">
               Allocate Funds to Specific Education Levels.
@@ -1433,7 +1438,7 @@ const AllocationManagement = () => {
           </DialogHeader>
           <div className="space-y-4 py-4">
             <div className="space-y-2">
-              <Label htmlFor="category">Fund Category *</Label>
+              <Label htmlFor="category">Fund Category*</Label>
               <Select
                 value={newAllocation.categoryId}
                 onValueChange={(value) => handleNewAllocationChange('categoryId', value)}

@@ -84,7 +84,7 @@ const StatCards: React.FC<StatCardsProps> = ({ stats }) => {
           <div className="flex justify-between items-end">
             <div>
               <div className="text-xl font-bold -mt-2">{formatCurrency(stats.totalAmount)}</div>
-              <p className="text-xs text-gray-500">Requested Funding</p>
+              <p className="text-xs text-gray-500">Allocated Funds</p>
             </div>
             <div className="rounded-full p-2 bg-purple-100">
               <Banknote className="h-5 w-5 text-purple-600" />

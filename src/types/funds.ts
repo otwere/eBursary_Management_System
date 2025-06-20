@@ -150,6 +150,7 @@ export interface TransactionRecord {
   details: {
     chequeNumber?: string;
     bankName?: string;
+    institutionName?: string;
     accountNumber?: string;
     accountName?: string;
     mpesaNumber?: string;
